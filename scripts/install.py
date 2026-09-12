@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""Install this collection without overwriting unrelated or locally edited skills.
+"""Install this macOS collection using links by default, or copies when requested.
 
-Python 3.10+, standard library only. Never runs git, network requests, or skill code.
+Preserves unrelated or locally edited skills. Python 3.10+, standard library only.
+Never runs git, network requests, or skill code.
 """
 from __future__ import annotations
 
 import argparse
 import hashlib
 import json
-import os
 from pathlib import Path
 import re
 import shutil
@@ -172,8 +172,7 @@ def install(root: Path, destination: Path, mode: str, names: list[str] | None = 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dest", type=Path, default=Path.home() / ".agents" / "skills")
-    parser.add_argument("--mode", choices=("link", "copy"),
-                        default="copy" if os.name == "nt" else "link")
+    parser.add_argument("--mode", choices=("link", "copy"), default="link")
     parser.add_argument("--skill", action="append", help="Install only this skill; repeatable")
     parser.add_argument("--dry-run", action="store_true", help="Inspect without modifying anything")
     parser.add_argument("--list", action="store_true", help="List available skills")
@@ -185,7 +184,7 @@ def main() -> int:
             for message in install(ROOT, args.dest, args.mode, args.skill, args.dry_run):
                 print(message)
             if not args.dry_run:
-                print("Installation complete. Verify in Codex; restart it if the skill is not visible.")
+                print("Installation complete. Verify the skill in a new Codex session.")
     except (OSError, ValueError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1

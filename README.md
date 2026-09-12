@@ -1,6 +1,6 @@
 # codex-skills
 
-개인 Codex 스킬을 한 저장소에 모으고, 여러 데스크탑에 필요한 스킬을 설치·업데이트하기 위한 모음입니다.
+개인 Codex 스킬을 한 저장소에 모으고, 여러 Mac에 필요한 스킬을 설치·업데이트하기 위한 모음입니다. 사용 환경은 macOS입니다.
 
 GitHub 저장소: [awesomelon/codex-skills](https://github.com/awesomelon/codex-skills) (비공개).
 
@@ -10,13 +10,11 @@ GitHub 저장소: [awesomelon/codex-skills](https://github.com/awesomelon/codex-
 | --- | --- |
 | [architecture-guard](skills/architecture-guard/SKILL.md) | 작업 전 설계 점검과 작업 후 아키텍처 리뷰. 경계·의존성·상태 소유권·계약·변경 비용을 검토합니다. |
 
-## 새 데스크탑에 설치
+## 새 Mac에 설치
 
 필요 도구는 Git, GitHub CLI(`gh`), Python 3.10 이상입니다. 비공개 저장소에 접근 가능한 계정으로 인증합니다. `gh auth status --hostname github.com`으로 확인하고, 인증이 없으면 `gh auth login --hostname github.com --web`을 실행합니다.
 
 모든 스킬을 설치하는 기본 대상은 `~/.agents/skills`입니다. 사용자 설정이나 `AGENTS.md`는 자동 변경하지 않습니다.
-
-### macOS / Linux / WSL
 
 Git, GitHub CLI, Python 3.10 이상을 준비하고 GitHub 인증을 마친 다음 실행합니다. 각 명령의 성공을 확인하고 다음으로 진행합니다.
 
@@ -27,18 +25,6 @@ python3 scripts/install.py
 ```
 
 기본은 심볼릭 링크 설치입니다. 따라서 저장소를 Downloads 같은 임시 위치가 아닌 오래 유지할 위치에 clone해야 합니다. 설치 후 원본 폴더를 이동하거나 삭제하면 링크가 끊어집니다.
-
-### Windows PowerShell
-
-Git, GitHub CLI, Python 3.10 이상을 준비하고 GitHub 인증을 마친 다음 실행합니다. 각 명령의 성공을 확인하고 다음으로 진행합니다.
-
-```powershell
-gh repo clone awesomelon/codex-skills
-Set-Location codex-skills
-py -3 scripts/install.py
-```
-
-Windows 기본은 관리되는 복사 설치입니다. 관리자 권한이나 심볼릭 링크용 개발자 모드를 요구하지 않습니다. WSL과 Windows는 홈 디렉터리와 실행 환경이 다르므로 Codex를 사용하는 환경에서 설치합니다.
 
 ### 설치 확인과 선택 설치
 
@@ -67,7 +53,7 @@ git pull --ff-only
 python3 scripts/install.py
 ```
 
-Windows는 두 번째 명령을 `py -3 scripts/install.py`로 바꿉니다. 특정 스킬만 유지하려면 매번 같은 `--skill` 옵션을 사용합니다. 기본값은 저장소의 모든 스킬이며 선택 목록을 별도로 저장하지 않습니다.
+특정 스킬만 유지하려면 매번 같은 `--skill` 옵션을 사용합니다. 기본값은 저장소의 모든 스킬이며 선택 목록을 별도로 저장하지 않습니다.
 
 링크 설치는 기존 스킬의 변경이 pull 직후 원본에 반영되며, 설치 스크립트 재실행은 신규 스킬을 연결합니다. 복사 설치는 재실행 때 기존 관리 사본을 갱신하고 신규 스킬을 추가합니다. 설치 전에 스크립트와 스킬 변경을 검토하세요.
 
