@@ -1,0 +1,25 @@
+{
+  "hash_algorithm": "sha256",
+  "initial_review_and_implementation_skill": {
+    "SKILL.md": "d0e13bc992b01db47de09f41c111489fa46d7090f0965d14c2356558bf1501d8",
+    "agents/openai.yaml": "4727dc6febf05047b66e1cd71b80969b49cead6988ef6cf2e11415571d176729",
+    "references/performance.md": "f2a9e31536c6d776a34d7d92924ee268b253dc9d787d9bab1ebfa0442269d66e",
+    "references/react-correctness.md": "5817e15a720ea241179655f757611288c7824f766b6e58a381fab7db66642833",
+    "references/server-react.md": "320be06b20e7fcacbdbfcfd159232fd6162f29d9876fb1ba398ba7b9aed46149",
+    "references/sources.md": "b21a434cac051c0872fdc7e6074587b4fbde4ae214cef95589cce7dc3b77ced1"
+  },
+  "final_review_skill": {
+    "SKILL.md": "d0e13bc992b01db47de09f41c111489fa46d7090f0965d14c2356558bf1501d8",
+    "agents/openai.yaml": "4727dc6febf05047b66e1cd71b80969b49cead6988ef6cf2e11415571d176729",
+    "references/performance.md": "8d2e758fe762bf0934b7f2a06c54633e72413e7b64e68085cefb2de2df92d30a",
+    "references/react-correctness.md": "5817e15a720ea241179655f757611288c7824f766b6e58a381fab7db66642833",
+    "references/server-react.md": "320be06b20e7fcacbdbfcfd159232fd6162f29d9876fb1ba398ba7b9aed46149",
+    "references/sources.md": "b21a434cac051c0872fdc7e6074587b4fbde4ae214cef95589cce7dc3b77ced1"
+  },
+  "review_input_before_and_after": {
+    "Documents.tsx": "a034b7faf5d845e6c9e256a584e986a2fbae35b0f877a38f9af9987a6fb0e9d6",
+    "TASK.md": "a71e9ee89e8f04ea01c2e196dbaf786aabf6ff8e498114b924b716ec798a089b",
+    "package.json": "3db10e6d546c8273d3b8eadc643e282a7e300e50809a3dc9d8bc309a704d8e94"
+  },
+  "implementation_output": "8a069f468804c38b6a5ddf01ec2996cf35d3735ce41d5ed063b499eab3918bf9"
+}

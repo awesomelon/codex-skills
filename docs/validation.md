@@ -20,6 +20,10 @@
 
 링크와 복사 경로 모두 Linux에서 실행했다. macOS 운영체제 자체의 실행 검증을 대체하지 않는다. 복구 테스트는 I/O 오류를 주입한 단위 테스트이며 모든 저장장치 실패를 보증하지 않는다.
 
+## React 품질 스킬 추가
+
+`react-quality-guard`의 구조·설치·행동 평가와 한계는 [별도 기록](../evals/react-quality-guard/results.md)에 남겼다. 기존 `architecture-guard`와 설치기 코드는 변경하지 않았다.
+
 ## 미실행·미완료
 
 - GitHub Actions CI는 구성하거나 실행하지 않았다. 위 결과는 로컬 실행 기록이다.

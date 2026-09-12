@@ -1,0 +1,4 @@
+interface:
+  display_name: "React 코드 품질 가드"
+  short_description: "React의 상태·Effect·비동기·렌더링을 검토하고 품질을 개선합니다"
+  default_prompt: "$react-quality-guard로 현재 React 코드의 정확성·유지보수성·성능을 점검하고, 요청 범위 안에서 개선과 검증까지 진행해줘."

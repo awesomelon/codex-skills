@@ -9,6 +9,11 @@ GitHub 저장소: [awesomelon/codex-skills](https://github.com/awesomelon/codex-
 | 스킬 | 용도 |
 | --- | --- |
 | [architecture-guard](skills/architecture-guard/SKILL.md) | 작업 전 설계 점검과 작업 후 아키텍처 리뷰. 경계·의존성·상태 소유권·계약·변경 비용을 검토합니다. |
+| [react-quality-guard](skills/react-quality-guard/SKILL.md) | Vercel React Best Practices를 바탕으로 React 웹 코드의 상태·Effect·비동기·번들·렌더링 품질을 개선합니다. 설치된 React·프레임워크에 맞게 적용합니다. |
+
+`architecture-guard`는 모듈 경계와 변경 비용, `react-quality-guard`는 React 실행 방식과 사용자 동작에 집중합니다. 둘을 매번 함께 호출할 필요는 없습니다. React 리뷰만 원하면 `$react-quality-guard로 현재 변경을 리뷰만 해줘`, 수정까지 원하면 `$react-quality-guard로 React 코드 품질을 개선하고 검증해줘`라고 요청합니다.
+
+원문 출처·기준 커밋·적용 예외는 [React 스킬 출처](skills/react-quality-guard/references/sources.md), 행동 평가 범위는 [React 평가 기록](evals/react-quality-guard/results.md)에 있습니다.
 
 ## 새 Mac에 설치
 
