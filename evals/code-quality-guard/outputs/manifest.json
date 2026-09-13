@@ -1,0 +1,55 @@
+{
+  "date_utc": "2026-09-13",
+  "base_commit": "364b33ac502bfcde54eb3508798c3d68ee346a7c",
+  "agent_setup": "two fresh subagent threads, fork_turns=none; inherited model, exact model version not exposed",
+  "environment": {
+    "os": "Linux",
+    "node": "24.19.0",
+    "python": "3.12.14",
+    "bash": "5.2.21"
+  },
+  "prompts": {
+    "review": "Use $code-quality-guard at /workspace/scratch/4bcffa06de12/quality-forward/review/skill/SKILL.md. /workspace/scratch/4bcffa06de12/quality-forward/review/project 의 코드 품질을 검사해줘. TASK.md의 계약을 기준으로 정확성과 유지보수 품질을 분리하고, 측정 가능한 근거와 최소 개선안을 제시해줘. 리뷰만 수행하고 파일은 수정하지 마. 접근 범위는 제공된 skill과 project, 로컬 실행 도구로 한정해. 외부 앱이나 다른 작업 폴더는 사용하지 마. 한국어로 최종 답변해.",
+    "improve": "Use $code-quality-guard at /workspace/scratch/4bcffa06de12/quality-forward/improve/skill/SKILL.md. /workspace/scratch/4bcffa06de12/quality-forward/improve/project 의 코드 유지보수 품질을 개선하고 검증해줘. TASK.md의 제품 계약과 공개 API를 지키면서 현재 상태를 기준으로 전후 차이를 확인해줘. 수정은 이 project 폴더 안에서만 해. 제공된 skill/project와 로컬 실행 도구만 사용하고 외부 앱이나 다른 작업 폴더는 사용하지 마. 한국어로 변경·검증·한계를 보고해."
+  },
+  "inputs": "Each agent received only the standalone skill and an independent copy of fixtures/policy; no cases or expected answer.",
+  "skill_sha256": {
+    "SKILL.md": "af82c49f18576c8dbbbe1560cd70b6063bb66a9177e1987b615989445cd7e74d",
+    "agents/openai.yaml": "1dd03b32fafcea2f6891507935767426f3c4f333f5dfebb46b9a9179498a89ff",
+    "references/measurement.md": "7c10027cc51d92a1979e28d4a78784b9e11ded37af36c06ffd6b66f52b882ff0"
+  },
+  "fixture_sha256": {
+    "TASK.md": "13873308811d37f395dfe6e38096c8b7a03c10013bb922923f270bc1d8cd35d5",
+    "bulk.mjs": "fa01058ddd03be6e7cc74d5345c0f113197dab7d7916d59b878be5126188e352",
+    "detail.mjs": "713e05d389fab1ec7967b0719ab6b3a8eb9c2792636d9526549a5dd6723bf821",
+    "list.mjs": "c8d146433782e2e56783e250e0b220be765ebdd7096caf6ea08630a2aceb4168",
+    "policy.test.mjs": "586f4bc0df40127f85c7565f15429653cea61ccba04caab81e794c1c1133df1b"
+  },
+  "review_files_unchanged": true,
+  "improved_project_sha256": {
+    "TASK.md": "13873308811d37f395dfe6e38096c8b7a03c10013bb922923f270bc1d8cd35d5",
+    "archive-policy.mjs": "1487aca1f94da3322e25abb4f00a15a98b54076af030ac9045c33928ffac890e",
+    "bulk.mjs": "18bdaf547171afcb003c6d47d55cf052589fd8f764f89740afebaf777d0e95bc",
+    "detail.mjs": "62667de555df20d69308dc37c1da6394aac645d8a0b8b36d396b0a4ffae651cf",
+    "list.mjs": "2cb485a16950a209986ee7943495ae153e7cc7b921aa6052a1f6d5f7ad91b59b",
+    "policy.test.mjs": "586f4bc0df40127f85c7565f15429653cea61ccba04caab81e794c1c1133df1b"
+  },
+  "improved_files": [
+    "archive-policy.mjs",
+    "bulk.mjs",
+    "detail.mjs",
+    "list.mjs"
+  ],
+  "patch_reconstructs_exact_output": true,
+  "reported_behavior_checks": {
+    "review": "7/7 existing tests pass",
+    "improve": "7/7 before and after; existing module exports preserved"
+  },
+  "result_files": {
+    "review": "review.md",
+    "improve": "improve.md",
+    "improved_code": "implementation.patch"
+  },
+  "output_normalization": "Agent final prose preserved; temporary absolute file links converted to relative filenames.",
+  "coverage": "Cases 1 and 2 executed, case 3 exercised in both. Cases 4-10 and cross-skill auto-routing not executed."
+}

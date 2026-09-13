@@ -1,0 +1,49 @@
+--- /dev/null
++++ b/archive-policy.mjs
+@@ -0,0 +1,4 @@
++export function canArchive(document) {
++  return (document.status === 'completed' || document.status === 'cancelled')
++    && !document.locked;
++}
+--- a/bulk.mjs
++++ b/bulk.mjs
+@@ -1,6 +1,7 @@
++import {canArchive} from './archive-policy.mjs';
++
+ export function archiveIds(documents) {
+   return documents
+-    .filter(document => (document.status === 'completed' || document.status === 'cancelled')
+-      && !document.locked)
++    .filter(canArchive)
+     .map(document => document.id);
+ }
+--- a/detail.mjs
++++ b/detail.mjs
+@@ -1,13 +1,15 @@
++import {canArchive} from './archive-policy.mjs';
++
+ export function documentActions(document) {
+   const actions = ['open'];
+-  if ((document.status === 'completed' || document.status === 'cancelled')
+-      && !document.locked) {
++  if (canArchive(document)) {
+     actions.push('archive');
+   }
+   return actions;
+ }
+
+ export function canPin(document) {
++  // Pin eligibility is an independent product policy, even when it matches archive.
+   return (document.status === 'completed' || document.status === 'cancelled')
+     && !document.locked;
+ }
+--- a/list.mjs
++++ b/list.mjs
+@@ -1,4 +1,5 @@
++import {canArchive} from './archive-policy.mjs';
++
+ export function showArchiveButton(document) {
+-  return (document.status === 'completed' || document.status === 'cancelled')
+-    && !document.locked;
++  return canArchive(document);
+ }
