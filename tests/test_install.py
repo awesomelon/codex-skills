@@ -191,6 +191,11 @@ class InstallerTests(unittest.TestCase):
         self.assertEqual(list(discover(self.root)), ["example"])
         self.assertIn("PASS example", validate(self.root)[0])
 
+    def test_shell_copy_metadata_in_source_fails_validation(self):
+        (self.source / ".codex-skills-install.v2").write_text("installed copy")
+        with self.assertRaisesRegex(ValueError, "installation metadata"):
+            validate(self.root)
+
     def test_broken_reference_fails_validation(self):
         (self.source / "references/check.md").unlink()
         with self.assertRaisesRegex(ValueError, "Broken/escaping"):

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install this macOS collection using links by default, or copies when requested.
+"""Legacy Python installer; use install.sh for Python-free installation.
 
 Preserves unrelated or locally edited skills. Python 3.10+, standard library only.
 Never runs git, network requests, or skill code.
@@ -19,6 +19,7 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[1]
 COLLECTION = "awesomelon/codex-skills"
 MARKER = ".codex-skills-install.json"
+SHELL_MARKER = ".codex-skills-install.v2"
 NAME = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 
 
@@ -67,7 +68,7 @@ def discover(root: Path = ROOT) -> dict[str, Path]:
             raise ValueError(f"Each skills/ entry must be a regular skill directory: {path}")
         if not NAME.fullmatch(path.name) or len(path.name) > 64:
             raise ValueError(f"Invalid skill directory name: {path.name}")
-        if (path / MARKER).exists():
+        if any((path / marker).exists() for marker in (MARKER, SHELL_MARKER)):
             raise ValueError(f"Do not commit installation metadata into skills/: {path}")
         fingerprint(path)
         found[path.name] = path.resolve()

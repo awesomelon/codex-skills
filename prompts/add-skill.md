@@ -5,7 +5,7 @@
 ```text
 이 awesomelon/codex-skills 저장소에 다음 Codex 스킬을 추가하고 검증한 뒤 작업 브랜치를 push하고 PR을 만들어줘.
 
-이 저장소는 macOS에서만 사용하므로 설치·업데이트 안내와 실행 명령은 macOS 기준으로 작성해.
+이 저장소는 macOS에서만 사용하므로 설치·업데이트 안내와 실행 명령은 macOS 기준으로 작성해. 사용자 설치는 Python 없이 bash scripts/install.sh를 사용하고, Python은 개발 검증에만 필요하도록 유지해.
 
 스킬의 목표: <반복해서 수행할 작업과 성공 기준>
 호출할 때: <대표 사용자 요청>
@@ -18,7 +18,7 @@ skills/<이름>/SKILL.md에 호출 조건과 필요한 판단·절차를 작성�
 
 README 목록과 evals/<이름>/cases.md도 갱신해. 정상 호출, 비호출, 입력 부족, 권한 제한, 실패 처리 사례를 포함하고 시나리오 작성과 실제 모델 실행을 구분해.
 
-python3 scripts/validate.py로 구조를 확인하고 중요한 행동은 관련 사례로 평가해. 새 스킬은 임시 경로에서 발견·설치를 확인해. 설치기·검사기까지 바뀌면 python3 -m unittest discover -s tests -v와 영향받은 CLI 동작을 검증해. 실제 사용자 설치·설정은 테스트 대상으로 사용하지 마.
+python3 scripts/validate.py로 구조를 확인하고 중요한 행동은 관련 사례로 평가해. 새 스킬은 bash scripts/install.sh로 임시 경로에서 발견·설치를 확인해. 설치기·검사기까지 바뀌면 bash -n scripts/install.sh와 python3 -m unittest discover -s tests -v와 영향받은 CLI 동작을 검증해. 실제 사용자 설치·설정은 테스트 대상으로 사용하지 마.
 
 기존 로컬 변경과 원격 이력을 보존하고, 이번 변경만 커밋·push해. 원격 쓰기 권한이 없으면 로컬 결과와 미완료를 구분해. PR을 자동 병합하거나 저장소를 공개로 바꾸지 마. 마지막에는 스킬명, 설치/호출 예시, 검증 결과, PR 주소를 한국어로 알려줘.
 ```

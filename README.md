@@ -19,26 +19,28 @@ GitHub 저장소: [awesomelon/codex-skills](https://github.com/awesomelon/codex-
 
 ## 새 Mac에 설치
 
-필요 도구는 Git, GitHub CLI(`gh`), Python 3.10 이상입니다. 비공개 저장소에 접근 가능한 계정으로 인증합니다. `gh auth status --hostname github.com`으로 확인하고, 인증이 없으면 `gh auth login --hostname github.com --web`을 실행합니다.
+설치에는 **Python이 필요하지 않습니다.** macOS의 `/bin/bash`와 기본 명령(`shasum` 등)을 사용합니다. 저장소 다운로드에는 Git과 GitHub CLI(`gh`)가 필요합니다. 비공개 저장소에 접근 가능한 계정으로 인증합니다. `gh auth status --hostname github.com`으로 확인하고, 인증이 없으면 `gh auth login --hostname github.com --web`을 실행합니다.
 
 모든 스킬을 설치하는 기본 대상은 `~/.agents/skills`입니다. 사용자 설정이나 `AGENTS.md`는 자동 변경하지 않습니다.
 
-Git, GitHub CLI, Python 3.10 이상을 준비하고 GitHub 인증을 마친 다음 실행합니다. 각 명령의 성공을 확인하고 다음으로 진행합니다.
+Git과 GitHub CLI를 준비하고 GitHub 인증을 마친 다음 실행합니다. 각 명령의 성공을 확인하고 다음으로 진행합니다.
 
 ```bash
 gh repo clone awesomelon/codex-skills
 cd codex-skills
-python3 scripts/install.py
+bash scripts/install.sh
 ```
+
+`install.sh`가 설치·업데이트 진입점입니다. 설치 과정에서 Python·Node·jq나 패키지 설치를 호출하지 않습니다.
 
 기본은 심볼릭 링크 설치입니다. 따라서 저장소를 Downloads 같은 임시 위치가 아닌 오래 유지할 위치에 clone해야 합니다. 설치 후 원본 폴더를 이동하거나 삭제하면 링크가 끊어집니다.
 
 ### 설치 확인과 선택 설치
 
 ```bash
-python3 scripts/install.py --list
-python3 scripts/install.py --dry-run
-python3 scripts/install.py --skill architecture-guard
+bash scripts/install.sh --list
+bash scripts/install.sh --dry-run
+bash scripts/install.sh --skill architecture-guard
 ```
 
 Codex CLI·IDE에서 `/skills`로 목록을 확인하거나 `$architecture-guard`를 호출합니다. 나타나지 않으면 새 세션에서 확인합니다. 파일 설치 성공은 모델의 실행·리뷰 정확도 검증과 다릅니다.
@@ -46,7 +48,7 @@ Codex CLI·IDE에서 `/skills`로 목록을 확인하거나 `$architecture-guard
 팀 프로젝트에 복사하려면 대상 프로젝트의 경로를 명시합니다. 사용자 범위와 같은 이름의 스킬을 이중 설치하지 않도록 주의합니다.
 
 ```bash
-python3 scripts/install.py --mode copy --dest /path/to/other-project/.agents/skills
+bash scripts/install.sh --mode copy --dest /path/to/other-project/.agents/skills
 ```
 
 이 스킬 모음 저장소 내부로 자기 자신을 설치하는 것은 차단합니다. 설치 모드를 바꾸려면 기존 설치를 먼저 별도로 백업·정리해야 합니다.
@@ -57,7 +59,7 @@ clone한 `codex-skills` 폴더에서 실행합니다. pull에 실패했으면 �
 
 ```bash
 git pull --ff-only
-python3 scripts/install.py
+bash scripts/install.sh
 ```
 
 특정 스킬만 유지하려면 매번 같은 `--skill` 옵션을 사용합니다. 기본값은 저장소의 모든 스킬이며 선택 목록을 별도로 저장하지 않습니다.
@@ -72,6 +74,13 @@ python3 scripts/install.py
 - 선택된 경로의 충돌을 먼저 확인하지만, 전체 스킬 묶음이 하나의 트랜잭션인 것은 아닙니다. 중간 I/O 오류가 발생하면 이미 설치된 스킬은 남고 재실행할 수 있습니다. 복사 교체 실패는 이전 사본 복구를 시도하며, 복구까지 실패하면 백업 경로를 알려줍니다.
 - 원격에서 제거된 스킬이나 다른 설치는 자동 삭제하지 않습니다. 스크립트를 동시에 여러 개 실행하지 마세요. 별도 파일 권한 변경은 콘텐츠 해시 검사의 대상이 아닙니다.
 
+### 기존 Python 설치에서 전환
+
+- 기본 **링크 설치**였다면 같은 clone에서 `bash scripts/install.sh`를 실행하면 됩니다. 기존 링크를 재사용합니다.
+- `install.py --mode copy`로 만든 **복사본**은 셸 설치기가 자동 변환하거나 덮어쓰지 않습니다. 복사본을 스킬 검색 경로 밖으로 백업하고, 로컬 수정이 있으면 저장소 원본에 병합한 다음 `bash scripts/install.sh --mode copy --dest <기존-설치-경로>`로 새로 설치합니다. 기존 방식으로 당장 갱신해야 한다면 Python 설치기를 계속 사용할 수 있습니다.
+
+셸 복사본은 `.codex-skills-install.v2`, 기존 Python 복사본은 `.codex-skills-install.json`으로 관리합니다. 관리 파일을 바꾸어 설치 방식을 전환하지 마세요.
+
 ## 작업 전후 항상 고려하게 하기
 
 설치와 호출 정책은 별개입니다. `snippets/architecture-guard.project.md`는 프로젝트 지침용, `snippets/architecture-guard.global.md`는 개인 전역 지침용입니다. **기존 지침 파일을 덮어쓰지 않고 필요한 블록만 병합합니다.** 설치 스크립트는 이 작업을 대신 수행하지 않습니다.
@@ -84,9 +93,12 @@ python3 scripts/install.py
 
 `skills/<skill-name>/SKILL.md`를 만들고 필요할 때만 `references/`, `scripts/`, `agents/openai.yaml`을 추가합니다. README 목록과 `evals/<skill-name>/cases.md`도 갱신합니다. 설치기는 폴더를 자동 발견합니다.
 
+저장소를 개발·검증할 때만 Python 3.10 이상이 필요합니다. 아래 Python 검사는 사용자 설치 과정에서 실행하지 않습니다. 셸 설치기는 Bash 3.2 호환 문법과 BSD 호환 옵션을 사용하며, 테스트 러너에서 CLI를 직접 실행합니다.
+
 다음 요청은 `prompts/add-skill.md`에 있습니다. 스킬 하나의 실제 용도를 적고 그 프롬프트를 사용합니다. 처음부터 많은 스킬을 만들거나 공통 프레임워크로 추상화할 필요는 없습니다.
 
 ```bash
+bash -n scripts/install.sh
 python3 scripts/validate.py
 python3 -m unittest discover -s tests -v
 ```
@@ -104,4 +116,4 @@ python3 -m unittest discover -s tests -v
 
 사용자가 스킬 작성 시 참고하도록 지정한 글: https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra
 
-검증 범위와 미실행 항목은 [검증 기록](docs/validation.md)에 명시했습니다.
+셸 전환의 검증 범위와 제한은 [셸 설치기 검증 기록](docs/shell-installer-validation.md), 이전 작업 기록은 [검증 기록](docs/validation.md)에 있습니다.
