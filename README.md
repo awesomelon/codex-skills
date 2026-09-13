@@ -10,8 +10,19 @@ GitHub 저장소: [awesomelon/codex-skills](https://github.com/awesomelon/codex-
 | --- | --- |
 | [architecture-guard](skills/architecture-guard/SKILL.md) | 모듈 경계·의존성·상태 소유권·공개 계약을 검토합니다. 설계와 리뷰 단계에 필요한 기준을 선택합니다. |
 | [react-quality-guard](skills/react-quality-guard/SKILL.md) | Vercel 기준으로 React 웹 코드의 정확성·성능을 개선합니다. 쟁점에 맞는 상태·요청·렌더링·서버 기준만 적용합니다. |
+| [code-quality-guard](skills/code-quality-guard/SKILL.md) | 정확성 검증과 유지보수 품질을 분리합니다. 변경 전후 지표·코드 근거·현실적인 변경 비용으로 검사하고, 요청 시 최소 개선과 검증을 수행합니다. |
 
-`architecture-guard`는 모듈 경계와 변경 비용, `react-quality-guard`는 React 실행 방식과 사용자 동작에 집중합니다. 둘을 매번 함께 호출할 필요는 없습니다. React 리뷰만 원하면 `$react-quality-guard로 현재 변경을 리뷰만 해줘`, 수정까지 원하면 `$react-quality-guard로 React 코드 품질을 개선하고 검증해줘`라고 요청합니다.
+`architecture-guard`는 모듈 경계, `react-quality-guard`는 React 실행 방식과 사용자 동작, `code-quality-guard`는 언어·프레임워크 공통의 유지보수 품질 평가에 집중합니다. 여러 관점이 필요한 작업은 이미 확보한 근거를 재사용하며, 매번 세 스킬을 함께 호출할 필요는 없습니다. React 리뷰만 원하면 `$react-quality-guard로 현재 변경을 리뷰만 해줘`, 수정까지 원하면 `$react-quality-guard로 React 코드 품질을 개선하고 검증해줘`라고 요청합니다.
+
+공통 품질 검사는 다음처럼 요청합니다.
+
+```text
+$code-quality-guard로 현재 변경의 정확성과 유지보수 품질을 분리해 검사해줘. 근거와 최소 개선안을 제시하고 파일은 수정하지 마.
+
+$code-quality-guard로 이 모듈의 유지보수 품질을 개선하고 검증해줘. 현재 상태를 기준으로 동작 보존과 변경 비용의 차이를 확인해줘.
+```
+
+테스트 통과, 복잡도·중복 같은 진단 신호, 실제 유지보수 판단을 별도로 보고합니다. 분석 도구가 없는 수치는 미측정으로 남기며, 단일 점수나 LOC 감소를 목표로 삼지 않습니다. [측정 기준과 원문 지표](skills/code-quality-guard/references/measurement.md), [품질 검사 평가 사례](evals/code-quality-guard/cases.md), [실행 기록](evals/code-quality-guard/results.md)을 참고하세요. 설치기는 새 폴더를 자동 발견하므로 업데이트 후 `bash scripts/install.sh --skill code-quality-guard`로 선택 설치할 수 있습니다.
 
 원문 출처·기준 커밋·적용 예외는 [React 스킬 출처](skills/react-quality-guard/references/sources.md), 행동 평가 범위는 [React 평가 기록](evals/react-quality-guard/results.md)에 있습니다.
 
