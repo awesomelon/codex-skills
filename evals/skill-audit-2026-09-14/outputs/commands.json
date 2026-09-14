@@ -1,0 +1,104 @@
+{
+  "quality": [
+    {
+      "command": "/bin/zsh -lc \"pwd; rg --files -g 'AGENTS.md' -g 'TASK.md' -g 'SKILL.md' -g 'package.json' -g '*lock*' -g '\"'!node_modules'\"' -g '\"'!vendor'\"'\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'cat .agents/skills/code-quality-guard/SKILL.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'cat TASK.md; cat .agents/skills/code-quality-guard/references/measurement.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc \"rg --files --hidden -g '\"'!.git/**'\"'; git status --short; git diff --stat\"",
+      "exit_code": 129
+    },
+    {
+      "command": "/bin/zsh -lc 'cat list.mjs detail.mjs bulk.mjs policy.test.mjs; node --version; node --test policy.test.mjs'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc \"node --input-type=module <<'NODE'\nimport fs from 'node:fs';\nimport crypto from 'node:crypto';\nfs.mkdirSync('results/before', {recursive: true});\nfor (const file of ['list.mjs', 'detail.mjs', 'bulk.mjs']) fs.copyFileSync(file, \"'`results/before/${file}`);\nconst protectedFiles = ['\"'TASK.md', 'policy.test.mjs', ...fs.readdirSync('.agents', {recursive: true}).map(p => \"'`.agents/${p}`).filter(p => fs.statSync(p).isFile())];\nfs.writeFileSync('\"'results/protected-sha256.json', JSON.stringify(Object.fromEntries(protectedFiles.map(p => [p, crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex')])), null, 2) + '\\\\n');\nNODE\nnode --test policy.test.mjs > results/before-tests.tap\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc \"node --test policy.test.mjs > results/after-tests.tap\ncat results/after-tests.tap\nnode --input-type=module <<'NODE'\nimport fs from 'node:fs';\nimport crypto from 'node:crypto';\nimport assert from 'node:assert/strict';\nfor (const [file, expected] of Object.entries(JSON.parse(fs.readFileSync('results/protected-sha256.json', 'utf8')))) {\n  assert.equal(crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex'), expected, file);\n}\nconsole.log('Protected files unchanged (SHA-256).');\nNODE\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc \"node --input-type=module <<'NODE'\nimport fs from 'node:fs';\nimport {spawnSync} from 'node:child_process';\nlet patch = '';\nfor (const file of ['list.mjs', 'detail.mjs', 'bulk.mjs', 'archive-policy.mjs']) {\n  const before = file === 'archive-policy.mjs' ? '/dev/null' : \"'`results/before/${file}`;\n  const result = spawnSync('\"'diff', ['-u', before, file], {encoding: 'utf8'});\n  if (\"'![0, 1].includes(result.status)) throw new Error(result.stderr);\n  patch += result.stdout;\n}\nfs.writeFileSync('\"'results/changes.diff', patch);\nconsole.log(patch);\nNODE\"",
+      "exit_code": 0
+    }
+  ],
+  "architecture": [
+    {
+      "command": "/bin/zsh -lc \"pwd; rg --files -g 'TASK.md' -g 'AGENTS.md' -g '\"'!node_modules'\"' -g '\"'!vendor'\"'; cat .agents/skills/architecture-guard/SKILL.md; cat TASK.md\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc \"rg --files --hidden -g '\"'!.git/**'\"'; cat .agents/skills/architecture-guard/references/review.md\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'nl -ba core/http.ts; nl -ba features/billing/load.ts; nl -ba features/documents/store.ts; nl -ba adapters/document-export.ts'",
+      "exit_code": 0
+    }
+  ],
+  "react": [
+    {
+      "command": "/bin/zsh -lc \"pwd; rg --files -g 'AGENTS.md' -g 'TASK.md' -g 'package.json' -g '*test*' -g '*spec*'; cat .agents/skills/react-quality-guard/SKILL.md; cat TASK.md\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc \"rg --files --hidden -g '\"'!.git/**'\"'; cat package.json; cat .agents/skills/react-quality-guard/references/react-correctness.md; cat .agents/skills/react-quality-guard/references/performance.md\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'cat DocumentPicker.tsx; ls -d node_modules 2>/dev/null; command -v node; command -v tsc'",
+      "exit_code": 1
+    },
+    {
+      "command": "/bin/zsh -lc \"node --input-type=module <<'NODE'\nimport assert from 'node:assert/strict';\nimport { readFileSync } from 'node:fs';\nconst source = readFileSync('DocumentPicker.tsx', 'utf8');\nconst calculation = source.match(/  const normalizedQuery =[\\\\s\\\\S]*?\\\\.sort\\\\([\"'^'\"\\\\n]+;/);\nassert.ok(calculation, 'source calculation exists');\nconst derive = new Function('documents', 'query', \"'`${calculation[0]}'\"\\\\nreturn visible;\"'`);\nconst documents = Object.freeze([\n  Object.freeze({ id: '\"'b', title: 'Beta' }),\n  Object.freeze({ id: 'a', title: 'Alpha' }),\n  Object.freeze({ id: 'k', title: '한글 문서' }),\n]);\nassert.deepEqual(derive(documents, '').map(d => d.id), ['a', 'b', 'k']);\nassert.deepEqual(documents.map(d => d.id), ['b', 'a', 'k']);\nassert.deepEqual(derive(documents, 'ALp').map(d => d.id), ['a']);\nassert.deepEqual(derive(documents, '한글').map(d => d.id), ['k']);\nassert.deepEqual(derive(documents, 'missing'), []);\nassert.deepEqual(derive([], ''), []);\nassert.deepEqual(derive([{ id: 'c', title: 'Alpine' }], 'ALp').map(d => d.id), ['c']);\nassert.deepEqual(derive(documents, ' Beta '), []);\nconsole.log('PASS: actual source calculation — title order, immutable input, case-insensitive/Korean search, no matches, empty list, replaced documents, literal whitespace.');\nNODE\"",
+      "exit_code": 0
+    }
+  ],
+  "local-change": [
+    {
+      "command": "/bin/zsh -lc \"pwd; rg --files -g 'TASK.md' -g 'AGENTS.md' -g 'package.json' -g '*test*' -g '*spec*'; cat TASK.md\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc \"cat AGENTS.md volume.mjs volume.test.mjs; rg --files -g '\"'!'\"\\\\.git' -g '\"'!'\"\\\\.agents'\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'node --test volume.test.mjs'",
+      "exit_code": 0
+    }
+  ],
+  "quality-retest": [
+    {
+      "command": "/bin/zsh -lc \"pwd; rg --files -g 'AGENTS.md' -g 'TASK.md' -g 'SKILL.md' -g 'package.json' -g '*test*' -g '*action*' -g 'tsconfig.json' -g '\"'!node_modules'\"' -g '\"'!.git'\"'; cat .agents/skills/code-quality-guard/SKILL.md; cat TASK.md\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc \"rg --files --hidden -g '\"'!.git'\"'; cat .agents/skills/code-quality-guard/references/measurement.md; cat policy.test.mjs; git status --short\"",
+      "exit_code": 128
+    },
+    {
+      "command": "/bin/zsh -lc 'cat list.mjs detail.mjs bulk.mjs; node --version; node --test policy.test.mjs'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'node --test policy.test.mjs'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'cat list.mjs detail.mjs bulk.mjs archive-policy.mjs'",
+      "exit_code": 0
+    }
+  ]
+}

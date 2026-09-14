@@ -1,0 +1,128 @@
+export function showArchiveButton(document) {
+  return (document.status === 'completed' || document.status === 'cancelled')
+    && !document.locked;
+}
+export function documentActions(document) {
+  const actions = ['open'];
+  if ((document.status === 'completed' || document.status === 'cancelled')
+      && !document.locked) {
+    actions.push('archive');
+  }
+  return actions;
+}
+
+export function canPin(document) {
+  return (document.status === 'completed' || document.status === 'cancelled')
+    && !document.locked;
+}
+export function archiveIds(documents) {
+  return documents
+    .filter(document => (document.status === 'completed' || document.status === 'cancelled')
+      && !document.locked)
+    .map(document => document.id);
+}
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {showArchiveButton} from './list.mjs';
+import {documentActions, canPin} from './detail.mjs';
+import {archiveIds} from './bulk.mjs';
+
+const cases = [
+  ['draft', false, false],
+  ['draft', true, false],
+  ['completed', false, true],
+  ['completed', true, false],
+  ['cancelled', false, true],
+  ['cancelled', true, false],
+];
+
+for (const [status, locked, allowed] of cases) {
+  test(`${status}, locked=${locked}`, () => {
+    const document = Object.freeze({id: 'd1', status, locked});
+    assert.equal(showArchiveButton(document), allowed);
+    assert.deepEqual(documentActions(document), allowed ? ['open', 'archive'] : ['open']);
+    assert.deepEqual(archiveIds(Object.freeze([document])), allowed ? ['d1'] : []);
+    assert.equal(canPin(document), allowed);
+  });
+}
+
+test('bulk preserves order and empty input', () => {
+  const documents = Object.freeze([
+    Object.freeze({id: 'z', status: 'cancelled', locked: false}),
+    Object.freeze({id: 'skip', status: 'completed', locked: true}),
+    Object.freeze({id: 'a', status: 'completed', locked: false}),
+  ]);
+  assert.deepEqual(archiveIds(documents), ['z', 'a']);
+  assert.deepEqual(archiveIds([]), []);
+});
+v22.23.2
+TAP version 13
+# Subtest: draft, locked=false
+ok 1 - draft, locked=false
+  ---
+  duration_ms: 0.691459
+  type: 'test'
+  ...
+# Subtest: draft, locked=true
+ok 2 - draft, locked=true
+  ---
+  duration_ms: 0.228708
+  type: 'test'
+  ...
+# Subtest: completed, locked=false
+ok 3 - completed, locked=false
+  ---
+  duration_ms: 0.074167
+  type: 'test'
+  ...
+# Subtest: completed, locked=true
+ok 4 - completed, locked=true
+  ---
+  duration_ms: 0.041166
+  type: 'test'
+  ...
+# Subtest: cancelled, locked=false
+ok 5 - cancelled, locked=false
+  ---
+  duration_ms: 0.166542
+  type: 'test'
+  ...
+# Subtest: cancelled, locked=true
+ok 6 - cancelled, locked=true
+  ---
+  duration_ms: 0.035958
+  type: 'test'
+  ...
+# Subtest: bulk preserves order and empty input
+ok 7 - bulk preserves order and empty input
+  ---
+  duration_ms: 0.144875
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 40.239417
+
+
+✔ draft, locked=false (0.990042ms)
+✔ draft, locked=true (0.064584ms)
+✔ completed, locked=false (0.050875ms)
+✔ completed, locked=true (0.044875ms)
+✔ cancelled, locked=false (0.049875ms)
+✔ cancelled, locked=true (0.072458ms)
+✔ bulk preserves order and empty input (0.151167ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 42.898375
+Protected files unchanged (SHA-256).

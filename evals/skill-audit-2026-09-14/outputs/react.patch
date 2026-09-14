@@ -1,0 +1,25 @@
+--- a/DocumentPicker.tsx
++++ b/DocumentPicker.tsx
+@@ -1,17 +1,14 @@
+-import { useEffect, useState } from 'react';
++import { useState } from 'react';
+
+ type Document = { id: string; title: string };
+ type Props = { documents: Document[]; onSelect: (id: string) => void };
+
+ export function DocumentPicker({ documents, onSelect }: Props) {
+   const [query, setQuery] = useState('');
+-  const [visible, setVisible] = useState(documents);
+-
+-  useEffect(() => {
+-    setVisible(documents
+-      .sort((a, b) => a.title.localeCompare(b.title))
+-      .filter(document => document.title.toLowerCase().includes(query.toLowerCase())));
+-  }, [documents, query]);
++  const normalizedQuery = query.toLowerCase();
++  const visible = documents
++    .filter(document => document.title.toLowerCase().includes(normalizedQuery))
++    .sort((a, b) => a.title.localeCompare(b.title));
+
+   return <section>
+     <label>문서 검색<input value={query} onChange={event => setQuery(event.target.value)} /></label>

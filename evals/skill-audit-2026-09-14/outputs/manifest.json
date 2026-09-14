@@ -1,0 +1,252 @@
+{
+  "base_commit": "2e561f747302c6d86bb5844424175b7835be2459",
+  "model_requested": "gpt-6-astra",
+  "reasoning_effort": "medium",
+  "cli_version": "0.154.0",
+  "environment": "macOS; independent ephemeral CLI sessions with user config ignored; normal auth and installed global skill discovery remain available",
+  "runs": {
+    "quality": {
+      "fixture": "evals/code-quality-guard/fixtures/policy",
+      "prompt": "이 폴더의 .agents/skills/code-quality-guard/SKILL.md를 사용해 TASK.md의 문서 액션 모듈 유지보수성을 개선하고, 시작 상태와 변경 후의 품질을 비교해줘. 필요한 수정과 가능한 검증까지 완료해줘. 점수는 필요 없어.\n평가는 이 폴더의 일회용 입력으로 한정한다. 네트워크·패키지 설치·GitHub 작업·다른 폴더 수정은 하지 마. 파일 쓰기는 이 폴더의 결과에 한정하고, .agents의 스킬 원문과 제공된 테스트·TASK.md는 변경하지 마.",
+      "before_sha256": {
+        ".agents/skills/code-quality-guard/SKILL.md": "84bf72afaa2a683d1a585c41c286debb9272d85850e8c21eb88fda57b75d2c2e",
+        ".agents/skills/code-quality-guard/agents/openai.yaml": "1dd03b32fafcea2f6891507935767426f3c4f333f5dfebb46b9a9179498a89ff",
+        ".agents/skills/code-quality-guard/references/measurement.md": "5a8ef837d6ebadaa1893a4441f02a269e6f433be293aa958d5eac8a98a313d85",
+        ".agents/skills/code-quality-guard/references/scoring.md": "13b0e0fc3f84f120517aa7f35792ae568ff96124cff299dc9a2bb8cd716846e3",
+        "TASK.md": "13873308811d37f395dfe6e38096c8b7a03c10013bb922923f270bc1d8cd35d5",
+        "bulk.mjs": "fa01058ddd03be6e7cc74d5345c0f113197dab7d7916d59b878be5126188e352",
+        "detail.mjs": "713e05d389fab1ec7967b0719ab6b3a8eb9c2792636d9526549a5dd6723bf821",
+        "list.mjs": "c8d146433782e2e56783e250e0b220be765ebdd7096caf6ea08630a2aceb4168",
+        "policy.test.mjs": "586f4bc0df40127f85c7565f15429653cea61ccba04caab81e794c1c1133df1b"
+      },
+      "after_sha256": {
+        ".agents/skills/code-quality-guard/SKILL.md": "84bf72afaa2a683d1a585c41c286debb9272d85850e8c21eb88fda57b75d2c2e",
+        ".agents/skills/code-quality-guard/agents/openai.yaml": "1dd03b32fafcea2f6891507935767426f3c4f333f5dfebb46b9a9179498a89ff",
+        ".agents/skills/code-quality-guard/references/measurement.md": "5a8ef837d6ebadaa1893a4441f02a269e6f433be293aa958d5eac8a98a313d85",
+        ".agents/skills/code-quality-guard/references/scoring.md": "13b0e0fc3f84f120517aa7f35792ae568ff96124cff299dc9a2bb8cd716846e3",
+        "TASK.md": "13873308811d37f395dfe6e38096c8b7a03c10013bb922923f270bc1d8cd35d5",
+        "archive-policy.mjs": "1487aca1f94da3322e25abb4f00a15a98b54076af030ac9045c33928ffac890e",
+        "bulk.mjs": "18bdaf547171afcb003c6d47d55cf052589fd8f764f89740afebaf777d0e95bc",
+        "detail.mjs": "62667de555df20d69308dc37c1da6394aac645d8a0b8b36d396b0a4ffae651cf",
+        "list.mjs": "2cb485a16950a209986ee7943495ae153e7cc7b921aa6052a1f6d5f7ad91b59b",
+        "policy.test.mjs": "586f4bc0df40127f85c7565f15429653cea61ccba04caab81e794c1c1133df1b",
+        "results/after-tests.tap": "0347e6bbc895ccb61eb2206e9690429bd93b3c8a3d285eb3b1572a0ac00bf0cb",
+        "results/before/bulk.mjs": "fa01058ddd03be6e7cc74d5345c0f113197dab7d7916d59b878be5126188e352",
+        "results/before/detail.mjs": "713e05d389fab1ec7967b0719ab6b3a8eb9c2792636d9526549a5dd6723bf821",
+        "results/before/list.mjs": "c8d146433782e2e56783e250e0b220be765ebdd7096caf6ea08630a2aceb4168",
+        "results/before-tests.tap": "bc310f0a8663b70db75d3301708ff13e3bb5ee68106cc42b6a558e0404371c92",
+        "results/changes.diff": "01ebd4712958fa601bcfca4670a5b4ae3a5171c34a02999efd74740610aacc82",
+        "results/protected-sha256.json": "55188c877b785aeed925a4635a121a8b0aba7c78c51c3abf20ffaf5789cf13bd",
+        "results/quality-comparison.md": "004e294a93d35f57df756a1de1246f7c154f5e90a8c715c07146d97af9fd178d"
+      },
+      "changed_files": [
+        "archive-policy.mjs",
+        "bulk.mjs",
+        "detail.mjs",
+        "list.mjs",
+        "results/after-tests.tap",
+        "results/before-tests.tap",
+        "results/before/bulk.mjs",
+        "results/before/detail.mjs",
+        "results/before/list.mjs",
+        "results/changes.diff",
+        "results/protected-sha256.json",
+        "results/quality-comparison.md"
+      ],
+      "usage": {
+        "input_tokens": 119451,
+        "cached_input_tokens": 105856,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2903,
+        "reasoning_output_tokens": 62
+      },
+      "network_or_install_commands_observed": false
+    },
+    "architecture": {
+      "fixture": "evals/skill-audit-2026-09-12/fixtures/architecture",
+      "prompt": "이 폴더의 .agents/skills/architecture-guard/SKILL.md를 사용해서 TASK.md의 요청을 완료해줘.\n평가는 이 폴더의 일회용 입력으로 한정한다. 네트워크·패키지 설치·GitHub 작업·다른 폴더 수정은 하지 마. 파일 쓰기는 이 폴더의 결과에 한정하고, .agents의 스킬 원문과 제공된 테스트·TASK.md는 변경하지 마.",
+      "before_sha256": {
+        ".agents/skills/architecture-guard/SKILL.md": "cde7a659747557bc9ba0d7a6dbb3c84358cbe111ec46b07200dc2a447422b834",
+        ".agents/skills/architecture-guard/agents/openai.yaml": "4fbe27ea1f9b0b03521eb09ef37d1020e5731e1785516246f172cc396793bfba",
+        ".agents/skills/architecture-guard/references/preflight.md": "fdf3874ef53ca9c1a579ba4811dc83b6c68029e53f4c87dc1744b46f25db116f",
+        ".agents/skills/architecture-guard/references/review.md": "39abf4921df60ccc8a9b23a3d5968984be6a4013b68e281aee049cdda3a6a84d",
+        "TASK.md": "4e1afe9d83236e282325bccf984dacf431853f46f08e9c7342bf425bf720ebee",
+        "adapters/document-export.ts": "c00794067b74b053b00ca9fc43d2093387cfd85c1c85661e175a2f2ed3ab7f44",
+        "core/http.ts": "441d22e2e4fb26ac2a622b426fe2ffad7f0e2817898ef5419278c676555463c2",
+        "features/billing/load.ts": "45cfd1e48b233eeb1ee3a187e716a2352b78ec31db7fc6d4024608a6641a88b4",
+        "features/documents/store.ts": "4109285a314be09406675e0dcb8e3ba028634c3f9344b85b61f2ac22ecff35a4"
+      },
+      "after_sha256": {
+        ".agents/skills/architecture-guard/SKILL.md": "cde7a659747557bc9ba0d7a6dbb3c84358cbe111ec46b07200dc2a447422b834",
+        ".agents/skills/architecture-guard/agents/openai.yaml": "4fbe27ea1f9b0b03521eb09ef37d1020e5731e1785516246f172cc396793bfba",
+        ".agents/skills/architecture-guard/references/preflight.md": "fdf3874ef53ca9c1a579ba4811dc83b6c68029e53f4c87dc1744b46f25db116f",
+        ".agents/skills/architecture-guard/references/review.md": "39abf4921df60ccc8a9b23a3d5968984be6a4013b68e281aee049cdda3a6a84d",
+        "TASK.md": "4e1afe9d83236e282325bccf984dacf431853f46f08e9c7342bf425bf720ebee",
+        "adapters/document-export.ts": "c00794067b74b053b00ca9fc43d2093387cfd85c1c85661e175a2f2ed3ab7f44",
+        "core/http.ts": "441d22e2e4fb26ac2a622b426fe2ffad7f0e2817898ef5419278c676555463c2",
+        "features/billing/load.ts": "45cfd1e48b233eeb1ee3a187e716a2352b78ec31db7fc6d4024608a6641a88b4",
+        "features/documents/store.ts": "4109285a314be09406675e0dcb8e3ba028634c3f9344b85b61f2ac22ecff35a4"
+      },
+      "changed_files": [],
+      "usage": {
+        "input_tokens": 67283,
+        "cached_input_tokens": 56704,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 684,
+        "reasoning_output_tokens": 0
+      },
+      "network_or_install_commands_observed": false
+    },
+    "react": {
+      "fixture": "evals/react-quality-guard/fixtures/implementation",
+      "prompt": "이 폴더의 .agents/skills/react-quality-guard/SKILL.md를 사용해서 TASK.md의 요청을 완료해줘.\n평가는 이 폴더의 일회용 입력으로 한정한다. 네트워크·패키지 설치·GitHub 작업·다른 폴더 수정은 하지 마. 파일 쓰기는 이 폴더의 결과에 한정하고, .agents의 스킬 원문과 제공된 테스트·TASK.md는 변경하지 마.",
+      "before_sha256": {
+        ".agents/skills/react-quality-guard/SKILL.md": "2083b89066f7d33c9737432d5c76e4718596577d7677643a71a30deb6b55fb25",
+        ".agents/skills/react-quality-guard/agents/openai.yaml": "4727dc6febf05047b66e1cd71b80969b49cead6988ef6cf2e11415571d176729",
+        ".agents/skills/react-quality-guard/references/performance.md": "8d2e758fe762bf0934b7f2a06c54633e72413e7b64e68085cefb2de2df92d30a",
+        ".agents/skills/react-quality-guard/references/react-correctness.md": "5817e15a720ea241179655f757611288c7824f766b6e58a381fab7db66642833",
+        ".agents/skills/react-quality-guard/references/server-react.md": "320be06b20e7fcacbdbfcfd159232fd6162f29d9876fb1ba398ba7b9aed46149",
+        ".agents/skills/react-quality-guard/references/sources.md": "b21a434cac051c0872fdc7e6074587b4fbde4ae214cef95589cce7dc3b77ced1",
+        "DocumentPicker.tsx": "13cc6c5aea62ef00b3d4188b54fbecf41e3ae1745452d77646d5c6d71a87b721",
+        "TASK.md": "7c5156381b598e90386bc7673e8bfd1ab0543b6c606ad56bbbf11121a6c33657",
+        "package.json": "a3aac6778a37596a8190b555b288f704d6217c1c2a01f098cc8498826c3487b4"
+      },
+      "after_sha256": {
+        ".agents/skills/react-quality-guard/SKILL.md": "2083b89066f7d33c9737432d5c76e4718596577d7677643a71a30deb6b55fb25",
+        ".agents/skills/react-quality-guard/agents/openai.yaml": "4727dc6febf05047b66e1cd71b80969b49cead6988ef6cf2e11415571d176729",
+        ".agents/skills/react-quality-guard/references/performance.md": "8d2e758fe762bf0934b7f2a06c54633e72413e7b64e68085cefb2de2df92d30a",
+        ".agents/skills/react-quality-guard/references/react-correctness.md": "5817e15a720ea241179655f757611288c7824f766b6e58a381fab7db66642833",
+        ".agents/skills/react-quality-guard/references/server-react.md": "320be06b20e7fcacbdbfcfd159232fd6162f29d9876fb1ba398ba7b9aed46149",
+        ".agents/skills/react-quality-guard/references/sources.md": "b21a434cac051c0872fdc7e6074587b4fbde4ae214cef95589cce7dc3b77ced1",
+        "DocumentPicker.tsx": "8a069f468804c38b6a5ddf01ec2996cf35d3735ce41d5ed063b499eab3918bf9",
+        "TASK.md": "7c5156381b598e90386bc7673e8bfd1ab0543b6c606ad56bbbf11121a6c33657",
+        "package.json": "a3aac6778a37596a8190b555b288f704d6217c1c2a01f098cc8498826c3487b4"
+      },
+      "changed_files": [
+        "DocumentPicker.tsx"
+      ],
+      "usage": {
+        "input_tokens": 91523,
+        "cached_input_tokens": 81792,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1229,
+        "reasoning_output_tokens": 17
+      },
+      "network_or_install_commands_observed": false
+    },
+    "local-change": {
+      "fixture": "evals/skill-audit-2026-09-14/fixtures/local-change",
+      "prompt": "TASK.md의 요청을 완료해줘.\n평가는 이 폴더의 일회용 입력으로 한정한다. 네트워크·패키지 설치·GitHub 작업·다른 폴더 수정은 하지 마. 파일 쓰기는 이 폴더의 결과에 한정하고, .agents의 스킬 원문과 제공된 테스트·TASK.md는 변경하지 마.",
+      "before_sha256": {
+        ".agents/skills/architecture-guard/SKILL.md": "cde7a659747557bc9ba0d7a6dbb3c84358cbe111ec46b07200dc2a447422b834",
+        ".agents/skills/architecture-guard/agents/openai.yaml": "4fbe27ea1f9b0b03521eb09ef37d1020e5731e1785516246f172cc396793bfba",
+        ".agents/skills/architecture-guard/references/preflight.md": "fdf3874ef53ca9c1a579ba4811dc83b6c68029e53f4c87dc1744b46f25db116f",
+        ".agents/skills/architecture-guard/references/review.md": "39abf4921df60ccc8a9b23a3d5968984be6a4013b68e281aee049cdda3a6a84d",
+        ".agents/skills/code-quality-guard/SKILL.md": "84bf72afaa2a683d1a585c41c286debb9272d85850e8c21eb88fda57b75d2c2e",
+        ".agents/skills/code-quality-guard/agents/openai.yaml": "1dd03b32fafcea2f6891507935767426f3c4f333f5dfebb46b9a9179498a89ff",
+        ".agents/skills/code-quality-guard/references/measurement.md": "5a8ef837d6ebadaa1893a4441f02a269e6f433be293aa958d5eac8a98a313d85",
+        ".agents/skills/code-quality-guard/references/scoring.md": "13b0e0fc3f84f120517aa7f35792ae568ff96124cff299dc9a2bb8cd716846e3",
+        ".agents/skills/react-quality-guard/SKILL.md": "2083b89066f7d33c9737432d5c76e4718596577d7677643a71a30deb6b55fb25",
+        ".agents/skills/react-quality-guard/agents/openai.yaml": "4727dc6febf05047b66e1cd71b80969b49cead6988ef6cf2e11415571d176729",
+        ".agents/skills/react-quality-guard/references/performance.md": "8d2e758fe762bf0934b7f2a06c54633e72413e7b64e68085cefb2de2df92d30a",
+        ".agents/skills/react-quality-guard/references/react-correctness.md": "5817e15a720ea241179655f757611288c7824f766b6e58a381fab7db66642833",
+        ".agents/skills/react-quality-guard/references/server-react.md": "320be06b20e7fcacbdbfcfd159232fd6162f29d9876fb1ba398ba7b9aed46149",
+        ".agents/skills/react-quality-guard/references/sources.md": "b21a434cac051c0872fdc7e6074587b4fbde4ae214cef95589cce7dc3b77ced1",
+        "AGENTS.md": "70713f29aa1c60fd7b2dcae9bf8e3ac963e9b4bba6d194305236d87a4ee23863",
+        "TASK.md": "b7beafd9a056e2b96fd1de69b9e493bb22d67e0f167f1d9cf37b33967d0e200d",
+        "volume.mjs": "abb0bc6721718357639b61dfff81d264917565dd73be12af40eb5e3968adaa49",
+        "volume.test.mjs": "2993be7c496332bca8e853e3f6c1958c93e4de63900467bc3097ad1f95bbea4f"
+      },
+      "after_sha256": {
+        ".agents/skills/architecture-guard/SKILL.md": "cde7a659747557bc9ba0d7a6dbb3c84358cbe111ec46b07200dc2a447422b834",
+        ".agents/skills/architecture-guard/agents/openai.yaml": "4fbe27ea1f9b0b03521eb09ef37d1020e5731e1785516246f172cc396793bfba",
+        ".agents/skills/architecture-guard/references/preflight.md": "fdf3874ef53ca9c1a579ba4811dc83b6c68029e53f4c87dc1744b46f25db116f",
+        ".agents/skills/architecture-guard/references/review.md": "39abf4921df60ccc8a9b23a3d5968984be6a4013b68e281aee049cdda3a6a84d",
+        ".agents/skills/code-quality-guard/SKILL.md": "84bf72afaa2a683d1a585c41c286debb9272d85850e8c21eb88fda57b75d2c2e",
+        ".agents/skills/code-quality-guard/agents/openai.yaml": "1dd03b32fafcea2f6891507935767426f3c4f333f5dfebb46b9a9179498a89ff",
+        ".agents/skills/code-quality-guard/references/measurement.md": "5a8ef837d6ebadaa1893a4441f02a269e6f433be293aa958d5eac8a98a313d85",
+        ".agents/skills/code-quality-guard/references/scoring.md": "13b0e0fc3f84f120517aa7f35792ae568ff96124cff299dc9a2bb8cd716846e3",
+        ".agents/skills/react-quality-guard/SKILL.md": "2083b89066f7d33c9737432d5c76e4718596577d7677643a71a30deb6b55fb25",
+        ".agents/skills/react-quality-guard/agents/openai.yaml": "4727dc6febf05047b66e1cd71b80969b49cead6988ef6cf2e11415571d176729",
+        ".agents/skills/react-quality-guard/references/performance.md": "8d2e758fe762bf0934b7f2a06c54633e72413e7b64e68085cefb2de2df92d30a",
+        ".agents/skills/react-quality-guard/references/react-correctness.md": "5817e15a720ea241179655f757611288c7824f766b6e58a381fab7db66642833",
+        ".agents/skills/react-quality-guard/references/server-react.md": "320be06b20e7fcacbdbfcfd159232fd6162f29d9876fb1ba398ba7b9aed46149",
+        ".agents/skills/react-quality-guard/references/sources.md": "b21a434cac051c0872fdc7e6074587b4fbde4ae214cef95589cce7dc3b77ced1",
+        "AGENTS.md": "70713f29aa1c60fd7b2dcae9bf8e3ac963e9b4bba6d194305236d87a4ee23863",
+        "TASK.md": "b7beafd9a056e2b96fd1de69b9e493bb22d67e0f167f1d9cf37b33967d0e200d",
+        "volume.mjs": "7442d42a21b406df431c2684351a71c4ab5ffcbd6954de4233754ac8c96b4133",
+        "volume.test.mjs": "2993be7c496332bca8e853e3f6c1958c93e4de63900467bc3097ad1f95bbea4f"
+      },
+      "changed_files": [
+        "volume.mjs"
+      ],
+      "usage": {
+        "input_tokens": 98266,
+        "cached_input_tokens": 92032,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 449,
+        "reasoning_output_tokens": 0
+      },
+      "network_or_install_commands_observed": false
+    },
+    "quality-retest": {
+      "fixture": "evals/code-quality-guard/fixtures/policy",
+      "prompt": "이 폴더의 .agents/skills/code-quality-guard/SKILL.md를 사용해 TASK.md의 문서 액션 모듈 유지보수성을 개선하고, 시작 상태와 변경 후의 품질을 비교해줘. 필요한 수정과 가능한 검증까지 완료해줘. 점수는 필요 없어.\n평가는 이 폴더의 일회용 입력으로 한정한다. 네트워크·패키지 설치·GitHub 작업·다른 폴더 수정은 하지 마. 파일 쓰기는 이 폴더의 결과에 한정하고, .agents의 스킬 원문과 제공된 테스트·TASK.md는 변경하지 마.",
+      "before_sha256": {
+        ".agents/skills/code-quality-guard/SKILL.md": "3a2a6988396a980f05b94a5c9bb1723c4d5dd5b957c8d24baf68e46ccd7451ce",
+        ".agents/skills/code-quality-guard/agents/openai.yaml": "1dd03b32fafcea2f6891507935767426f3c4f333f5dfebb46b9a9179498a89ff",
+        ".agents/skills/code-quality-guard/references/measurement.md": "5a8ef837d6ebadaa1893a4441f02a269e6f433be293aa958d5eac8a98a313d85",
+        ".agents/skills/code-quality-guard/references/scoring.md": "13b0e0fc3f84f120517aa7f35792ae568ff96124cff299dc9a2bb8cd716846e3",
+        "TASK.md": "13873308811d37f395dfe6e38096c8b7a03c10013bb922923f270bc1d8cd35d5",
+        "bulk.mjs": "fa01058ddd03be6e7cc74d5345c0f113197dab7d7916d59b878be5126188e352",
+        "detail.mjs": "713e05d389fab1ec7967b0719ab6b3a8eb9c2792636d9526549a5dd6723bf821",
+        "list.mjs": "c8d146433782e2e56783e250e0b220be765ebdd7096caf6ea08630a2aceb4168",
+        "policy.test.mjs": "586f4bc0df40127f85c7565f15429653cea61ccba04caab81e794c1c1133df1b"
+      },
+      "after_sha256": {
+        ".agents/skills/code-quality-guard/SKILL.md": "3a2a6988396a980f05b94a5c9bb1723c4d5dd5b957c8d24baf68e46ccd7451ce",
+        ".agents/skills/code-quality-guard/agents/openai.yaml": "1dd03b32fafcea2f6891507935767426f3c4f333f5dfebb46b9a9179498a89ff",
+        ".agents/skills/code-quality-guard/references/measurement.md": "5a8ef837d6ebadaa1893a4441f02a269e6f433be293aa958d5eac8a98a313d85",
+        ".agents/skills/code-quality-guard/references/scoring.md": "13b0e0fc3f84f120517aa7f35792ae568ff96124cff299dc9a2bb8cd716846e3",
+        "QUALITY_REVIEW.md": "3eeb607c22ffa8524b0b51670aa70366488a89d0003d03b9dfcac8beedf86f0e",
+        "TASK.md": "13873308811d37f395dfe6e38096c8b7a03c10013bb922923f270bc1d8cd35d5",
+        "archive-policy.mjs": "1487aca1f94da3322e25abb4f00a15a98b54076af030ac9045c33928ffac890e",
+        "bulk.mjs": "18bdaf547171afcb003c6d47d55cf052589fd8f764f89740afebaf777d0e95bc",
+        "detail.mjs": "ab5ab224ccde68140f70821030b5bb1f8e854e4a1a4512d2543d5ff8cd8036ea",
+        "list.mjs": "2cb485a16950a209986ee7943495ae153e7cc7b921aa6052a1f6d5f7ad91b59b",
+        "policy.test.mjs": "586f4bc0df40127f85c7565f15429653cea61ccba04caab81e794c1c1133df1b"
+      },
+      "changed_files": [
+        "QUALITY_REVIEW.md",
+        "archive-policy.mjs",
+        "bulk.mjs",
+        "detail.mjs",
+        "list.mjs"
+      ],
+      "usage": {
+        "input_tokens": 111104,
+        "cached_input_tokens": 100352,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2341,
+        "reasoning_output_tokens": 31
+      },
+      "network_or_install_commands_observed": false
+    }
+  },
+  "final_skills_sha256": {
+    "skills/architecture-guard/SKILL.md": "cde7a659747557bc9ba0d7a6dbb3c84358cbe111ec46b07200dc2a447422b834",
+    "skills/architecture-guard/agents/openai.yaml": "4fbe27ea1f9b0b03521eb09ef37d1020e5731e1785516246f172cc396793bfba",
+    "skills/architecture-guard/references/preflight.md": "fdf3874ef53ca9c1a579ba4811dc83b6c68029e53f4c87dc1744b46f25db116f",
+    "skills/architecture-guard/references/review.md": "39abf4921df60ccc8a9b23a3d5968984be6a4013b68e281aee049cdda3a6a84d",
+    "skills/code-quality-guard/SKILL.md": "3a2a6988396a980f05b94a5c9bb1723c4d5dd5b957c8d24baf68e46ccd7451ce",
+    "skills/code-quality-guard/agents/openai.yaml": "1dd03b32fafcea2f6891507935767426f3c4f333f5dfebb46b9a9179498a89ff",
+    "skills/code-quality-guard/references/measurement.md": "5a8ef837d6ebadaa1893a4441f02a269e6f433be293aa958d5eac8a98a313d85",
+    "skills/code-quality-guard/references/scoring.md": "13b0e0fc3f84f120517aa7f35792ae568ff96124cff299dc9a2bb8cd716846e3",
+    "skills/react-quality-guard/SKILL.md": "2083b89066f7d33c9737432d5c76e4718596577d7677643a71a30deb6b55fb25",
+    "skills/react-quality-guard/agents/openai.yaml": "4727dc6febf05047b66e1cd71b80969b49cead6988ef6cf2e11415571d176729",
+    "skills/react-quality-guard/references/performance.md": "8d2e758fe762bf0934b7f2a06c54633e72413e7b64e68085cefb2de2df92d30a",
+    "skills/react-quality-guard/references/react-correctness.md": "5817e15a720ea241179655f757611288c7824f766b6e58a381fab7db66642833",
+    "skills/react-quality-guard/references/server-react.md": "320be06b20e7fcacbdbfcfd159232fd6162f29d9876fb1ba398ba7b9aed46149",
+    "skills/react-quality-guard/references/sources.md": "b21a434cac051c0872fdc7e6074587b4fbde4ae214cef95589cce7dc3b77ced1"
+  }
+}
