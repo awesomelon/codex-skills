@@ -1,23 +1,23 @@
-# 아키텍처 리뷰의 비교 기준과 근거
+# Architecture review: comparison scope and evidence
 
-## 비교 범위
+## Comparison scope
 
-- PR·커밋 리뷰는 사용자가 지정한 범위와 확인된 base/head를 사용한다. PR 변경은 두 참조의 merge-base부터 확인한다. 근거 없이 `main`, `HEAD~1`, 원격 추적 브랜치를 비교 기준으로 삼지 않는다.
-- 로컬 변경에는 staged·unstaged·untracked 파일을 포함한다. 작업 완료 검토는 시작 시점의 상태와 비교하여 사용자 기존 변경과 이번 구현을 구분한다. 커밋된 작업이 요청 범위에 있으면 함께 포함한다.
-- 비교 자료가 없으면 현재 상태 진단으로 보고한다. 조사한 경계·표본과 미검토 범위를 밝히며, 현재 상태만 보고 회귀가 없다고 주장하지 않는다.
+- For PR or commit reviews, use the user-specified scope and verified base/head. Review PR changes from their merge base. Do not assume `main`, `HEAD~1`, or a remote-tracking branch without evidence.
+- Include staged, unstaged, and untracked files in local-change reviews. Compare completed work with the starting state to distinguish existing user changes from the current implementation. Include committed work when it is part of the requested scope.
+- Without comparison material, report a current-state diagnosis. State inspected boundaries, samples, and unreviewed areas; do not claim the absence of regressions from the current state alone.
 
-## 오탐을 줄이는 근거
+## Evidence that reduces false positives
 
-diff와 관련 호출자를 함께 읽는다. 경로 별칭·재수출·타입 전용 의존성·코드 생성·동적 등록 때문에 보이는 경로와 실제 의존이 다른지 확인한다. 문서화된 예외나 단계적 전환은 허용된 범위와 대조한다. 파일 이동만으로 의존 문제가 해결되었다고 보지 않는다.
+Read the diff with relevant callers. Check whether aliases, re-exports, type-only dependencies, generated code, or dynamic registration make visible paths differ from actual dependencies. Compare documented exceptions and gradual migrations with their allowed scope. Moving a file alone does not resolve a dependency problem.
 
-새로 생긴 문제, 악화된 문제, 무관한 기존 부채를 구분한다. 기존 부채가 이번 변경을 직접 가로막으면 그 연결을 설명한다. 근본 원인이 같은 지적은 묶고, 증거가 부족한 후보는 확정 결함 대신 확인할 계약·호출부를 명시한다.
+Distinguish new issues, worsened issues, and unrelated existing debt. Explain the connection when existing debt directly blocks the change. Group findings with the same root cause. For weakly supported candidates, name the contract or caller to check rather than declare a defect.
 
-## 중요도와 결론
+## Severity and conclusion
 
-출력 형식은 사용자의 요청에 맞춘다. 지적은 근거가 되는 파일·심볼, 발생 조건과 영향, 최소 조치와 확인 방법을 포함하면 충분하다.
+Match the user's requested output format. A finding needs the supporting file/symbol, trigger and impact, smallest remedy, and verification method.
 
-완료를 막는 문제는 필수 경계 위반, 소비자 호환성 파괴, 권한·데이터 정합성 위험처럼 실제 경로로 입증한다. 유지보수 문제도 핵심 경계를 심각하게 훼손하면 해당할 수 있다. 취향 차이나 가상 확장성은 차단 사유가 아니다.
+Ground blockers in actual paths, such as mandatory boundary violations, broken consumer compatibility, or authorization/data-integrity risks. Maintainability problems may also block completion when they seriously undermine a core boundary. Taste differences or hypothetical scalability are not blockers.
 
-검증은 이 문제를 판단하는 데 필요한 범위로 선택한다. 리뷰 전용에서는 자동 수정 옵션을 사용하지 않는다. 기존 실패와 변경 때문에 생긴 실패를 구분할 수 없으면 그 한계를 밝힌다.
+Choose validation sufficient to judge the issue. Do not use automatic-fix options in review-only work. State the limitation when existing failures cannot be separated from failures introduced by the change.
 
-결론은 미해결 중대 문제, 판단에 필요한 추가 근거, 검토 범위에서 중대한 문제를 찾지 못한 상태를 구분한다. 비교 자료가 있고 관련 검증이 충분할 때만 회귀 여부를 말한다. 실행하지 못한 검사나 좁은 표본을 프로젝트 전체의 품질 보증으로 바꾸지 않는다.
+Distinguish significant unresolved issues, evidence still needed for a judgment, and no significant issues found within the reviewed scope. Discuss regressions only with comparison material and sufficient relevant validation. Do not turn unavailable checks or a narrow sample into project-wide quality assurance.

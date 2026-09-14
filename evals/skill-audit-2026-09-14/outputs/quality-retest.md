@@ -1,7 +1,9 @@
-보관 정책을 `canArchive`로 모아 조건 수정 지점을 **3곳에서 1곳으로 줄였습니다**. 핀 정책은 독립적으로 유지했고 기존 export와 UI용 이름도 보존했습니다.
+> English translation of a historical record. [Original at the pre-translation commit](https://github.com/awesomelon/codex-skills/blob/ce11c34e3d1da77140087300218b776594bb65cf/evals/skill-audit-2026-09-14/outputs/quality-retest.md). Reported runs, hashes, and counts describe the original work, not this translation.
 
-- 정확성: 변경 전후 `node --test policy.test.mjs` 모두 **7개 통과**
-- 유지보수성: 보관 정책 불일치 위험 감소. 공통 함수를 따라가는 참조 한 단계는 추가됨
-- 제한 사항: 실제 UI 통합은 제공되지 않아 미검증
+Consolidated archive eligibility in `canArchive`, reducing condition edit points **from three to one**. Preserved independent pinning and existing exports/UI names.
 
-점수 없는 상세 비교는 QUALITY_REVIEW.md에 기록했습니다. 보호 대상 파일 수정이나 네트워크·설치·외부 작업은 하지 않았습니다.
+- Correctness: `node --test policy.test.mjs` passed **all seven tests before and after**.
+- Maintainability: reduced risk of divergent archive policies, at the cost of another shared-function lookup.
+- Limit: actual UI integration was not supplied and remains unverified.
+
+The detailed unscored comparison was recorded in QUALITY_REVIEW.md. No protected files, network access, installation, or external operations were involved.

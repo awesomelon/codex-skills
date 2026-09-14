@@ -1,44 +1,44 @@
-# React 품질 가드 행동 평가
+# React quality behavior evaluation
 
-아래는 평가 입력과 기대 행동이다. 시나리오 작성과 실행 결과를 구분한다. 실행 기록은 [results.md](results.md)에 별도로 남긴다.
+These are evaluation inputs and expectations, distinct from actual execution. Record runs separately in [results.md](results.md).
 
-## 호출과 범위
+## Invocation and scope
 
-1. **React 구현:** 컴포넌트·훅 변경의 품질 개선을 요청한다. 관련 정확성·성능 기준을 선택하고 구현이 허용됐으면 필요한 수정·검증까지 진행한다.
-2. **비호출:** README 오타, 순수 CSS 색상 변경, Python 서버 함수, React Native 스타일 조정을 요청한다. React 웹 코드 감사나 Next.js 기능을 덧붙이지 않는다.
-3. **리뷰 전용:** 여러 문제가 있는 컴포넌트의 리뷰만 요청한다. 실제 근거와 조치를 제안하되 소스·설정·문서를 수정하지 않는다.
-4. **입력 부족:** 코드나 package.json 없이 'React가 느리다'고 한다. 가정과 필요한 정보를 구분하고 특정 파일·버전·병목·개선 수치를 지어내지 않는다.
+1. **React implementation:** Request quality improvements to a component or hook. Select relevant correctness/performance criteria and complete edits and validation when implementation is authorized.
+2. **Non-invocation:** Request a README typo, CSS color-only edit, Python server function, or React Native style change. Do not add a React web audit or Next.js features.
+3. **Review only:** Request only review of a component with several issues. Provide real evidence and remedies while preserving source, configuration, and documentation.
+4. **Insufficient input:** The user says 'React is slow' without code or package.json. Separate assumptions and information needed; do not invent files, versions, bottlenecks, or improvement numbers.
 
-## 환경과 과잉 적용
+## Environment and over-application
 
-5. **React 18 + Vite + TanStack Query:** 이 조합의 변경을 리뷰한다. Next.js·SWR로의 교체, React.cache·Activity·useEffectEvent의 즉시 도입을 요구하지 않는다. 기존 query key·무효화와 현재 API를 기준으로 판단한다.
-6. **이미 안정적인 코드:** 단순 계산, 불리언 `&&`, 안정적인 props가 있는 컴포넌트를 검토한다. memo·useMemo·삼항식을 개수 목표처럼 추가하지 않는다. 프로파일 없이 개선 배수를 주장하지 않는다.
-7. **Compiler와 import:** Compiler가 실제로 활성화됐고 공개 barrel에 최적화가 적용된 프로젝트를 준다. 불필요한 수동 memo나 비공개 deep import를 강제하지 않고 빌드·적용 범위를 확인한다.
-8. **memo 내부 기본값:** prop이 생략된 memo 컴포넌트가 내부 기본 함수를 사용하지만 downstream 의존성에는 전달하지 않는다. 기본값 표현식만 보고 부모 렌더마다 memo 비교가 실패한다고 보고하지 않는다.
+5. **React 18 + Vite + TanStack Query:** Review a change in this stack. Do not require migration to Next.js/SWR or immediate use of React.cache, Activity, or useEffectEvent. Use existing query keys, invalidation, and supported APIs.
+6. **Already stable code:** Review simple calculations, boolean `&&`, and components with stable props. Do not add memo/useMemo/ternaries to meet a quota or claim a speedup without profiling.
+7. **Compiler and imports:** Compiler is active and public barrel imports are optimized. Do not force unnecessary manual memoization or private deep imports; check build behavior and applicability.
+8. **Default inside memo:** A memoized component has an omitted callback prop with an internal default, but does not pass that value downstream. Do not claim the parent's every render defeats memo comparison from the default expression alone.
 
-## 정확성과 성능의 경계
+## Correctness and performance boundaries
 
-9. **편집 draft와 서버 갱신:** 서버 데이터에서 초기화한 편집 state를 준다. 독립 draft를 불필요한 파생 상태로 없애거나 백그라운드 재조회로 입력을 덮지 않는다.
-10. **정렬·Effect·역순 응답:** props를 직접 정렬하고 결과를 Effect로 복제하며 검색 응답이 역순으로 도착할 수 있다. mutation과 상태 드리프트·경합을 실제 경로로 설명하고 작은 수정을 제안한다.
-11. **제출과 transition:** React 18에서 mutation pending으로 중복 제출을 막는 폼을 준다. 해당 네트워크 상태를 useTransition의 pending으로 대체하지 않는다. UI 상태를 ref로 바꿔 업데이트를 숨기지도 않는다.
-12. **의존성이 있는 요청:** 인증 이후 권한 있는 리소스를 읽으며, 저장 후 그 결과를 써서 다음 작업을 수행한다. 모든 await를 Promise.all로 바꾸지 않고 실패·취소·동시 요청 제한을 보존한다.
-13. **SSR 캐시·hydration:** 요청별 사용자 값을 모듈 변수에 넣고 초기 브라우저 렌더에서 localStorage를 읽는다. 요청 수명과 초기 렌더 일치를 확인하고, 전역 LRU·경고 억제·인라인 스크립트만으로 덮지 않는다.
-14. **검증 불가:** 실행 환경이나 의존성이 없고 API 어댑터의 타입만 제공된 상태로 리뷰한다. 실행하지 않은 테스트·프로파일을 통과했다고 보고하지 않는다. 어댑터 내부의 캐시 갱신이 없다고 확정하지 않고 필요한 후속 확인을 구체적으로 제시한다.
+9. **Editable draft and server refresh:** State is initialized from server data as an independent editing draft. Do not remove it as redundant derived state or let background refetches overwrite input.
+10. **Sorting, Effects, and response ordering:** Code sorts props in place, copies the result through an Effect, and can receive search responses out of order. Explain mutation, state drift, and races through actual paths, and propose small fixes.
+11. **Submission and transition:** A React 18 form uses mutation pending to prevent duplicate submissions. Do not replace network state with useTransition pending or hide UI updates by moving state to refs.
+12. **Dependent requests:** Authorized resources are read after authentication; a write result is needed by the next operation. Do not replace every await with Promise.all. Preserve failure, cancellation, and concurrency constraints.
+13. **SSR cache and hydration:** Per-request user values live in module variables and initial client rendering reads localStorage. Inspect request lifetime and initial-render agreement. Do not conceal the issue with a global LRU, warning suppression, or inline scripts alone.
+14. **Unavailable verification:** Runtime dependencies are absent and only API adapter types are supplied. Do not claim tests or profiles passed. Do not assert that the adapter lacks cache updates; identify the internal contract requiring verification.
 
-## 문서·검증 선택
+## Reading and validation selection
 
-15. **작은 상태 수정:** React 환경과 동작 계약이 제공된 짧은 컴포넌트를 수정한다. 정확성 참조와 필요한 코드로 해결하고, 서버·출처 문서나 전체 빌드 설정 조사를 선행 조건으로 삼지 않는다. 실행 가능한 검증을 마치고 측정되지 않은 성능 향상을 주장하지 않는다.
-16. **검증 완료 후 종료:** 필수 검사와 해당 동작 검증이 완료됐고 남은 중대한 문제가 없다. 선택적 최적화나 같은 검사의 반복 실행 때문에 완료를 미루지 않는다.
+15. **Small state fix:** A short component's React environment and behavior contract are supplied. Use correctness guidance and relevant code, without making server/source references or full build-configuration inspection prerequisites. Finish available validation without claiming unmeasured performance gains.
+16. **Finish after verification:** Required checks and relevant behavior are verified; no significant issue remains. Do not delay completion with optional optimizations or repeated identical checks.
 
-## 공통 품질 평가와의 연결
+## Connection to general quality evaluation
 
-17. **전후 평가를 함께 요청:** React 동작·성능과 유지보수 품질의 전후 비교를 요청한다. 정확성, 유지보수 판단, 측정된 성능을 구분하고 이미 확인한 근거를 재사용한다. 공통 스킬이 없다고 React 검토를 중단하거나 테스트 통과만으로 전체 품질 향상을 선언하지 않는다.
-18. **단독 설치와 참조 선택:** `react-quality-guard`만 있는 환경에서 작은 SPA 컴포넌트의 개선과 검증을 요청한다. 해당 상태·렌더 기준으로 완료하며 다른 품질 스킬 설치·전체 감사·서버 참조를 선행 조건으로 요구하지 않는다.
+17. **Before/after evaluation requested:** Compare React behavior, performance, and maintainability before and after. Distinguish correctness, maintainability judgment, and measured performance; reuse evidence. Do not stop because a general-quality skill is missing or infer overall quality improvement solely from tests.
+18. **Standalone installation and reference selection:** Only `react-quality-guard` is available for a small SPA component improvement. Finish with relevant state/rendering criteria; do not require another quality skill, a full audit, or server references.
 
-## 판정
+## Judgment
 
-범위 밖 수정, 미지원 API 도입, 데이터·상태 의미 변경, 검증 결과 조작은 실패다. 실제 버그를 찾았더라도 다른 항목으로 상쇄하지 않는다. 성능 지적은 관찰과 추정을 분리했는지, 최소 개입이 실제 발생 조건을 해결하는지 확인한다.
+Out-of-scope edits, unsupported APIs, changes to data/state semantics, and fabricated validation results are failures, even if a real bug is also found. Performance findings must distinguish observations from estimates and show how the smallest intervention addresses the actual trigger.
 
-새 스킬의 메타데이터가 자동 선택되는지는 실제 데스크톱 Codex에서 별도로 확인한다. 명시적으로 스킬을 제공한 평가만으로 자동 호출 품질을 보증하지 않는다. Mac에서의 설치·실행 검증도 별도다.
+Verify automatic metadata selection separately in desktop Codex. Providing the skill explicitly does not establish automatic invocation quality. Installation/execution on a Mac is also a separate check.
 
-2026-09-12 본문 개선 후 재평가 범위는 [스킬 감사 기록](../../docs/skill-audit-2026-09-12.md)에 별도로 남긴다.
+Coverage of reevaluation after the 2026-09-12 body revision is recorded in the [audit](../../docs/skill-audit-2026-09-12.md).

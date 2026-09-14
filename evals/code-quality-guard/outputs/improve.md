@@ -1,12 +1,14 @@
-유지보수 품질 개선을 완료했습니다. 변경은 지정된 `project` 안의 4개 파일에 한정했습니다.
+> English translation of a historical record. [Original at the pre-translation commit](https://github.com/awesomelon/codex-skills/blob/ce11c34e3d1da77140087300218b776594bb65cf/evals/code-quality-guard/outputs/improve.md). Reported runs, hashes, and counts describe the original work, not this translation.
 
-- `archive-policy.mjs`에 `canArchive`를 추가해 목록·상세·일괄 보관의 독립적인 정책 구현 **3곳을 1곳으로 통합**했습니다.
-- 기존 세 모듈의 공개 함수 4개와 UI 액션 이름을 유지했습니다.
-- `canPin`은 독립적인 제품 정책으로 유지하고, 의도적인 분리임을 주석으로 설명했습니다.
-- `TASK.md`와 기존 테스트는 수정하지 않았습니다.
+Maintainability improvements are complete. Changes were limited to four files in the specified `project`.
 
-정확성 검증은 Node.js `v24.19.0`에서 수행했습니다. `node --test policy.test.mjs`가 변경 전후 모두 **7/7 통과**했습니다. 상태·잠금의 6가지 조합, 액션 순서, 일괄 ID 순서·빈 입력, 동결된 입력을 사용하는 비변경 계약을 확인했습니다. 별도 검사로 기존 모듈의 export 이름과 함수 타입도 유지됨을 확인했습니다.
+- Added `canArchive` in `archive-policy.mjs`, consolidating **three independent archive-policy definitions into one** for list, detail, and bulk operations.
+- Preserved the four public functions in the three existing modules and all UI action names.
+- Kept `canPin` independent and documented the intentional separation in a comment.
+- Left `TASK.md` and existing tests unchanged.
 
-유지보수 판단은 **개선**입니다. 향후 보관 조건을 바꿀 때 핵심 판단식의 수정 지점이 한 곳으로 줄었으며, 핀 정책에는 영향을 주지 않습니다. 공통 모듈을 한 단계 더 추적해야 하는 비용은 생겼습니다.
+Correctness was checked with Node.js `v24.19.0`. `node --test policy.test.mjs` passed **7/7 before and after**. It covered six status/lock combinations, action ordering, bulk ID order and empty input, and immutability using frozen inputs. A separate check confirmed unchanged export names and function types in existing modules.
 
-비교 기준은 작업 시작 시 저장한 파일 내용입니다. Git 이력은 없어 과거 변경과 비교하지 않았으며, AST 복잡도·clone 중복률은 분석기가 없어 미측정입니다. 검증 범위는 `TASK.md`가 보장하는 유효 입력입니다.
+Maintainability is **improved**: a future archive-condition change has one central edit point and does not affect pinning. The tradeoff is one additional step to follow the shared module.
+
+The baseline was file content saved at task start. No Git history was available for historical comparison. AST complexity and clone rate are unmeasured because analyzers were absent. Validation covers valid inputs guaranteed by `TASK.md`.

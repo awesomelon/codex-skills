@@ -1,20 +1,20 @@
-# 최초 게시용 Codex 원샷 프롬프트
+# One-shot prompt for initial publication
 
-먼저 이 패키지를 풀고, `README.md`, `skills/`, `scripts/`가 보이는 `codex-skills` 폴더를 데스크탑 Codex에서 연다. 아래 블록 전체를 요청한다. 이 파일은 실행 기록이 아니라 요청 템플릿이다.
+First extract the package and open the `codex-skills` folder containing `README.md`, `skills/`, and `scripts/` in desktop Codex. Submit the complete block below. This is a request template, not an execution record.
 
 ```text
-현재 폴더의 파일로 내 GitHub 계정에 비공개 awesomelon/codex-skills 저장소를 만들고 최초 업로드해줘. 설명만 하지 말고 가능한 작업을 실제로 수행해줘.
+Use the files in this folder to create the private awesomelon/codex-skills repository in my GitHub account and upload the initial version. Perform the work that is possible, rather than only explaining it.
 
-목표는 앞으로 만든 Codex 스킬을 skills/<name>/에 하나씩 추가하고, 새 Mac에서 clone 후 설치 명령 한 번으로 재사용하는 것이다. 사용 환경은 macOS다. 사용자 설치 명령은 Python이 필요 없는 bash scripts/install.sh로 안내해. 기존 architecture-guard 본문과 참조 문서를 보존해줘.
+The goal is to add future Codex skills one at a time under skills/<name>/ and reuse them on a new Mac with one installation command after clone. The user environment is macOS. Recommend bash scripts/install.sh, which does not require Python, for user installation. Preserve the existing architecture-guard body and references.
 
-1. 현재 폴더의 AGENTS.md, README.md, skills/, scripts/, tests/를 읽고 제공된 구성을 사용해. 새로운 구현이나 패키지 관리 시스템으로 다시 만들지 마.
-2. 현재 Git 저장소 경계, 작업 트리와 remote를 확인해. 이 폴더가 무관한 상위 저장소 안에 있으면 그 저장소를 커밋하거나 게시하지 마. 사용자 기존 변경과 인증 파일도 보존해.
-3. Git, GitHub CLI를 확인해. 저장소 개발 검증용 Python 3.10+는 사용자 설치 의존성과 구분해. gh auth status와 gh api user --jq .login으로 github.com의 활성 계정이 awesomelon인지 확인해. 토큰·인증 파일을 출력하거나 채팅에 요구하지 마. 인증이 없으면 브라우저 인증이 필요하다고 정확히 알리고, 검증 등 독립적으로 가능한 작업은 완료해.
-4. gh repo view로 awesomelon/codex-skills의 존재와 공개 범위를 확인해. 조회 실패를 무조건 '저장소 없음'으로 간주하지 말고 인증·접근·네트워크 오류를 구분해. 기존 저장소가 있으면 파일과 이력을 확인해서 보존하고, 재생성·공개 전환·강제 push하지 마. 파일 충돌이 있으면 기존 저장소의 작업 브랜치와 PR로 변경을 분리해.
-5. bash -n scripts/install.sh, python3 scripts/validate.py와 python3 -m unittest discover -s tests -v를 실행해. bash scripts/install.sh로 임시 경로에서 링크/복사 설치와 재실행을 검사하되 내 실제 전역 설정이나 설치 스킬은 변경하지 마.
-6. 신규 로컬 저장소라면 main으로 초기화하고, 게시할 파일만 명시적으로 stage해. diff와 비밀정보 포함 여부를 확인한 뒤 feat: add architecture-guard and portable skill installer로 커밋해. Git 작성자 정보가 없으면 임의로 만들지 마.
-7. 신규 원격 저장소라면 gh repo create awesomelon/codex-skills --private --source=. --remote=origin --push로 생성·업로드해. 기존 원격이 비어 있으면 읽은 상태를 확인한 뒤 정상 push하고, 기존 이력이 있으면 안전한 브랜치/PR 경로를 사용해. 현재 폴더와 다른 저장소나 계정에는 쓰지 마.
-8. 업로드 후 원격 파일과 커밋 SHA, 비공개 여부를 다시 조회해. 로컬 생성·원격 업로드·실행 검증을 구분해 보고해. 인증·권한 때문에 막힌 단계는 성공이라고 표현하지 마.
+1. Read this folder's AGENTS.md, README.md, skills/, scripts/, and tests/ and use the supplied structure. Do not rebuild it with a new implementation or package-management system.
+2. Check the Git repository boundary, working tree, and remotes. If this folder is inside an unrelated parent repository, do not commit or publish that repository. Preserve existing user changes and authentication files.
+3. Check Git and GitHub CLI. Distinguish Python 3.10+ for repository development validation from user installation dependencies. Use gh auth status and gh api user --jq .login to verify that the active github.com account is awesomelon. Do not display tokens/authentication files or ask for them in chat. If authentication is unavailable, explain the need for browser sign-in and complete independent work such as validation.
+4. Use gh repo view to check whether awesomelon/codex-skills exists and its visibility. Do not equate every lookup failure with absence; distinguish authentication, access, and network errors. If it exists, inspect and preserve files and history without recreating it, changing it to public, or force-pushing. Isolate conflicting changes in a working branch and PR in the existing repository.
+5. Run bash -n scripts/install.sh, python3 scripts/validate.py, and python3 -m unittest discover -s tests -v. Exercise link/copy installation and repeated execution with bash scripts/install.sh in temporary paths; do not change my actual global configuration or installed skills.
+6. For a new local repository, initialize main and explicitly stage only files intended for publication. Review the diff and check for secrets, then commit with feat: add architecture-guard and portable skill installer. Do not invent Git author identity if none is configured.
+7. For a new remote, create and upload with gh repo create awesomelon/codex-skills --private --source=. --remote=origin --push. For an empty existing remote, confirm its observed state and push normally; for an existing history, use a safe branch/PR workflow. Do not write to another repository or account.
+8. After upload, query remote files, the commit SHA, and private visibility again. Distinguish local creation, remote upload, and execution validation. Do not describe authentication/permission-blocked steps as successful.
 
-마지막에는 실제 저장소 또는 PR 주소, 추가한 스킬, 검증 결과와 한계, macOS의 최초 설치·업데이트 명령을 한국어로 알려줘. Codex 모델이 스킬을 실제로 실행한 것은 별도로 확인하지 않았다면 미검증으로 남겨줘. 내 전역 AGENTS.md와 config.toml은 자동으로 수정하지 마.
+Report the actual repository or PR URL, added skills, verification and limits, and macOS installation/update commands in Korean. Leave actual model execution of the skill unverified unless checked separately. Do not automatically modify my global AGENTS.md or config.toml.
 ```

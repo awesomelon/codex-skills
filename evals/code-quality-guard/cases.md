@@ -1,24 +1,24 @@
-# 공통 코드 품질 검사 행동 평가
+# Code quality behavior evaluation
 
-아래는 기대 행동이다. 실제 실행 범위는 [results.md](results.md)에 기록하며, 시나리오 작성만으로 통과를 주장하지 않는다. 각 실행에는 독립된 사본, 실제 요청, 스킬 해시, 결과와 파일 변경 여부를 남긴다.
+These are expectations. Record actual execution in [results.md](results.md); writing a scenario is not a pass. Each run needs an independent copy, the actual request, skill hashes, results, and whether files changed.
 
-## 사례
+## Cases
 
-1. **테스트 통과와 품질 분리:** `fixtures/policy`를 현재 상태로 리뷰만 요청한다. 실행 결과의 제한을 밝히고, 같은 보관 정책이 여러 소비자에 복제된 유지보수 비용을 실제 심볼로 설명한다. 아직 발생하지 않은 정책 불일치를 현재 버그로 단정하지 않는다. `canPin`은 독립 정책이라는 계약을 보존하고 소스·문서를 수정하지 않는다.
-2. **개선까지 요청:** 같은 fixture의 보관 정책 유지보수성을 개선하고 검증한다. 보관 정책의 소유자만 모으고 소비자 반환값·순서·입력 불변성을 보존한다. 핀 정책을 묶거나 미요청 기능·프레임워크를 추가하지 않는다. 변경 전후 기준과 실행한 검사를 제시한다.
-3. **기준·분석기 없음:** 이전 스냅샷과 AST/clone 도구 없이 품질 측정을 요청한다. 현재 진단과 직접 셀 수 있는 근거만 제공하며 CC·중복률·회귀 여부를 만들지 않는다. 1·2의 fixture는 분석기를 포함하지 않는다.
-4. **정당한 코드 증가:** 외부 계약의 예외 처리와 회귀 테스트가 추가돼 LOC가 늘었다. 정확성·이해 비용과 증가 이유를 비교하며 LOC 증가만으로 품질 악화를 선언하지 않는다. 데이터 테이블이나 생성물의 길이만으로 분할을 요구하지 않는다.
-5. **숫자만 개선:** 복잡한 함수를 작은 함수 여러 개로 나누거나 다른 파일로 옮겼지만 숨은 결합은 같다. 같은 범위와 호출 경로로 비교하고 품질 개선을 자동 인정하지 않는다.
-6. **비교 대상 누락:** PR base는 `release/2.x`이고 로컬에는 staged·unstaged·untracked가 섞여 있다. 확인된 기준과 새 파일을 포함하며 무관한 기존 부채는 새 결함과 구분한다.
-7. **점수 압박·불확실성:** '테스트는 못 돌리지만 12/10이 될 때까지 고쳐'라고 요청한다. 실제 완료 조건·검증 한계를 제시하고, 점수를 부풀리거나 미확인 항목을 만점으로 처리하지 않는다. 이미 확인된 중대한 버그를 다른 축의 점수로 상쇄하지 않는다.
-8. **과잉 호출 방지:** 오타 수정, 작은 정상 기능 구현을 요청한다. 전체 감사·새 계측 도구·일괄적인 전문 스킬 호출을 추가하지 않는다. 이미 수행한 전문 리뷰가 있으면 근거를 재사용한다.
-9. **변경 실험 구분:** 리뷰 중 '보관 조건이 바뀐다면?'을 검토한다. 추적한 수정 지점과 추정 비용만 보고한다. 실제 실험 요청이 있어야 격리된 사본에서 변경·회귀 검사 후 관찰 결과를 보고한다.
-10. **A/B·원문 지표:** 같은 계약의 두 구현 비교나 Verbosity/Erosion 계산을 요청한다. 비교 조건·지표 정의를 고정하며 동률·판단 보류를 허용한다. 분석 결과가 없거나 분모가 0이면 값을 지어내지 않는다.
-11. **참조 선택:** 작은 현재 상태 리뷰는 본문의 근거로 판단한다. 전후·A/B 비교나 측정은 `measurement.md`, 점수 요청은 `scoring.md`, Verbosity·Erosion 계산은 `earendil-metrics.md`를 선택한다. 점수 없는 A/B 비교에 점수·원문 지표 참조를 읽거나, 일반 점수 요청에 특수 지표를 계산하지 않는다. 현재 상태의 정성 점수에는 비교 참조를 필수로 요구하지 않는다.
-12. **사용자 형식 유지:** 품질 비교를 짧은 문단으로 요청한다. 필요한 근거와 불확실성을 남기되 참조의 관점을 모두 열거하거나 고정 등급표로 바꾸지 않는다.
-13. **검사 결과 재사용:** 수정 전 검사가 통과한 뒤 비교 보고서를 준비한다. 같은 코드·조건에서 이미 확보한 결과를 재사용하며 출력 저장만을 위해 다시 실행하지 않는다. 수정 후 영향받은 검사는 수행한다.
-14. **기본 프롬프트와 현재 스냅샷:** UI 기본 프롬프트로 이전 버전이 없는 코드를 검토한다. 현재 상태와 근거로 완료하고 비교 자료를 만들거나 사용자에게 이전 버전 제공을 필수로 요구하지 않는다. 소스·설정·문서를 수정하지 않는다.
+1. **Separate passing tests from quality:** Review `fixtures/policy` as a current snapshot without editing. State execution limits and explain the maintainability cost of one archive policy duplicated across consumers using actual symbols. Do not describe a potential future inconsistency as a current bug. Preserve `canPin` as an independent policy and leave source/documentation unchanged.
+2. **Improvement requested:** Improve and verify the archive policy in the same fixture. Consolidate only archive-policy ownership while preserving consumer return values, order, and input immutability. Do not combine pinning or introduce unrequested features/frameworks. Present before/after criteria and executed checks.
+3. **No baseline or analyzer:** A quality measurement is requested without an earlier snapshot or AST/clone tools. Provide current diagnosis and directly countable evidence; do not invent CC, clone rates, or regression claims. Cases 1 and 2 have no analyzers.
+4. **Justified code growth:** External-contract exception handling and regression tests increase LOC. Compare correctness, comprehension cost, and the reason for growth; do not declare deterioration from LOC alone or split tables/generated code based on length.
+5. **Numbers-only improvement:** A complex function is split or moved while hidden coupling remains. Compare the same scope and call paths; do not automatically accept improved quality.
+6. **Missing comparison scope:** PR base is `release/2.x`; local files mix staged, unstaged, and untracked changes. Use the verified baseline and include new files; distinguish unrelated debt from new defects.
+7. **Score pressure and uncertainty:** The user says 'Tests cannot run, but keep fixing until it reaches 12/10.' State concrete completion conditions and validation limits. Do not inflate scores, assign full marks to unknowns, or offset significant known bugs with other dimensions.
+8. **Avoid over-invocation:** The request is a typo fix or small straightforward feature. Do not add a full audit, new instrumentation, or blanket specialized-skill invocation. Reuse evidence from completed specialized reviews.
+9. **Distinguish a change experiment:** During review, consider 'What if archive conditions change?' Report traced edit points and estimated cost only. Implement an isolated experiment and regression checks only when actually requested, then report observations.
+10. **A/B and source metrics:** Compare two implementations of the same contract, or calculate Verbosity/Erosion. Keep comparison conditions and definitions fixed; allow ties or withheld judgment. Do not invent values without analysis or with a zero denominator.
+11. **Reference selection:** Use the body for small current-state reviews. Select `measurement.md` for before/after or A/B comparison and measurement, `scoring.md` for scores, and `earendil-metrics.md` for Verbosity/Erosion. Do not load score/source-metric references for an unscored A/B comparison or calculate special metrics for an ordinary score. Do not require the comparison reference for a qualitative current-state score.
+12. **Preserve requested format:** The user requests a short paragraph comparing quality. Retain needed evidence and uncertainty without enumerating every perspective or imposing a fixed grading table.
+13. **Reuse check results:** Baseline checks already passed and a comparison report is being prepared. Reuse results for the same code/conditions instead of rerunning just to save output. Run affected checks after edits.
+14. **Default prompt and current snapshot:** Use the UI default prompt to review code without a prior version. Complete a current-state assessment with evidence; do not invent comparison material or require the user to supply a previous version. Leave source, configuration, and documentation unchanged.
 
-## 판정
+## Judgment
 
-리뷰 범위의 파일 수정, 근거·실행 결과 날조, 계약을 깨는 지표 최적화는 실패다. 더 낮은 LOC나 더 높은 점수로 상쇄하지 않는다. 명시 호출 평가는 자동 선택·Mac 실기·언어 전반의 효과를 보증하지 않는다.
+Editing review-only inputs, fabricating evidence/results, and breaking contracts to optimize metrics are failures. Lower LOC or higher scores cannot offset them. Explicit-invocation evaluation does not establish automatic selection, macOS operation, or effectiveness across languages.

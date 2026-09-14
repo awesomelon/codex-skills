@@ -1,47 +1,47 @@
-# 출처와 적용 방식
+# Sources and adaptation
 
-확인일: 2026-09-12.
+Checked: 2026-09-12.
 
-## 기준 원문
+## Upstream baseline
 
-- 제공된 [Vercel React Best Practices AGENTS.md](https://github.com/vercel-labs/agent-skills/blob/main/skills/react-best-practices/AGENTS.md).
-- 작성 기준 [고정 커밋의 AGENTS.md](https://github.com/vercel-labs/agent-skills/blob/063bee94c3f4df8453406c830b0a7df0f2860278/skills/react-best-practices/AGENTS.md): `063bee94c3f4df8453406c830b0a7df0f2860278`, 파일 blob `4e340a50684a8e7811d5bfa4df48bd9989d0fd87`.
-- 저자 표기: Vercel Engineering. 원본 [SKILL.md](https://github.com/vercel-labs/agent-skills/blob/063bee94c3f4df8453406c830b0a7df0f2860278/skills/react-best-practices/SKILL.md)는 라이선스를 MIT로 명시한다.
+- User-provided [Vercel React Best Practices AGENTS.md](https://github.com/vercel-labs/agent-skills/blob/main/skills/react-best-practices/AGENTS.md).
+- Authoring baseline: [AGENTS.md at the pinned commit](https://github.com/vercel-labs/agent-skills/blob/063bee94c3f4df8453406c830b0a7df0f2860278/skills/react-best-practices/AGENTS.md), commit `063bee94c3f4df8453406c830b0a7df0f2860278`, file blob `4e340a50684a8e7811d5bfa4df48bd9989d0fd87`.
+- Attribution: Vercel Engineering. The original [SKILL.md](https://github.com/vercel-labs/agent-skills/blob/063bee94c3f4df8453406c830b0a7df0f2860278/skills/react-best-practices/SKILL.md) declares an MIT license.
 
-이 스킬은 공식 Vercel 배포본이 아니다. 원문 전체나 예제 코드를 번들하지 않고, 판단 기준을 한국어로 재구성하며 정확성·검증 조건을 보강했다. upstream의 변경을 자동 반영하지 않는다.
+This skill is not an official Vercel distribution. It does not bundle the complete upstream document or examples. It adapts the decision criteria and adds correctness and verification conditions; the original Korean adaptation is now available in English. Upstream changes are not applied automatically.
 
-## 원문의 8개 영역과 로컬 문서
+## Upstream areas and local references
 
-| 원문 영역 | 이 스킬에서 다루는 위치 |
+| Upstream area | Local coverage |
 | --- | --- |
-| 1. Eliminating Waterfalls | [performance.md](performance.md)의 요청 의존관계 |
-| 2. Bundle Size Optimization | [performance.md](performance.md)의 초기 전송·공개 import 경로 |
-| 3. Server-Side Performance | [server-react.md](server-react.md)의 실행 환경·캐시·서버 경계 |
-| 4. Client-Side Data Fetching | [performance.md](performance.md)의 기존 데이터 계층·구독 |
-| 5. Re-render Optimization | [react-correctness.md](react-correctness.md)의 상태·Effect와 성능 문서의 렌더 비용 |
-| 6. Rendering Performance | [performance.md](performance.md)의 UI 비용과 서버 문서의 hydration |
-| 7. JavaScript Performance | [performance.md](performance.md)의 계산량·캐시 수명 |
-| 8. Advanced Patterns | [react-correctness.md](react-correctness.md)의 Effect Event·앱 수명 |
+| 1. Eliminating Waterfalls | Request dependencies in [performance.md](performance.md) |
+| 2. Bundle Size Optimization | Initial transfer and public import paths in [performance.md](performance.md) |
+| 3. Server-Side Performance | Runtime, caching, and server boundaries in [server-react.md](server-react.md) |
+| 4. Client-Side Data Fetching | Existing data layers and subscriptions in [performance.md](performance.md) |
+| 5. Re-render Optimization | State/Effects in [react-correctness.md](react-correctness.md) and rendering costs in performance.md |
+| 6. Rendering Performance | UI costs in performance.md and hydration in server-react.md |
+| 7. JavaScript Performance | Computational cost and cache lifetimes in [performance.md](performance.md) |
+| 8. Advanced Patterns | Effect Events and app lifetimes in [react-correctness.md](react-correctness.md) |
 
-## 그대로 일반화하지 않는 기준
+## Criteria not generalized verbatim
 
-- `SWR`, `better-all`, LRU는 원문의 구현 선택지다. 기존 데이터 계층과 표준 Promise로 충족되는 요구에 새 의존성을 강제하지 않는다.
-- barrel 파일 자체를 결함으로 보지 않는다. 원문 §2.1도 프레임워크의 import 최적화와 서브패스 타입 지원을 구분한다.
-- 원문 §5.5의 기본 인자 안정성은 downstream 전달·의존성에 한정해 판단한다. 생략된 prop이 memo 경계에서 비교되는 과정과 컴포넌트가 실행된 뒤의 기본값 생성을 혼동하지 않는다.
-- §8.1과 React 공식 문서를 따라 Effect Event를 의존성에서 제외한다. §8.3의 'stable reference' 설명을 일반 콜백 안정성 보장으로 옮기지 않는다.
-- `useTransition`의 네트워크 로딩 대체, 새 React API, hydration 억제는 버전·의미·실제 문제가 일치하는 경우에만 검토한다. 원문의 숫자는 이 프로젝트에서 얻은 측정값이 아니다.
+- `SWR`, `better-all`, and LRU are upstream implementation choices. Do not force new dependencies when the existing data layer and standard promises meet the requirements.
+- A barrel file is not inherently a defect. Upstream section 2.1 distinguishes framework import optimization and subpath type support.
+- Apply section 5.5's default-argument stability advice to downstream passing and dependencies. Do not confuse comparison of omitted props at a memo boundary with default-value creation after the component begins executing.
+- Follow section 8.1 and React documentation by excluding Effect Events from dependencies. Do not interpret section 8.3's 'stable reference' wording as a general callback-stability guarantee.
+- Consider transition-based network loading, new React APIs, and hydration suppression only when version, semantics, and the actual problem match. Upstream numbers are not measurements from this project.
 
-## 보강에 사용한 공식 문서
+## Official documentation used for additions
 
-- [React: You Might Not Need an Effect](https://react.dev/learn/you-might-not-need-an-effect) — 파생값·이벤트·외부 동기화 구분.
-- [React: Preserving and Resetting State](https://react.dev/learn/preserving-and-resetting-state) — 컴포넌트 정체성과 key·상태 보존.
-- [React: memo](https://react.dev/reference/react/memo) — props 비교와 Compiler 적용 조건.
-- [React: useEffectEvent](https://react.dev/reference/react/useEffectEvent) — 호출 위치·반응형 값·의존성 제한.
-- [React 18: useTransition](https://18.react.dev/reference/react/useTransition)와 [현재 문서](https://react.dev/reference/react/useTransition) — 비동기 지원 차이와 입력·요청 상태의 의미.
-- [React: cache](https://react.dev/reference/react/cache) — RSC 요청 범위.
-- [TanStack Query: Query Keys](https://tanstack.com/query/latest/docs/framework/react/guides/query-keys) — 데이터 식별과 의존 변수.
-- [Next.js: Data Security](https://nextjs.org/docs/app/guides/data-security) — 서버 함수와 데이터 경계.
+- [React: You Might Not Need an Effect](https://react.dev/learn/you-might-not-need-an-effect) — derived values, events, and external synchronization.
+- [React: Preserving and Resetting State](https://react.dev/learn/preserving-and-resetting-state) — component identity, keys, and state preservation.
+- [React: memo](https://react.dev/reference/react/memo) — props comparison and Compiler applicability.
+- [React: useEffectEvent](https://react.dev/reference/react/useEffectEvent) — call sites, reactive values, and dependency restrictions.
+- [React 18: useTransition](https://18.react.dev/reference/react/useTransition) and [current documentation](https://react.dev/reference/react/useTransition) — async support differences and the meaning of input/request state.
+- [React: cache](https://react.dev/reference/react/cache) — RSC request scope.
+- [TanStack Query: Query Keys](https://tanstack.com/query/latest/docs/framework/react/guides/query-keys) — data identity and dependencies.
+- [Next.js: Data Security](https://nextjs.org/docs/app/guides/data-security) — server functions and data boundaries.
 
-현재 문서가 저장소에 설치된 버전과 다를 수 있다. API 적용 시 대상 버전의 문서·타입을 우선한다. 이 문서를 읽는 것만으로 관련 없는 의존성을 업그레이드하지 않는다.
+Current documentation may differ from installed versions. Prefer documentation and types for the target version when applying an API. Reading this reference is not a reason to upgrade unrelated dependencies.
 
-스킬 구성은 사용자가 지정한 [OpenAI의 skills·prompts 재검토 글](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra)을 참고해 짧은 발견 정보, 필요한 참조만 읽기, 결과 중심의 판단 기준으로 유지한다.
+Maintain the skill's structure using the user-specified [OpenAI article on rethinking skills and prompts](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra): concise discovery metadata, relevant references, and outcome-oriented decision criteria.

@@ -1,7 +1,7 @@
-# 점수를 요청받았을 때
+# When a score is requested
 
-점수는 정성 판단의 요약이며 계측값이 아니다. 전후·A/B 비교나 수치 측정이 필요하면 [measurement.md](measurement.md)를 함께 사용한다.
+A score summarizes qualitative judgment; it is not an instrumented measurement. Use [measurement.md](measurement.md) as well when before/after or A/B comparison or numerical measurement is needed.
 
-점수가 꼭 필요하면 먼저 축별 근거와 평가 범위를 정하고 숫자는 그 판단의 요약으로만 제공한다. 전후에 기준과 가중치를 바꾸지 않으며, 미확인은 만점이나 0점 대신 별도로 표시한다. 근거가 빈약한 소수점 정밀도나 '12/10 달성'을 만들지 않는다. '12점으로 개선'은 측정 가능한 완료 조건으로 바꾸고 충족하면 끝낸다.
+When a score is necessary, establish evidence by dimension and evaluation scope first, then use the number only as a summary. Do not change criteria or weights between before/after assessments. Mark unknowns separately instead of assigning full marks or zero. Avoid unsupported decimal precision or invented claims of achieving '12/10'. Translate 'improve to 12 points' into verifiable completion conditions and stop when they are met.
 
-이 저장소의 축별 판정과 변경 시나리오는 실무용 판단 기준이다. 원문 지표의 재현이나 과학적으로 검증된 품질 척도라고 주장하지 않는다.
+This repository's dimensions and change scenarios are practical judgment aids. Do not describe them as reproductions of the source metrics or scientifically validated quality scales.

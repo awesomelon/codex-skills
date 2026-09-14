@@ -1,27 +1,29 @@
-현재 계약 위반은 발견하지 못했습니다. 유지보수 측면에서는 **보관 정책의 중복 구현 1건에 국소 개선 가치**가 있습니다. 파일은 수정하지 않았습니다.
+> English translation of a historical record. [Original at the pre-translation commit](https://github.com/awesomelon/codex-skills/blob/ce11c34e3d1da77140087300218b776594bb65cf/evals/code-quality-guard/outputs/review.md). Reported runs, hashes, and counts describe the original work, not this translation.
 
-**정확성:** Node.js `v24.19.0`에서 `node --test policy.test.mjs`를 실행했고, **7개 중 7개 통과**했습니다.
+No violation of the current contract was found. One maintainability issue—**duplicated archive policy—merits a local improvement**. No files were edited.
 
-| 계약 | 확인 근거 | 결과 |
-|---|---|---|
-| 세 보관 진입점의 동일 정책 | 상태 3종 × 잠금 2종, 총 6개 조합 검사 | 통과 |
-| 상세 메뉴 순서 | `['open']` 또는 `['open', 'archive']` 비교 | 통과 |
-| 일괄 ID의 입력 순서·빈 입력 | 복수 문서 필터링과 빈 배열 검사 | 통과 |
-| 입력 비수정 | 동결한 문서·배열을 전달한 테스트와 구현 검토 | 문제 발견 없음 |
-| 핀 정책의 독립성 | 별도 `canPin` 구현과 현재 6개 조합 검사 | 현재 계약 충족 |
+**Correctness:** Ran `node --test policy.test.mjs` on Node.js `v24.19.0`; **7 of 7 passed**.
 
-유효하지 않은 입력은 계약 범위 밖이며, 제공되지 않은 실제 UI 호출자는 확인하지 않았습니다.
+| Contract | Evidence | Result |
+| --- | --- | --- |
+| Same policy at all three archive entry points | Three statuses × two lock states: six combinations | Passed |
+| Detail-menu order | Compared `['open']` or `['open', 'archive']` | Passed |
+| Bulk ID order and empty input | Multiple-document filtering and empty-array checks | Passed |
+| Input immutability | Tests with frozen documents/arrays plus implementation review | No issue found |
+| Independent pin policy | Separate `canPin` and current six-combination checks | Current contract met |
 
-**유지보수 품질:** 같은 보관 정책이 다음 **제품 코드 3개 파일의 3개 판단 지점**에 각각 구현되어 있습니다.
+Invalid input is outside the contract. Actual UI callers were not supplied and were not inspected.
 
-- `list.mjs` 2행, `showArchiveButton`
-- `detail.mjs` 3행, `documentActions`
-- `bulk.mjs` 3행, `archiveIds`
+**Maintainability:** The same archive policy appears at **three decision points in three product files**:
 
-예를 들어 **보관에서 `cancelled`를 제외한다는 가정**이면 세 지점을 함께 수정해야 합니다. 하나를 누락하면 화면별 보관 가능 여부가 달라집니다. 이는 코드와 계약에서 추적한 변경 비용이며, 변경 실험은 수행하지 않았습니다.
+- `list.mjs`, line 2, `showArchiveButton`
+- `detail.mjs`, line 3, `documentActions`
+- `bulk.mjs`, line 3, `archiveIds`
 
-최소 개선은 보관 판정만 공용 `canArchive(document)`로 모으고, 기존 함수명·모듈 export를 유지한 채 세 진입점이 사용하게 하는 것입니다. 정책 수정 지점을 3곳에서 1곳으로 줄이는 대신 공용 함수 호출을 한 단계 추가합니다. 더 큰 구조 개편은 필요하지 않습니다.
+For example, **if `cancelled` were excluded from archiving**, all three decisions would need to change. Missing one could make eligibility differ across screens. This is change cost traced through code/contracts, not an executed change experiment.
 
-`canPin`은 독립 정책이므로 공통화 대상에서 제외해야 합니다. 또한 `policy.test.mjs` 22행은 보관과 같은 `allowed` 기대값을 사용합니다. 보관·핀 기대값을 구분하면 두 정책이 달라질 때 각각 검증하기 쉬워집니다. 검증은 기존 7개 테스트를 유지하면서 정책 변경 시 세 보관 진입점과 핀의 기대값을 독립적으로 확인하면 됩니다.
+The smallest improvement is a shared `canArchive(document)` used by all three entry points while preserving function names and module exports. This reduces policy edit points from three to one at the cost of another shared-function call. No larger restructuring is needed.
 
-숨은 상태·부작용이나 불필요한 추상화의 문제 근거는 없었습니다. 이전 버전이 없어 품질 변화는 판단 보류이며, 분석기가 없는 AST 복잡도·clone 중복률은 미측정입니다.
+Keep `canPin` out of the shared policy because it is independent. Also, `policy.test.mjs` line 22 uses the same `allowed` expectation as archiving. Separate archive and pin expectations would make independent policy changes easier to verify. Retain the seven existing tests and check the three archive entry points and pin expectations independently when policies change.
+
+No evidence supported hidden-state/side-effect or unnecessary-abstraction findings. Quality change cannot be judged without an earlier version. AST complexity and clone rate remain unmeasured without analyzers.

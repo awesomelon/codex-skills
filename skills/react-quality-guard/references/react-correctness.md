@@ -1,31 +1,31 @@
-# 상태·Effect·컴포넌트의 정확성
+# Correctness of state, Effects, and components
 
-관련 있는 항목에서 실제 업데이트·소비 경로를 따라 판단한다. 출처와 원문 대응은 [sources.md](sources.md)에 있다.
+Follow actual update and consumption paths for relevant issues. See [sources.md](sources.md) for attribution and upstream mapping.
 
-## 상태가 나타내는 의미
+## What state represents
 
-- 현재 props/state로 계산되는 값은 우선 렌더에서 도출한다. 독립적으로 편집하는 draft, 서버 스냅샷, 명시적인 초기값은 파생 상태와 구분한다. 서버 재조회가 사용자의 미저장 입력을 덮지 않게 한다.
-- 상태·props·공유 캐시를 제자리에서 수정하지 않는다. 정렬은 복사한 배열 또는 지원되는 `toSorted()`를 사용한다. 새 배열을 만들더라도 원소 객체의 공유 여부를 함께 본다.
-- 이전 값에 누적하는 업데이트는 함수형 setter를 고려한다. updater와 초기화 함수는 순수하게 유지하고 API 호출·로그·다른 상태 쓰기를 그 안에 넣지 않는다.
-- 비싼 초기 계산은 지연 초기화를 검토하되 이후 props 변경에도 갱신되어야 하는 값을 초기 스냅샷으로 고정하지 않는다. Strict Mode에서 초기화 함수가 재호출될 수 있음을 고려한다.
-- 화면에 표시되거나 버튼 활성화에 쓰이는 값은 갱신 시 렌더를 유발해야 한다. ref는 타이머·DOM 핸들처럼 렌더와 독립적인 값에 사용한다.
+- Prefer deriving values from current props/state during rendering. Distinguish independently edited drafts, server snapshots, and explicit initial values from redundant derived state. Background refetches must not overwrite unsaved user input.
+- Do not mutate state, props, or shared caches in place. Sort a copied array or use `toSorted()` where supported. Even with a new array, consider shared element objects.
+- Consider functional setters for updates that accumulate from the previous value. Keep updaters and initializers pure; do not put API calls, logging, or other state writes inside them.
+- Consider lazy initialization for expensive initial calculations, but do not freeze a value into an initial snapshot when it should follow later prop changes. Account for initializer reinvocation in Strict Mode.
+- Values displayed in the UI or used to enable buttons must trigger rendering when updated. Use refs for render-independent values such as timers and DOM handles.
 
-## Effect와 비동기 수명
+## Effects and asynchronous lifetimes
 
-- 외부 시스템과의 동기화는 Effect, 특정 클릭·제출에 따른 작업은 해당 이벤트 경로에 둔다. 파생값 저장을 위한 Effect나 연쇄 상태 업데이트는 단순화 후보로 본다.
-- Effect에서 실제로 읽는 반응형 값은 의존성에 반영한다. 필요한 객체 생성 위치를 조정하거나 사용하는 원시값만 받도록 바꿀 수는 있지만, 실행 횟수를 줄이려고 의존성을 지우거나 lint를 끄지 않는다.
-- 구독·타이머·연결은 생성한 자원을 cleanup에서 해제한다. 개발 환경의 재실행을 무조건 오류로 보거나 전역 `didInit` 플래그로 숨기지 않는다. 앱 초기화와 컴포넌트·사용자·테넌트 수명은 서로 다르다.
-- Effect의 읽기 요청은 이전 응답이 최신 상태를 덮는 경로를 확인한다. 기존 데이터 라이브러리의 키·취소를 우선 활용하고, 직접 요청하면 cleanup·세대 식별 등으로 오래된 결과를 차단한다. 취소가 서버 mutation을 되돌린다고 가정하지 않는다.
-- 성공·실패·로딩 상태가 같은 요청 또는 화면 대상에 속하는지 확인한다. 중복 제출 방지와 낙관적 갱신은 실패·순서 역전·롤백 시에도 계약을 보존해야 한다.
-- `useEffectEvent`는 해당 React와 Hooks lint 버전이 지원하고 Effect 내부의 비반응형 로직에 맞을 때만 사용한다. 일반 이벤트 prop이나 memo용 안정 콜백의 대체재로 쓰지 않는다. 반환 함수를 Effect 의존성에 넣거나 필요한 반응형 의존성을 숨기는 데 쓰지 않는다.
+- Use Effects for synchronization with external systems and event handlers for work caused by a specific click or submission. Consider simplifying Effects that only store derived values or cause chained state updates.
+- Include reactive values actually read by an Effect in its dependencies. Moving object creation or depending on the primitive values used can be appropriate; deleting dependencies or disabling lint to reduce execution count is not.
+- Release created subscriptions, timers, and connections in cleanup. Do not automatically treat development re-execution as a bug or hide it with a global `didInit` flag. App initialization and component/user/tenant lifetimes differ.
+- For reads in Effects, inspect paths where older responses overwrite newer state. Prefer existing data-library keys and cancellation. For direct requests, block obsolete results through cleanup, generation identifiers, or similar mechanisms. Do not assume cancellation rolls back a server mutation.
+- Ensure success, error, and loading state belong to the same request or screen target. Duplicate-submission prevention and optimistic updates must preserve contracts during failure, reordered responses, and rollback.
+- Use `useEffectEvent` only when the installed React and Hooks lint versions support it and the logic is non-reactive work within an Effect. It is not a replacement for ordinary event props or stable memo callbacks. Do not put its returned function in Effect dependencies or use it to hide required reactive dependencies.
 
-## 정체성과 상호작용
+## Identity and interaction
 
-- 중첩 선언을 실제 `<Child />` 컴포넌트로 렌더하면 부모 렌더마다 타입이 달라져 상태·포커스가 초기화될 수 있다. 일반 렌더 헬퍼 함수와 구분하고 필요한 값은 props로 전달한다.
-- 항목의 key는 재정렬·삽입 후에도 같은 논리 항목을 식별해야 한다. 고정 목록의 index를 맥락 없이 결함으로 단정하지 않고, key 변경에 따른 의도적인 상태 초기화도 보존한다.
-- `count && <Row />`처럼 숫자가 DOM에 노출될 수 있는 조건만 명시적 불리언 또는 삼항식으로 바꾼다. 이미 불리언인 모든 `&&`를 일괄 교체하지 않는다.
-- 분리·최적화 후 controlled input 값, 한글 조합 입력, 폼 제출, label·키보드·포커스·disabled 동작 중 변경의 영향을 받는 계약을 확인한다. React Native나 전체 디자인 감사로 확대하지 않는다.
+- A nested definition rendered as an actual `<Child />` component can change type on every parent render, resetting state or focus. Distinguish ordinary render helpers and pass required values through props.
+- Keys must identify the same logical item after reordering or insertion. Do not flag indices in fixed lists without context; preserve intentional resets caused by changing keys.
+- Replace conditions such as `count && <Row />` with an explicit boolean or ternary when a number could leak into the DOM. Do not uniformly replace every already-boolean `&&`.
+- After splitting or optimizing, verify affected contracts for controlled inputs, Korean IME composition, form submission, labels, keyboard interaction, focus, and disabled behavior. Do not expand into React Native or a full design audit.
 
-## 검증 선택
+## Select verification
 
-증상에 맞게 props 변경 중 편집 유지, 빠른 연속 입력과 역순 응답, mount→cleanup→remount, 목록 재정렬과 입력 유지, 요청 실패 후 재시도를 확인한다. 스냅샷이나 setter 호출 횟수만으로 실제 동작을 검증했다고 하지 않는다.
+Choose checks that match the symptom: editing while props change, rapid input and reordered responses, mount→cleanup→remount, reordering a list while preserving input, or retrying a failed request. Snapshots or setter-call counts alone do not verify real behavior.

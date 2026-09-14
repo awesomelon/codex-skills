@@ -1,49 +1,51 @@
-# React 품질 가드 검증 기록
+# React Quality Guard validation records
 
-검증일: 2026-09-12. 실행 환경: Linux 컨테이너.
+> English translation of a historical record. [Original at the pre-translation commit](https://github.com/awesomelon/codex-skills/blob/ce11c34e3d1da77140087300218b776594bb65cf/evals/react-quality-guard/results.md). Reported runs, hashes, and counts describe the original work, not this translation.
 
-## 설치·구조 검사
+Validation date: 2026-09-12. Environment: Linux container.
 
-- skill-creator의 `quick_validate.py`: frontmatter·이름 검증 통과.
-- 저장소의 `scripts/validate.py`: 두 스킬의 기본 메타데이터와 스킬 내부 상대 참조 검사 통과.
-- 기존 설치기 테스트 24개 통과. 새 설치기 코드는 추가하거나 변경하지 않았다.
-- 임시 경로에서 두 스킬의 자동 발견, 링크·복사 전체 설치, 미리보기 무변경, 재실행, React 스킬만 선택 설치를 확인했다. 설치된 파일은 원본과 일치했다.
-- UI 메타데이터의 YAML 파싱과 명시 호출 예시를 확인했다.
+## Installation and structure
 
-## 행동 확인 방법
+- skill-creator `quick_validate.py`: passed frontmatter/name validation.
+- Repository `scripts/validate.py`: both skills passed basic metadata and skill-local relative references.
+- All 24 existing installer tests passed. No installer code was added or changed.
+- In temporary paths, verified automatic discovery of both skills, complete link/copy installation, non-mutating preview, reruns, and React-only selection. Installed files matched source.
+- Parsed UI YAML and checked explicit-invocation examples.
 
-실제 입력은 [리뷰 요청](fixtures/review/TASK.md)과 [구현 요청](fixtures/implementation/TASK.md)에 보존했다. 각 입력 폴더를 서로 다른 임시 작업 공간으로 복사하고, 스킬 경로와 해당 요청만 별도 에이전트에 전달했다. 기대 답안·문제 위치·다른 평가 결과는 전달하지 않았다.
+## Behavioral method
 
-리뷰 입력의 변경 여부는 실행 전후 파일 해시로 확인했다. 구현 결과는 원본과 diff를 비교해 요청된 동작·공개 props·변경 범위를 확인했다. 실행 당시 스킬 파일 해시는 [manifest.json](outputs/manifest.json)에 있다. 아래 기록은 모델 행동의 표본이며 실제 React 런타임 테스트와 다르다.
+Inputs are preserved as the [review task](fixtures/review/TASK.md) and [implementation task](fixtures/implementation/TASK.md). Each folder was copied into a separate temporary workspace, and an independent agent received only the skill path and task. No expected answer, issue location, or other evaluation result was supplied.
 
-## 실제 결과와 한 차례 보완
+Before/after file hashes checked review immutability. Implementation diffs checked requested behavior, public props, and edit scope. Run-time skill hashes are in [manifest.json](outputs/manifest.json). These are behavioral samples, not actual React runtime tests.
 
-| 실행 | 관찰 결과 | 판정 |
+## Results and one correction
+
+| Run | Observation | Judgment |
 | --- | --- | --- |
-| 최초 독립 리뷰 | 테넌트 캐시·재조회 실패 시 draft 소실을 찾고 파일을 보존했다. 다만 API 내부 구현이 없는데도 저장 후 캐시 갱신 누락을 확정했다. | 근거 수준 구분 보완 필요 |
-| 독립 구현 | 원본 배열을 변경하지 않는 검색·정렬로 바꾸고 파생 상태·Effect를 제거했다. 공개 props와 JSX의 표시·입력·선택 코드를 유지했으며 대상 컴포넌트만 수정했다. | 요청 범위·정적 동작 보존 확인 |
-| 보완 후 새 독립 리뷰 | 직접 입증되는 두 문제와 API 내부 계약의 확인 필요를 구분했다. draft·저장 pending·memo에 불필요한 변경을 제안하지 않았고 입력 파일 해시를 보존했다. | 해당 표본의 기준 충족 |
+| Initial independent review | Found tenant caching and draft loss after refetch failure; preserved files. Also asserted missing post-save cache updates despite omitted API internals. | Needed stronger evidence distinctions |
+| Independent implementation | Used non-mutating filtering/sorting and removed derived state/Effect. Preserved public props and display/input/selection JSX; edited only the target component. | Scope and static behavior preservation checked |
+| Fresh review after correction | Distinguished two directly supported issues from an API contract requiring inspection. Avoided unnecessary draft/save-pending/memo changes and preserved input hashes. | Met criteria for this sample |
 
-첫 리뷰 이후 `performance.md`에 API 어댑터·공통 mutation 구현이 생략됐을 때 캐시 갱신 누락을 단정하지 않는 기준을 한 항목 추가했다. 재평가에는 수정한 스킬과 새로 복사한 원본 입력만 전달했다. 이 수정은 표현의 근거 수준에 관한 것으로 구현 사례의 계산·상태 기준은 바꾸지 않았다.
+After the first review, added one criterion to `performance.md`: do not assert missing cache updates when API adapters or shared mutation implementations are omitted. Reevaluation received only the revised skill and a fresh original input copy. This changed evidence-level guidance, not calculation/state criteria used by the implementation case.
 
-최종 [리뷰 출력](outputs/review-final.md)과 [구현 출력](outputs/DocumentPicker.tsx)을 보존했다. 구현의 실제 계산식을 추출한 [Node 검사](outputs/check-picker.mjs) 9개가 통과했으며, 기록용 스크립트로도 재확인했다. 정렬·동일 제목 순서·원본 불변성·대소문자 무시 검색·빈 결과·공백 의미·빈 입력·새 props·원소 정체성을 확인한 범위다. React 렌더나 타입 검사의 통과로 해석하지 않는다.
+Saved the final [review output](outputs/review-final.md) and [implementation output](outputs/DocumentPicker.tsx). Nine [Node checks](outputs/check-picker.mjs) extracting the actual calculation passed, and the recording script reconfirmed them. Coverage included sorting, equal-title order, source immutability, case-insensitive search, empty results, whitespace semantics, empty input, new props, and element identity. Do not interpret these as React-rendering or type-check passes.
 
-## 한계
+## Limits
 
-- 명시적으로 스킬을 제공한 두 종류의 사례를 실행했고, 리뷰만 보완 후 한 번 더 실행했다. 전체 [14개 시나리오](cases.md)의 통과나 자동 스킬 선택·반복 안정성을 보증하지 않는다. 별도 모델 버전 식별자는 수집하지 않았다.
-- fixture의 React·Vite 버전은 입력 조건이다. 실행 의존성을 설치하지 않았으며 React DOM 렌더·타입 검사·브라우저 상호작용은 별도 검증 대상이다.
-- 렌더링 시간·번들 크기·네트워크 지연 개선을 측정하지 않았다.
-- macOS 실기에서 설치·Codex 호출은 검증하지 않았다. 실제 사용자 스킬·전역 설정은 변경하지 않았다.
+- Executed two types of explicit-invocation cases and repeated only review once after correction. This does not establish all [14 scenarios](cases.md), automatic selection, or repeatability. No separate model-version identifier was collected.
+- React/Vite versions in fixtures are input conditions. Runtime dependencies were not installed; React DOM rendering, type checks, and browser interactions need separate validation.
+- Render time, bundle size, and network-latency improvements were not measured.
+- Installation and Codex invocation on macOS hardware were not verified. Actual installed user skills and global configuration were unchanged.
 
-## 재실행
+## Rerun
 
-설치·구조 검사는 저장소 루트에서 다음을 실행한다.
+Run installation/structure checks from the repository root:
 
 ```bash
 python3 scripts/validate.py
 python3 -m unittest discover -s tests -v
 ```
 
-행동 확인은 fixture를 다른 폴더로 복사한 뒤 해당 `TASK.md`를 `$react-quality-guard`에 요청한다. 실행 결과는 원본 fixture를 덮어쓰지 말고 별도로 기록한다.
+For behavioral checks, copy the fixture elsewhere and submit TASK.md to `$react-quality-guard`. Save outputs separately without overwriting the original fixture.
 
-저장된 구현 출력의 계산 검사는 Node.js가 있는 환경에서 `node evals/react-quality-guard/outputs/check-picker.mjs`로 재실행한다. Node.js는 이 평가용 검사에만 필요하며 스킬 설치기의 의존성이 아니다.
+With Node.js available, rerun saved-implementation calculations using `node evals/react-quality-guard/outputs/check-picker.mjs`. Node.js is required for this evaluation check only, not for skill installation.

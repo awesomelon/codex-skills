@@ -1,37 +1,39 @@
-# 문서 액션 모듈 품질 비교
+# Document action module quality comparison
 
-## 비교 범위와 기준
+> English translation of a historical record. [Original at the pre-translation commit](https://github.com/awesomelon/codex-skills/blob/ce11c34e3d1da77140087300218b776594bb65cf/evals/skill-audit-2026-09-14/outputs/quality-retest-report.md). Reported runs, hashes, and counts describe the original work, not this translation.
 
-- 기준은 이번 작업에서 수정 전에 읽은 `list.mjs`, `detail.mjs`, `bulk.mjs`의 제공 스냅샷이다. 이전 버전과의 비교가 아니다.
-- 변경 후에는 위 세 파일과 새 `archive-policy.mjs`를 같은 제품 계약과 기준으로 검토했다. 이 보고서는 제품 코드 평가에서 제외한다.
-- Git 저장소가 아니므로 staged/unstaged/untracked 구분이나 과거 변경의 작성자 확인은 불가능하다. 시작 시 존재하던 코드를 기준으로 이번 수정만 비교했다.
-- 근거는 TASK.md, 직접 읽은 전체 제품 코드와 호출 경로, 제공된 `policy.test.mjs`다. 실행 환경은 Node.js v26.8.2다.
-- 네트워크, 패키지 설치, GitHub 작업, 다른 폴더 수정 없이 진행했다. TASK.md, 제공 테스트와 .agents의 원문은 수정하지 않았다.
+## Scope and baseline
 
-## 정확성
+- The baseline is the supplied `list.mjs`, `detail.mjs`, and `bulk.mjs` snapshot read before editing, not a comparison against an earlier version.
+- Reviewed those three files and the new `archive-policy.mjs` against the same product contract and criteria afterward. This report is excluded from product-code evaluation.
+- No Git repository exists, so staged/unstaged/untracked classification and historical authorship cannot be determined. Only current edits are compared with the starting code.
+- Evidence comprises TASK.md, all directly inspected product code and call paths, and supplied `policy.test.mjs`. Runtime: Node.js v26.8.2.
+- No network access, package installation, GitHub operations, or edits outside the folder occurred. TASK.md, supplied tests, and `.agents` originals were unchanged.
 
-수정 전과 후에 각각 `node --test policy.test.mjs`를 실행했으며, 모두 7개 통과·실패 0개·건너뜀 0개였다.
+## Correctness
 
-테스트는 유효한 status 세 가지와 locked 두 가지의 모든 조합에서 목록 버튼, 상세 액션, 일괄 대상, 핀의 현재 결과를 확인한다. 상세의 open/archive 순서, 일괄 결과의 입력 순서와 빈 입력도 확인한다. 동결한 문서와 배열을 사용한 경로가 통과했고, 코드에서도 입력에 쓰는 동작은 없다.
+Ran `node --test policy.test.mjs` once before and once after: each passed 7, failed 0, and skipped 0.
 
-기존 모듈의 `showArchiveButton`, `documentActions`, `canPin`, `archiveIds` 이름과 export를 유지했다. 새 정책 함수는 기존과 동일한 조건을 사용한다. 정확성은 제공 계약과 테스트 범위에서 유지되었다. 실제 UI 호출자는 제공되지 않아 UI 통합 검증은 하지 않았다. 유효하지 않은 입력은 TASK.md의 계약 밖이다.
+Tests check current list-button, detail-action, bulk-target, and pinning results across all valid combinations of three statuses and two lock values. They cover open/archive order, bulk input order, and empty input. Paths using frozen documents/arrays passed, and code contains no input writes.
 
-## 유지보수성
+Preserved names and exports of `showArchiveButton`, `documentActions`, `canPin`, and `archiveIds` in existing modules. The new policy function uses identical conditions. Correctness is preserved within the supplied contract/test scope. Actual UI callers were absent, so UI integration was not tested. Invalid inputs are outside TASK.md's contract.
 
-| 관점 | 시작 상태 | 변경 후 및 판단 |
+## Maintainability
+
+| Perspective | Starting state | After and judgment |
 | --- | --- | --- |
-| 보관 정책의 수정 지점 | `showArchiveButton`, `documentActions`, `archiveIds`에 동일한 판단이 독립적으로 존재했다. 보관 조건 변경 시 하나를 빠뜨리면 UI와 일괄 결과가 달라질 수 있었다. | 세 호출자가 `archive-policy.mjs`의 `canArchive`를 사용한다. 직접 코드에서 확인한 보관 조건 정의 위치가 3곳에서 1곳으로 줄었다. 정책 불일치 위험과 동시 수정 부담이 줄어 개선되었다. |
-| 독립적인 핀 정책 | `canPin`은 보관과 모양이 같은 조건을 별도로 가졌다. TASK.md가 독립 변경을 요구하므로 정당한 분리다. | 별도 판단을 유지하고 이유를 주석으로 남겼다. 보관 정책을 수정해도 핀 구현은 영향을 받지 않는다. 독립성은 유지되었다. |
-| 이해 경로와 추상화 | 각 함수 안에서 조건을 바로 읽을 수 있으나 동일 정책의 일치 여부는 세 곳을 대조해야 했다. | 각 호출자에서 정책 정의까지 import 한 단계를 따라가야 한다. 대신 정책 소유자가 명시된다. 일반화된 정책 엔진이나 설정 계층 없이 단일 함수만 추가했다. 간접 참조 비용은 늘었지만 공유 정책의 일치 확인은 쉬워졌다. |
-| 상태와 부작용 | 입력을 읽고 결과를 만들며 공유 가변 상태가 없었다. | 정책 함수도 입력만 읽는다. 입력 불변성과 기존 결과 생성 방식은 유지되었다. |
-| 회귀 검증 | 제공 테스트가 세 보관 진입점과 핀 결과를 함께 확인했다. | 같은 테스트를 그대로 활용할 수 있다. 정책 정의 한 곳과 기존 진입점의 결과를 연결해 검토할 수 있다. 실제 테스트 실행 비용의 개선은 주장하지 않는다. |
+| Archive-policy edit points | `showArchiveButton`, `documentActions`, and `archiveIds` each held the same decision. Missing one during a policy change could make UI and bulk results diverge. | All three call `canArchive` in `archive-policy.mjs`. Directly observed definition sites fell from 3 to 1, reducing policy divergence and synchronized-edit burden. Improved. |
+| Independent pinning | `canPin` held a similar condition separately, justified by TASK.md's independence requirement. | Kept the independent decision and explained it in a comment. Archive-policy changes do not affect pin implementation. Preserved. |
+| Understanding and abstraction | Each local condition was immediately readable, but verifying agreement required comparing three sites. | Added one import lookup from callers to the policy owner. Only a single function was introduced, without a generic policy engine or configuration layer. Indirection rose, while checking shared-policy agreement became easier. |
+| State and side effects | Read inputs and built results without shared mutable state. | The policy function also only reads inputs. Preserved input immutability and existing result construction. |
+| Regression verification | Supplied tests jointly checked three archive entry points and pinning. | The same tests remain usable, connecting one policy definition to existing entry-point outputs. No claim of lower actual test-execution cost. |
 
-현 구조 유지는 현재 동작에 문제는 없지만 정책의 중복 소유를 남긴다. 선택한 국소 수정은 새 파일 하나로 보관 판단을 모으고 기존 UI 함수를 유지한다. 범용 액션 체계나 모듈 경계 전반의 재설계는 이 입력에서 필요하지 않다.
+The original structure has no current behavior defect but duplicates policy ownership. The chosen local fix consolidates archive decisions in one new file and preserves existing UI functions. A generic action system or broad boundary redesign is unnecessary for this input.
 
-작은 다음 변경을 가정해 추적하면, 보관 허용 상태가 바뀔 때 시작 상태는 세 함수의 조건을 함께 고쳐야 했고 변경 후에는 `canArchive`의 조건만 고치면 된다. 핀은 별도로 유지하고 세 보관 진입점의 기대 결과를 검증해야 한다. 이는 코드 경로에 따른 추론이며, 가상의 정책 변경을 실제 구현하거나 변경 시간을 측정하지 않았다.
+Tracing a small hypothetical allowed-status change, the baseline needs coordinated edits in three functions while the revised version needs only `canArchive`. Keep pinning separate and verify expected outputs at the three archive entry points. This is inferred from code paths; no hypothetical policy change or timing experiment was implemented.
 
-## 한계와 종료 판단
+## Limits and stopping judgment
 
-AST 복잡도, SLOC, clone 중복률은 분석기가 없어 미측정이다. 위 수정 지점 수는 보관 정책 정의 위치를 직접 확인한 값이며 중복률이나 품질 점수가 아니다. 새로운 의존성은 없고, 기존 세 모듈의 공개 진입점 외에 정책 모듈의 `canArchive` export가 추가되었다.
+AST complexity, SLOC, and clone rate remain unmeasured without analyzers. The edit-point count directly identifies archive-policy definition sites; it is neither a clone rate nor a quality score. No external dependency was added. The policy module's `canArchive` export is new, alongside unchanged entry points in the three existing modules.
 
-제공 테스트는 현재 보관과 핀 조건이 같다는 사실을 확인하지만 미래 정책의 독립성까지 입증하지는 않는다. 독립성 판단은 `canPin`이 공유 보관 함수를 호출하지 않는 코드 구조에 근거한다. 조사 범위에서는 새 동작 결함이나 악화가 발견되지 않았으며, 필요한 수정과 제공된 검증을 완료했다.
+Tests establish that archive and pin conditions currently match, not their future independence. The independence judgment comes from `canPin` not calling the shared archive function. No new behavior defect or deterioration was found within scope; necessary edits and supplied validation are complete.

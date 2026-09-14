@@ -1,13 +1,15 @@
-# React 독립 구현 출력
+# Independent React implementation output
 
-별도 에이전트의 최종 답변이다. 파일 링크만 저장소 경로로 변경했다.
+> English translation of a historical record. [Original at the pre-translation commit](https://github.com/awesomelon/codex-skills/blob/ce11c34e3d1da77140087300218b776594bb65cf/evals/skill-audit-2026-09-12/outputs/react-implementation.md). Reported runs, hashes, and counts describe the original work, not this translation.
 
-[DocumentPicker.tsx](DocumentPicker.tsx)만 수정했습니다.
+Final response from a separate agent. The original record changed only file links to repository paths.
 
-- 원본 `documents`를 변경하던 정렬을 필터 결과 배열에 적용했습니다.
-- 파생 상태와 Effect를 제거해 현재 입력·props로 목록을 바로 계산합니다.
-- 제목 오름차순, 대소문자 구분 없는 검색, 표시 문구, 공개 props, 입력·선택 핸들러를 유지했습니다.
+Changed only [DocumentPicker.tsx](DocumentPicker.tsx).
 
-실제 계산 코드를 Node로 실행해 정렬, 검색, 빈 결과, 원본 불변성, props 교체, 동일 제목의 순서 유지를 확인했습니다.
+- Applied sorting to the filtered array instead of mutating original `documents`.
+- Removed derived state and the Effect, calculating the list directly from current input/props.
+- Preserved ascending title order, case-insensitive search, display text, public props, and input/selection handlers.
 
-제공된 실행 의존성과 테스트 환경이 없어 React 상호작용·타입 검사·빌드는 실행하지 못했습니다. 네트워크 접속이나 패키지 설치는 하지 않았습니다.
+Executed the actual calculation in Node to check sorting, search, empty results, source immutability, prop replacement, and stable order for equal titles.
+
+React interactions, type checking, and build were unavailable without runtime dependencies or a test environment. No network or package installation was used.

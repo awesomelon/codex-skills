@@ -1,20 +1,20 @@
-# 새 스킬 추가 요청
+# Request a new skill
 
-아래 `<...>`를 구체적인 요구로 채우고 `awesomelon/codex-skills`를 연 Codex에서 요청한다. 저장소 공통 규약과 검증 명령은 [AGENTS.md](../AGENTS.md)를 따른다.
+Fill in the `<...>` placeholders and submit this prompt in Codex with `awesomelon/codex-skills` open. Follow [AGENTS.md](../AGENTS.md) for repository conventions and validation commands.
 
 ```text
-이 awesomelon/codex-skills 저장소에 다음 Codex 스킬을 추가하고 검증한 뒤 작업 브랜치를 push하고 PR을 만들어줘.
+Add the following Codex skill to awesomelon/codex-skills, validate it, push the working branch, and open a PR.
 
-스킬의 목표와 성공 기준: <반복해서 수행할 작업과 완료 조건>
-대표 요청: <실제로 사용할 사용자 요청>
-혼동하기 쉬운 범위 밖 요청: <호출하지 않을 작업>
-작업 범위: <리뷰 전용 / 구현 포함 등>
+Goal and success criteria: <recurring task and completion conditions>
+Representative request: <an actual user request>
+Likely out-of-scope request: <work that should not invoke the skill>
+Work scope: <review-only, implementation included, etc.>
 
-기존 스킬과 기능이 실질적으로 같으면 작은 확장을 선택하고 이유를 밝혀줘. 별도 스킬이 필요하면 독립적으로 설치할 수 있게 만들어줘.
+If an existing skill substantially covers the same purpose, prefer a small extension and explain why. If a separate skill is needed, make it independently installable.
 
-호출 조건은 짧고 구체적으로, 본문은 판단에 필요한 내용으로 작성해. 참조·스크립트는 실제 쓰임이 있을 때만 추가해. 구성 판단은 https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra 를 참고해.
+Keep invocation conditions concise and specific, and include only decision-relevant instructions in the body. Add references or scripts only for concrete uses. Consult https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra for skill structure.
 
-README와 관련 평가 사례를 갱신하고 저장소 규약에 따른 검증까지 완료해. 새 스킬은 임시 경로에서 발견·설치를 확인해. 기대 행동과 실제 실행 결과를 구분해.
+Update the README and relevant evaluation cases, then complete validation required by repository conventions. For a new skill, verify discovery and installation in a temporary path. Distinguish expected behavior from actual execution results.
 
-이번 변경만 커밋·push하고 PR을 만들어줘. 병합은 하지 마. 원격 작업이 막히면 가능한 로컬 작업을 마치고 미완료를 알려줘. 마지막에 스킬명, 설치·호출 예시, 검증 결과와 한계, PR 주소를 한국어로 알려줘.
+Commit and push only this change and open a PR. Do not merge it. If remote work is blocked, finish independent local work and state what remains incomplete. Report the skill name, installation/invocation examples, validation results and limits, and PR URL in Korean.
 ```

@@ -1,9 +1,9 @@
-# 작업 전 설계 점검
+# Design preflight
 
-구현할 동작의 책임 소유자와 기존 진입점을 정한다. 대상 코드, 가까운 유사 구현, 적용되는 경계 규칙으로 판단하며 명확한 작은 작업에 설계 인터뷰나 전역 저장소 지도를 요구하지 않는다.
+Identify the responsibility owner and existing entry point for the behavior to implement. Use the target code, nearby comparable implementations, and applicable boundary rules. Do not require a design interview or a repository-wide map for a clear, small task.
 
-결정에 영향을 주는 의존 방향·상태 쓰기 경로, 호환성을 유지할 소비자·배포 단위, 판단을 뒤집을 정보만 확인한다. 분리·공통화를 제안하면 현재 구조보다 줄어드는 변경 비용을 설명한다. 아직 구현되지 않은 위험은 확정 결함으로 보고하지 않는다.
+Check only dependency direction and state write paths that affect the decision, consumers and deployment units that need compatibility, and information that could reverse the judgment. Explain how a proposed split or shared abstraction reduces change cost compared with the current structure. Do not report risks in unimplemented designs as confirmed defects.
 
-결과에는 변경을 둘 위치, 유지할 계약, 중요한 위험과 확인 방법을 작업 규모에 맞게 남긴다. 작은 작업은 한두 문장으로 충분하다. 실질적인 차이가 있는 대안만 비교하고, 확인된 경로와 새로 제안하는 경로를 구분한다. 설계 문서가 없다는 이유로 ADR을 생성하지 않는다.
+Record where the change belongs, contracts to preserve, and material risks and checks at a scale appropriate to the task. One or two sentences can suffice for small work. Compare only materially different alternatives and distinguish observed paths from proposed ones. Do not create an ADR simply because none exists.
 
-계획 요청은 설계 판단으로 완료한다. 구현까지 요청받았다면 승인된 범위에서 진행한다. 미해결 결정이 외부 계약·권한·데이터 정합성을 좌우하면 해당 부분의 이유를 밝히고, 독립적으로 진행할 수 있는 작업을 계속한다.
+A planning request is complete with the design judgment. If implementation is also requested, proceed within the authorized scope. When an unresolved decision determines an external contract, authorization, or data integrity, explain why that part needs resolution and continue work that can proceed independently.

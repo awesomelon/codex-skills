@@ -1,17 +1,19 @@
-# React 독립 리뷰 출력
+# Independent React review output
 
-별도 에이전트의 최종 답변이다. 파일 링크만 저장소 경로로 변경했다.
+> English translation of a historical record. [Original at the pre-translation commit](https://github.com/awesomelon/codex-skills/blob/ce11c34e3d1da77140087300218b776594bb65cf/evals/skill-audit-2026-09-12/outputs/react-review.md). Reported runs, hashes, and counts describe the original work, not this translation.
 
-소스·설정은 수정하지 않았습니다. 정적 검토에서 중요한 문제 두 가지를 확인했습니다.
+Final response from a separate agent. The original record changed only file links to repository paths.
 
-1. **높음 — 테넌트별 캐시가 분리되지 않습니다.** [Documents.tsx](../../react-quality-guard/fixtures/review/Documents.tsx)의 `Documents` 16행에서 쿼리 키가 `['documents']`로 고정되어 있습니다. 같은 QueryClient에서 테넌트를 전환하면 이전 테넌트의 목록을 재사용할 수 있습니다. 해당 목록의 편집기는 새 `tenantId`를 받으므로 이전 문서의 ID·제목으로 새 테넌트에 저장을 요청할 수도 있습니다. 실제 저장 결과는 API 구현에 달려 있습니다. **최소 조치:** 쿼리 키를 `['documents', tenantId]`로 변경하고, 테넌트 전환 시 이전 목록을 임시 데이터로 넘기지 않습니다.
+No source or configuration was modified. Static review found two significant issues.
 
-2. **중간 — 재조회 실패로 미저장 입력이 사라질 수 있습니다.** `Documents` 20행은 캐시 데이터가 남아 있는 백그라운드 재조회 실패에도 `isError`만 보고 편집기 전체를 제거합니다. 이후 복구되면 `TitleEditor`가 다시 마운트되어 입력했던 제목이 서버 제목으로 초기화됩니다. **최소 조치:** 데이터가 없는 최초 조회 실패와 재조회 실패를 구분하고, 재조회 실패에서는 편집기를 유지한 채 오류를 표시합니다.
+1. **High — Tenant caches are not isolated.** In [Documents.tsx](../../react-quality-guard/fixtures/review/Documents.tsx), `Documents` line 16 fixes the key at `['documents']`. Switching tenants in the same QueryClient can reuse the previous list. Its editors receive the new `tenantId`, so a save may combine the previous document's ID/title with the new tenant. Actual persistence depends on API behavior. **Smallest remedy:** use `['documents', tenantId]` and do not pass the previous list as temporary data during tenant switching.
 
-현재 코드에서 유지할 부분도 있습니다.
+2. **Medium — Refetch failure can lose unsaved input.** `Documents` line 20 removes all editors based only on `isError`, even when cached data remains after background-refetch failure. Recovery remounts `TitleEditor`, replacing the edited title with the server title. **Smallest remedy:** distinguish initial failure without data from refetch failure, keeping editors mounted and displaying an error separately for the latter.
 
-- `TitleEditor`의 `useState(document.title)`는 독립적인 편집 초깃값입니다. 같은 문서 재조회마다 Effect로 동기화하면 미저장 제목을 덮으므로 권하지 않습니다. 테넌트·문서 ID를 포함한 기존 `key`도 유지하는 것이 적절합니다.
-- `HelpButton` 내부의 기본 콜백 생성만으로 `memo`의 props 비교가 실패하지 않습니다. 이를 이유로 `useCallback`을 추가할 필요는 없습니다.
-- 기존 `saving` 상태, 저장 버튼 비활성화, 실패 알림은 보존해야 합니다.
+Preserve these parts:
 
-**검증 한계:** 제공된 코드와 의존성 선언만 읽었으며, 네트워크·패키지 설치·파일 변경 없이 검토했습니다. 실행·타입 검사·성능 측정은 하지 않았습니다. `api.saveTitle` 내부가 없어 저장 후 캐시 갱신 여부는 확인할 수 없으며, 컴포넌트에 무효화 코드가 없다는 사실만으로 갱신 누락을 확정하지 않았습니다. 수정 후에는 테넌트 전환, 편집 중 재조회 성공·실패와 복구, 저장 실패 후 재시도를 확인해야 합니다.
+- `TitleEditor`'s `useState(document.title)` is an independent editing initial value. Synchronizing it with an Effect on every refetch could overwrite the unsaved title. Keep the existing key containing tenant and document IDs.
+- Creating the default callback inside `HelpButton` does not itself defeat memo's props comparison. It does not justify adding useCallback.
+- Preserve `saving`, disabled save buttons, and failure alerts.
+
+**Verification limits:** Read only supplied code and dependency declarations without network, installation, or file changes. Did not run the app, type checks, or performance measurements. `api.saveTitle` internals were absent, so post-save cache behavior could not be established. Missing invalidation in the component alone was not treated as proof of missing updates. After a fix, check tenant switching, successful/failed refetch and recovery during editing, and retry after save failure.

@@ -1,31 +1,31 @@
 ---
 name: react-quality-guard
-description: React 웹 컴포넌트·훅·데이터 흐름의 구현, 리뷰, 품질·성능 개선에 사용한다. 순수 문구·스타일 수정과 React Native는 제외한다.
+description: Implement, review, and improve React web components, hooks, data flows, and performance. Exclude wording-only or styling-only changes and React Native.
 ---
 
-# React 코드 품질 가드
+# React Quality Guard
 
-사용자 동작과 데이터 계약을 지키면서 React의 상태 오류와 불필요한 작업을 줄인다. Vercel React Best Practices를 판단 기준으로 활용한다.
+Reduce state errors and unnecessary React work while preserving user behavior and data contracts. Use Vercel React Best Practices as a judgment reference.
 
-리뷰·계획만 요청받으면 소스·설정·문서를 수정하지 않는다. 구현·개선 요청은 필요한 변경과 검증까지 완료한다. 지정된 코드와 직접 연결된 상태·요청 경로에서 시작하고, 전체 감사는 요청된 범위에 맞춰 수행한다.
+Review-only or planning-only requests must not modify source, configuration, or documentation. Implementation and improvement requests include necessary edits and verification. Start with the specified code and directly connected state/request paths; perform full audits at the requested scope.
 
-## 필요한 맥락과 참조
+## Relevant context and references
 
-이미 제공된 환경 정보를 재사용한다. React API 지원이 판단을 바꿀 때 버전·타입을, 메모이제이션·번들이 쟁점일 때 Compiler·빌드 설정을 확인한다. 의존성·설정 파일 전체 조사를 모든 변경의 선행 조건으로 삼지 않는다. Next.js·최신 API를 전제하거나 기존 데이터 라이브러리를 일괄 교체하지 않는다.
+Reuse environment information already provided. Check versions and types when React API support affects the decision; inspect Compiler/build configuration when memoization or bundles are at issue. Do not make a survey of all dependency and configuration files a prerequisite for every change. Do not assume Next.js or the latest APIs, or replace the existing data library wholesale.
 
-| 판단할 대상 | 필요한 참조 |
+| Decision area | Reference |
 | --- | --- |
-| 상태·Effect·컴포넌트 정체성·폼 동작 | [react-correctness.md](references/react-correctness.md) |
-| 요청·클라이언트 캐시·번들·렌더링 비용 | [performance.md](references/performance.md) |
-| 실제 SSR/RSC·서버 함수·hydration | [server-react.md](references/server-react.md) |
-| 출처 확인·원문 대조·기준 갱신 | [sources.md](references/sources.md) |
+| State, Effects, component identity, form behavior | [react-correctness.md](references/react-correctness.md) |
+| Requests, client caches, bundles, rendering cost | [performance.md](references/performance.md) |
+| Actual SSR/RSC, server functions, hydration | [server-react.md](references/server-react.md) |
+| Source verification, comparison with upstream, updating the baseline | [sources.md](references/sources.md) |
 
-관련 참조만 선택한다. 출처 문서는 일반 코드 리뷰의 필수 읽기 자료가 아니다.
+Select only relevant references. The source document is not required reading for ordinary code review.
 
-## 개입과 완료
+## Intervention and completion
 
-정확성·데이터 격리·호환성을 우선한다. 성능은 실제 사용자 경로의 직렬 요청, 초기 전송, 비싼 렌더·구독부터 판단한다. 컴포넌트 분리나 memo를 개수 목표로 추가하지 않는다. 경계 검토도 요청됐으면 그 결과를 재사용하며 다른 스킬 호출을 필수 단계로 붙이지 않는다.
+Prioritize correctness, data isolation, and compatibility. For performance, start with serial requests, initial transfer, and expensive rendering/subscriptions on real user paths. Do not add component splits or memoization to meet a count. If boundary review is also requested, reuse its findings without making another skill a mandatory step.
 
-동작·상태 변경은 재현 조건에 맞는 기존 검사나 상호작용으로 확인한다. 필수 검증 외에 검사를 늘릴 때는 해결할 불확실성이 있어야 한다. Hooks·타입 검사 규칙을 약화시키지 않는다. 단순 상태 오류 수정에 벤치마크를 요구하지 않으며, 성능 향상을 주장하려면 같은 조건의 측정으로 뒷받침한다.
+Verify behavior/state changes using existing checks or interactions that match the reproduction conditions. Beyond required validation, additional checks need a concrete uncertainty to resolve. Do not weaken Hooks or type-checking rules. A simple state fix does not require a benchmark; a claim of improved performance does require measurements under comparable conditions.
 
-결과는 파일·심볼, 발생 조건, 영향과 조치를 연결해 중요도순으로 보고한다. 정확성·유지보수 품질·측정된 성능을 구분한다. 전후 품질 비교도 요청됐다면 같은 범위·기준으로 비교하고 기존 근거를 재사용한다. 관찰·추정, 실행한 검증·미실행 항목을 구분한다. 요청 범위의 미해결 문제를 밝히고, 충분히 확인한 작업은 선택적 최적화만을 위해 계속 확장하지 않는다.
+Report findings by importance, connecting file/symbol, trigger, impact, and remedy. Distinguish correctness, maintainability, and measured performance. If before/after quality comparison is also requested, use the same scope and criteria and reuse evidence. Separate observations from estimates and executed checks from unrun ones. State unresolved in-scope issues; do not keep expanding sufficiently verified work solely for optional optimization.
