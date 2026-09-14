@@ -12,7 +12,7 @@ GitHub 저장소: [awesomelon/codex-skills](https://github.com/awesomelon/codex-
 | [react-quality-guard](skills/react-quality-guard/SKILL.md) | Vercel 기준으로 React 웹 코드의 정확성·성능을 개선합니다. 쟁점에 맞는 상태·요청·렌더링·서버 기준만 적용합니다. |
 | [code-quality-guard](skills/code-quality-guard/SKILL.md) | 정확성 검증과 유지보수 품질을 분리합니다. 변경 전후 지표·코드 근거·현실적인 변경 비용으로 검사하고, 요청 시 최소 개선과 검증을 수행합니다. |
 
-`architecture-guard`는 모듈 경계, `react-quality-guard`는 React 실행 방식과 사용자 동작, `code-quality-guard`는 언어·프레임워크 공통의 유지보수 품질 평가에 집중합니다. 여러 관점이 필요한 작업은 이미 확보한 근거를 재사용하며, 매번 세 스킬을 함께 호출할 필요는 없습니다. React 리뷰만 원하면 `$react-quality-guard로 현재 변경을 리뷰만 해줘`, 수정까지 원하면 `$react-quality-guard로 React 코드 품질을 개선하고 검증해줘`라고 요청합니다.
+`architecture-guard`는 모듈 경계, `react-quality-guard`는 React 실행 방식과 사용자 동작, `code-quality-guard`는 언어·프레임워크 공통의 유지보수 품질 평가에 집중합니다. 각 스킬은 단독 설치로 사용할 수 있습니다. 여러 관점이 필요한 작업은 이미 확보한 근거를 재사용하며, 매번 세 스킬을 함께 호출할 필요는 없습니다. 소규모 품질 리뷰는 본문의 근거로 판단하고, 전후 측정과 점수 평가는 해당 참조만 선택합니다. React 리뷰만 원하면 `$react-quality-guard로 현재 변경을 리뷰만 해줘`, 수정까지 원하면 `$react-quality-guard로 React 코드 품질을 개선하고 검증해줘`라고 요청합니다.
 
 공통 품질 검사는 다음처럼 요청합니다.
 
@@ -22,11 +22,13 @@ $code-quality-guard로 현재 변경의 정확성과 유지보수 품질을 분�
 $code-quality-guard로 이 모듈의 유지보수 품질을 개선하고 검증해줘. 현재 상태를 기준으로 동작 보존과 변경 비용의 차이를 확인해줘.
 ```
 
-테스트 통과, 복잡도·중복 같은 진단 신호, 실제 유지보수 판단을 별도로 보고합니다. 분석 도구가 없는 수치는 미측정으로 남기며, 단일 점수나 LOC 감소를 목표로 삼지 않습니다. [측정 기준과 원문 지표](skills/code-quality-guard/references/measurement.md), [품질 검사 평가 사례](evals/code-quality-guard/cases.md), [실행 기록](evals/code-quality-guard/results.md)을 참고하세요. 설치기는 새 폴더를 자동 발견하므로 업데이트 후 `bash scripts/install.sh --skill code-quality-guard`로 선택 설치할 수 있습니다.
+테스트 통과, 복잡도·중복 같은 진단 신호, 실제 유지보수 판단을 별도로 보고합니다. 분석 도구가 없는 수치는 미측정으로 남기며, 단일 점수나 LOC 감소를 목표로 삼지 않습니다. [비교·측정 기준](skills/code-quality-guard/references/measurement.md), [점수·A/B 비교·원문 지표](skills/code-quality-guard/references/scoring.md), [품질 검사 평가 사례](evals/code-quality-guard/cases.md), [실행 기록](evals/code-quality-guard/results.md)을 참고하세요. 설치기는 새 폴더를 자동 발견하므로 업데이트 후 `bash scripts/install.sh --skill code-quality-guard`로 선택 설치할 수 있습니다.
 
 원문 출처·기준 커밋·적용 예외는 [React 스킬 출처](skills/react-quality-guard/references/sources.md), 행동 평가 범위는 [React 평가 기록](evals/react-quality-guard/results.md)에 있습니다.
 
 2026-09-12의 [스킬 감사와 개선 기록](docs/skill-audit-2026-09-12.md)에서 중복 지침 정리, 조건부 문서·검증 선택, 행동 평가 결과를 확인할 수 있습니다.
+
+새 품질 스킬을 포함한 [2026-09-14 전체 감사](docs/skill-audit-2026-09-14.md)에서는 적용 조건·참조 선택을 정리하고, 실제 평가에서 발견된 검사 반복을 보완했습니다. 검증 범위와 미실행 항목도 함께 기록했습니다.
 
 ## 새 Mac에 설치
 
@@ -92,9 +94,9 @@ bash scripts/install.sh
 
 셸 복사본은 `.codex-skills-install.v2`, 기존 Python 복사본은 `.codex-skills-install.json`으로 관리합니다. 관리 파일을 바꾸어 설치 방식을 전환하지 마세요.
 
-## 작업 전후 항상 고려하게 하기
+## 관련 작업에서 아키텍처 검토 적용하기
 
-설치와 호출 정책은 별개입니다. `snippets/architecture-guard.project.md`는 프로젝트 지침용, `snippets/architecture-guard.global.md`는 개인 전역 지침용입니다. **기존 지침 파일을 덮어쓰지 않고 필요한 블록만 병합합니다.** 설치 스크립트는 이 작업을 대신 수행하지 않습니다.
+설치와 호출 정책은 별개입니다. 모듈 책임·의존 방향·공유 상태·공개 API 설계가 바뀌거나 구조 리뷰를 요청할 때 적용할 예제입니다. 모든 코드 작업의 착수·완료에 별도 검토를 의무화하지 않습니다. `snippets/architecture-guard.project.md`는 프로젝트 지침용, `snippets/architecture-guard.global.md`는 개인 전역 지침용입니다. **기존 지침 파일을 덮어쓰지 않고 필요한 블록만 병합합니다.** 설치 스크립트는 이 작업을 대신 수행하지 않습니다.
 
 프로젝트 지침은 해당 프로젝트의 `AGENTS.md`에, 개인 전역 지침은 보통 `~/.codex/AGENTS.md`에 둡니다. `CODEX_HOME`이나 `AGENTS.override.md`를 쓰면 실제로 읽히는 파일을 먼저 확인합니다. 적용 뒤 새 Codex 세션에서 어떤 지침을 읽었는지 확인합니다.
 

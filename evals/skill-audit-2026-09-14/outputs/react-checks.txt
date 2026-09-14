@@ -1,0 +1,1 @@
+PASS: actual source calculation — title order, immutable input, case-insensitive/Korean search, no matches, empty list, replaced documents, literal whitespace.

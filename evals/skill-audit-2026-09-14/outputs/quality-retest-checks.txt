@@ -1,0 +1,31 @@
+✔ draft, locked=false (0.817042ms)
+✔ draft, locked=true (0.067583ms)
+✔ completed, locked=false (0.050916ms)
+✔ completed, locked=true (0.041833ms)
+✔ cancelled, locked=false (0.053292ms)
+✔ cancelled, locked=true (0.038625ms)
+✔ bulk preserves order and empty input (0.051458ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 49.491708
+
+✔ draft, locked=false (0.886416ms)
+✔ draft, locked=true (0.050333ms)
+✔ completed, locked=false (0.047583ms)
+✔ completed, locked=true (0.040791ms)
+✔ cancelled, locked=false (0.049167ms)
+✔ cancelled, locked=true (0.035916ms)
+✔ bulk preserves order and empty input (0.051208ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 37.757125
