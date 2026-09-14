@@ -1,0 +1,94 @@
+{
+  "base_commit": "9fda923949502a7ab5f6a8e35950cb3056109da2",
+  "input_sources": [
+    "evals/code-quality-guard/fixtures/policy",
+    "evals/code-quality-guard/outputs/implementation.patch"
+  ],
+  "files": {
+    "A/bulk.mjs": "fa01058ddd03be6e7cc74d5345c0f113197dab7d7916d59b878be5126188e352",
+    "A/detail.mjs": "713e05d389fab1ec7967b0719ab6b3a8eb9c2792636d9526549a5dd6723bf821",
+    "A/list.mjs": "c8d146433782e2e56783e250e0b220be765ebdd7096caf6ea08630a2aceb4168",
+    "A/policy.test.mjs": "586f4bc0df40127f85c7565f15429653cea61ccba04caab81e794c1c1133df1b",
+    "B/archive-policy.mjs": "1487aca1f94da3322e25abb4f00a15a98b54076af030ac9045c33928ffac890e",
+    "B/bulk.mjs": "18bdaf547171afcb003c6d47d55cf052589fd8f764f89740afebaf777d0e95bc",
+    "B/detail.mjs": "62667de555df20d69308dc37c1da6394aac645d8a0b8b36d396b0a4ffae651cf",
+    "B/list.mjs": "2cb485a16950a209986ee7943495ae153e7cc7b921aa6052a1f6d5f7ad91b59b",
+    "B/policy.test.mjs": "586f4bc0df40127f85c7565f15429653cea61ccba04caab81e794c1c1133df1b",
+    "CONTRACT.md": "a538bd1f14efd713d50959ad0f081c2a09df94d38b0c42000589a5f5bed8d1b5",
+    "code-quality-guard/SKILL.md": "39205c07c4f305a3ea82806f391a1154255e7c19ce8ac70a6bd7786dc28c6388",
+    "code-quality-guard/agents/openai.yaml": "e1fa43bcdfa7c7d640d7d351d8eb43fbc3d96ec2f6a012be980a469fae02b804",
+    "code-quality-guard/references/earendil-metrics.md": "0dd071df8f84142b5f20e908cb73b8a0ae50b95ae4bfa81318be60e38f46fc58",
+    "code-quality-guard/references/measurement.md": "4f784a4d0f7fd4eb5cfa270873230e44af1a51389c4dc3f302d9d0b4cfb36c6e",
+    "code-quality-guard/references/scoring.md": "e854f9b8581d2a8593c2e61adecad9b08eb48c46943a64cdd2b2e621cece97ef"
+  },
+  "evaluation": {
+    "request": "$code-quality-guard at <case>/code-quality-guard/SKILL.md 를 사용해 <case>/A 와 B 중 유지보수하기 나은 구현을 비교해줘. 제품 계약은 같은 폴더의 CONTRACT.md에 있어. 점수 없이 실제 코드 근거와 정확성 검증을 구분해 간결하게 설명해줘. 소스·설정·문서는 수정하지 마. 제공된 로컬 파일과 이미 있는 도구만 사용하고 네트워크·패키지 설치·GitHub 작업은 하지 마. 최종 답변에는 판단에 사용한 파일 및 스킬 참조와 실행한 명령·결과를 함께 적어줘.",
+    "isolation": "fresh subagent without conversation history; local disposable copies; no expected answer or diagnosis supplied",
+    "model": "inherited session default; exact snapshot not independently identified",
+    "reported_references": [
+      "SKILL.md",
+      "references/measurement.md"
+    ],
+    "reported_commands": [
+      {
+        "cwd": "A",
+        "command": "node --version && node --test policy.test.mjs",
+        "exit_code": 0,
+        "node_version": "v24.19.0",
+        "tests_passed": 7
+      },
+      {
+        "cwd": "B",
+        "command": "node --version && node --test policy.test.mjs",
+        "exit_code": 0,
+        "node_version": "v24.19.0",
+        "tests_passed": 7
+      },
+      {
+        "cwd": ".",
+        "command": "cmp A/policy.test.mjs B/policy.test.mjs && diff -ru A B",
+        "exit_code": 1,
+        "meaning": "tests identical; diff detected implementation differences"
+      }
+    ],
+    "independently_verified_input_hashes_unchanged": true,
+    "reported_result": "B centralizes archive policy while preserving independent pin policy; no scores or unmeasured metrics invented",
+    "limitations": "One explicit invocation. Reference use and test results recorded from evaluator response; raw tool trace not captured. Does not measure automatic selection, score/metrics modes, latency, tokens, or multi-model reliability."
+  },
+  "structure_checks": {
+    "architecture-guard": {
+      "official_validator": "Skill is valid!",
+      "ui_metadata": "PASS"
+    },
+    "code-quality-guard": {
+      "official_validator": "Skill is valid!",
+      "ui_metadata": "PASS"
+    },
+    "react-quality-guard": {
+      "official_validator": "Skill is valid!",
+      "ui_metadata": "PASS"
+    },
+    "temporary_copy": {
+      "platform": "Linux",
+      "matched_files": 15,
+      "stdout": "install: /tmp/codex-skills-copy-o_fbp8dj/skills/architecture-guard (copy)\ninstall: /tmp/codex-skills-copy-o_fbp8dj/skills/code-quality-guard (copy)\ninstall: /tmp/codex-skills-copy-o_fbp8dj/skills/react-quality-guard (copy)\nInstallation complete.\n"
+    }
+  },
+  "read_sizes": [
+    {
+      "scope": "add-skill template",
+      "before_chars": 1239,
+      "after_chars": 794
+    },
+    {
+      "scope": "score-only references",
+      "before_chars": 2709,
+      "after_chars": 366
+    },
+    {
+      "scope": "unscored A/B references",
+      "before_chars": 2709,
+      "after_chars": 1728
+    }
+  ]
+}

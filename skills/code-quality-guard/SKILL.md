@@ -18,7 +18,7 @@ PR은 확인된 base/head와 merge-base, 로컬 작업은 staged·unstaged·untr
 - **정확성:** 요구사항·공개 계약·불변조건과 관련 검사 결과를 연결한다. 실행한 명령, 확인한 동작, 실패·미실행·미확인 영역을 구분한다. 테스트가 통과해도 검사하지 않은 경로의 정확성은 보증하지 않는다.
 - **유지보수 품질:** 같은 정책의 수정 지점, 숨은 상태와 부작용, 이해에 필요한 추적 경로, 불필요한 추상화, 회귀를 국소적으로 검증할 수 있는지를 살핀다. 파일 길이나 패턴 취향만으로 결함을 만들지 않는다.
 
-전후 비교·측정에는 [measurement.md](references/measurement.md), 점수·두 구현의 A/B 비교·원문 지표 계산을 요청받으면 [scoring.md](references/scoring.md)를 읽는다. 소규모 리뷰는 아래 근거만으로 판단할 수 있으면 참조를 추가로 읽지 않는다.
+전후·A/B 비교나 측정에는 [measurement.md](references/measurement.md), 점수 요청에는 [scoring.md](references/scoring.md), Verbosity·Erosion 계산에는 [earendil-metrics.md](references/earendil-metrics.md)를 선택한다. 소규모 리뷰는 아래 근거만으로 판단할 수 있으면 참조를 추가로 읽지 않는다.
 
 품질 지적은 **파일·심볼의 관찰 → 실제 변경/실패 조건 → 비용이나 위험 → 최소 조치와 확인 방법**을 연결한다. 문서화된 이유나 반례도 확인한다. 같은 원인을 중복 집계하지 않고, 근거가 약하면 확인할 항목으로 남긴다.
 
