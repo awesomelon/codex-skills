@@ -1,3 +1,5 @@
-`volume.mjs`에서 음수를 0으로 제한하도록 수정했습니다. 반환값은 0~100이며 기존 함수 이름과 export는 유지했습니다.
+> English translation of a historical record. [Original at the pre-translation commit](https://github.com/awesomelon/codex-skills/blob/ce11c34e3d1da77140087300218b776594bb65cf/evals/skill-audit-2026-09-14/outputs/local-change.md). Reported runs, hashes, and counts describe the original work, not this translation.
 
-`node --test volume.test.mjs` 테스트가 통과했습니다. TASK.md, 테스트, 스킬 원문은 변경하지 않았습니다.
+Updated `volume.mjs` to clamp negative values to zero. Results remain between 0 and 100, with the existing function name and export preserved.
+
+`node --test volume.test.mjs` passed. TASK.md, tests, and original skill files were unchanged.

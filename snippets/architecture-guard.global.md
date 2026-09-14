@@ -1,4 +1,4 @@
-## 아키텍처 유지보수
+## Architectural maintainability
 
-모듈 책임·의존 방향·공유 상태·공개 API 설계가 바뀌거나 아키텍처 리뷰를 요청받으면 `architecture-guard`를 사용한다. 현재 단계에 필요한 판단을 수행하고 이미 확인한 근거를 재사용한다. 국소적인 구현·문구·서식 수정에 아키텍처 영향이 없으면 별도 검토를 추가하지 않는다.
-스킬은 세션에 제공된 위치에서 읽는다. 발견되지 않으면 사용 가능한 코드·지침으로 진행하고 제한을 알린다. 계획·리뷰만 요청받았다면 파일을 수정하지 않는다.
+Use `architecture-guard` when module responsibilities, dependency direction, shared state, or public API design changes, or when an architecture review is requested. Make the judgments needed for the current stage and reuse established evidence. Do not add a separate review to local implementation, wording, or formatting changes without architectural impact.
+Read the skill at the location supplied in the session. If it is unavailable, proceed with the code and guidance available and state the limitation. Do not modify files for planning-only or review-only requests.

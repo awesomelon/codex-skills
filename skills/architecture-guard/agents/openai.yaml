@@ -1,6 +1,6 @@
 interface:
-  display_name: "아키텍처 유지보수 가드"
-  short_description: "모듈 경계·의존성과 계약을 검토해 유지보수 위험을 찾습니다"
-  default_prompt: "$architecture-guard로 현재 작업의 아키텍처를 점검해줘. 작업 단계에 맞게 설계 또는 변경 내용을 검토하고, 근거 있는 위험과 최소 조치를 알려줘."
+  display_name: "Architecture Guard"
+  short_description: "Review module boundaries, dependencies, and contracts"
+  default_prompt: "Use $architecture-guard to assess the architecture of the current task. Review the design or changes as appropriate to the stage, and explain evidence-backed risks and the smallest remedies."
 policy:
   allow_implicit_invocation: true

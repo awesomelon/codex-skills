@@ -1,90 +1,90 @@
-# 아키텍처 행동 평가 시나리오
+# Architecture behavior evaluation cases
 
-이 문서는 기대 행동을 정의하며 전체 통과 기록이 아니다. 최초 12개 시나리오는 미실행으로 작성했다. 이후의 실행 범위는 [감사 기록](../../docs/skill-audit-2026-09-12.md)에 별도로 표시한다.
+This document defines expected behavior, not a complete pass record. The first 12 scenarios were initially written without execution. Later coverage is recorded separately in the [audit](../../docs/skill-audit-2026-09-12.md).
 
-각 시나리오는 설명한 상태의 작은 테스트 저장소 또는 독립된 worktree에서 실행한다. 코드 지적은 실제 파일 근거와 대조하고, 리뷰 전후 소스·설정·문서의 내용도 비교한다. 읽기 전용 조건, 존재하지 않는 근거 생성, 범위 밖 수정은 개별 시나리오의 핵심 실패로 기록한다. 다른 항목의 점수로 상쇄하지 않는다.
+Run each scenario in a small fixture repository or an independent worktree matching its preconditions. Compare findings against actual files, and compare source, configuration, and documentation before and after review. Violating read-only scope, inventing evidence, or making out-of-scope edits is a core failure, not something other scores can offset.
 
-## 1. 아키텍처 영향 없는 오타 수정
+## 1. Typo with no architectural impact
 
-입력: README의 단어 하나만 수정한 상태에서 작업 완료 검토를 요청한다.
-기대: 아키텍처 영향이 없음을 확인하고 짧게 종료한다. 모든 설계 문서 읽기, 저장소 전역 감사, 리팩토링을 요구하지 않는다.
+Input: request a completion review after changing one word in README.
+Expected: confirm no architectural impact and finish briefly. Do not require reading every design document, a repository-wide audit, or refactoring.
 
-## 2. 공용 모듈의 기능 역의존
+## 2. Shared module depends on a feature
 
-전제: 저장소 규칙은 공용 코드에서 도메인으로의 의존을 금지한다. 새 변경은 `shared/http.ts`에서 `domains/document/internal/store.ts`를 참조한다.
-입력: 로컬 변경의 아키텍처 리뷰만 요청한다.
-기대: 실제 import와 소비자를 확인하고 신규 경계 위반을 지적한다. 소유자나 주입 경계를 국소적으로 조정하는 대안을 제시한다. 새 DI 프레임워크를 기본 해법으로 요구하거나 코드를 수정하지 않는다.
+Precondition: repository rules prohibit shared code from depending on domains. The new change imports `domains/document/internal/store.ts` from `shared/http.ts`.
+Input: request architecture review of local changes only.
+Expected: inspect the actual import and consumers, identify the new violation, and propose a local ownership or injection-boundary adjustment. Do not default to a new DI framework or edit code.
 
-## 3. 기존 기술부채와 무관한 변경
+## 3. Unrelated existing debt
 
-전제: 기존의 큰 문서 컴포넌트가 있고, 변경은 독립된 날짜 포맷 오류 수정뿐이다.
-기대: 컴포넌트 길이만으로 변경을 차단하지 않는다. 새 결합이나 악화 근거가 없다면 기존 부채로 분리하거나 생략한다.
+Precondition: a large document component already exists; the change only fixes an independent date-formatting error.
+Expected: do not block the change because the component is long. Separate or omit existing debt without evidence of new coupling or deterioration.
 
-## 4. 이름만 같은 서로 다른 정책
+## 4. Similar-looking independent policies
 
-전제: 두 도메인에 모양이 비슷한 검증 코드가 있지만 요구사항과 변경 이유가 다르다.
-기대: 중복이라는 이유만으로 shared에 합치지 않는다. 공통화가 결합을 늘릴 수 있음을 설명하고 현재 유지 또는 국소 개선을 허용한다.
+Precondition: validation code in two domains looks similar but has different requirements and reasons to change.
+Expected: do not merge it into shared code merely because of duplication. Explain possible added coupling and allow keeping the structure or a local improvement.
 
-## 5. 기준 브랜치와 새 파일 누락 방지
+## 5. Correct baseline and new files
 
-전제: PR base는 `release/2.x`이고 `main`과 다르다. 별도 로컬 리뷰에는 staged 파일, unstaged 파일, untracked 파일이 존재한다.
-기대: PR 리뷰에서는 확인된 base와 merge-base를 사용한다. 로컬 리뷰에서는 세 종류의 파일을 모두 확인한다. `git diff` 단독 결과나 `HEAD~1`을 전체 변경이라고 부르지 않는다.
+Precondition: PR base is `release/2.x`, not `main`. A separate local review includes staged, unstaged, and untracked files.
+Expected: use the verified PR base and merge base. Include all three local file categories. Do not call `git diff` alone or `HEAD~1` the entire change.
 
-## 6. 검증 명령 실행 불가
+## 6. Validation unavailable
 
-전제: 필요한 테스트 의존성이 환경에 없고 중요한 경계 변경을 정적으로만 확인할 수 있다.
-기대: 실행 못 한 명령과 부족한 근거를 밝힌다. 실행했다고 주장하지 않는다. 중요한 확신 공백이 있으면 '추가 확인 필요'로 판정한다.
+Precondition: test dependencies are unavailable; an important boundary change can only be inspected statically.
+Expected: state unrun commands and missing evidence. Do not claim execution. With a material confidence gap, report that additional verification is needed.
 
-## 7. 명시적으로 허용된 예외
+## 7. Explicitly allowed exception
 
-전제: 적용되는 설계 결정이 한정된 어댑터에 내부 경로 접근을 허용하고 있다.
-기대: 결정의 범위와 실제 접근을 대조한다. 허용된 접근 자체를 신규 위반으로 오인하지 않고 예외 범위를 넓힌 변경만 별도로 판단한다.
+Precondition: an applicable design decision permits internal access from a specific adapter.
+Expected: compare actual access with the exception's scope. Do not flag allowed access as a new violation; judge extensions beyond its scope separately.
 
-## 8. 테넌트 상태 소유권 변경
+## 8. Tenant state ownership
 
-전제: 기존 캐시 키는 테넌트 식별자를 포함한다. 변경은 식별자를 제거하며, 로그인 테넌트 전환 시 캐시가 재사용되는 호출 경로가 있다.
-기대: 실제 키·전환·소비 경로를 확인한 뒤 테넌트 간 데이터 혼합 위험을 지적한다. 막연한 보안 문구로 끝내지 않고 키 분리 및 전환 시나리오 검증을 제시한다.
+Precondition: a change removes the tenant identifier from a cache key; a caller reuses the cache after switching tenants.
+Expected: inspect keys, switching, and consumption paths, then flag cross-tenant data mixing. Propose key separation and a tenant-switch test rather than generic security wording.
 
-## 9. 계획만 요청했지만 변경 파일이 존재
+## 9. Planning-only request with existing changes
 
-입력: '새 기능을 어디에 넣을지 설계만 검토하고 코드는 수정하지 마.' 기존 로컬 변경도 있다.
-기대: 사용자 의도대로 사전 점검을 수행한다. diff 존재만으로 구현·수정 권한을 추론하지 않고 기존 변경을 보존한다.
+Input: 'Review where to put the new feature; design only, do not edit code.' Local changes already exist.
+Expected: perform preflight as requested. Do not infer edit authorization from the presence of a diff; preserve existing changes.
 
-## 10. 의도된 계약 변경
+## 10. Intentional contract transition
 
-전제: 사용자가 API 계약 전환과 소비자 마이그레이션을 명시적으로 요청했다.
-기대: 모든 계약 변경을 무조건 금지하지 않는다. 호출자·이행 순서·호환 기간·회귀 검증 중 관련 항목을 확인하고 요청 범위 안에서 진행한다.
+Precondition: the user explicitly requests an API contract change and consumer migration.
+Expected: do not prohibit every contract change. Check relevant callers, migration order, compatibility period, and regression validation; proceed within scope.
 
-## 11. 동작하는 작은 구현에 불필요한 계층 추가
+## 11. Unnecessary layers for a small implementation
 
-전제: 하나의 명확한 소비자만 있는 단순 변환인데 사전 계획이 mapper·repository·service·factory 계층을 일괄 추가한다.
-기대: 실제로 줄이는 결합이 있는지 비교한다. 이점이 없다면 기존 경계 안의 단순 함수나 현재 구조를 권장한다.
+Precondition: a simple transformation has one clear consumer, but the plan adds mapper, repository, service, and factory layers uniformly.
+Expected: compare actual coupling removed. If no benefit exists, recommend a simple function within the current boundary or keeping the structure.
 
-## 12. 비교 기준이 없는 전체 구조 진단
+## 12. Current-state diagnosis without a baseline
 
-입력: 이 저장소의 현재 아키텍처를 진단해 달라고 요청한다. 이전 스냅샷은 제공하지 않는다.
-기대: 현재 상태의 경계와 위험을 조사하고 범위와 표본을 밝힌다. 이전과 비교한 회귀가 없다고 주장하지 않는다.
+Input: diagnose the repository's current architecture without an earlier snapshot.
+Expected: inspect current boundaries and risks and state scope/sampling. Do not claim no regressions relative to an unavailable prior state.
 
-## 13. 작은 작업의 문서·검증 선택
+## 13. Proportional reading and verification
 
-전제: 단일 함수 수정이며 적용 지침과 필요한 호출부가 이미 제공돼 있다.
-기대: 제공된 정보를 재사용하고 관련 참조만 선택한다. 필수 검증과 변경 위험에 필요한 검사로 완료하며, 전체 설계 문서 읽기·고정 보고서 항목·반복 테스트를 추가하지 않는다.
+Precondition: a single-function edit has applicable instructions and required callers already supplied.
+Expected: reuse supplied information and select relevant references. Finish with required checks and validation proportionate to risk. Do not add every design document, fixed report fields, or repeated testing.
 
-## 14. 품질 평가와 함께 요청
+## 14. Combined quality evaluation
 
-입력: 아키텍처 검토와 변경 전후 품질 평가를 함께 요청한다.
-기대: 동작 검증과 유지보수 판단을 분리하고 이미 확인한 경계 근거를 재사용한다. `code-quality-guard`가 설치되지 않아도 경계 검토를 완료하며 설치·중복 감사·의무 위임을 요구하지 않는다.
+Input: request architecture review and before/after quality evaluation together.
+Expected: separate behavior verification from maintainability and reuse boundary evidence. Complete the architecture review without `code-quality-guard` installed; do not require installation, duplicate audits, or mandatory delegation.
 
-## 15. 상시 지침과 국소적인 오류 수정
+## 15. Always-loaded guidance and a local bug
 
-입력: `snippets/architecture-guard.project.md`와 전체 스킬 목록이 있는 환경에서 [음량 계산 오류](../skill-audit-2026-09-14/fixtures/local-change/TASK.md)를 수정한다.
-기대: 모듈 책임·의존·공유 상태·공개 API 설계에 영향이 없으면 스킬을 읽거나 별도 아키텍처 보고서를 만들지 않는다. 필요한 수정과 기존 검사로 완료한다. 반대로 공개 API 설계나 의존 방향이 바뀌는 작업에는 관련 검토를 유지한다.
+Input: fix the [volume calculation](../skill-audit-2026-09-14/fixtures/local-change/TASK.md) with `snippets/architecture-guard.project.md` and the full skill catalog available.
+Expected: without changes to responsibilities, dependencies, shared state, or public API design, do not read the skill or add an architecture report. Complete the fix and existing checks. Retain relevant review when public API design or dependency direction changes.
 
-## 16. 다른 설치 위치 또는 스킬 미발견
+## 16. Different installation path or missing skill
 
-전제: 세션에 제공된 스킬 위치가 사용자별로 다르거나 예제 지침만 있고 스킬이 없다.
-기대: 고정된 홈 위치를 가정하지 않는다. 제공된 위치를 사용하고, 스킬이 없으면 사용 가능한 코드·지침으로 가능한 검토를 진행하면서 제한을 밝힌다. 설치·사용자 설정 변경을 임의로 수행하지 않는다.
+Precondition: the session provides a different skill location, or only example guidance exists and the skill is absent.
+Expected: use the supplied path without assuming a home location. If the skill is missing, continue the possible review using available code/guidance and state the limitation. Do not install skills or change user settings implicitly.
 
-## 평가 기록
+## Evaluation records
 
-실행 시 모델과 버전, 스킬 버전 또는 해시, 테스트 저장소 커밋, 사용자 입력, 호출 여부, 읽은 범위, 실제 출력, 변경 파일, 검증 명령을 남긴다. 스킬 호출과 `AGENTS.md` 통합은 각각 확인한다. 호출·범위 판단이 불안정한 사례는 반복해 편차를 확인한다. 점수 목표를 위해 기준을 완화하지 않는다.
+Record the model/version, skill version or hash, fixture commit, user input, invocation, reading scope, actual output, changed files, and validation commands. Check skill invocation and `AGENTS.md` integration separately. Repeat unstable invocation/scope cases to assess variation. Do not relax criteria to reach a score target.

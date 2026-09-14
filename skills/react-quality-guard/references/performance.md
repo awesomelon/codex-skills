@@ -1,35 +1,35 @@
-# 사용자 지연과 불필요한 작업
+# User latency and unnecessary work
 
-Vercel 원문의 요청·번들·클라이언트·렌더링·JS 기준을 프로젝트에 맞게 적용한다. 출처와 적용 예외는 [sources.md](sources.md)에 있다.
+Apply the upstream Vercel criteria for requests, bundles, clients, rendering, and JavaScript in the project's context. Attribution and exceptions are in [sources.md](sources.md).
 
-## 요청과 클라이언트 캐시
+## Requests and client caches
 
-- 기다리는 작업의 의존관계를 먼저 확인한다. 독립적인 읽기만 병렬화하고 인증·권한 확인, 선행 결과, 변경 작업의 순서, 동시 요청 제한은 보존한다. 간단한 의존관계 때문에 새 병렬화 패키지를 추가하지 않는다.
-- 싼 동기 조건에서 작업이 불필요하다고 결정되면 비싼 요청을 시작하지 않는다. 이미 시작한 Promise는 조기 반환·실패 경로에서도 rejection을 처리한다.
-- `Promise.all()`의 첫 실패가 다른 요청을 취소하지 않음을 고려한다. 부분 성공이 필요한 화면과 전체 성공이 필요한 작업을 구분한다.
-- 중복 요청은 기존 TanStack Query·SWR·라우터 데이터 기능의 키, 중복 제거, 재조회·무효화 설정부터 확인한다. SWR로 교체하거나 다른 캐시 계층을 덧붙이는 것을 기본 해법으로 삼지 않는다.
-- 데이터가 달라지는 사용자·테넌트·필터·페이지 조건을 쿼리 키와 캐시 수명에 반영한다. mutation 뒤 관련 데이터가 갱신되고, 로그아웃·테넌트 전환에 이전 데이터가 섞이지 않는지 확인한다.
-- 컴포넌트에 캐시 갱신 코드가 없다는 사실만으로 전체 갱신 경로가 없다고 확정하지 않는다. API 어댑터·공통 mutation 처리의 구현이 생략돼 있으면 해당 계약을 확인 필요로 남긴다. 제공된 코드에서 직접 입증되는 경로와 내부 동작을 가정해야 하는 경로를 구분한다.
+- Check dependencies between awaited operations first. Parallelize independent reads only; preserve authentication/authorization gates, prerequisite results, mutation ordering, and concurrency limits. Do not add a parallelization package for a simple dependency graph.
+- Avoid starting expensive requests when a cheap synchronous condition already establishes that the work is unnecessary. Handle rejections from promises already started, including early-return and failure paths.
+- Remember that the first rejection in `Promise.all()` does not cancel other requests. Distinguish screens that support partial success from operations requiring complete success.
+- For duplicate requests, first inspect the keys, deduplication, refetching, and invalidation settings of existing TanStack Query, SWR, or router data features. Replacing the library with SWR or adding another cache layer is not the default solution.
+- Include user, tenant, filter, and pagination dimensions that affect data in query keys and cache lifetimes. Check related data updates after mutations and isolation of prior data after logout or tenant switching.
+- The absence of cache-update code in a component does not prove that no update path exists. If API adapters or shared mutation implementations are omitted, flag their contracts for verification. Separate paths directly established by supplied code from those requiring assumptions about internals.
 
-## 초기 전송과 번들
+## Initial transfer and bundles
 
-- 실제 초기 진입점과 import 그래프에서 무거운 편집기·차트·뷰어가 첫 화면에 필요한지 확인한다. 지연 로드는 지원되는 `React.lazy`·`import()` 또는 프레임워크 기능을 사용하고 로딩·오류·재시도 UX를 유지한다.
-- 정적 분석이 가능한 import 경로를 사용한다. barrel import는 빌드 결과·외부화·tree shaking·프레임워크 최적화의 영향을 확인한다. 경로 모양만으로 비용을 확정하거나 공개 API를 우회하는 `/dist/` 내부 경로로 바꾸지 않는다. 서브패스의 exports·타입도 검증한다.
-- 지연 로드가 필요한 콘텐츠의 표시까지 늦추거나 요청 단계를 늘리지 않는지 본다. hover/focus prefetch는 가능성이 높은 기능에 한정하고 대역폭·메모리와 균형을 잡는다.
-- 제3자 스크립트 지연은 초기 오류 수집·필수 실행 순서를 보존한다. `async`는 실행 순서를 보장하지 않는다. CSS·이미지·폰트가 병목이면 JS 변경만으로 해결됐다고 하지 않는다.
+- Use actual entry points and import graphs to check whether heavy editors, charts, or viewers are needed on the first screen. Use supported `React.lazy`, `import()`, or framework features for lazy loading, preserving loading, error, and retry UX.
+- Use statically analyzable import paths. For barrel imports, check build output, externalization, tree shaking, and framework optimizations. Do not infer cost from path shape or bypass public APIs through internal `/dist/` paths. Verify subpath exports and types too.
+- Check whether lazy loading delays required content or adds request stages. Limit hover/focus prefetching to likely features and balance it against bandwidth and memory.
+- Delaying third-party scripts must preserve initial error collection and required execution order. `async` does not guarantee order. If CSS, images, or fonts are the bottleneck, JavaScript changes alone do not establish a fix.
 
-## 렌더·구독 비용
+## Rendering and subscription costs
 
-- 넓은 상태 구독, 불필요한 Effect, 부모와 함께 반복되는 비싼 작업부터 줄인다. UI에 필요한 최소 상태를 구독하고, 이벤트 때만 필요한 값은 해당 시점에 읽을 수 있는지 본다.
-- `memo`·`useMemo`·`useCallback`은 비싼 계산 또는 실제 참조 안정성이 필요한 경계에 선택적으로 사용한다. 싼 표현식이나 모든 핸들러를 감싸지 않는다. props·context·state 중 무엇이 갱신을 일으키는지, Compiler가 실제로 활성화되어 해당 코드에 적용되는지 확인한다.
-- 매 렌더 새 객체·함수가 downstream props나 Effect 의존성에 전달되는 경로를 본다. memo 컴포넌트 내부의 기본 인자가 새 값이라는 사실만으로 그 컴포넌트의 props 비교가 항상 실패한다고 단정하지 않는다.
-- 입력값은 즉시 반영하고 비싼 결과 렌더에 필요할 때 transition·deferred value를 적용한다. 이들은 네트워크 요청을 자동 debounce·취소하거나 단일 동기 계산을 Worker로 옮기는 기능이 아니다.
-- 네트워크 요청 상태와 transition pending은 다르다. 특히 React 18에서 비동기 mutation의 로딩을 `useTransition`만으로 대체하지 않는다. 지원 버전에서도 응답 순서·에러·중복 제출 처리는 별도로 보존한다.
-- 긴 목록은 DOM 수, 레이아웃·페인트와 React 계산 중 병목을 구분한 뒤 virtualization 또는 `content-visibility`를 고른다. 후자는 DOM·컴포넌트를 제거하지 않는다. 스크롤·검색·포커스·접근성과 대상 브라우저 지원을 확인한다.
-- DOM 쓰기와 레이아웃 읽기의 반복 교차를 피하고, 전역 리스너를 공유할 필요가 있을 때 구독 수와 cleanup을 확인한다. `preventDefault()`가 필요한 wheel/touch 처리에 passive를 강제하지 않는다.
+- Start with broad subscriptions, unnecessary Effects, and expensive work repeated with the parent. Subscribe to the minimum state needed by the UI; consider reading event-only values at event time.
+- Use `memo`, `useMemo`, and `useCallback` selectively for expensive calculations or boundaries that require referential stability. Do not wrap cheap expressions or every handler. Identify whether props, context, or state cause updates, and whether Compiler is actually enabled and applies to this code.
+- Follow paths where new objects/functions reach downstream props or Effect dependencies on each render. A newly created default argument inside a memoized component does not prove that the component's props comparison always fails.
+- Update input values immediately and use transitions or deferred values for expensive result rendering when appropriate. They do not automatically debounce/cancel network requests or move synchronous computation to a Worker.
+- Network request state and transition pending state differ. In particular, React 18 `useTransition` alone cannot replace asynchronous mutation loading state. Even where async work is supported, preserve response ordering, errors, and duplicate-submission handling separately.
+- For long lists, distinguish DOM count, layout/paint, and React computation before choosing virtualization or `content-visibility`. The latter does not remove DOM nodes or components. Verify scrolling, search, focus, accessibility, and target browser support.
+- Avoid repeated interleaving of DOM writes and layout reads. When sharing global listeners is useful, check subscription counts and cleanup. Do not force passive listeners on wheel/touch handlers that need `preventDefault()`.
 
-## JS 최적화와 측정
+## JavaScript optimization and measurement
 
-반복 검색이 많은 경로는 Map/Set·한 번의 순회 등 계산량을 줄이는 대안을 검토한다. 생성 비용·메모리·키 갱신 비용을 함께 계산하고, 작은 목록의 읽기 쉬운 코드를 무조건 루프로 바꾸지 않는다. 모듈 캐시는 키·용량·만료·무효화·SSR 격리가 확인된 경우에만 추가한다.
+For paths with repeated searches, consider reducing computation through Map/Set or a single pass. Account for construction, memory, and key-update costs; do not replace readable small-list code with loops indiscriminately. Add module caches only with established keys, capacity, expiration, invalidation, and SSR isolation.
 
-개발 시작 시간, production 번들 크기, 요청 지연, 렌더 시간, DOM 비용을 구분한다. 같은 입력·빌드·기기 조건에서 전후를 비교하고 측정 조건을 기록한다. Strict Mode의 개발 렌더 횟수나 원문의 개선 배수를 사용자 체감 향상 수치로 바꾸지 않는다.
+Distinguish development startup, production bundle size, request latency, render time, and DOM cost. Compare under the same input, build, and device conditions and record those conditions. Do not convert Strict Mode development render counts or upstream improvement multiples into measured user-facing improvements.

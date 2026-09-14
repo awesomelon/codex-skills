@@ -1,15 +1,17 @@
-# 독립 리뷰 최종 출력
+# Final independent review output
 
-입력: [Documents.tsx](../fixtures/review/Documents.tsx). 아래는 최종 리뷰의 내용을 보존한 것이며, 링크만 저장소 안의 입력으로 변경했다.
+> English translation of a historical record. [Original at the pre-translation commit](https://github.com/awesomelon/codex-skills/blob/ce11c34e3d1da77140087300218b776594bb65cf/evals/react-quality-guard/outputs/review-final.md). Reported runs, hashes, and counts describe the original work, not this translation.
 
-정적으로 검토했습니다. 중요한 문제는 두 가지입니다.
+Input: [Documents.tsx](../fixtures/review/Documents.tsx). The original record retained the final response and changed only links to repository input paths.
 
-1. **높음 — 테넌트 간 쿼리 캐시가 공유됩니다.** `Documents`의 16행은 `queryKey: ['documents']`이지만 조회 결과는 `tenantId`에 따라 달라집니다. 동일한 QueryClient에서 테넌트를 전환하면 이전 테넌트의 캐시가 표시될 수 있습니다. 이때 편집기는 새 `tenantId`와 이전 문서의 ID·제목을 조합해 저장 요청을 보낼 수도 있습니다. API가 요청한 테넌트만 처리해도 이 클라이언트 오류는 남습니다. **최소 조치:** 키를 `['documents', tenantId]`로 변경합니다. 테넌트별로 같은 문서 ID와 다른 제목을 준비해 전환 중 표시 내용과 저장 요청 인자를 확인해야 합니다.
+Static review found two significant issues.
 
-2. **중간 — 재조회 실패가 미저장 제목을 제거할 수 있습니다.** 20행은 `isError`이면 편집기 전체를 제거합니다. TanStack Query에서는 기존 데이터가 있는 재조회 실패도 오류 상태가 될 수 있으므로, 편집 중 재조회가 최종 실패하면 `TitleEditor`가 언마운트되어 `draft`가 사라집니다. 이후 조회가 성공하면 서버 제목으로 다시 초기화됩니다. **최소 조치:** 초기 조회 실패에만 전체 오류 화면을 표시하고, 기존 데이터가 있는 재조회 실패에서는 편집기를 유지하며 오류를 별도로 표시합니다. 입력 후 재조회 실패·복구를 거쳐도 입력값이 유지되는지 확인해야 합니다.
+1. **High — Query cache is shared across tenants.** `Documents` line 16 uses `queryKey: ['documents']`, but results depend on `tenantId`. Switching tenants within the same QueryClient can display the previous tenant's cache. The editor may then send a save request combining the new `tenantId` with the previous document's ID/title. An API that handles only the requested tenant does not prevent this client error. **Smallest remedy:** use `['documents', tenantId]`. Prepare identical document IDs with different titles across tenants and verify displayed data and save arguments while switching.
 
-`draft`를 독립적인 로컬 상태로 유지하는 것은 요구사항에 맞습니다. 서버 제목을 매번 복사하는 Effect를 추가하면 편집 내용을 덮어쓸 수 있습니다. 기존 저장 중 버튼 비활성화와 실패 알림도 유지해야 합니다. `HelpButton` 내부의 기본 콜백 생성만으로 `memo`가 무효화되는 것은 아닙니다.
+2. **Medium — Refetch failure can discard an unsaved title.** Line 20 removes the entire editor when `isError` is true. A TanStack Query refetch can fail while cached data exists, so a terminal refetch failure during editing unmounts `TitleEditor` and discards `draft`. A later successful fetch initializes it from the server title. **Smallest remedy:** use the full error screen only for initial-fetch failure; preserve the editor and show a separate error when refetching existing data fails. Verify input survives failure and recovery.
 
-`api.saveTitle` 구현과 공통 캐시 처리 경로가 없어 저장 후 캐시 갱신 누락은 확정할 수 없습니다. 해당 계약을 확인하고, 갱신 경로가 없다면 테넌트별 쿼리를 갱신하거나 무효화해야 합니다.
+An independent local `draft` matches the requirements. An Effect that continually copies the server title could overwrite edits. Preserve save-time button disabling and failure alerts. Creating the default callback inside `HelpButton` does not itself invalidate `memo`.
 
-소스·설정을 수정하지 않았으며 네트워크 접속과 패키지 설치도 하지 않았습니다. 제공된 버전 선언과 코드만 검토했으며, 실행 의존성과 검사 설정이 없어 타입 검사·테스트·동작 재현·성능 측정은 수행하지 못했습니다.
+Without `api.saveTitle` or shared cache-handling implementation, missing post-save cache updates cannot be confirmed. Inspect that contract; if no update path exists, update or invalidate the tenant-specific query.
+
+No source/configuration edits, network access, or package installation occurred. Reviewed only supplied version declarations and code. Missing dependencies/check configuration prevented type checks, tests, runtime reproduction, and performance measurement.

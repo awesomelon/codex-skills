@@ -1,3 +1,3 @@
-# 요청
+# Request
 
-volume.mjs에서 음수 음량이 그대로 나오는 오류를 고쳐줘. 입력은 유한한 숫자이고 반환값은 0~100이어야 해. 기존 함수 이름과 export는 유지해줘. 검증 명령은 node --test volume.test.mjs야. 외부 의존성은 없어.
+Fix volume.mjs returning negative volume unchanged. Input is a finite number and the return value must be between 0 and 100. Preserve the existing function name and export. Verify with node --test volume.test.mjs. There are no external dependencies.

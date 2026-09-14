@@ -1,9 +1,11 @@
-개선과 검증을 완료했습니다.
+> English translation of a historical record. [Original at the pre-translation commit](https://github.com/awesomelon/codex-skills/blob/ce11c34e3d1da77140087300218b776594bb65cf/evals/skill-audit-2026-09-14/outputs/quality.md). Reported runs, hashes, and counts describe the original work, not this translation.
 
-- 보관 정책을 `canArchive`로 모아 정책 수정 지점을 **3곳에서 1곳**으로 줄였습니다.
-- 핀 정책의 독립성과 기존 export·UI 이름을 유지했습니다.
-- 변경 전후 모두 제공 테스트 **7개 통과**했습니다.
-- `TASK.md`, 제공 테스트, `.agents`는 해시 비교로 변경 없음을 확인했습니다.
-- 네트워크·패키지 설치·GitHub 작업 없이 이 폴더에서만 작업했습니다.
+Improvement and verification are complete.
 
-점수 없이 근거와 검증 한계를 기록한 품질 비교 보고서에 시작 소스와 변경 내역도 안내했습니다.
+- Consolidated archive policy in `canArchive`, reducing policy edit points **from three to one**.
+- Preserved independent pinning and existing exports/UI names.
+- All **seven supplied tests passed before and after**.
+- Hash comparison confirmed unchanged `TASK.md`, tests, and `.agents` files.
+- Worked only within this folder without network, package installation, or GitHub operations.
+
+The unscored quality comparison report records evidence and verification limits and identifies the starting source and changes.

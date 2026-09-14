@@ -1,32 +1,32 @@
-# 품질을 비교하는 근거
+# Evidence for quality comparisons
 
-## 비교 조건
+## Comparable conditions
 
-기준 커밋/스냅샷, 대상 파일과 언어, 도구·버전·설정, 제외 경로를 기록한다. 전후에 같은 조건을 사용한다. 제품 코드, 테스트, 생성물·vendor·lockfile을 구분하며 파일 이동·이름 변경이 개선으로 집계되지 않게 한다. 새 파일이나 삭제 파일도 비교 대상에 포함한다. 기준 자료가 없으면 변화량을 만들지 않는다.
+Record the baseline commit/snapshot, target files and languages, tools with versions and configuration, and excluded paths. Use the same conditions before and after. Separate product code, tests, generated code, vendor files, and lockfiles; do not count file moves or renames as improvements. Include added and deleted files. Do not invent deltas without a baseline.
 
-프로젝트에 있는 분석기·lint·타입·테스트 도구를 우선한다. 리뷰에서는 자동 수정·스냅샷 갱신 옵션을 사용하지 않는다. 없는 도구를 대신해 AST 복잡도나 중복률을 눈대중·정규식으로 추정하지 말고 `미측정`과 정성 근거를 남긴다. 지표를 채우기 위한 의존성·CI 도입은 별도 요청이 없으면 하지 않는다.
+Prefer analyzers, lint, type checks, and test tools already in the project. Do not use automatic fixes or snapshot-update options during a review. If a tool is unavailable, report AST complexity or clone rate as unmeasured with qualitative evidence, rather than estimating by eye or regex. Do not add dependencies or CI simply to populate metrics unless separately requested.
 
-두 구현의 A/B 비교는 동일한 요구사항·테스트·범위에서 수행한다. 차이가 애매하면 동률 또는 판단 보류를 허용한다. 순서나 작성자 이름에 따른 편향이 결론을 바꿀 수 있다면 표시를 가리고 순서를 바꿔 확인한다. 이 재평가도 정답 판정기를 대체하지 않으며 단일 구현 리뷰마다 반복하지 않는다.
+Compare two implementations against the same requirements, tests, and scope. Allow ties or withheld judgment when the difference is unclear. If order or author labels could affect the conclusion, consider hiding labels and reversing the order. This reassessment does not replace a correctness oracle and is not needed for every single-implementation review.
 
-## 목적에 맞는 신호
+## Signals suited to the question
 
-| 신호 | 수집할 근거 | 해석의 제한 |
+| Signal | Evidence to collect | Limits of interpretation |
 | --- | --- | --- |
-| 변경량 | 추가·삭제 라인, 바뀐 파일, 새 공개 API·의존성 | Git diff 라인은 SLOC가 아니다. 테스트·필수 예외 처리 증가도 구분한다. 적은 LOC 자체를 목표로 삼지 않는다. |
-| 중복 | 분석기가 보고한 clone 위치·중복률, 같은 정책의 수정 지점 | 모양이 같아도 변경 이유가 다르면 공통화가 오히려 결합을 늘릴 수 있다. |
-| 복잡성 | 지원 분석기의 함수별 CC/SLOC·중첩과 상위 hotspot | 저장소 평균만으로 바뀐 핵심 경로를 숨기지 않는다. 함수 쪼개기가 추적 경로를 늘릴 수도 있다. |
-| 결합·상태 | 정책 소유자, 공개 진입점, 실제 호출·이벤트·캐시·상태 쓰기 경로 | import 개수만으로 런타임 결합이나 상태 소유권을 판단하지 않는다. |
-| 이해·검증 비용 | 의도를 찾기 위해 오가는 심볼, 필요한 fixture·환경, 관련 회귀 검증 경로 | 파일 개수나 커버리지를 단독 품질 점수로 쓰지 않는다. 외부 동작을 지키는 테스트인지 확인한다. |
+| Change volume | Added/deleted lines, changed files, new public APIs and dependencies | Git diff lines are not SLOC. Distinguish added tests and required exception handling. Lower LOC is not itself the objective. |
+| Duplication | Clone locations/rates reported by an analyzer; edit points for the same policy | Sharing similar-looking code can increase coupling if it changes for different reasons. |
+| Complexity | Supported analyzer results for per-function CC/SLOC, nesting, and major hotspots | Repository averages can hide a changed critical path. Splitting functions may increase navigation cost. |
+| Coupling and state | Policy owners, public entry points, actual calls, events, caches, and state write paths | Import counts alone do not describe runtime coupling or state ownership. |
+| Understanding and verification cost | Symbols traversed to find intent, required fixtures/environments, relevant regression paths | File counts or coverage alone are not quality scores. Check that tests protect external behavior. |
 
-수치에는 단위·분모·원문 출력 또는 재현 명령을 붙인다. 변경 영역과 직접 영향받는 영역을 우선 보고하고, 전체 집계는 맥락으로 사용한다. 단위가 다른 신호를 임의 가중합해 객관적 품질처럼 제시하지 않는다.
+Attach units, denominators, and raw output or a reproducible command to numbers. Prioritize changed and directly affected areas; use whole-project aggregates as context. Do not present arbitrary weighted sums of signals with different units as objective quality.
 
-## 쟁점을 판정하는 기준
+## Judgment criteria
 
-관련 있는 쟁점의 비용·위험과 판단 근거를 설명한다. 아래 항목은 필요한 관점을 고르는 기준이며 고정된 보고서 양식이나 계측값이 아니다.
+Explain the cost, risk, and evidence for relevant issues. These perspectives help select what matters; they are neither a fixed report template nor instrumented measurements.
 
-- **정책·책임:** 한 정책 변경이 독립 구현 여러 곳의 동시 수정을 요구하는가? 계약이나 실제 소비자로 같은 변경 이유를 입증한다.
-- **단순성·명료성:** 추상화·옵션·간접 호출이 현재 요구를 해결하는가? 제거했을 때 잃는 계약과 이해 비용을 비교한다.
-- **상태·부작용:** 권위 있는 상태와 갱신 경로를 추적할 수 있는가? 독립 편집 draft 등 의도된 수명은 중복 상태와 구분한다.
-- **변경·검증 용이성:** 현실적인 정책 변경에 필요한 논리 수정 지점과 회귀 확인은 어디인가? 추론한 비용과 실제 실험에서 관찰한 파일·오류·시간을 구분한다.
+- **Policy and responsibility:** Does one policy change require synchronized edits across independent implementations? Establish the shared reason for change through contracts or actual consumers.
+- **Simplicity and clarity:** Do abstractions, options, and indirection serve current requirements? Compare the contracts lost by removal with the cost of understanding them.
+- **State and side effects:** Can the authoritative state and update paths be traced? Distinguish intentional lifetimes, such as independently edited drafts, from duplicated state.
+- **Ease of change and verification:** Where are the logical edit points and regression checks for a realistic policy change? Distinguish inferred cost from files, errors, and time observed in an actual experiment.
 
-판단 확신은 코드 경로·계약·재현으로 설명한다. 근거 없는 백분율을 붙이지 않는다. 소스 접근 부족이나 테스트 실행 불가는 좋은 점수의 이유가 아니다.
+Explain confidence using code paths, contracts, and reproductions, not unsupported percentages. Lack of source access or runnable tests is not a reason for a favorable score.

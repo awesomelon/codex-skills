@@ -1,5 +1,5 @@
-# 요청
+# Request
 
-이 React 문서 선택기의 코드 품질을 개선하고 가능한 검증까지 해줘. 제목 오름차순 정렬, 대소문자 구분 없는 검색, 입력과 선택 동작은 유지해줘. 표시 텍스트와 공개 props는 유지하고, 이 폴더 안의 필요한 파일만 수정해줘.
+Improve this React document picker's code quality and complete the verification available. Preserve ascending title order, case-insensitive search, input, and selection behavior. Keep display text and public props unchanged, and edit only necessary files within this folder.
 
-앱은 Vite SPA이고 React Compiler는 사용하지 않는다. 목록은 보통 20개 이하이며 성능 프로파일은 없다. 이 폴더가 전체 평가 입력이다. 실행 의존성·잠금 파일·테스트 환경은 제공하지 않으므로 네트워크 접속·패키지 설치는 하지 말고 검증의 한계를 보고해줘.
+The app is a Vite SPA without React Compiler. Lists usually contain at most 20 items, and no performance profile is available. This folder is the complete evaluation input. Runtime dependencies, a lockfile, and a test environment are not provided; do not access the network or install packages, and report verification limits.

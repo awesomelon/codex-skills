@@ -1,27 +1,27 @@
 ---
 name: architecture-guard
-description: 모듈 경계·의존성·상태 소유권·공개 계약의 설계 점검과 아키텍처 리뷰에 사용한다. 순수 문구·서식 변경은 제외한다.
+description: Check designs and review architecture involving module boundaries, dependencies, state ownership, or public contracts. Exclude wording-only and formatting-only changes.
 ---
 
-# 아키텍처 유지보수 가드
+# Architecture Guard
 
-다음 변경을 국소적으로 이해·수정·검증할 수 있도록 책임과 의존성을 점검한다. 폴더 모양이나 패턴 준수보다 실제 변경 비용과 실패 위험으로 판단한다.
+Assess responsibilities and dependencies so the next change can be understood, modified, and verified locally. Judge actual change cost and failure risk rather than folder shape or pattern compliance.
 
-## 작업 선택
+## Select the work
 
-설계·계획에는 [preflight.md](references/preflight.md), PR·변경 리뷰와 현재 구조 진단에는 [review.md](references/review.md)를 사용한다. 현재 단계에 필요한 참조만 읽는다. 구현·개선 요청은 필요한 설계 판단, 수정, 최종 변경 검토까지 완료한다. 계획·리뷰만 요청받았다면 소스·설정·문서를 수정하지 않는다.
+Use [preflight.md](references/preflight.md) for design and planning, and [review.md](references/review.md) for PR/change reviews and current-architecture diagnosis. Read only the reference needed for the current stage. Implementation or improvement requests include necessary design decisions, edits, and a final change review. Planning-only or review-only requests must not modify source, configuration, or documentation.
 
-지정된 변경과 직접 연결된 호출자·소비자·상태 소유자에서 시작한다. 적용되는 명시적 경계 규칙과 코드에서 추론한 관행을 구분한다. 조사 범위는 영향이 이어지는 경계까지 넓히며, 전체 감사가 요청되면 주요 경계와 표본을 밝혀 다룬다. 문구·서식만 바뀐 작업은 아키텍처 영향 확인으로 마친다.
+Start with the specified change and its directly connected callers, consumers, and state owners. Distinguish explicit boundary rules from conventions inferred from code. Expand investigation to boundaries affected by the change; for a requested full audit, identify the major boundaries and samples covered. For wording-only or formatting-only changes, finish after checking for architectural impact.
 
-## 설계 판단
+## Design judgment
 
-- **소유권:** 같은 정책을 여러 곳에서 따로 수정하게 만드는 책임·상태 중복을 찾는다. 모양이 비슷해도 변경 이유가 다른 정책은 묶지 않는다.
-- **의존 경로:** 공개 진입점과 합의된 방향을 확인한다. import 외에도 이벤트·전역 상태·콜백·네트워크를 통한 결합을 포함한다.
-- **계약:** 바뀐 API·타입·캐시·이벤트의 실제 소비자를 확인한다. 권한·테넌트·동시성·트랜잭션 경계를 건드리면 해당 불변조건을 보존한다. 요청된 계약 전환은 소비자와 이행 순서를 함께 검토한다.
-- **개입 비용:** 현재 구조 유지, 국소 수정, 경계 조정 중 문제를 해결하는 가장 작은 대안을 고른다. 새 계층·공통화가 없애는 결합과 추가하는 비용을 비교한다. 파일 길이·중복 개수만으로 분할하거나 DTO·서비스·DDD·FSD 등을 일괄 적용하지 않는다.
+- **Ownership:** Find duplicated responsibilities or state that require the same policy to be edited in multiple places. Do not combine similar-looking policies that change for different reasons.
+- **Dependency paths:** Check public entry points and agreed dependency direction. Include coupling through events, global state, callbacks, and network calls, not just imports.
+- **Contracts:** Check actual consumers of changed APIs, types, caches, and events. Preserve relevant invariants when touching authorization, tenant isolation, concurrency, or transaction boundaries. For a requested contract transition, review consumers and migration order together.
+- **Intervention cost:** Choose the smallest effective option among keeping the structure, making a local fix, and adjusting a boundary. Compare the coupling removed by a new layer or shared abstraction against its added cost. Do not split by file length or duplicate count alone, or apply DTOs, services, DDD, or FSD uniformly.
 
-## 검증과 완료
+## Validation and completion
 
-변경한 경계·계약의 위험을 확인할 기존 검사부터 선택한다. 명시된 필수 검증은 수행하고, 추가 검사는 남은 불확실성을 해결할 때 실행한다. 검사 규칙을 완화해 통과시키지 않는다. 반복되는 중요한 경계 위반에는 작은 자동 검사가 유용할 수 있으며, 설계 결정이 달라졌다면 관련 문서만 갱신한다.
+Start with existing checks that address risks in the changed boundaries and contracts. Run explicitly required validation; add checks when they resolve remaining uncertainty. Do not weaken checking rules to obtain a pass. A small automated check may help with recurring, significant boundary violations. Update only relevant documentation when a design decision changes.
 
-보고에는 파일·심볼과 실제 의존 경로, 영향, 최소 조치를 연결한다. 동작 검증과 유지보수 판단을 분리한다. 전후 품질 비교도 요청됐다면 같은 범위·기준으로 비교하고 이미 확인한 근거를 재사용한다. 비교 범위, 실행한 검증과 한계, 중대한 미해결 문제를 밝힌다. 수정 요청의 범위 안에서 발견한 문제는 해결하고 확인하되, 범위 밖 계약 전환·위험한 마이그레이션은 제안으로 남긴다. 선택적 개선만 남았으면 작업을 마친다.
+Connect files, symbols, and actual dependency paths to impact and the smallest remedy. Separate behavior verification from maintainability judgment. If before/after quality comparison is also requested, use the same scope and criteria and reuse established evidence. State comparison scope, checks run and their limits, and significant unresolved issues. Resolve and verify problems within the requested edit scope; leave out-of-scope contract transitions or risky migrations as proposals. Finish when only optional improvements remain.

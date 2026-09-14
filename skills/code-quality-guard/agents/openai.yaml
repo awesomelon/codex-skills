@@ -1,4 +1,4 @@
 interface:
-  display_name: "코드 품질 가드"
-  short_description: "정확성과 유지보수 품질을 분리해 근거로 검토하고 개선합니다"
-  default_prompt: "$code-quality-guard로 현재 코드의 정확성과 유지보수 품질을 분리해 검토해줘. 확인한 근거, 실제 변경 비용과 최소 개선안을 제시하고 파일은 수정하지 마."
+  display_name: "Code Quality Guard"
+  short_description: "Review correctness and maintainability with concrete evidence"
+  default_prompt: "Use $code-quality-guard to review the current code, separating correctness from maintainability. Present observed evidence, actual change costs, and minimal improvements without modifying files."

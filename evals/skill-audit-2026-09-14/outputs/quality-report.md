@@ -1,32 +1,34 @@
-# 문서 액션 모듈 품질 비교
+# Document action module quality comparison
 
-## 범위와 비교 조건
+> English translation of a historical record. [Original at the pre-translation commit](https://github.com/awesomelon/codex-skills/blob/ce11c34e3d1da77140087300218b776594bb65cf/evals/skill-audit-2026-09-14/outputs/quality-report.md). Reported runs, hashes, and counts describe the original work, not this translation.
 
-- 기준은 이번 작업을 시작할 때 제공된 스냅샷이다. 이전 버전과 Git 저장소가 없어 과거 변경이나 staged/unstaged 상태를 판단하지 않았다. 시작 소스는 `before/`에 보존했다.
-- 대상은 JavaScript ES 모듈 `list.mjs`, `detail.mjs`, `bulk.mjs`와 이번에 추가한 `archive-policy.mjs`다. 제공된 직접 호출자는 `policy.test.mjs`이며 외부 호출자는 조사 범위 밖이다.
-- 전후 모두 Node.js v22.23.2에서 같은 명령 `node --test policy.test.mjs`와 같은 제공 테스트를 사용했다. 실행 기록은 `before-tests.tap`, `after-tests.tap`에 있다.
-- `TASK.md`, 제공 테스트, `.agents` 파일은 수정하지 않았다. 시작 시 기록한 `protected-sha256.json`의 SHA-256과 작업 후 파일 해시가 모두 일치했다.
-- 제품 소스 변경은 기존 3개 파일 수정과 정책 모듈 1개 추가다. 파일 이동, 외부 의존성, 설정 변경은 없다. `changes.diff`에 시작 사본 대비 전체 소스 변경을 기록했다. 결과 자료는 제품 코드와 분리했다.
+## Scope and comparison conditions
 
-## 정확성: 확인 범위에서 유지
+- The baseline is the snapshot supplied at task start. No earlier version or Git repository was available to assess historical changes or staged/unstaged state. Starting source was preserved in `before/`.
+- Targets are JavaScript ES modules `list.mjs`, `detail.mjs`, `bulk.mjs`, and the new `archive-policy.mjs`. The supplied direct caller is `policy.test.mjs`; external callers are outside scope.
+- Both runs used Node.js v22.23.2, the same `node --test policy.test.mjs` command, and unchanged supplied tests. Execution records are `before-tests.tap` and `after-tests.tap`.
+- `TASK.md`, supplied tests, and `.agents` files were unchanged. Their final hashes matched SHA-256 values saved in `protected-sha256.json` at task start.
+- Product edits comprise three existing files and one new policy module. No moves, external dependencies, or configuration changes occurred. `changes.diff` records all source differences from the initial copy. Result artifacts are separate from product code.
 
-전후 모두 제공 테스트 7개가 통과했다. 테스트는 status 세 종류와 locked 두 값의 모든 조합에서 목록 버튼, 상세 액션, 일괄 대상 및 핀 결과를 확인한다. 상세의 `open` 우선 순서, 일괄 대상 입력 순서, 빈 배열도 확인한다. 동결한 문서와 배열을 사용한 경로에서 입력 수정 없이 통과했다.
+## Correctness: preserved within the checked scope
 
-기존 모듈 경로와 공개 export 이름을 유지했다. 새 `canArchive` export는 세 모듈이 공유하기 위해 추가했다. 코드 검토상 목록은 이 함수를 호출하고, 상세는 같은 함수로 archive 추가 여부를 판단하며, 일괄 처리는 같은 함수로 필터링한 뒤 ID를 추출한다. 핀 조건은 기존과 같다.
+All seven supplied tests passed before and after. They check list buttons, detail actions, bulk targets, and pinning for all combinations of three statuses and two lock values, plus open-first detail order, bulk input order, and empty arrays. Paths using frozen documents and arrays passed without mutation.
 
-유효한 입력이라는 계약 밖의 데이터, 외부 UI 통합은 검증하지 않았다. 제공되지 않은 lint·타입·AST·clone 분석 도구는 실행하지 않았고 설치하지 않았다.
+Existing module paths and public export names were preserved. The new `canArchive` export is shared by three modules: the list calls it, detail uses it to decide whether to append archive, and bulk filtering uses it before extracting IDs. Pin conditions are unchanged.
 
-## 유지보수 품질 비교
+Inputs outside the valid-input contract and external UI integration were not verified. Unavailable lint, type, AST, and clone tools were neither run nor installed.
 
-| 관점 | 시작 상태의 관찰과 변경 위험 | 변경 후 근거와 판단 |
+## Maintainability comparison
+
+| Perspective | Starting observation and change risk | Evidence after the change and judgment |
 | --- | --- | --- |
-| 보관 정책 소유권 | `showArchiveButton`, `documentActions`, `archiveIds`가 동일한 보관 조건을 각각 구현한다. 허용 상태 또는 잠금 정책을 바꾸면 세 판단을 함께 수정해야 하며 누락 시 화면과 일괄 동작이 달라질 수 있다. | `archive-policy.mjs`의 `canArchive` 한 곳이 조건을 소유한다. 세 호출자는 이를 사용하므로 동일 정책의 논리 수정 지점이 3곳에서 1곳으로 줄었다. 개선. 이 수는 코드 경로를 직접 확인한 것이며 clone 분석 지표가 아니다. |
-| 독립 정책 | `canPin`은 현재 보관과 같은 식이지만 TASK에서 독립 변경을 요구한다. 식의 유사성만으로 통합하면 보관 변경이 핀에 전파된다. | `canPin`의 조건을 별도로 유지하고 독립 정책임을 주석으로 설명했다. 독립성 유지. 남은 유사 표현은 계약에 필요한 분리다. |
-| 이해 비용과 추상화 | 조건을 읽기는 쉽지만 보관 동작 전체를 이해하려면 세 구현을 비교해야 한다. | 공통 함수를 따라가는 한 단계와 모듈 1개가 늘었다. 대신 보관 조건의 권위 있는 위치가 명확해졌다. 기존 UI 이름의 래퍼를 보존했으며 옵션이나 범용 정책 프레임워크를 도입하지 않았다. 공통화 비용이 작고 목적이 명확하다. |
-| 상태와 검증 경로 | 입력을 읽고 새 액션·ID 배열을 생성한다. 테스트는 이미 공개 호출자를 통해 유효한 상태 조합을 검증한다. | 공통 함수도 입력만 읽으며 캐시나 공유 가변 상태가 없다. 기존 공개 경로 테스트를 그대로 사용해 회귀를 확인했다. 유지. 테스트 통과 자체를 설계 개선 근거로 삼지는 않았다. |
+| Archive-policy ownership | `showArchiveButton`, `documentActions`, and `archiveIds` independently implement the same conditions. Allowed-status or lock-policy changes require synchronized edits; omissions could make screens and bulk behavior diverge. | One `canArchive` in `archive-policy.mjs` owns the conditions and serves all three callers. Logical policy edit points fell from 3 to 1. Improved; this is directly traced code evidence, not a clone metric. |
+| Independent policy | `canPin` currently has the same expression but TASK requires independent changes. Merging by appearance would propagate archive changes into pinning. | Kept the separate condition and added a rationale comment. Independence preserved; similar expressions remain because the contract requires separation. |
+| Comprehension and abstraction | Conditions are easy to read locally, but understanding the complete archive behavior requires comparing three implementations. | Added one module and one lookup step, but established a clear authority for the policy. Preserved UI-named wrappers without options or a generic policy framework. Sharing cost is small and purposeful. |
+| State and verification | Functions read input and create new action/ID arrays. Existing tests cover valid state combinations through public callers. | The common function also only reads input and has no cache or shared mutable state. Reused public-path tests for regressions. Preserved; passing tests alone were not treated as proof of design improvement. |
 
-현재 구조 유지 시 세 조건의 동기화 부담이 남는다. 한 파일의 표현만 정리해도 이 문제는 해결되지 않는다. 따라서 작은 공통 정책 모듈을 두는 조치를 선택했다. 더 큰 경계 재설계나 핀 공통화는 현재 계약에 필요하지 않다.
+Keeping the structure leaves three conditions to synchronize. Tidying one file alone cannot resolve that problem, so a small shared policy module was chosen. Larger boundary redesign or merging pinning is unnecessary for the current contract.
 
-현실적인 후속 변경으로 보관 허용 상태 변경을 가정하면, 시작 상태에서는 세 조건을 수정해야 하고 변경 후에는 `canArchive`만 수정하면 된다. 핀은 수정 대상이 아니다. 검증은 해당 요구에 맞춰 보관 기대값을 갱신하고 세 공개 경로와 독립 핀 기대값을 함께 확인하는 방식이다. 이는 소스 추적에 따른 판단이며 가상 기능 구현이나 변경 시간 실험을 수행한 결과는 아니다.
+For a realistic hypothetical change to archive-allowed statuses, the baseline needs three condition edits; the revised version needs only `canArchive`. Pinning is not an edit target. Update archive expectations for the requirement and check all three public paths and independent pin expectations. This is source-tracing judgment, not an implemented hypothetical feature or timing experiment.
 
-점수는 산정하지 않았다. AST 복잡도·SLOC·clone 중복률은 미측정이며 정규식이나 인상으로 대신 추정하지 않았다. 조사 범위에서 새 정확성 문제나 품질 악화는 확인되지 않았다. 실제 후속 정책 변경과 외부 호출자 통합에 대한 검증은 남아 있다.
+No score was assigned. AST complexity, SLOC, and clone rate are unmeasured and were not estimated by regex or impression. No new correctness issue or quality deterioration was found within scope. Actual future-policy changes and external-caller integration still need validation.
