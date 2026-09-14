@@ -2,7 +2,7 @@
 
 개인 Codex 스킬을 한 저장소에 모으고, 여러 Mac에 필요한 스킬을 설치·업데이트하기 위한 모음입니다. 사용 환경은 macOS입니다.
 
-GitHub 저장소: [awesomelon/codex-skills](https://github.com/awesomelon/codex-skills) (비공개).
+GitHub 저장소: [awesomelon/codex-skills](https://github.com/awesomelon/codex-skills).
 
 ## 포함된 스킬
 
@@ -12,7 +12,7 @@ GitHub 저장소: [awesomelon/codex-skills](https://github.com/awesomelon/codex-
 | [react-quality-guard](skills/react-quality-guard/SKILL.md) | Vercel 기준으로 React 웹 코드의 정확성·성능을 개선합니다. 쟁점에 맞는 상태·요청·렌더링·서버 기준만 적용합니다. |
 | [code-quality-guard](skills/code-quality-guard/SKILL.md) | 정확성 검증과 유지보수 품질을 분리합니다. 변경 전후 지표·코드 근거·현실적인 변경 비용으로 검사하고, 요청 시 최소 개선과 검증을 수행합니다. |
 
-`architecture-guard`는 모듈 경계, `react-quality-guard`는 React 실행 방식과 사용자 동작, `code-quality-guard`는 언어·프레임워크 공통의 유지보수 품질 평가에 집중합니다. 각 스킬은 단독 설치로 사용할 수 있습니다. 여러 관점이 필요한 작업은 이미 확보한 근거를 재사용하며, 매번 세 스킬을 함께 호출할 필요는 없습니다. 소규모 품질 리뷰는 본문의 근거로 판단하고, 전후 측정과 점수 평가는 해당 참조만 선택합니다. React 리뷰만 원하면 `$react-quality-guard로 현재 변경을 리뷰만 해줘`, 수정까지 원하면 `$react-quality-guard로 React 코드 품질을 개선하고 검증해줘`라고 요청합니다.
+`architecture-guard`는 모듈 경계, `react-quality-guard`는 React 실행 방식과 사용자 동작, `code-quality-guard`는 언어·프레임워크 공통의 유지보수 품질 평가에 집중합니다. 각 스킬은 단독 설치로 사용할 수 있습니다. 여러 관점이 필요한 작업은 이미 확보한 근거를 재사용하며, 매번 세 스킬을 함께 호출할 필요는 없습니다. 소규모 품질 리뷰는 본문의 근거로 판단합니다. 전후·A/B 비교, 점수 평가, 특수 지표 계산은 요청에 맞는 참조만 선택합니다. React 리뷰만 원하면 `$react-quality-guard로 현재 변경을 리뷰만 해줘`, 수정까지 원하면 `$react-quality-guard로 React 코드 품질을 개선하고 검증해줘`라고 요청합니다.
 
 공통 품질 검사는 다음처럼 요청합니다.
 
@@ -22,24 +22,24 @@ $code-quality-guard로 현재 변경의 정확성과 유지보수 품질을 분�
 $code-quality-guard로 이 모듈의 유지보수 품질을 개선하고 검증해줘. 현재 상태를 기준으로 동작 보존과 변경 비용의 차이를 확인해줘.
 ```
 
-테스트 통과, 복잡도·중복 같은 진단 신호, 실제 유지보수 판단을 별도로 보고합니다. 분석 도구가 없는 수치는 미측정으로 남기며, 단일 점수나 LOC 감소를 목표로 삼지 않습니다. [비교·측정 기준](skills/code-quality-guard/references/measurement.md), [점수·A/B 비교·원문 지표](skills/code-quality-guard/references/scoring.md), [품질 검사 평가 사례](evals/code-quality-guard/cases.md), [실행 기록](evals/code-quality-guard/results.md)을 참고하세요. 설치기는 새 폴더를 자동 발견하므로 업데이트 후 `bash scripts/install.sh --skill code-quality-guard`로 선택 설치할 수 있습니다.
+테스트 통과, 복잡도·중복 같은 진단 신호, 실제 유지보수 판단을 별도로 보고합니다. 분석 도구가 없는 수치는 미측정으로 남기며, 단일 점수나 LOC 감소를 목표로 삼지 않습니다. [비교·측정 기준](skills/code-quality-guard/references/measurement.md), [점수 평가](skills/code-quality-guard/references/scoring.md), [Earendil 원문 지표](skills/code-quality-guard/references/earendil-metrics.md), [품질 검사 평가 사례](evals/code-quality-guard/cases.md), [실행 기록](evals/code-quality-guard/results.md)을 참고하세요. 설치기는 새 폴더를 자동 발견하므로 업데이트 후 `bash scripts/install.sh --skill code-quality-guard`로 선택 설치할 수 있습니다.
 
 원문 출처·기준 커밋·적용 예외는 [React 스킬 출처](skills/react-quality-guard/references/sources.md), 행동 평가 범위는 [React 평가 기록](evals/react-quality-guard/results.md)에 있습니다.
 
 2026-09-12의 [스킬 감사와 개선 기록](docs/skill-audit-2026-09-12.md)에서 중복 지침 정리, 조건부 문서·검증 선택, 행동 평가 결과를 확인할 수 있습니다.
 
-새 품질 스킬을 포함한 [2026-09-14 전체 감사](docs/skill-audit-2026-09-14.md)에서는 적용 조건·참조 선택을 정리하고, 실제 평가에서 발견된 검사 반복을 보완했습니다. 검증 범위와 미실행 항목도 함께 기록했습니다.
+새 품질 스킬을 포함한 [2026-09-14 전체 감사](docs/skill-audit-2026-09-14.md)에서는 적용 조건·참조 선택을 정리하고, 실제 평가에서 발견된 검사 반복을 보완했습니다. [후속 감사](docs/skill-audit-2026-09-14-followup.md)에서는 세부 참조 선택, 요청 템플릿 중복과 안내를 정리했습니다. 각 기록에 검증 범위와 미실행 항목을 구분했습니다.
 
 ## 새 Mac에 설치
 
-설치에는 **Python이 필요하지 않습니다.** macOS의 `/bin/bash`와 기본 명령(`shasum` 등)을 사용합니다. 저장소 다운로드에는 Git과 GitHub CLI(`gh`)가 필요합니다. 비공개 저장소에 접근 가능한 계정으로 인증합니다. `gh auth status --hostname github.com`으로 확인하고, 인증이 없으면 `gh auth login --hostname github.com --web`을 실행합니다.
+설치에는 **Python이 필요하지 않습니다.** macOS의 `/bin/bash`와 기본 명령(`shasum` 등)을 사용합니다. 저장소 다운로드에는 Git이 필요합니다. 아래 HTTPS clone은 공개 저장소를 기준으로 하며 GitHub CLI나 인증이 필요하지 않습니다. 접근이 제한된 저장소를 사용한다면 권한 있는 계정으로 인증한 GitHub CLI의 `gh repo clone awesomelon/codex-skills`를 사용할 수 있습니다.
 
 모든 스킬을 설치하는 기본 대상은 `~/.agents/skills`입니다. 사용자 설정이나 `AGENTS.md`는 자동 변경하지 않습니다.
 
-Git과 GitHub CLI를 준비하고 GitHub 인증을 마친 다음 실행합니다. 각 명령의 성공을 확인하고 다음으로 진행합니다.
+Git을 준비한 다음 실행합니다. 각 명령의 성공을 확인하고 다음으로 진행합니다.
 
 ```bash
-gh repo clone awesomelon/codex-skills
+git clone https://github.com/awesomelon/codex-skills.git
 cd codex-skills
 bash scripts/install.sh
 ```
