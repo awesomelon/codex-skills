@@ -1,0 +1,70 @@
+[
+  {
+    "args": [
+      "--list"
+    ],
+    "stdout": "architecture-guard\ncode-quality-guard\nreact-quality-guard\ntanstack-query\n",
+    "exit": 0
+  },
+  {
+    "args": [
+      "--skill",
+      "tanstack-query",
+      "--mode",
+      "copy",
+      "--dest",
+      "/private/tmp/tanstack-query-install-gu1l7zml/preview",
+      "--dry-run"
+    ],
+    "stdout": "DRY RUN install: /private/tmp/tanstack-query-install-gu1l7zml/preview/tanstack-query (copy)\n",
+    "exit": 0
+  },
+  {
+    "args": [
+      "--skill",
+      "tanstack-query",
+      "--mode",
+      "link",
+      "--dest",
+      "/private/tmp/tanstack-query-install-gu1l7zml/link"
+    ],
+    "stdout": "install: /private/tmp/tanstack-query-install-gu1l7zml/link/tanstack-query (link)\nInstallation complete.\n",
+    "exit": 0
+  },
+  {
+    "args": [
+      "--skill",
+      "tanstack-query",
+      "--mode",
+      "link",
+      "--dest",
+      "/private/tmp/tanstack-query-install-gu1l7zml/link"
+    ],
+    "stdout": "unchanged: /private/tmp/tanstack-query-install-gu1l7zml/link/tanstack-query (link)\nInstallation complete.\n",
+    "exit": 0
+  },
+  {
+    "args": [
+      "--skill",
+      "tanstack-query",
+      "--mode",
+      "copy",
+      "--dest",
+      "/private/tmp/tanstack-query-install-gu1l7zml/copy"
+    ],
+    "stdout": "install: /private/tmp/tanstack-query-install-gu1l7zml/copy/tanstack-query (copy)\nInstallation complete.\n",
+    "exit": 0
+  },
+  {
+    "args": [
+      "--skill",
+      "tanstack-query",
+      "--mode",
+      "copy",
+      "--dest",
+      "/private/tmp/tanstack-query-install-gu1l7zml/copy"
+    ],
+    "stdout": "unchanged: /private/tmp/tanstack-query-install-gu1l7zml/copy/tanstack-query (copy)\nInstallation complete.\n",
+    "exit": 0
+  }
+]

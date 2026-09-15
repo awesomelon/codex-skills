@@ -1,0 +1,5 @@
+PASS separate tenants with matching record IDs
+PASS fresh successful reads reuse their cache entry
+PASS HTTP failures reject without caching their response body
+PASS query cancellation reaches the request
+PASS request input encoding is preserved

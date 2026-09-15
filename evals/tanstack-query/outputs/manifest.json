@@ -1,0 +1,125 @@
+{
+  "date": "2026-09-15",
+  "os": "26.6.2",
+  "node": "v26.8.2",
+  "codex": "0.154.0",
+  "query_core": "5.102.8",
+  "source_commit": "e2fdf86c5bb5bfd863e336bcf0180318c3c2f838",
+  "upstream_commit": "b2fc14c974b2ca09b38de09c28237f240175205b",
+  "skill_sha256": {
+    "LICENSE": "4ef8d6c636d938b332dc7311b18f06fd22c855b496bc678d5fd8608ed8301214",
+    "SKILL.md": "f97f9d633a3c36051fe01d77b5724a4fa7468d9cb6a55252098b1ea4a7379f29",
+    "agents/openai.yaml": "47eb6cfef875228d46689fbb429f06287126613325d283cfdee0639132b09673",
+    "references/cache-and-keys.md": "ef1c7f15808ca9cde85ba2af1892bad053218372aa8928c6a829704ba3221d8d",
+    "references/mutations.md": "336000388435e6a2de4b46d997ebefc37ba7bd658bae196fa74192486b16c34b",
+    "references/pagination-and-prefetch.md": "0d0be0d773ea0afaaa04e3ceea92093eee86b282f12ebdcd864361d4676e75ac",
+    "references/requests-and-rendering.md": "4545d403a3e04c43e0fc44a35d337f1935d7d7edb37a786cc1ae0411b3502a85",
+    "references/server-and-offline.md": "7657c350416ebc7da5fc3a96eeec1f582d61543e09a5be0f2269c0e4f6502765",
+    "references/sources.md": "8278b1b9d67c8ab0b10be95624acede51b232280aa9c51050c8e3af995da6098"
+  },
+  "review_before": {
+    "TASK.md": "70dd0e15020ad4e966d9d186b58c778927577d252bb243605a349fb356cce7c1",
+    "records.tsx": "9b38957e33ee2a0e4714acd2f674d61c229e942ca3e2b892ce67a6a9944c5599"
+  },
+  "review_after": {
+    "TASK.md": "70dd0e15020ad4e966d9d186b58c778927577d252bb243605a349fb356cce7c1",
+    "records.tsx": "9b38957e33ee2a0e4714acd2f674d61c229e942ca3e2b892ce67a6a9944c5599"
+  },
+  "implementation_before": {
+    "TASK.md": "f158c3baffa10120b0a4a63678dccbb51d5b028027e48fb5c8c06efbfdc7c081",
+    "check.mjs": "4b5475a043737707a1c1ba7b4f78de6b8313e7c195736915f4f9ce9295c438cf",
+    "package-lock.json": "527e81710538a0f6d164bafb45b93ac0174d7ffa3910ff1b37a676e8789a31e1",
+    "package.json": "f258ffbe2624d2d15e3abdcedbe874b22761a12f33f51cc1ed8ab049e9abf7c6",
+    "records.mjs": "29e54a11176c66527cf42e0149d663c64beac9c1207740cf1633c5f3b3d7d96a"
+  },
+  "implementation_after": {
+    "TASK.md": "f158c3baffa10120b0a4a63678dccbb51d5b028027e48fb5c8c06efbfdc7c081",
+    "check.mjs": "4b5475a043737707a1c1ba7b4f78de6b8313e7c195736915f4f9ce9295c438cf",
+    "package-lock.json": "527e81710538a0f6d164bafb45b93ac0174d7ffa3910ff1b37a676e8789a31e1",
+    "package.json": "f258ffbe2624d2d15e3abdcedbe874b22761a12f33f51cc1ed8ab049e9abf7c6",
+    "records.mjs": "6722ee1131fdcd36695b3b0419f4a56a624cf1383378fc13e1248a73ce535414"
+  },
+  "changed_files": [
+    "records.mjs"
+  ],
+  "runs": [
+    {
+      "name": "review",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high",
+      "sandbox": "read-only",
+      "commands": [
+        {
+          "command": "/bin/zsh -lc 'cat /private/tmp/tanstack-query-evaluation-20260915/tanstack-query/SKILL.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/zsh -lc \"pwd; rg --files -g '\"'!node_modules'\"' -g '\"'!'\"\\\\.git'\"",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/zsh -lc 'cat TASK.md; cat records.tsx'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/zsh -lc 'cat /private/tmp/tanstack-query-evaluation-20260915/tanstack-query/references/cache-and-keys.md; cat /private/tmp/tanstack-query-evaluation-20260915/tanstack-query/references/mutations.md; cat /private/tmp/tanstack-query-evaluation-20260915/tanstack-query/references/requests-and-rendering.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/zsh -lc 'nl -ba records.tsx'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/zsh -lc 'cat /private/tmp/tanstack-query-evaluation-20260915/tanstack-query/references/pagination-and-prefetch.md'",
+          "exit_code": 0
+        }
+      ],
+      "usage": {
+        "input_tokens": 68150,
+        "cached_input_tokens": 59392,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 757,
+        "reasoning_output_tokens": 42
+      },
+      "prompt": "Use the skill at /private/tmp/tanstack-query-evaluation-20260915/tanstack-query/SKILL.md to complete TASK.md in the current directory. This is an isolated evaluation. Read only that skill and its relevant references and the files in this directory; do not use network, other project files, or external apps. Do not modify files.",
+      "raw_final_response": "## Findings\n\n1. **[P1] Detail cache keys omit the tenant.**  \n   [records.tsx:10](/private/tmp/tanstack-query-evaluation-20260915/review/records.tsx:10) and [records.tsx:21](/private/tmp/tanstack-query-evaluation-20260915/review/records.tsx:21) identify records only by ID. Since tenants can share IDs, their detail queries collide, and saving one tenant\u2019s record overwrites the shared entry. The 60-second freshness window can also allow another tenant\u2019s cached record to display without a new request.  \n   **Remedy:** Use a shared key function returning `['records', tenantId, 'detail', recordId]` for both reads and writes. The `detail` segment keeps detail entries distinct from the infinite-page cache.\n\n2. **[P2] Loading more can interrupt a background refresh.**  \n   [records.tsx:34](/private/tmp/tanstack-query-evaluation-20260915/review/records.tsx:34) checks only `isFetchingNextPage`, which is false during a background refresh. Calling `fetchNextPage()` then can cancel that refresh under the default behavior and use the existing, potentially outdated server cursor, risking inconsistent pages.  \n   **Remedy:** Gate loading with:\n   ```tsx\n   if (result.hasNextPage && !result.isFetching) {\n     void result.fetchNextPage()\n   }\n   ```\n\nThe full save response supports the direct `setQueryData` update; the stated consumers do not require additional list/count invalidation. The infinite query\u2019s initial parameter and `null` terminal cursor are valid for v5.\n\nReview used the supplied skill and relevant references. No files changed; no runtime checks executed."
+    },
+    {
+      "name": "implementation",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high",
+      "sandbox": "workspace-write",
+      "commands": [
+        {
+          "command": "/bin/zsh -lc \"pwd && rg --files -g '\"'!node_modules'\"' -g '\"'!package-lock.json'\"' -g '\"'!pnpm-lock.yaml'\"' -g '\"'!yarn.lock'\"' && cat TASK.md && cat /private/tmp/tanstack-query-evaluation-20260915/tanstack-query/SKILL.md\"",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/zsh -lc 'cat /private/tmp/tanstack-query-evaluation-20260915/tanstack-query/references/cache-and-keys.md /private/tmp/tanstack-query-evaluation-20260915/tanstack-query/references/requests-and-rendering.md'",
+          "exit_code": 0
+        },
+        {
+          "command": "/bin/zsh -lc \"cat records.mjs package.json check.mjs && rg --files --hidden -g AGENTS.md -g '\"'!node_modules'\"' -g '\"'!.git'\"' && cat node_modules/@tanstack/query-core/package.json\"",
+          "exit_code": 1
+        },
+        {
+          "command": "/bin/zsh -lc \"cat node_modules/@tanstack/query-core/package.json && rg -n -A 30 'export type QueryFunctionContext' node_modules/@tanstack/query-core/src/types.ts && node check.mjs\"",
+          "exit_code": 1
+        },
+        {
+          "command": "/bin/zsh -lc 'node check.mjs'",
+          "exit_code": 0
+        }
+      ],
+      "usage": {
+        "input_tokens": 88101,
+        "cached_input_tokens": 79104,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 685,
+        "reasoning_output_tokens": 8
+      },
+      "prompt": "Use the skill at /private/tmp/tanstack-query-evaluation-20260915/tanstack-query/SKILL.md to complete TASK.md in the current directory. This is an isolated evaluation. Only modify records.mjs in this directory. Use the supplied local behavior check and installed dependency; do not use network, other projects, or external apps. Read only this directory, the supplied skill, and its relevant references.",
+      "raw_final_response": "Updated only `records.mjs` using the supplied skill:\n\n- Added tenant identity to cache keys.\n- Made HTTP failures reject.\n- Forwarded the cancellation signal.\n\nPreserved the exported API, URL encoding, and 60-second freshness policy. All five local checks pass with `node check.mjs`."
+    }
+  ]
+}

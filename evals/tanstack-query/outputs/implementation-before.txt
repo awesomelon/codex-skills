@@ -1,0 +1,33 @@
+FAIL separate tenants with matching record IDs: Expected "actual" not to be strictly deep-equal to:
+
+{
+  url: '/api/tenants/alpha/records/1'
+}
+
+PASS fresh successful reads reuse their cache entry
+FAIL HTTP failures reject without caching their response body: Missing expected rejection.
+FAIL query cancellation reaches the request: Expected values to be strictly equal:
++ actual - expected
+
++ undefined
+- true
+
+PASS request input encoding is preserved
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: separate tenants with matching record IDs; HTTP failures reject without caching their response body; query cancellation reaches the request
+
+3 !== 0
+
+    at file:///private/tmp/tanstack-query-evaluation-20260915/implementation/check.mjs:73:8 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 3,
+  expected: 0,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v26.8.2
