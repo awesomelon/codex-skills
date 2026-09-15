@@ -1,4 +1,4 @@
 interface:
   display_name: "Code Quality Guard"
   short_description: "Design shared rules and review code maintainability"
-  default_prompt: "Use $code-quality-guard to review the current code, separating correctness from maintainability. Present observed evidence, actual change costs, and minimal improvements without modifying files."
+  default_prompt: "Use $code-quality-guard for the requested code-quality work, separating correctness from maintainability. Default to a review without edits when no edit is requested. Complete edits and relevant verification when implementation is requested."

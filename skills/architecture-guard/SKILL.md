@@ -1,6 +1,6 @@
 ---
 name: architecture-guard
-description: Design, implement, and review module responsibilities, dependencies, shared state, and public APIs. Exclude wording-only and formatting-only changes.
+description: Design or review module boundaries, dependency direction, shared-state ownership, and contracts between modules.
 ---
 
 # Architecture Guard
@@ -11,7 +11,7 @@ Assess responsibilities and dependencies so the next change can be understood, m
 
 Use [preflight.md](references/preflight.md) for design and planning, and [review.md](references/review.md) for PR/change reviews and current-architecture diagnosis. Read only the reference needed for the current stage. Implementation or improvement requests include necessary design decisions, edits, and a final change review. Planning-only or review-only requests must not modify source, configuration, or documentation.
 
-Start with the specified change and its directly connected callers, consumers, and state owners. Distinguish explicit boundary rules from conventions inferred from code. Expand investigation to boundaries affected by the change; for a requested full audit, identify the major boundaries and samples covered. For wording-only or formatting-only changes, finish after checking for architectural impact.
+Start with the specified change and its directly connected callers, consumers, and state owners. Distinguish explicit boundary rules from conventions inferred from code. Expand investigation to boundaries affected by the change; for a requested full audit, identify the major boundaries and samples covered. A local function edit without changed boundaries or contracts needs no separate architecture review. If explicitly invoked for a wording-only or formatting-only change, confirm whether it has architectural impact and finish briefly.
 
 ## Design judgment
 
