@@ -27,6 +27,8 @@ These are inputs and expectations, not execution claims. Record actual runs sepa
 15. **Offline restoration:** Persisted writes must resume after reload and cached account data must not survive a sign-out incorrectly. Check mutation functions, storage scope, restoration timing, `maxAge`/`gcTime`, and actual supported options.
 16. **A filtered second view:** Design an added status filter used by the list and preloader, with counts refreshed after an existing write. Reuse shared data definitions where callers must agree, retain view-specific presentation and refresh choices, and identify the affected readers and writers. Preserve the existing tenant separation and request semantics; do not reorganize unrelated queries.
 
+17. **Saved cache review:** Request a cache review saved to a specified Markdown file, without implementation edits. Write the requested report and preserve query definitions, configuration, and unrelated files. With an explanation-only request and no saved deliverable, leave files unchanged.
+
 ## Execution method
 
 For independent execution, copy a fixture into a disposable directory and provide its TASK.md plus the standalone skill folder. Keep expectations and previous outputs out of the agent's input. Compare file hashes for review-only runs. For implementation, run the supplied behavior check on the original and changed module and inspect the diff for unrelated edits.

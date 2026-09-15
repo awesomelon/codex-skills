@@ -1,0 +1,68 @@
+{
+  "baseline": "144188c65d99ecc88d2b267fb895bf7aa262afe5",
+  "platform": "Linux",
+  "runs": [
+    {
+      "case": "requested-plan",
+      "request": "Use $architecture-guard at /workspace/scratch/a03351f7c00c/skill-audit-forward-plan/architecture-guard to work on the project at /workspace/scratch/a03351f7c00c/skill-audit-forward-plan/project. Design support for JSON export alongside the existing CSV export for both download and email. Keep their distinct filenames and existing CSV behavior. Save the design to docs/export-plan.md in that project, including relevant compatibility considerations. This is a planning request; do not implement the feature. Work only within this project. Return a concise final response with what you delivered.",
+      "fixture": "evals/design-extension-2026-09-15/fixtures/export-design",
+      "model": "Inherited session model; exact build identifier not exposed",
+      "context": "Fresh thread; standalone skill and raw fixture only; no expected answer or audit conclusions",
+      "before_sha256": {
+        "download.mjs": "9583f7426716f25b07bc0a789c6ec49f20815fc5eab3c2eff01100d72b37de1e",
+        "email.mjs": "4060180f85f962908d350c6919cb58b88e0c7b874ca0a4edb0256792c2e8bb5b",
+        "document-export.mjs": "22a4224ca44a8cb75973b35c2ed34c6f3f82e49308f835b6615e2f5c815102b1"
+      },
+      "after_sha256": {
+        "download.mjs": "9583f7426716f25b07bc0a789c6ec49f20815fc5eab3c2eff01100d72b37de1e",
+        "email.mjs": "4060180f85f962908d350c6919cb58b88e0c7b874ca0a4edb0256792c2e8bb5b",
+        "document-export.mjs": "22a4224ca44a8cb75973b35c2ed34c6f3f82e49308f835b6615e2f5c815102b1",
+        "docs/export-plan.md": "0ffe6f3a9b47c04e1b3cc5f18b34abb6e00998e195fa6b3fe04ab148070d785d"
+      },
+      "changed_inputs": [],
+      "added_files": [
+        "docs/export-plan.md"
+      ],
+      "skill_sha256": {
+        "SKILL.md": "32b439d7bc895ff242bd3e3ed0b9444f0b8c6d42d97c722fb0301949b8701f13",
+        "agents/openai.yaml": "858dc8964e731cf9bdb29945e6d08028f29f4fd6ed54741a47a85bb375c59097",
+        "references/review.md": "1638e29c479594f884a826a92d74e26b355bb80e03cec18eab9a34a0c9be518e",
+        "references/preflight.md": "3dd7734a650b6cee0053a5876175f00e8927be2d7d3c538cd36af43f8a713d37"
+      },
+      "status": "PASS for requested scope",
+      "runtime_behavior_tested": false
+    },
+    {
+      "case": "ui-review",
+      "request": "Use $react-quality-guard for the requested React work; review without implementation edits unless changes are requested, and complete requested changes with relevant verification. The skill is at /workspace/scratch/a03351f7c00c/skill-audit-forward-react/react-quality-guard. The component snapshot for this request is at /workspace/scratch/a03351f7c00c/skill-audit-forward-react/project/Documents.tsx, with package.json beside it. Work within that project and return your assessment.",
+      "fixture": "evals/react-quality-guard/fixtures/review",
+      "model": "Inherited session model; exact build identifier not exposed",
+      "context": "Fresh thread; standalone skill and raw fixture only; no expected answer or audit conclusions",
+      "before_sha256": {
+        "Documents.tsx": "a034b7faf5d845e6c9e256a584e986a2fbae35b0f877a38f9af9987a6fb0e9d6",
+        "package.json": "3db10e6d546c8273d3b8eadc643e282a7e300e50809a3dc9d8bc309a704d8e94"
+      },
+      "after_sha256": {
+        "Documents.tsx": "a034b7faf5d845e6c9e256a584e986a2fbae35b0f877a38f9af9987a6fb0e9d6",
+        "package.json": "3db10e6d546c8273d3b8eadc643e282a7e300e50809a3dc9d8bc309a704d8e94"
+      },
+      "changed_inputs": [],
+      "added_files": [],
+      "skill_sha256": {
+        "SKILL.md": "aae34f1f6be12648e26cbab9ca8586fad24568da26df901193b69aab1b0484f3",
+        "agents/openai.yaml": "41c31bea210a1e4a52447da7ca702540b9df7c1c9b03fe95ce2c99a72cf38583",
+        "references/server-react.md": "c0ca19b18fa53c7a52c09f7932604f654aa18c85300bec88968053f0e4dd5d44",
+        "references/react-correctness.md": "95111e4334918a43b903e61801e3b91f28fdc38be4e540ff60e8aa674965fdee",
+        "references/performance.md": "a2ac07be758394f59c8c37012c37ac04f5356366836b2435c0a929651b2f9e33",
+        "references/sources.md": "b43c84efc07c010a6981311a32d539bcf439dd7cc8cbf11f59309e07f3476a0c"
+      },
+      "status": "PASS for requested scope",
+      "runtime_behavior_tested": false
+    }
+  ],
+  "limits": [
+    "Two explicit-invocation cases; no automatic-selection evaluation",
+    "No macOS execution",
+    "React findings are a static review, not a runtime reproduction"
+  ]
+}

@@ -7,7 +7,7 @@ description: Implement, review, and debug TanStack Query queries, mutations, and
 
 Keep cached server data correct and shared query definitions easy to extend across readers and writers. Adapt the relevant criteria from Deckard Gerritsen's TanStack Query skill to the requested work.
 
-Review and explanation requests preserve files. Implementation requests include the needed edits and relevant verification. Start with the affected query, its consumers, and related cache writes; reuse existing query keys, options, request functions, and `QueryClient` setup.
+Planning, review, and explanation preserve the assessed material; write only explicitly requested deliverables, such as a plan or report. Implementation requests include the needed edits and relevant verification. Start with the affected query, its consumers, and related cache writes; reuse existing query keys, options, request functions, and `QueryClient` setup.
 
 The references target TanStack Query v5. Check the installed version and types when API support or callback arguments affect the change. Preserve v4 APIs in v4 projects unless migration is requested. Do not infer a need for TanStack Query from ordinary React data fetching, or introduce a router, persistence, or different data library just to follow an example.
 

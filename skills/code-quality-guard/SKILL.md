@@ -9,7 +9,7 @@ Judge correctness of current behavior separately from the cost of the next chang
 
 ## Scope and work mode
 
-Planning, review, or evaluation alone preserves source, configuration, and documentation. Implementation requests include needed design decisions, edits, and relevant verification. For design or implementation involving a rule used by several consumers or a choice about reuse, read [implementation.md](references/implementation.md). A routine local edit needs no separate quality review.
+Planning, review, and explanation preserve the assessed material; write only explicitly requested deliverables, such as a plan or report. Implementation requests include needed design decisions, edits, and relevant verification. For design or implementation involving a rule used by several consumers or a choice about reuse, read [implementation.md](references/implementation.md). A routine local edit needs no separate quality review.
 
 For PRs, use verified base/head and their merge base; for local work, include staged, unstaged, and untracked files. In post-task checks, distinguish starting user changes from the current edits. Without comparison material, limit the conclusion to current-state diagnosis. Distinguish new issues, deterioration, and existing debt; start with the diff and directly connected callers and contracts. For full audits, state the areas sampled and their limits.
 

@@ -98,6 +98,21 @@ Expected A: finish the local fix with relevant checks without selecting architec
 Input B: move shared state to a different owner or change a contract between modules.
 Expected B: select the architecture guidance and inspect affected consumers. A .ts/.tsx extension or exported function alone is not evidence of boundary impact.
 
+## 19. Requested planning artifact
+
+Input A: 'Design the export module and save the plan to docs/export-plan.md. Do not implement it.'
+Expected A: inspect relevant boundaries, write the requested plan, preserve implementation/configuration and unrelated documents, and finish without an implementation approval stop.
+Input B: 'Design the export module; answer here only.'
+Expected B: give the design judgment without changing files.
+
+## 20. Snippet and metadata agree
+
+Precondition: the project or global snippet and skill catalog are available.
+Input A: fix an exported helper's calculation without changing any contract between modules, dependency direction, or state ownership.
+Expected A: no separate architecture invocation merely because the helper is exported.
+Input B: relocate shared state ownership across modules.
+Expected B: invoke architecture guidance and inspect affected consumers. The snippet and description should use the same boundary.
+
 ## Evaluation records
 
 Record the model/version, skill version or hash, fixture commit, user input, invocation, reading scope, actual output, changed files, and validation commands. Check skill invocation and `AGENTS.md` integration separately. Repeat unstable invocation/scope cases to assess variation. Do not relax criteria to reach a score target.

@@ -7,7 +7,7 @@ description: Design, implement, and review React web components, hooks, state, a
 
 Reduce state errors and unnecessary React work while preserving user behavior and data contracts. Use Vercel React Best Practices as a judgment reference.
 
-Review-only or planning-only requests must not modify source, configuration, or documentation. Implementation and improvement requests include necessary edits and verification. Start with the specified code and directly connected state/request paths; perform full audits at the requested scope.
+Planning, review, and explanation preserve the assessed material; write only explicitly requested deliverables, such as a plan or report. Implementation and improvement requests include necessary edits and verification. Start with the specified code and directly connected state/request paths; perform full audits at the requested scope.
 
 ## Relevant context and references
 

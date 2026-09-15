@@ -1,0 +1,11 @@
+Reviewed [Documents.tsx](sandbox:/workspace/scratch/a03351f7c00c/skill-audit-forward-react/project/Documents.tsx) using `react-quality-guard`. No files changed.
+
+- **High — tenant cache isolation, line 16.** `queryFn` depends on `tenantId`, but every tenant uses `['documents']`. Switching tenants within a shared QueryClient can display the previous tenant’s documents. Saving then combines those document IDs with the new tenant ID. Use `['documents', tenantId]` consistently across reads and cache updates. Tenant-specific editor keys do not isolate the query cache. [TanStack query-key guidance](https://tanstack.com/query/latest/docs/framework/react/guides/query-keys)
+
+- **Medium — background refresh errors discard drafts, line 20.** After documents load, a background refetch that exhausts retries can set `isError` while retaining cached data. The early return unmounts every `TitleEditor`, losing unsaved input. Reserve the blocking error screen for initial-load failures; retain mounted editors and show a refresh error alongside them. [TanStack refetch-error result](https://tanstack.com/query/latest/docs/framework/react/reference/interfaces/QueryObserverRefetchErrorResult)
+
+**Unresolved contract:** The snapshot shows no cache update after `saveTitle`, but the API implementation is omitted. Verify whether that adapter updates or invalidates the tenant-specific query before reporting stale post-save data as a confirmed defect.
+
+The local draft is intentional editable state; unconditional prop-to-state synchronization could overwrite unsaved input. The default callback inside `HelpButton` does not itself defeat `memo`. No measured performance issue was established.
+
+Validation was static review against the declared React 18.3.1 and TanStack Query 5.0.0 dependencies. The project contains only the component and `package.json`, with no scripts, test harness, or installed dependencies; runtime checks were not executed.

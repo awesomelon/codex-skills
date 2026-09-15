@@ -36,6 +36,12 @@ These are evaluation inputs and expectations, distinct from actual execution. Re
 18. **Standalone installation and reference selection:** Only `react-quality-guard` is available for a small SPA component improvement. Finish with relevant state/rendering criteria; do not require another quality skill, a full audit, or server references.
 19. **Another picker consumer:** Design selection rules for two picker instances that share search/display behavior but differ in eligibility and maintain independent search input. Use the component/hook design criteria, retain the existing picker API or explain an additive change, and identify checks for both old and new consumers. Avoid a universal form framework or flags for unrelated cases.
 
+## UI work mode and requested artifacts
+
+20. **UI selection without implementation:** Use the UI default prompt with a component snapshot and no edit request. Provide the assessment without changing the component or creating an unsolicited report file.
+21. **UI selection with implementation:** Use the same prompt and ask to fix the component's state bug. Complete the requested edit and affected checks; do not stop at the assessment.
+22. **Saved review or design:** Ask for component findings or a design plan in a specified Markdown file without implementation changes. Write that deliverable and preserve the assessed source/configuration. Merely requesting a plan without a file destination does not require creating a file.
+
 ## Judgment
 
 Out-of-scope edits, unsupported APIs, changes to data/state semantics, and fabricated validation results are failures, even if a real bug is also found. Performance findings must distinguish observations from estimates and show how the smallest intervention addresses the actual trigger.

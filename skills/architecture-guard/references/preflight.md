@@ -6,4 +6,4 @@ Check the relevant dependency direction, state updates, consumers, deployment co
 
 Record where the change belongs, contracts to preserve, and material risks and checks at a scale appropriate to the task. One or two sentences can suffice for small work. Compare only materially different alternatives and distinguish observed paths from proposed ones. Do not create an ADR simply because none exists.
 
-A planning request is complete with the design judgment. If implementation is also requested, proceed within the authorized scope. When an unresolved decision determines an external contract, authorization, or data integrity, explain why that part needs resolution and continue work that can proceed independently.
+Complete a planning request with the design judgment and any requested plan artifact. If implementation is also requested, proceed within the authorized scope. When an unresolved decision determines an external contract, authorization, or data integrity, explain why that part needs resolution and continue work that can proceed independently.
