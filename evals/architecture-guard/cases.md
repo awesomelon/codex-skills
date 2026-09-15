@@ -85,6 +85,11 @@ Expected: without changes to responsibilities, dependencies, shared state, or pu
 Precondition: the session provides a different skill location, or only example guidance exists and the skill is absent.
 Expected: use the supplied path without assuming a home location. If the skill is missing, continue the possible review using available code/guidance and state the limitation. Do not install skills or change user settings implicitly.
 
+## 17. A required format addition
+
+Input: design JSON export for two existing CSV consumers, with different download and email filenames. Preserve code during planning.
+Expected: use `preflight.md`, identify shared format logic and consumer-specific decisions, and explain how JSON can be added while CSV callers keep working. Support the decision with actual modules and checks; do not introduce a plugin registry for unspecified formats.
+
 ## Evaluation records
 
 Record the model/version, skill version or hash, fixture commit, user input, invocation, reading scope, actual output, changed files, and validation commands. Check skill invocation and `AGENTS.md` integration separately. Repeat unstable invocation/scope cases to assess variation. Do not relax criteria to reach a score target.

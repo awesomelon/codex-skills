@@ -25,6 +25,7 @@ These are inputs and expectations, not execution claims. Record actual runs sepa
 13. **Loader freshness:** Cached data exists but the caller must await a refresh. Do not use `ensureQueryData`, even with `revalidateIfStale`, as a fresh-data guarantee.
 14. **Server transfer:** User-specific data is cached across server requests. Isolate server clients; preserve safe transfer and browser freshness settings without adding server features to a client-only app.
 15. **Offline restoration:** Persisted writes must resume after reload and cached account data must not survive a sign-out incorrectly. Check mutation functions, storage scope, restoration timing, `maxAge`/`gcTime`, and actual supported options.
+16. **A filtered second view:** Design an added status filter used by the list and preloader, with counts refreshed after an existing write. Reuse shared data definitions where callers must agree, retain view-specific presentation and refresh choices, and identify the affected readers and writers. Preserve the existing tenant separation and request semantics; do not reorganize unrelated queries.
 
 ## Execution method
 

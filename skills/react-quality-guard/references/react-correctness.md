@@ -26,6 +26,10 @@ Follow actual update and consumption paths for relevant issues. See [sources.md]
 - Replace conditions such as `count && <Row />` with an explicit boolean or ternary when a number could leak into the DOM. Do not uniformly replace every already-boolean `&&`.
 - After splitting or optimizing, verify affected contracts for controlled inputs, Korean IME composition, form submission, labels, keyboard interaction, focus, and disabled behavior. Do not expand into React Native or a full design audit.
 
+## Adding a consumer or screen variant
+
+When adding a screen variant or another consumer, distinguish shared product decisions from local draft, focus, and interaction state. Reuse a component or hook when its consumers need the same behavior; keep differing behavior explicit instead of accumulating unrelated boolean options. Extract shared rules without making them depend on component state. Check that one instance can be edited or reset without changing another, and that the added variant preserves existing input and selection behavior.
+
 ## Select verification
 
 Choose checks that match the symptom: editing while props change, rapid input and reordered responses, mount→cleanup→remount, reordering a list while preserving input, or retrying a failed request. Snapshots or setter-call counts alone do not verify real behavior.

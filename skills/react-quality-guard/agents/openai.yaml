@@ -1,4 +1,4 @@
 interface:
   display_name: "React Quality Guard"
-  short_description: "Review React state, Effects, async flows, and rendering"
+  short_description: "Design and improve React components, hooks, and state"
   default_prompt: "Use $react-quality-guard to assess the current React code for correctness, maintainability, and performance, then complete improvements and validation within the requested scope."

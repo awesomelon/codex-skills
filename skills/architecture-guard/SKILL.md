@@ -1,6 +1,6 @@
 ---
 name: architecture-guard
-description: Check designs and review architecture involving module boundaries, dependencies, state ownership, or public contracts. Exclude wording-only and formatting-only changes.
+description: Design, implement, and review module responsibilities, dependencies, shared state, and public APIs. Exclude wording-only and formatting-only changes.
 ---
 
 # Architecture Guard

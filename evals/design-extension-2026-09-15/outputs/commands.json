@@ -1,0 +1,196 @@
+{
+  "01": [
+    {
+      "command": "/bin/zsh -lc \"pwd && rg --files -g '\"'!node_modules'\"' -g '\"'!'\"\\\\.git' . && cat <case>/code-quality-guard/SKILL.md && cat TASK.md\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'cat list.mjs detail.mjs bulk.mjs policy.test.mjs extension.test.mjs'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'node --test policy.test.mjs extension.test.mjs'",
+      "exit_code": 0
+    }
+  ],
+  "02": [
+    {
+      "command": "/bin/zsh -lc \"pwd && rg --files -g '\"'!node_modules'\"' -g '\"'!.git'\"' && cat <case>/code-quality-guard/SKILL.md && cat TASK.md\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'cat archive-policy.mjs list.mjs detail.mjs bulk.mjs policy.test.mjs extension.test.mjs'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'node --test policy.test.mjs extension.test.mjs'",
+      "exit_code": 0
+    }
+  ],
+  "03": [
+    {
+      "command": "/bin/zsh -lc 'cat <case>/architecture-guard/SKILL.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'cat TASK.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'rg --files .'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'nl -ba email.mjs'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'nl -ba document-export.mjs'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'nl -ba download.mjs'",
+      "exit_code": 0
+    }
+  ],
+  "04": [
+    {
+      "command": "/bin/zsh -lc 'cat <case>/react-quality-guard/SKILL.md <case>/input/TASK.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'rg --files <case>/input'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'cat <case>/input/DocumentPicker.tsx'",
+      "exit_code": 0
+    }
+  ],
+  "05": [
+    {
+      "command": "/bin/zsh -lc 'cat <case>/tanstack-query-guard/SKILL.md\ncat TASK.md\nrg --files .'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'cat records.ts\ncat <case>/tanstack-query-guard/references/cache-and-keys.md\ncat <case>/tanstack-query-guard/references/mutations.md'",
+      "exit_code": 0
+    }
+  ],
+  "06": [
+    {
+      "command": "/bin/zsh -lc \"pwd && rg --files -g '\"'!node_modules'\"' -g '\"'!.git'\"' && cat <case>/code-quality-guard/SKILL.md && cat TASK.md\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'cat list.mjs detail.mjs bulk.mjs policy.test.mjs extension.test.mjs'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'node --test policy.test.mjs extension.test.mjs'",
+      "exit_code": 0
+    }
+  ],
+  "07": [
+    {
+      "command": "/bin/zsh -lc \"pwd; rg --files -g '\"'!node_modules'\"' -g '\"'!.git'\"'\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'cat <case>/code-quality-guard/SKILL.md TASK.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'cat archive-policy.mjs list.mjs detail.mjs bulk.mjs policy.test.mjs extension.test.mjs'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'node --test policy.test.mjs extension.test.mjs'",
+      "exit_code": 0
+    }
+  ],
+  "08": [
+    {
+      "command": "/bin/zsh -lc \"pwd && rg --files -g 'AGENTS.md' -g 'TASK.md' -g '*' . <case>/code-quality-guard\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'cat <case>/code-quality-guard/SKILL.md TASK.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'cat <case>/code-quality-guard/references/implementation.md <case>/code-quality-guard/references/measurement.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'cat list.mjs detail.mjs bulk.mjs policy.test.mjs extension.test.mjs'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'git status --short'",
+      "exit_code": 128
+    },
+    {
+      "command": "/bin/zsh -lc 'node --test policy.test.mjs extension.test.mjs'",
+      "exit_code": 0
+    }
+  ],
+  "09": [
+    {
+      "command": "/bin/zsh -lc \"pwd; rg --files -g '\"'!node_modules'\"' -g '\"'!'\"\\\\.git' . <case>/code-quality-guard\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'cat <case>/code-quality-guard/SKILL.md TASK.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'cat archive-policy.mjs list.mjs detail.mjs bulk.mjs policy.test.mjs extension.test.mjs'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc \"cat <case>/code-quality-guard/references/implementation.md <case>/code-quality-guard/references/measurement.md; git status --short; rg --files --hidden -g AGENTS.md -g '\"'!'\"\\\\.git' .\"",
+      "exit_code": 1
+    },
+    {
+      "command": "/bin/zsh -lc 'node --test policy.test.mjs extension.test.mjs'",
+      "exit_code": 0
+    }
+  ],
+  "10": [
+    {
+      "command": "/bin/zsh -lc 'cat <case>/architecture-guard/SKILL.md <case>/input/TASK.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'cat <case>/architecture-guard/references/preflight.md\nrg --files <case>/input'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'nl -ba document-export.mjs\nnl -ba download.mjs\nnl -ba email.mjs'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc \"node --input-type=module -e 'import assert from \\\"node:assert/strict\\\"; import {toCsv} from \\\"./document-export.mjs\\\"; import {createDownload} from \\\"./download.mjs\\\"; import {createAttachment} from \\\"./email.mjs\\\"; const documents = [{id: \\\"1\\\", title: \\\"A \\\\\\\"quoted\\\\\\\", title\\\"}, {id: \\\"2\\\", title: \\\"Line\\\\nbreak\\\"}]; const content = \\\"\\\\\\\"1\\\\\\\",\\\\\\\"A \\\\\\\"\\\\\\\"quoted\\\\\\\"\\\\\\\", title\\\\\\\"\\\\n\\\\\\\"2\\\\\\\",\\\\\\\"Line\\\\nbreak\\\\\\\"\\\"; assert.equal(toCsv(documents), content); assert.equal(toCsv([]), \\\"\\\"); assert.deepEqual(createDownload(documents), {filename: \\\"documents.csv\\\", content}); assert.deepEqual(createAttachment(documents, \\\"2026-09\\\"), {filename: \\\"report-2026-09.csv\\\", content}); console.log(\\\"Baseline checks passed: CSV escaping, multiline values, empty input, download and attachment contracts.\\\");'\"",
+      "exit_code": 0
+    }
+  ],
+  "11": [
+    {
+      "command": "/bin/zsh -lc 'cat <case>/react-quality-guard/SKILL.md <case>/input/TASK.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'rg --files <case>/input <case>/react-quality-guard'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'nl -ba <case>/input/DocumentPicker.tsx'",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/zsh -lc 'cat <case>/react-quality-guard/references/react-correctness.md'",
+      "exit_code": 0
+    }
+  ]
+}

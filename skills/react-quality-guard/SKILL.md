@@ -1,6 +1,6 @@
 ---
 name: react-quality-guard
-description: Implement, review, and improve React web components, hooks, data flows, and performance. Exclude wording-only or styling-only changes and React Native.
+description: Design, implement, and review React web components, hooks, state, and performance. Exclude wording-only, styling-only, and React Native work.
 ---
 
 # React Quality Guard
@@ -15,7 +15,7 @@ Reuse environment information already provided. Check versions and types when Re
 
 | Decision area | Reference |
 | --- | --- |
-| State, Effects, component identity, form behavior | [react-correctness.md](references/react-correctness.md) |
+| Component and hook design, state, Effects, form behavior | [react-correctness.md](references/react-correctness.md) |
 | Requests, client caches, bundles, rendering cost | [performance.md](references/performance.md) |
 | Actual SSR/RSC, server functions, hydration | [server-react.md](references/server-react.md) |
 | Source verification, comparison with upstream, updating the baseline | [sources.md](references/sources.md) |
