@@ -1,0 +1,161 @@
+{
+  "platform": "Linux",
+  "commands": [
+    {
+      "command": [
+        "bash",
+        "/workspace/scratch/a03351f7c00c/codex-skills/scripts/install.sh",
+        "--list"
+      ],
+      "exit_code": 0,
+      "stdout": "architecture-guard\ncode-quality-guard\nreact-quality-guard\ntanstack-query-guard\ntypescript-quality-guard\n"
+    },
+    {
+      "command": [
+        "bash",
+        "/workspace/scratch/a03351f7c00c/codex-skills/scripts/install.sh",
+        "--skill",
+        "typescript-quality-guard",
+        "--mode",
+        "link",
+        "--dest",
+        "/workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/fresh-link",
+        "--dry-run"
+      ],
+      "exit_code": 0,
+      "stdout": "DRY RUN install: /workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/fresh-link/typescript-quality-guard (link)\n"
+    },
+    {
+      "command": [
+        "bash",
+        "/workspace/scratch/a03351f7c00c/codex-skills/scripts/install.sh",
+        "--skill",
+        "typescript-quality-guard",
+        "--mode",
+        "link",
+        "--dest",
+        "/workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/fresh-link"
+      ],
+      "exit_code": 0,
+      "stdout": "install: /workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/fresh-link/typescript-quality-guard (link)\nInstallation complete.\n"
+    },
+    {
+      "command": [
+        "bash",
+        "/workspace/scratch/a03351f7c00c/codex-skills/scripts/install.sh",
+        "--skill",
+        "typescript-quality-guard",
+        "--mode",
+        "link",
+        "--dest",
+        "/workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/fresh-link"
+      ],
+      "exit_code": 0,
+      "stdout": "unchanged: /workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/fresh-link/typescript-quality-guard (link)\nInstallation complete.\n"
+    },
+    {
+      "command": [
+        "bash",
+        "/workspace/scratch/a03351f7c00c/codex-skills/scripts/install.sh",
+        "--skill",
+        "typescript-quality-guard",
+        "--mode",
+        "copy",
+        "--dest",
+        "/workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/fresh-copy",
+        "--dry-run"
+      ],
+      "exit_code": 0,
+      "stdout": "DRY RUN install: /workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/fresh-copy/typescript-quality-guard (copy)\n"
+    },
+    {
+      "command": [
+        "bash",
+        "/workspace/scratch/a03351f7c00c/codex-skills/scripts/install.sh",
+        "--skill",
+        "typescript-quality-guard",
+        "--mode",
+        "copy",
+        "--dest",
+        "/workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/fresh-copy"
+      ],
+      "exit_code": 0,
+      "stdout": "install: /workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/fresh-copy/typescript-quality-guard (copy)\nInstallation complete.\n"
+    },
+    {
+      "command": [
+        "bash",
+        "/workspace/scratch/a03351f7c00c/codex-skills/scripts/install.sh",
+        "--skill",
+        "typescript-quality-guard",
+        "--mode",
+        "copy",
+        "--dest",
+        "/workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/fresh-copy"
+      ],
+      "exit_code": 0,
+      "stdout": "unchanged: /workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/fresh-copy/typescript-quality-guard (copy)\nInstallation complete.\n"
+    },
+    {
+      "command": [
+        "bash",
+        "/workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/legacy-link-source/scripts/install.sh",
+        "--skill",
+        "typescript-best-practices",
+        "--dest",
+        "/workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/migrated-link"
+      ],
+      "exit_code": 0,
+      "stdout": "install: /workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/migrated-link/typescript-best-practices (link)\nInstallation complete.\n"
+    },
+    {
+      "command": [
+        "bash",
+        "/workspace/scratch/a03351f7c00c/codex-skills/scripts/install.sh",
+        "--skill",
+        "typescript-quality-guard",
+        "--dest",
+        "/workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/migrated-link"
+      ],
+      "exit_code": 0,
+      "stdout": "install: /workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/migrated-link/typescript-quality-guard (link)\nInstallation complete.\n"
+    },
+    {
+      "command": [
+        "bash",
+        "/workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/legacy-copy-source/scripts/install.sh",
+        "--skill",
+        "typescript-best-practices",
+        "--mode",
+        "copy",
+        "--dest",
+        "/workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/migrated-copy"
+      ],
+      "exit_code": 0,
+      "stdout": "install: /workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/migrated-copy/typescript-best-practices (copy)\nInstallation complete.\n"
+    },
+    {
+      "command": [
+        "bash",
+        "/workspace/scratch/a03351f7c00c/codex-skills/scripts/install.sh",
+        "--skill",
+        "typescript-quality-guard",
+        "--mode",
+        "copy",
+        "--dest",
+        "/workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/migrated-copy"
+      ],
+      "exit_code": 0,
+      "stdout": "install: /workspace/scratch/a03351f7c00c/rename-install-r_9rtd5x/migrated-copy/typescript-quality-guard (copy)\nInstallation complete.\n"
+    }
+  ],
+  "checks": [
+    "new name discovered alone",
+    "link and copy dry-run without writes",
+    "fresh link and copy installation",
+    "repeated installation unchanged",
+    "installed contents match source",
+    "broken-link migration preserves edited source backup",
+    "managed-copy migration preserves local edits and metadata"
+  ]
+}

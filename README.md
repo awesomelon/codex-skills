@@ -12,11 +12,11 @@ GitHub repository: [awesomelon/codex-skills](https://github.com/awesomelon/codex
 | [react-quality-guard](skills/react-quality-guard/SKILL.md) | Design and improve React components, hooks, state, and performance. Separate shared behavior from consumer-specific interaction state. |
 | [code-quality-guard](skills/code-quality-guard/SKILL.md) | Design and implement shared business rules; review maintainability and compare implementations using evidence of actual change costs. |
 | [tanstack-query-guard](skills/tanstack-query-guard/SKILL.md) | Implement and review Query behavior using task-specific v5 guidance. Keep shared query definitions consistent when readers, filters, or writes are added. |
-| [typescript-best-practices](skills/typescript-best-practices/SKILL.md) | Design, implement, and review TypeScript types, checked input, assertions, and configuration inference. |
+| [typescript-quality-guard](skills/typescript-quality-guard/SKILL.md) | Design, implement, and review TypeScript types, checked input, assertions, and configuration inference. |
 
 `architecture-guard` focuses on module boundaries, `react-quality-guard` on React execution and user behavior, `code-quality-guard` on maintainability across languages and frameworks, and `tanstack-query-guard` on TanStack Query-specific cache and request behavior. Each skill works when installed alone. Reuse existing evidence when a task needs several perspectives; there is no need to invoke every skill each time. Small quality reviews can use the skill body alone. Select references for before/after or A/B comparison, scoring, and special metrics according to the request.
 
-For TypeScript, use `Use $typescript-best-practices to implement and verify this parser` or `Use $typescript-best-practices to review these types without editing files`. The skill supports automatic selection for type modeling, type diagnostics, and input validation; a .ts or .tsx extension alone is not a trigger. Its entrypoint routes to type modeling, input validation, or narrowing guidance as needed. It works independently and does not require a framework-specific review. Install it with `bash scripts/install.sh --skill typescript-best-practices`. See [evaluation cases](evals/typescript-best-practices/cases.md) and [execution results](evals/typescript-best-practices/results.md).
+For TypeScript, use `Use $typescript-quality-guard to implement and verify this parser` or `Use $typescript-quality-guard to review these types without editing files`. The skill supports automatic selection for type modeling, type diagnostics, and input validation; a .ts or .tsx extension alone is not a trigger. Its entrypoint routes to type modeling, input validation, or narrowing guidance as needed. It works independently and does not require a framework-specific review. Install it with `bash scripts/install.sh --skill typescript-quality-guard`. See [evaluation cases](evals/typescript-quality-guard/cases.md) and [historical example checks](evals/typescript-quality-guard/results.md), recorded before this rename.
 
 For TanStack Query, use `Use $tanstack-query-guard to review this mutation without editing files` or `Use $tanstack-query-guard to fix and verify this query's cache behavior`. Install it separately with `bash scripts/install.sh --skill tanstack-query-guard`. The [source record](skills/tanstack-query-guard/references/sources.md) identifies the pinned upstream, MIT notice, and corrections; [evaluation cases](evals/tanstack-query-guard/cases.md) and [results](evals/tanstack-query-guard/results.md) distinguish intended behavior from executed checks.
 
@@ -34,7 +34,7 @@ Use $code-quality-guard to improve and verify this module's maintainability. Use
 Use $code-quality-guard to add this eligibility rule to the list, detail menu, and bulk action. Keep the independent pinning rule unchanged and verify the affected behavior.
 ```
 
-The code-quality UI prompt follows the requested work mode: review without edits by default, or implementation through relevant verification when requested.
+UI selection alone does not request implementation changes. Review and planning preserve the assessed code; explicitly requested plans and review reports can still be written. Implementation requests continue through relevant verification.
 
 Shared-rule implementation uses [implementation guidance](skills/code-quality-guard/references/implementation.md). A routine local edit needs no separate quality review. For a concrete required addition, assess its edit points and compatibility; additional abstractions need evidence from the actual requirements. The [design and extension evaluation](evals/design-extension-2026-09-15/results.md) records the tested cases and their limits.
 
@@ -46,7 +46,21 @@ The [2026-09-12 audit](docs/skill-audit-2026-09-12.md) records duplicate-instruc
 
 The [2026-09-15 audit](docs/skill-audit-2026-09-15.md) covers all five skill entrypoints, TypeScript reference routing, architecture selection, and the code-quality UI prompt. Its structural checks are separate from unrun repository and model evaluations.
 
+The [2026-09-15 follow-up audit](docs/skill-audit-2026-09-15-followup.md) covers requested-document boundaries, UI work modes, and the TypeScript rename, including installation migration and validation limits.
+
 The [English translation record](docs/english-translation.md) documents the language change, preserved behavior, and its validation limits.
+
+### TypeScript skill rename
+
+`typescript-best-practices` is now `typescript-quality-guard` (display name: **TypeScript Quality Guard**), matching the collection's `*-guard` convention. Update explicit `$typescript-best-practices` invocations, selected `--skill` arguments, and any personal/project guidance to the new name.
+
+The installer discovers the new directory but does not migrate or remove old installations. After updating the clone:
+
+1. Locate the old `typescript-best-practices` entry in the destination you actually used (default: `~/.agents/skills`; also check project installations if applicable). Preserve local edits from a copy or the source checkout before replacing it.
+2. Move the old entry to a backup **outside every skill discovery directory**. For link installations, preserve the edited source files too: a moved symlink is not a backup of its target, and the old link may already be broken after the rename.
+3. Install with `bash scripts/install.sh --skill typescript-quality-guard`, retaining your previous `--dest` and `--mode copy` options when applicable. Start a new Codex session and verify that only the new name is discovered.
+
+No compatibility skill is installed under the old name; keeping both would add duplicate discovery metadata. Historical validation records retain the name used in their original run.
 
 ## Install on a new Mac
 
@@ -61,6 +75,8 @@ git clone https://github.com/awesomelon/codex-skills.git
 cd codex-skills
 bash scripts/install.sh
 ```
+
+Install only skills you expect to use repeatedly. The command above installs the full collection; use `bash scripts/install.sh --list` to inspect it and repeat `--skill <name>` to select a subset. Selecting fewer skills reduces always-loaded discovery metadata; it is not a measured performance claim.
 
 `install.sh` is the installation/update entry point. It does not invoke Python, Node, jq, or package installation.
 
@@ -114,7 +130,7 @@ Shell-managed copies use `.codex-skills-install.v2`; older Python copies use `.c
 
 ## Apply architecture review to relevant work
 
-Installation and invocation policy are separate. These examples apply when module responsibilities, dependency direction, shared state, or public API design changes, or when structural review is requested. They do not require a separate review at the start and end of every coding task.
+Installation and invocation policy are separate. These examples apply when module boundaries, dependency direction, shared-state ownership, or contracts between modules change, or when structural review is requested. They do not require a separate review at the start and end of every coding task.
 
 Use `snippets/architecture-guard.project.md` for project guidance or `snippets/architecture-guard.global.md` for personal global guidance. **Merge only the needed block into existing instruction files; do not overwrite them.** The installer does not do this for you.
 
