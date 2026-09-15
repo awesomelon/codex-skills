@@ -1,0 +1,6 @@
+interface:
+  display_name: "TypeScript Best Practices"
+  short_description: "Design and verify TypeScript types and input validation"
+  default_prompt: "Use $typescript-best-practices to assess the relevant TypeScript code and complete type modeling, input validation, and verification within the requested scope."
+policy:
+  allow_implicit_invocation: true
