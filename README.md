@@ -8,7 +8,7 @@ GitHub repository: [awesomelon/codex-skills](https://github.com/awesomelon/codex
 
 | Skill | Purpose |
 | --- | --- |
-| [architecture-guard](skills/architecture-guard/SKILL.md) | Design, implement, and review module responsibilities, dependencies, shared state, and public APIs. Assess concrete required additions and compatibility. |
+| [architecture-guard](skills/architecture-guard/SKILL.md) | Design and review module boundaries, dependency direction, shared-state ownership, and contracts between modules. Local edits without boundary impact need no architecture review. |
 | [react-quality-guard](skills/react-quality-guard/SKILL.md) | Design and improve React components, hooks, state, and performance. Separate shared behavior from consumer-specific interaction state. |
 | [code-quality-guard](skills/code-quality-guard/SKILL.md) | Design and implement shared business rules; review maintainability and compare implementations using evidence of actual change costs. |
 | [tanstack-query-guard](skills/tanstack-query-guard/SKILL.md) | Implement and review Query behavior using task-specific v5 guidance. Keep shared query definitions consistent when readers, filters, or writes are added. |
@@ -16,7 +16,7 @@ GitHub repository: [awesomelon/codex-skills](https://github.com/awesomelon/codex
 
 `architecture-guard` focuses on module boundaries, `react-quality-guard` on React execution and user behavior, `code-quality-guard` on maintainability across languages and frameworks, and `tanstack-query-guard` on TanStack Query-specific cache and request behavior. Each skill works when installed alone. Reuse existing evidence when a task needs several perspectives; there is no need to invoke every skill each time. Small quality reviews can use the skill body alone. Select references for before/after or A/B comparison, scoring, and special metrics according to the request.
 
-For TypeScript, use `Use $typescript-best-practices to implement and verify this parser` or `Use $typescript-best-practices to review these types without editing files`. The skill supports automatic selection for relevant TypeScript work and excludes wording-only and styling-only edits. It works independently and does not require a framework-specific review. Install it with `bash scripts/install.sh --skill typescript-best-practices`. See [evaluation cases](evals/typescript-best-practices/cases.md) and [execution results](evals/typescript-best-practices/results.md).
+For TypeScript, use `Use $typescript-best-practices to implement and verify this parser` or `Use $typescript-best-practices to review these types without editing files`. The skill supports automatic selection for type modeling, type diagnostics, and input validation; a .ts or .tsx extension alone is not a trigger. Its entrypoint routes to type modeling, input validation, or narrowing guidance as needed. It works independently and does not require a framework-specific review. Install it with `bash scripts/install.sh --skill typescript-best-practices`. See [evaluation cases](evals/typescript-best-practices/cases.md) and [execution results](evals/typescript-best-practices/results.md).
 
 For TanStack Query, use `Use $tanstack-query-guard to review this mutation without editing files` or `Use $tanstack-query-guard to fix and verify this query's cache behavior`. Install it separately with `bash scripts/install.sh --skill tanstack-query-guard`. The [source record](skills/tanstack-query-guard/references/sources.md) identifies the pinned upstream, MIT notice, and corrections; [evaluation cases](evals/tanstack-query-guard/cases.md) and [results](evals/tanstack-query-guard/results.md) distinguish intended behavior from executed checks.
 
@@ -34,6 +34,8 @@ Use $code-quality-guard to improve and verify this module's maintainability. Use
 Use $code-quality-guard to add this eligibility rule to the list, detail menu, and bulk action. Keep the independent pinning rule unchanged and verify the affected behavior.
 ```
 
+The code-quality UI prompt follows the requested work mode: review without edits by default, or implementation through relevant verification when requested.
+
 Shared-rule implementation uses [implementation guidance](skills/code-quality-guard/references/implementation.md). A routine local edit needs no separate quality review. For a concrete required addition, assess its edit points and compatibility; additional abstractions need evidence from the actual requirements. The [design and extension evaluation](evals/design-extension-2026-09-15/results.md) records the tested cases and their limits.
 
 Report passing tests, diagnostic signals such as complexity/duplication, and maintainability judgments separately. Leave unavailable measurements unmeasured; do not optimize for a single score or lower LOC. See [comparison and measurement](skills/code-quality-guard/references/measurement.md), [scoring](skills/code-quality-guard/references/scoring.md), [Earendil source metrics](skills/code-quality-guard/references/earendil-metrics.md), [quality evaluation cases](evals/code-quality-guard/cases.md), and [execution records](evals/code-quality-guard/results.md). The installer discovers new folders automatically; after updating, select this skill with `bash scripts/install.sh --skill code-quality-guard`.
@@ -41,6 +43,8 @@ Report passing tests, diagnostic signals such as complexity/duplication, and mai
 Upstream sources, pinned commits, and exceptions are in [React sources](skills/react-quality-guard/references/sources.md). Behavioral evaluation scope is in [React evaluation results](evals/react-quality-guard/results.md).
 
 The [2026-09-12 audit](docs/skill-audit-2026-09-12.md) records duplicate-instruction cleanup, conditional reference/check selection, and behavioral results. The [2026-09-14 full audit](docs/skill-audit-2026-09-14.md) includes the new quality skill and a fix for repeated checks observed in evaluation. The [follow-up audit](docs/skill-audit-2026-09-14-followup.md) refines reference selection, task-template duplication, and guidance. Each record distinguishes verified and unrun work. See [evaluation evidence](evals/README.md) for the relationship between English translations and original runs.
+
+The [2026-09-15 audit](docs/skill-audit-2026-09-15.md) covers all five skill entrypoints, TypeScript reference routing, architecture selection, and the code-quality UI prompt. Its structural checks are separate from unrun repository and model evaluations.
 
 The [English translation record](docs/english-translation.md) documents the language change, preserved behavior, and its validation limits.
 
@@ -126,11 +130,20 @@ Python 3.10+ is required only for repository development and validation. The che
 
 Use [prompts/add-skill.md](prompts/add-skill.md), filling in one concrete skill purpose. There is no need to create many skills up front or abstract a common framework.
 
+For skill changes, check structure and local references:
+
+```bash
+python3 scripts/validate.py
+```
+
+For installer or validator changes, also check shell syntax, run the repository suite, and exercise affected CLI operations in temporary paths:
+
 ```bash
 bash -n scripts/install.sh
-python3 scripts/validate.py
 python3 -m unittest discover -s tests -v
 ```
+
+For significant instruction changes, run the relevant behavioral cases and record actual results. Existing sufficient checks need not be repeated solely to produce another report.
 
 `validate.py` is a small check for this repository's single-line `name`/`description` convention and local references. It is neither a general YAML parser nor an official Codex validator. Evaluate invocation, non-invocation, and execution quality separately using `evals/` scenarios.
 

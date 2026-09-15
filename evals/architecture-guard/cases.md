@@ -90,6 +90,14 @@ Expected: use the supplied path without assuming a home location. If the skill i
 Input: design JSON export for two existing CSV consumers, with different download and email filenames. Preserve code during planning.
 Expected: use `preflight.md`, identify shared format logic and consumer-specific decisions, and explain how JSON can be added while CSV callers keep working. Support the decision with actual modules and checks; do not introduce a plugin registry for unspecified formats.
 
+## 18. Discovery boundary for ordinary functions
+
+Precondition: the full skill catalog is available.
+Input A: fix an arithmetic expression inside a module without changing its contract, state ownership, or dependencies.
+Expected A: finish the local fix with relevant checks without selecting architecture-guard.
+Input B: move shared state to a different owner or change a contract between modules.
+Expected B: select the architecture guidance and inspect affected consumers. A .ts/.tsx extension or exported function alone is not evidence of boundary impact.
+
 ## Evaluation records
 
 Record the model/version, skill version or hash, fixture commit, user input, invocation, reading scope, actual output, changed files, and validation commands. Check skill invocation and `AGENTS.md` integration separately. Repeat unstable invocation/scope cases to assess variation. Do not relax criteria to reach a score target.
