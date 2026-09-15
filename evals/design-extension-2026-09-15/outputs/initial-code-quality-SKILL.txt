@@ -9,7 +9,7 @@ Judge correctness of current behavior separately from the cost of the next chang
 
 ## Scope and work mode
 
-Planning, review, or evaluation alone preserves source, configuration, and documentation. Implementation requests include needed design decisions, edits, and relevant verification. For design or implementation involving a rule used by several consumers or a choice about reuse, read [implementation.md](references/implementation.md). A routine local edit needs no separate quality review.
+Planning, review, or evaluation alone preserves source, configuration, and documentation. Implementation requests include needed design decisions, edits, and relevant verification. Apply shared-rule guidance when a rule serves several consumers or the task requires deciding what to reuse; a routine local edit needs no separate quality review.
 
 For PRs, use verified base/head and their merge base; for local work, include staged, unstaged, and untracked files. In post-task checks, distinguish starting user changes from the current edits. Without comparison material, limit the conclusion to current-state diagnosis. Distinguish new issues, deterioration, and existing debt; start with the diff and directly connected callers and contracts. For full audits, state the areas sampled and their limits.
 
@@ -18,7 +18,7 @@ For PRs, use verified base/head and their merge base; for local work, include st
 - **Correctness:** Connect requirements, public contracts, and invariants to relevant checks. Distinguish executed commands, verified behavior, failures, unrun checks, and unknown areas. Passing tests do not guarantee correctness of paths they do not cover.
 - **Maintainability:** Inspect the edit points for one policy, hidden state and side effects, paths needed to understand behavior, unnecessary abstractions, and whether regressions can be verified locally. Do not invent defects from file length or pattern preferences.
 
-Select [measurement.md](references/measurement.md) for before/after or A/B comparisons and measurement, [scoring.md](references/scoring.md) for score requests, and [earendil-metrics.md](references/earendil-metrics.md) for Verbosity/Erosion calculations. Small reviews need no additional reference when the evidence criteria below suffice.
+Select [implementation.md](references/implementation.md) for designing or implementing shared rules, [measurement.md](references/measurement.md) for before/after or A/B comparisons and measurement, [scoring.md](references/scoring.md) for score requests, and [earendil-metrics.md](references/earendil-metrics.md) for Verbosity/Erosion calculations. Small reviews need no additional reference when the evidence criteria below suffice.
 
 Connect each quality finding as **file/symbol observation → actual change or failure condition → cost or risk → smallest remedy and verification**. Check documented rationale and counterexamples. Do not count the same cause repeatedly; leave weak evidence as a question to verify.
 

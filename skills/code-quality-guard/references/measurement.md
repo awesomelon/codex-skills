@@ -30,3 +30,7 @@ Explain the cost, risk, and evidence for relevant issues. These perspectives hel
 - **Ease of change and verification:** Where are the logical edit points and regression checks for a realistic policy change? Distinguish inferred cost from files, errors, and time observed in an actual experiment.
 
 Explain confidence using code paths, contracts, and reproductions, not unsupported percentages. Lack of source access or runnable tests is not a reason for a favorable score.
+
+## Requested extension experiments
+
+Apply the same concrete added requirement to separate copies of the compared implementations. Use the same acceptance checks, tools, and supplied context; keep the original copies unchanged. Record the resulting edits, affected public functions, rule definitions changed, and verification needed. Record elapsed time only when actually captured, and distinguish environment setup from editing and checking. One successful addition supports a conclusion about that case, not general extensibility or a faster model.

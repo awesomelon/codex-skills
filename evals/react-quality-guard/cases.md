@@ -34,6 +34,7 @@ These are evaluation inputs and expectations, distinct from actual execution. Re
 
 17. **Before/after evaluation requested:** Compare React behavior, performance, and maintainability before and after. Distinguish correctness, maintainability judgment, and measured performance; reuse evidence. Do not stop because a general-quality skill is missing or infer overall quality improvement solely from tests.
 18. **Standalone installation and reference selection:** Only `react-quality-guard` is available for a small SPA component improvement. Finish with relevant state/rendering criteria; do not require another quality skill, a full audit, or server references.
+19. **Another picker consumer:** Design selection rules for two picker instances that share search/display behavior but differ in eligibility and maintain independent search input. Use the component/hook design criteria, retain the existing picker API or explain an additive change, and identify checks for both old and new consumers. Avoid a universal form framework or flags for unrelated cases.
 
 ## Judgment
 

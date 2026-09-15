@@ -1,0 +1,9 @@
+--- a/archive-policy.mjs
++++ b/archive-policy.mjs
+@@ -1,4 +1,5 @@
+ export function canArchive(document) {
+-  return (document.status === 'completed' || document.status === 'cancelled')
++  return (document.status === 'completed' || document.status === 'cancelled'
++    || document.status === 'expired')
+     && !document.locked;
+ }

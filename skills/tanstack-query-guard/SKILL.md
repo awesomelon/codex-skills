@@ -5,7 +5,7 @@ description: Implement, review, and debug TanStack Query queries, mutations, and
 
 # TanStack Query Guard
 
-Keep cached server data correct across reads, writes, navigation, and failures. Adapt the relevant criteria from Deckard Gerritsen's TanStack Query skill to the requested work.
+Keep cached server data correct and shared query definitions easy to extend across readers and writers. Adapt the relevant criteria from Deckard Gerritsen's TanStack Query skill to the requested work.
 
 Review and explanation requests preserve files. Implementation requests include the needed edits and relevant verification. Start with the affected query, its consumers, and related cache writes; reuse existing query keys, options, request functions, and `QueryClient` setup.
 
@@ -15,7 +15,7 @@ The references target TanStack Query v5. Check the installed version and types w
 
 | Task | Read |
 | --- | --- |
-| Query identity, retention, refetches, initial or placeholder data | [Cache and keys](references/cache-and-keys.md) |
+| Shared query definitions, identity, retention, refetches, initial or placeholder data | [Cache and keys](references/cache-and-keys.md) |
 | Request failures, cancellation, parallel reads, subscriptions | [Requests and rendering](references/requests-and-rendering.md) |
 | Saving data, cache updates, optimistic UI, concurrent writes | [Mutations](references/mutations.md) |
 | Pagination, infinite lists, route loading, prefetching | [Pagination and prefetch](references/pagination-and-prefetch.md) |

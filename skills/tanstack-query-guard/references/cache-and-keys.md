@@ -6,7 +6,7 @@ Use an array key whose values identify the returned data: resource, account or t
 
 Use stable JSON-compatible values. Object property order is ignored by the default hash, while array order matters. Convert dates or collection values deliberately when they represent request inputs. A successful `JSON.stringify` alone does not prove uniqueness: functions and `undefined` can disappear or collide. Keep ordinary and infinite query results under different keys because their cached values differ.
 
-Follow existing key conventions. Shared `queryOptions` or key functions help when several callers must agree; a query count is not a reason to introduce a new package or reorganize all keys. Make prefix matching deliberate when updating or invalidating a family of queries.
+Follow existing key conventions. Reuse key functions and shared `queryOptions` when readers, preloaders, and writes must agree; keep observer-specific presentation or refresh choices local when they differ. For a requested filter or new consumer, check every affected key, request input, and cache update against the same data definition. A query count alone does not justify a new package or reorganizing all keys. Make prefix matching deliberate when updating or invalidating a family of queries.
 
 ## Decide when to read again
 

@@ -1,0 +1,118 @@
+TAP version 13
+# Subtest: expired document, locked=false
+not ok 1 - expired document, locked=false
+  ---
+  duration_ms: 1.03825
+  type: 'test'
+  location: '<evaluation>/02/input/extension.test.mjs:8:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    false !== true
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://<evaluation>/02/input/extension.test.mjs:10:12)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1402:25)
+    Test.start (node:internal/test_runner/test:1262:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+  ...
+# Subtest: expired document, locked=true
+ok 2 - expired document, locked=true
+  ---
+  duration_ms: 0.903333
+  type: 'test'
+  ...
+# Subtest: mixed bulk selection preserves order and excludes locked documents
+not ok 3 - mixed bulk selection preserves order and excludes locked documents
+  ---
+  duration_ms: 0.336333
+  type: 'test'
+  location: '<evaluation>/02/input/extension.test.mjs:17:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+
+      [
+    -   'z',
+        'old',
+        'a'
+      ]
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'z'
+    1: 'old'
+    2: 'a'
+  actual:
+    0: 'old'
+    1: 'a'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://<evaluation>/02/input/extension.test.mjs:25:10)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1402:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+    Test.postRun (node:internal/test_runner/test:1542:19)
+    Test.run (node:internal/test_runner/test:1467:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+# Subtest: draft, locked=false
+ok 4 - draft, locked=false
+  ---
+  duration_ms: 0.922167
+  type: 'test'
+  ...
+# Subtest: draft, locked=true
+ok 5 - draft, locked=true
+  ---
+  duration_ms: 0.053875
+  type: 'test'
+  ...
+# Subtest: completed, locked=false
+ok 6 - completed, locked=false
+  ---
+  duration_ms: 0.047
+  type: 'test'
+  ...
+# Subtest: completed, locked=true
+ok 7 - completed, locked=true
+  ---
+  duration_ms: 0.043208
+  type: 'test'
+  ...
+# Subtest: cancelled, locked=false
+ok 8 - cancelled, locked=false
+  ---
+  duration_ms: 0.044417
+  type: 'test'
+  ...
+# Subtest: cancelled, locked=true
+ok 9 - cancelled, locked=true
+  ---
+  duration_ms: 0.034875
+  type: 'test'
+  ...
+# Subtest: bulk preserves order and empty input
+ok 10 - bulk preserves order and empty input
+  ---
+  duration_ms: 0.047708
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 8
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 44.616459

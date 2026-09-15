@@ -1,6 +1,6 @@
 interface:
   display_name: "Architecture Guard"
-  short_description: "Review module boundaries, dependencies, and contracts"
-  default_prompt: "Use $architecture-guard to assess the architecture of the current task. Review the design or changes as appropriate to the stage, and explain evidence-backed risks and the smallest remedies."
+  short_description: "Design and review module responsibilities and dependencies"
+  default_prompt: "Use $architecture-guard to complete the requested design, implementation, or architecture review with evidence and relevant verification."
 policy:
   allow_implicit_invocation: true

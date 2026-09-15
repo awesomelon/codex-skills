@@ -1,0 +1,65 @@
+✖ expired document, locked=false (0.804292ms)
+✔ expired document, locked=true (0.315083ms)
+✖ mixed bulk selection preserves order and excludes locked documents (0.543209ms)
+✔ draft, locked=false (0.589542ms)
+✔ draft, locked=true (0.379167ms)
+✔ completed, locked=false (0.045208ms)
+✔ completed, locked=true (0.03825ms)
+✔ cancelled, locked=false (0.046167ms)
+✔ cancelled, locked=true (0.036084ms)
+✔ bulk preserves order and empty input (0.050583ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 8
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 45.323709
+
+✖ failing tests:
+
+test at extension.test.mjs:8:3
+✖ expired document, locked=false (0.804292ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  false !== true
+
+      at TestContext.<anonymous> (file://<evaluation>/01/input/extension.test.mjs:10:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at extension.test.mjs:17:1
+✖ mixed bulk selection preserves order and excludes locked documents (0.543209ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+  -   'z',
+      'old',
+      'a'
+    ]
+
+      at TestContext.<anonymous> (file://<evaluation>/01/input/extension.test.mjs:25:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'old', 'a' ],
+    expected: [ 'z', 'old', 'a' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

@@ -8,10 +8,10 @@ GitHub repository: [awesomelon/codex-skills](https://github.com/awesomelon/codex
 
 | Skill | Purpose |
 | --- | --- |
-| [architecture-guard](skills/architecture-guard/SKILL.md) | Review module boundaries, dependencies, state ownership, and public contracts. Select criteria relevant to design or review. |
-| [react-quality-guard](skills/react-quality-guard/SKILL.md) | Improve React web correctness and performance using adapted Vercel guidance. Apply only relevant state, request, rendering, and server criteria. |
-| [code-quality-guard](skills/code-quality-guard/SKILL.md) | Separate correctness verification from maintainability judgment. Use before/after signals, code evidence, and realistic change costs; implement minimal improvements and verify them when requested. |
-| [tanstack-query-guard](skills/tanstack-query-guard/SKILL.md) | Implement and review TanStack Query cache keys, requests, mutations, pagination, and server/offline behavior using task-specific v5 guidance. |
+| [architecture-guard](skills/architecture-guard/SKILL.md) | Design, implement, and review module responsibilities, dependencies, shared state, and public APIs. Assess concrete required additions and compatibility. |
+| [react-quality-guard](skills/react-quality-guard/SKILL.md) | Design and improve React components, hooks, state, and performance. Separate shared behavior from consumer-specific interaction state. |
+| [code-quality-guard](skills/code-quality-guard/SKILL.md) | Design and implement shared business rules; review maintainability and compare implementations using evidence of actual change costs. |
+| [tanstack-query-guard](skills/tanstack-query-guard/SKILL.md) | Implement and review Query behavior using task-specific v5 guidance. Keep shared query definitions consistent when readers, filters, or writes are added. |
 
 `architecture-guard` focuses on module boundaries, `react-quality-guard` on React execution and user behavior, `code-quality-guard` on maintainability across languages and frameworks, and `tanstack-query-guard` on TanStack Query-specific cache and request behavior. Each skill works when installed alone. Reuse existing evidence when a task needs several perspectives; there is no need to invoke every skill each time. Small quality reviews can use the skill body alone. Select references for before/after or A/B comparison, scoring, and special metrics according to the request.
 
@@ -27,7 +27,11 @@ Example requests for general code quality:
 Use $code-quality-guard to review the current changes, separating correctness from maintainability. Provide evidence and the smallest improvements without modifying files.
 
 Use $code-quality-guard to improve and verify this module's maintainability. Use the starting state as a baseline to assess behavior preservation and the difference in change cost.
+
+Use $code-quality-guard to add this eligibility rule to the list, detail menu, and bulk action. Keep the independent pinning rule unchanged and verify the affected behavior.
 ```
+
+Shared-rule implementation uses [implementation guidance](skills/code-quality-guard/references/implementation.md). A routine local edit needs no separate quality review. For a concrete required addition, assess its edit points and compatibility; additional abstractions need evidence from the actual requirements. The [design and extension evaluation](evals/design-extension-2026-09-15/results.md) records the tested cases and their limits.
 
 Report passing tests, diagnostic signals such as complexity/duplication, and maintainability judgments separately. Leave unavailable measurements unmeasured; do not optimize for a single score or lower LOC. See [comparison and measurement](skills/code-quality-guard/references/measurement.md), [scoring](skills/code-quality-guard/references/scoring.md), [Earendil source metrics](skills/code-quality-guard/references/earendil-metrics.md), [quality evaluation cases](evals/code-quality-guard/cases.md), and [execution records](evals/code-quality-guard/results.md). The installer discovers new folders automatically; after updating, select this skill with `bash scripts/install.sh --skill code-quality-guard`.
 
