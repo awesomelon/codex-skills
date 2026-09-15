@@ -1,9 +1,9 @@
 ---
-name: tanstack-query
+name: tanstack-query-guard
 description: Implement, review, and debug TanStack Query queries, mutations, and caching in React applications. Exclude generic React work and TanStack Router-only tasks.
 ---
 
-# TanStack Query
+# TanStack Query Guard
 
 Keep cached server data correct across reads, writes, navigation, and failures. Adapt the relevant criteria from Deckard Gerritsen's TanStack Query skill to the requested work.
 

@@ -1,4 +1,0 @@
-interface:
-  display_name: "TanStack Query"
-  short_description: "Implement and review TanStack Query cache behavior"
-  default_prompt: "Use $tanstack-query to complete the requested query or mutation work and verify the affected cache and request behavior."

@@ -1,6 +1,12 @@
-# TanStack Query validation
+# TanStack Query Guard validation
 
 Date: 2026-09-15. Environment: macOS; exact tool versions and file hashes are in [manifest.json](outputs/manifest.json).
+
+## Name change
+
+The skill is now `tanstack-query-guard`. The original execution records below used `tanstack-query`; their fixtures, commands, responses, and hashes are preserved unchanged. Use the current skill folder for a fresh run, or the [original commit](https://github.com/awesomelon/codex-skills/tree/8622632df31674f9770c6641b682f63c86586084) to reproduce the recorded input bytes. Renaming does not establish a new behavioral evaluation.
+
+For the rename, repository validation, `quick_validate.py`, UI metadata and document links passed. The new name was discovered and installed independently by link and copy in temporary macOS directories; previews wrote no files and installed contents matched source. The entrypoint changed only its name and title; original evaluation files and `AGENTS.md` retained their contents. Behavior checks were not repeated for this naming-only change.
 
 ## Structure and installation
 
@@ -30,10 +36,10 @@ From the repository root, use a disposable directory:
 
 ```bash
 evaluation_dir=$(mktemp -d)
-cp -R evals/tanstack-query/fixtures/implementation/. "$evaluation_dir/"
+cp -R evals/tanstack-query-guard/fixtures/implementation/. "$evaluation_dir/"
 ```
 
-In that directory, `npm ci --ignore-scripts --no-audit --no-fund` installs the pinned test dependency. `node check.mjs` must fail on the original fixture. To inspect the saved successful result, copy `evals/tanstack-query/outputs/records.mjs` from this repository over the disposable `records.mjs`, then run `node check.mjs` again. For a fresh model evaluation, provide TASK.md and the standalone skill instead of the saved result. Keep generated outputs separate from the fixture.
+In that directory, `npm ci --ignore-scripts --no-audit --no-fund` installs the pinned test dependency. `node check.mjs` must fail on the original fixture. To inspect the saved successful result, copy `evals/tanstack-query-guard/outputs/records.mjs` from this repository over the disposable `records.mjs`, then run `node check.mjs` again. For a fresh model evaluation, provide TASK.md and the standalone skill instead of the saved result. Keep generated outputs separate from the fixture.
 
 ## Limits
 

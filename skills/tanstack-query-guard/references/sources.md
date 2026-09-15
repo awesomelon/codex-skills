@@ -5,7 +5,7 @@ Checked: 2026-09-15. Guidance targets TanStack Query v5; verify APIs against the
 ## Upstream
 
 - Source: Deckard Gerritsen's [TanStack Query skill](https://github.com/DeckardGer/tanstack-agent-skills/tree/b2fc14c974b2ca09b38de09c28237f240175205b/skills/tanstack-query), commit `b2fc14c974b2ca09b38de09c28237f240175205b`.
-- Original entrypoint name: `tanstack-query-best-practices`. This collection uses `tanstack-query` to match its installable folder and invocation name.
+- Original entrypoint name: `tanstack-query-best-practices`. This collection uses `tanstack-query-guard` to identify its review and correction role, following the existing guard skill names.
 - The upstream MIT notice is included unchanged as [LICENSE](../LICENSE), so standalone copies retain attribution and license terms.
 
 This is an adaptation, not an official TanStack release or an automatic upstream mirror. The original entrypoint and 38 rule files were reviewed. Criteria are grouped by task instead of copying the full example catalog or universal priority rankings.
