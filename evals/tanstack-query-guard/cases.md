@@ -1,4 +1,4 @@
-# TanStack Query evaluation cases
+# TanStack Query Guard evaluation cases
 
 These are inputs and expectations, not execution claims. Record actual runs separately in [results.md](results.md).
 
