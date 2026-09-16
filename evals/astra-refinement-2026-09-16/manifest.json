@@ -1,0 +1,128 @@
+{
+  "baseline": "8d59c883a8e5b1ada712c76f9feb051c16cef2fa",
+  "evaluation_type": "independent subagent execution with no parent history; not controlled A/B or production discovery",
+  "model": "inherited parent model; exact backend identifier not exposed by spawn tool",
+  "boundary": {
+    "agent": "boundary_forward",
+    "fixture_hashes_before": {
+      "AGENTS.md": "02bc9746d396493cf42a3d6eec9250af8c5162dd3e0da133f18531a5b84c85c9",
+      "TASK.md": "03064bc9d2eb758c52fdaf29eeef4366a5c4d7753bb150a58f8a5d285cf3cac8",
+      "features/export.mjs": "69b35e02c7a932c145dfe3851d979f71e4b2d65c487d5cb46caa1db2e99935b0",
+      "features/list.mjs": "fc3296dd5a25e77c786acb0c3aaaa267e1cb4d60819f25d73ea33a69d0f6a9e1",
+      "features/session.mjs": "adef6b5cd757172ad56b86af6518c2122f590cab52c2f6202899ab0bdd10823b",
+      "labels.test.mjs": "c663c80a9164d347e4d378538c445ccc014a549af70184e730fbb06b674dedca",
+      "shared/label.mjs": "7b27b50b5f02cde849497f5d41bf6195e6b75fd45d68d54896ff54b30a08ce53"
+    },
+    "fixture_hashes_after": {
+      "AGENTS.md": "02bc9746d396493cf42a3d6eec9250af8c5162dd3e0da133f18531a5b84c85c9",
+      "TASK.md": "03064bc9d2eb758c52fdaf29eeef4366a5c4d7753bb150a58f8a5d285cf3cac8",
+      "features/export.mjs": "ac409da370c73b4250dae74fc30afd55e2a21b4b67260fc9b16dedbbd3cd8e87",
+      "features/list.mjs": "848f46a4c5d44a3ea203d2397ccc39ea40b7071876edf082b8d720182ee1652e",
+      "features/session.mjs": "adef6b5cd757172ad56b86af6518c2122f590cab52c2f6202899ab0bdd10823b",
+      "labels.test.mjs": "c663c80a9164d347e4d378538c445ccc014a549af70184e730fbb06b674dedca",
+      "shared/label.mjs": "9b79e265195363bcf440dbc0f4fa74b601a3e61ecc014347ac02ad3aa4072676"
+    },
+    "changed_files": [
+      "features/export.mjs",
+      "features/list.mjs",
+      "shared/label.mjs"
+    ],
+    "references_read": [
+      "SKILL.md",
+      "references/review.md"
+    ],
+    "baseline_checks": {
+      "command": "node --test",
+      "passed": 1,
+      "failed": 0,
+      "observed_by": [
+        "parent",
+        "evaluator"
+      ]
+    },
+    "post_change_checks": {
+      "command": "node --test",
+      "passed": 1,
+      "failed": 0,
+      "observed_by": [
+        "evaluator"
+      ],
+      "raw_stdout_saved": false
+    },
+    "parent_verified": [
+      "three-file diff",
+      "test and session byte preservation",
+      "shared helper no longer imports feature state"
+    ],
+    "approval": "Two denied patch attempts; resumed successfully after explicit user approval. Not evidence of uninterrupted persistence."
+  },
+  "readonly": {
+    "agent": "readonly_forward",
+    "fixture_hashes": {
+      "types": {
+        "TASK.md": "f4c3126d4151b7693bd9075e4b8a75242d14ecdace41581ce170b306d3760342",
+        "result.ts": "dadc3be8d992f9176d3da83220f18545d3e98679a86968f3faef7e573b12eb08"
+      },
+      "query-design": {
+        "TASK.md": "cb278e5fd6bdf0953095a594535b614118e6bed23cab9915609d9513ebf8464c",
+        "records.ts": "8360af538d7ef83ee1c73581a7b629800bcf0e0d81b02ba06006c6d5fc58169e"
+      },
+      "wording": {
+        "Badge.tsx": "3432e0d0f47ec64f2e22901f3d655735e07afcd569303b8ced5467c28920dc2e",
+        "TASK.md": "1b3020cd741c57988c7be87fd3a7e9a3f9e950dcc93f6722f8763e9748db2d8e"
+      }
+    },
+    "query_fixture": "evals/design-extension-2026-09-15/fixtures/query-design",
+    "input_preservation": "Evaluator reports 39-file before/after aggregate unchanged; parent compared query fixture to source and inspected supplied type/wording inputs. Full evaluator per-file before hashes were not returned.",
+    "reads": {
+      "types": [
+        "typescript-quality-guard/SKILL.md",
+        "typescript-quality-guard/references/type-modeling.md",
+        "typescript-quality-guard/references/narrowing.md"
+      ],
+      "query-design": [
+        "tanstack-query-guard/SKILL.md",
+        "tanstack-query-guard/references/cache-and-keys.md",
+        "tanstack-query-guard/references/mutations.md",
+        "tanstack-query-guard/references/pagination-and-prefetch.md"
+      ],
+      "wording": []
+    },
+    "execution": "Source review and design only; no type compiler or Query runtime run.",
+    "report": "A temporary report write was denied; evaluator returned its results in chat without retrying that write."
+  },
+  "installed_skill_hashes": {
+    "architecture-guard/SKILL.md": "540a9c5f0e4290d099c1f13145107b83da43b2645a13c7d554fa743c63f9cf2b",
+    "architecture-guard/agents/openai.yaml": "858dc8964e731cf9bdb29945e6d08028f29f4fd6ed54741a47a85bb375c59097",
+    "architecture-guard/references/preflight.md": "3dd7734a650b6cee0053a5876175f00e8927be2d7d3c538cd36af43f8a713d37",
+    "architecture-guard/references/review.md": "1638e29c479594f884a826a92d74e26b355bb80e03cec18eab9a34a0c9be518e",
+    "code-quality-guard/SKILL.md": "984cbef2b7bb9081bff07a7cb4de42cb4ff9bfa913dea07936c373eea6197463",
+    "code-quality-guard/agents/openai.yaml": "a9e8dd2df97225ed449c32c1f67bebb56bf5d79202228f8488ebe71bf2216bd2",
+    "code-quality-guard/references/earendil-metrics.md": "fecfdaee836b60cffd54bd95fd7a28fea75ab68441d4ad99252c51a5b5686f82",
+    "code-quality-guard/references/implementation.md": "66424153e015ca9ad524a67390aac091ffc1ac5e9e679949eee3d1751947cb0f",
+    "code-quality-guard/references/measurement.md": "b29d357071df1240582dab044c0f56023da1638e213164fa6d85842c45c946d4",
+    "code-quality-guard/references/review.md": "505e2bd9a039410ff866b4ea4965e172635fb7d46ba0f3d392b11f0ec1e07faa",
+    "code-quality-guard/references/scoring.md": "bd5717e1bc9c87b22f91fc94acd773ec090bc19f4f7cef0f6b5df94f3e31ee05",
+    "react-quality-guard/SKILL.md": "aae34f1f6be12648e26cbab9ca8586fad24568da26df901193b69aab1b0484f3",
+    "react-quality-guard/agents/openai.yaml": "41c31bea210a1e4a52447da7ca702540b9df7c1c9b03fe95ce2c99a72cf38583",
+    "react-quality-guard/references/performance.md": "a2ac07be758394f59c8c37012c37ac04f5356366836b2435c0a929651b2f9e33",
+    "react-quality-guard/references/react-correctness.md": "95111e4334918a43b903e61801e3b91f28fdc38be4e540ff60e8aa674965fdee",
+    "react-quality-guard/references/server-react.md": "c0ca19b18fa53c7a52c09f7932604f654aa18c85300bec88968053f0e4dd5d44",
+    "react-quality-guard/references/sources.md": "b43c84efc07c010a6981311a32d539bcf439dd7cc8cbf11f59309e07f3476a0c",
+    "tanstack-query-guard/LICENSE": "4ef8d6c636d938b332dc7311b18f06fd22c855b496bc678d5fd8608ed8301214",
+    "tanstack-query-guard/SKILL.md": "9d8e61469bc91087c2ac8346690d1b64c1f8180b7c01a986fffd7093e09a1bdf",
+    "tanstack-query-guard/agents/openai.yaml": "33596fe4730985eaa76ef30c7db1f46ffb0713fdb15576355f8283a5fc0a50c3",
+    "tanstack-query-guard/references/cache-and-keys.md": "4ed4209aaa524415a2c6c98bbc47a68ca806e3fede1ec6ea38d013009538a169",
+    "tanstack-query-guard/references/mutations.md": "336000388435e6a2de4b46d997ebefc37ba7bd658bae196fa74192486b16c34b",
+    "tanstack-query-guard/references/pagination-and-prefetch.md": "0d0be0d773ea0afaaa04e3ceea92093eee86b282f12ebdcd864361d4676e75ac",
+    "tanstack-query-guard/references/requests-and-rendering.md": "4545d403a3e04c43e0fc44a35d337f1935d7d7edb37a786cc1ae0411b3502a85",
+    "tanstack-query-guard/references/server-and-offline.md": "7657c350416ebc7da5fc3a96eeec1f582d61543e09a5be0f2269c0e4f6502765",
+    "tanstack-query-guard/references/sources.md": "f8c052b81894640f022bd8b437e4470ada15a933e1c312da2d3d5a18388b17a4",
+    "typescript-quality-guard/SKILL.md": "af9a3eb06221a53ea4f6d48f11864ddcb4e8b5936981c74b971307be3d9f0b77",
+    "typescript-quality-guard/agents/openai.yaml": "e09214b60bab368d6d2a13dcfdc79409826f10cffd5f2d0d05adb14cf541bec6",
+    "typescript-quality-guard/references/input-validation.md": "0d4508c728fa57e7d4e5096c16ba96f38b7ecbafa7665236d3672fc3af665948",
+    "typescript-quality-guard/references/narrowing.md": "3f871b360addb3c7b154effeea1218d4a1d8fa2504b8544ebdf060a7d6c09319",
+    "typescript-quality-guard/references/patterns.md": "d64ffb6f6bc50e337be70b6f505c6424530769276af907b4c84711aac0dba9bf",
+    "typescript-quality-guard/references/type-modeling.md": "cef586fb0cb439356b24c6a1559807b04142760e00ba6253b1ef4fb6a2f80703"
+  }
+}

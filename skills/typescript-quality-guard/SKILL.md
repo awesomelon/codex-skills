@@ -1,6 +1,6 @@
 ---
 name: typescript-quality-guard
-description: Model TypeScript types, fix type diagnostics, and implement or review input validation in TypeScript.
+description: Design and review TypeScript types, fix type diagnostics, and implement or review input validation.
 ---
 
 # TypeScript Quality Guard
@@ -21,8 +21,6 @@ Use this skill for type modeling, diagnostics, or input validation, not merely b
 Read only the guidance needed for the current decision. A configuration inference fix need not load parser or domain-modeling guidance.
 
 ## Complete the requested work
-
-Use object parameters when same-typed positional arguments are easy to swap or options need names; keep simple functions and established APIs. Do not change allocation behavior for performance without relevant evidence.
 
 Use the existing type check for changed types. Add or run runtime checks when runtime behavior changes or a runtime claim needs verification; a type-only edit does not by itself require a runtime suite. Account for strictNullChecks, noUncheckedIndexedAccess, and exactOptionalPropertyTypes when interpreting diagnostics; do not enable project-wide compiler options as an incidental edit.
 

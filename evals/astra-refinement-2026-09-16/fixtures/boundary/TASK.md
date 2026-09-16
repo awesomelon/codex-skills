@@ -1,0 +1,1 @@
+Use $architecture-guard to fix the shared label helper importing feature session state. Pass the needed tenant from the existing list and export callers. Preserve labels, tenant switching, record inputs, and the session API. Implement the change and verify it.

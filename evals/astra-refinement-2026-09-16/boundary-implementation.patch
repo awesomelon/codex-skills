@@ -1,0 +1,26 @@
+--- a/features/export.mjs
++++ b/features/export.mjs
+@@ -1,2 +1,3 @@
+ import { labelRecord } from "../shared/label.mjs";
+-export function exportLabel(record) { return `${labelRecord(record)}.csv`; }
++import { currentTenant } from "./session.mjs";
++export function exportLabel(record) { return `${labelRecord(record, currentTenant())}.csv`; }
+--- a/features/list.mjs
++++ b/features/list.mjs
+@@ -1,2 +1,5 @@
+ import { labelRecord } from "../shared/label.mjs";
+-export function listLabels(records) { return records.map(labelRecord); }
++import { currentTenant } from "./session.mjs";
++export function listLabels(records) {
++  return records.map((record) => labelRecord(record, currentTenant()));
++}
+--- a/shared/label.mjs
++++ b/shared/label.mjs
+@@ -1,5 +1,3 @@
+-import { currentTenant } from "../features/session.mjs";
+-
+-export function labelRecord(record) {
+-  return `${currentTenant()}:${record.id}`;
++export function labelRecord(record, tenant) {
++  return `${tenant}:${record.id}`;
+ }
