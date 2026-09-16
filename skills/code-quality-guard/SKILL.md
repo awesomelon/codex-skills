@@ -1,35 +1,32 @@
 ---
 name: code-quality-guard
-description: Design and implement shared business rules, review maintainability, and compare code quality. Exclude wording-only and formatting-only changes.
+description: Design and implement shared business rules; review, improve, or compare code maintainability.
 ---
 
 # Code Quality Guard
 
-Judge correctness of current behavior separately from the cost of the next change. Do not treat passing tests as evidence of good design or present an AI impression score as a measurement.
+Separate correctness of current behavior from the cost of the next change. Passing tests do not establish good design; AI impression scores are not measurements.
 
-## Scope and work mode
+## Scope and routing
 
-Planning, review, and explanation preserve the assessed material; write only explicitly requested deliverables, such as a plan or report. Implementation requests include needed design decisions, edits, and relevant verification. For design or implementation involving a rule used by several consumers or a choice about reuse, read [implementation.md](references/implementation.md). A routine local edit needs no separate quality review.
+Planning, review, and explanation preserve the assessed material; write only explicitly requested deliverables, such as a plan or report. Implementation requests include needed design decisions, edits, and relevant verification. Routine local, wording-only, or formatting-only edits need no separate quality review.
 
-For PRs, use verified base/head and their merge base; for local work, include staged, unstaged, and untracked files. In post-task checks, distinguish starting user changes from the current edits. Without comparison material, limit the conclusion to current-state diagnosis. Distinguish new issues, deterioration, and existing debt; start with the diff and directly connected callers and contracts. For full audits, state the areas sampled and their limits.
+| Requested work | Guidance |
+| --- | --- |
+| Shared-rule design or implementation; deciding what to reuse | [implementation.md](references/implementation.md) |
+| PR/change review, full audit, maintainability improvement, or tracing a future change | [review.md](references/review.md) |
+| Before/after or A/B comparison, measurement, or an isolated extension experiment | [measurement.md](references/measurement.md) |
+| A quality score | [scoring.md](references/scoring.md) |
+| Verbosity/Erosion calculations | [earendil-metrics.md](references/earendil-metrics.md) |
 
-## Two separate judgments
+Small current-state reviews can use the evidence criteria below without additional reading. Select references for the requested decisions, not every row in sequence. Reuse relevant specialized findings; this skill also works alone.
 
-- **Correctness:** Connect requirements, public contracts, and invariants to relevant checks. Distinguish executed commands, verified behavior, failures, unrun checks, and unknown areas. Passing tests do not guarantee correctness of paths they do not cover.
-- **Maintainability:** Inspect the edit points for one policy, hidden state and side effects, paths needed to understand behavior, unnecessary abstractions, and whether regressions can be verified locally. Do not invent defects from file length or pattern preferences.
+## Evidence and completion
 
-Select [measurement.md](references/measurement.md) for before/after or A/B comparisons and measurement, [scoring.md](references/scoring.md) for score requests, and [earendil-metrics.md](references/earendil-metrics.md) for Verbosity/Erosion calculations. Small reviews need no additional reference when the evidence criteria below suffice.
+For correctness, connect requirements, public contracts, and invariants to relevant checks. Distinguish executed commands, verified behavior, failures, unrun checks, and unknown areas; passing tests do not cover untested paths. For maintainability, inspect policy edit points, hidden state and side effects, paths needed to understand behavior, unnecessary abstractions, and local verifiability. File length and pattern preferences alone do not establish defects.
 
-Connect each quality finding as **file/symbol observation → actual change or failure condition → cost or risk → smallest remedy and verification**. Check documented rationale and counterexamples. Do not count the same cause repeatedly; leave weak evidence as a question to verify.
+Connect each finding as **file/symbol observation → actual change or failure condition → cost or risk → smallest remedy and verification**. Check rationale and counterexamples; do not count the same cause repeatedly. Leave weak evidence as a question. Without a baseline, diagnose the current state rather than inventing regressions.
 
-For a requested extension, or when future change cost affects the judgment, trace one concrete addition from requirements or history through its edit points and relevant checks. Separate estimated effort from observed work. A review describes that addition without implementing it; use the comparison reference when an isolated change experiment is requested.
+Preserve justified complexity and contractually necessary defensive code. Do not weaken tests, lint, or type rules, or game metrics through file moves or code compression. Quality scores cannot offset significant correctness, security, or data-integrity problems.
 
-## Improvement and stopping
-
-Compare keeping the structure, a local fix, and a boundary adjustment. Consolidate ownership of policies that change for the same reason; preserve similar-looking policies that change independently. Do not remove justified complexity or contractually necessary defensive code to improve a number. Before calling code unused, check actual entry points, dynamic registration, and re-exports.
-
-After improvement, verify before/after evidence and relevant behavior using the same scope and criteria. Reuse checks completed on the same code under the same conditions. Without new edits, failures, or unresolved uncertainty, do not rerun checks just to capture report output. Do not weaken tests, lint, or type rules, or reduce numbers through file moves or code compression. Stop after required validation and concrete remaining risks are addressed, with only optional cleanup left. Do not iterate solely to raise a score.
-
-Use the requested format to distinguish correctness status from quality judgment, and present key evidence, smallest remedies, and remaining uncertainty. Call quality improved, unchanged, or worsened only when evidence supports it; otherwise withhold judgment. Quality scores cannot offset significant correctness, security, or data-integrity problems.
-
-When architecture boundaries or React execution are also at issue, reuse evidence from the relevant specialized review. Complete this review even without other skills; do not require chained invocation of every skill or repeat the same finding.
+Complete authorized changes and required verification. Reuse sufficient checks for unchanged code and conditions; repeat them when new edits, failures, or unresolved uncertainty require it, not solely to capture report output. Stop when concrete in-scope risks are addressed and only optional cleanup remains, not when a score rises. Use the requested format to separate correctness, quality judgment, evidence, remedies, and uncertainty; withhold improvement claims when unsupported.
