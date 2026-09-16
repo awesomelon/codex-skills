@@ -1,0 +1,112 @@
+{
+  "base_commit": "08cd4eadbdb132973245410eb74908bdeba0c26f",
+  "scope": "Partial checkout: complete code-quality-guard package and relevant authoring/evaluation files. Five entrypoints inspected at the initial baseline; incoming PR 11 changes preserved and overlapping authoring files reconciled.",
+  "environment": {
+    "os": "Linux",
+    "python": "3.13.5",
+    "node": "v22.16.0"
+  },
+  "execution": {
+    "subagents": 0,
+    "fresh_model_evaluations": 0,
+    "automatic_selection_evaluations": 0
+  },
+  "checks": [
+    {
+      "command": "python3 scripts/validate.py",
+      "status": "passed",
+      "packages": [
+        "code-quality-guard"
+      ],
+      "scope": "partial checkout"
+    },
+    {
+      "check": "standalone temporary package copy",
+      "status": "passed",
+      "file_count": 7,
+      "validator": "unchanged scripts/validate.py"
+    },
+    {
+      "check": "skill-local links and UI invocation",
+      "status": "passed",
+      "local_link_count": 8
+    },
+    {
+      "command": "python3 -m unittest discover -s tests -p \"test_quality_simplification_fixture.py\" -v",
+      "status": "passed",
+      "unit_tests": 3,
+      "node_invocations": 5,
+      "acceptance_tests_per_invocation": 34,
+      "accepted": [
+        "original@UTC",
+        "original@America/Los_Angeles",
+        "compatible@UTC",
+        "compatible@America/Los_Angeles"
+      ],
+      "rejected": [
+        "incompatible-native@UTC"
+      ],
+      "kind": "deterministic fixture calibration, not model behavior"
+    },
+    {
+      "check": "preserved original cases 1-21 and unchanged package/scripts",
+      "status": "passed"
+    },
+    {
+      "check": "new local documentation links and staged partial-tree whitespace",
+      "status": "passed"
+    },
+    {
+      "check": "incoming PR 11 preservation",
+      "status": "passed",
+      "detail": "Compared changed paths; verified current AGENTS.md, README.md, and improvement prompt by Git blob SHA; reused unchanged code-quality validation inputs."
+    }
+  ],
+  "baseline_git_blobs": {
+    "AGENTS.md": "598776ab999942169ae77fefae3cf7788ab06561",
+    "skills/code-quality-guard/SKILL.md": "c6b8e79b1754f129383d5dbf9cd5c4037eb22987",
+    "skills/code-quality-guard/references/review.md": "655d5a6a77898488ed526da12f827674dc3d1b7b",
+    "skills/code-quality-guard/references/implementation.md": "57197376f377e0fd89adc84c4f74c2ece5d0fb23",
+    "skills/code-quality-guard/references/measurement.md": "f44385f5058bbfdb187711ed9a83217b9726a2ed",
+    "skills/code-quality-guard/references/scoring.md": "e966c67fda620e85812cb1e6577a3afd8836c031",
+    "skills/code-quality-guard/references/earendil-metrics.md": "20ab27603d58c320d2b8aefa2b62cec7ec6acf98",
+    "skills/code-quality-guard/agents/openai.yaml": "1a807aeedc3a29debccc422c57110813069de5d6",
+    "README.md": "0ee63da0ca3f7b29615378509db60ec6b8f4791c",
+    "evals/code-quality-guard/cases.md": "fa91af65adb2971069be87f4c820b5ef7e5eab3d",
+    "scripts/install.py": "6a051039a8f5b2a4bf95af007f1292f739add041",
+    "scripts/validate.py": "377109dd2a7aa6c0d741bebc1e6ff264ca9b0afa",
+    "prompts/improve-skills.md": "6901a8f9b3ac2308d5eebd29d0ffa19ddefe46d5"
+  },
+  "changed_artifact_sha256": {
+    "README.md": "c37dabb1220c536fe0ab840f77dbf7e6eaeea73008c5824d474bb592b4a2c99d",
+    "docs/skill-audit-2026-09-16-upstream.md": "92e31dbee5d19c71753e64091c28df0be3b2c07b035e1d41954653c280609f01",
+    "evals/code-quality-guard/cases.md": "4ecc1aa9b7f6af0de57e435546344d81c773c00199b9322365d78731e65b47dc",
+    "evals/code-quality-guard/fixtures/simplification/TASK.md": "fcf1dffaae96a80263c4cb932219a9997e4d14addf0c70ec42cfee0da86084d2",
+    "evals/code-quality-guard/fixtures/simplification/date-parser.mjs": "50e3aa2e192bbdf9ba91fff4388a25728d9841efec8f16d1dc11bbf1bb08ea1d",
+    "evals/code-quality-guard/fixtures/simplification/date-parser.test.mjs": "e5be6d9b151016deb577761ce7f9bb7f8787ef4f702b94e22a72ac5f464a3b50",
+    "prompts/improve-skills.md": "8fc1e712547f0a155cc0f833d8c99e4d3ff1f36d308abdb6879069ca41d2da14",
+    "skills/code-quality-guard/references/implementation.md": "b195550f1c3645989e70910ee746b5ddffd58cd15693ac19aefa6a87653c5fe0",
+    "skills/code-quality-guard/references/review.md": "2af423bb719d423a1de99922ec92d363dcf5328fec7764cc83f52dd866280110",
+    "tests/test_quality_simplification_fixture.py": "ca547e5fab329a09a9d7a42c43aaaaf9f4ffdf4a49e125193967d37695cd9eb3"
+  },
+  "new_behavioral_cases": {
+    "cases": [
+      22,
+      23,
+      24,
+      25
+    ],
+    "status": "not run as model evaluations"
+  },
+  "unrun": [
+    "full-checkout all-five validation",
+    "official skill validator",
+    "full existing repository test suite",
+    "shell installer",
+    "macOS/Bash 3.2",
+    "fresh-agent behavior",
+    "automatic selection",
+    "model performance comparison"
+  ],
+  "initial_audit_commit": "8d59c883a8e5b1ada712c76f9feb051c16cef2fa"
+}

@@ -10,7 +10,7 @@ GitHub repository: [awesomelon/codex-skills](https://github.com/awesomelon/codex
 | --- | --- |
 | [architecture-guard](skills/architecture-guard/SKILL.md) | Design and review module boundaries, dependency direction, shared-state ownership, and contracts between modules. Local edits without boundary impact need no architecture review. |
 | [react-quality-guard](skills/react-quality-guard/SKILL.md) | Design and improve React components, hooks, state, and performance. Separate shared behavior from consumer-specific interaction state. |
-| [code-quality-guard](skills/code-quality-guard/SKILL.md) | Design and implement shared business rules; review, improve, and compare maintainability using task-specific guidance and evidence of actual change costs. |
+| [code-quality-guard](skills/code-quality-guard/SKILL.md) | Design and implement shared business rules; review, improve, and compare maintainability using task-specific guidance, contract-preserving simplification, and evidence of actual change costs. |
 | [tanstack-query-guard](skills/tanstack-query-guard/SKILL.md) | Design, implement, and review Query behavior using task-specific v5 guidance. Keep shared query definitions consistent when readers, filters, or writes are added. |
 | [typescript-quality-guard](skills/typescript-quality-guard/SKILL.md) | Design and review TypeScript types, fix diagnostics, and implement or review input validation. |
 
@@ -51,6 +51,8 @@ The [2026-09-15 follow-up audit](docs/skill-audit-2026-09-15-followup.md) covers
 The [2026-09-16 follow-up audit](docs/skill-audit-2026-09-16.md) records the five-entrypoint inspection, code-quality reference routing, selective-install examples, and the limits of source retrieval and validation.
 
 The [Astra refinement](docs/astra-refinement-2026-09-16.md) records the fresh article check, focused discovery and workflow updates, upstream ideas considered, and independent evaluation limits.
+
+The [upstream comparison audit](docs/skill-audit-2026-09-16-upstream.md) records selective Ponytail/ECC/pstack adoption, unchanged discovery metadata, and the calibrated simplification fixture. The existing [improvement prompt](prompts/improve-skills.md) also covers explicitly requested parallel audits.
 
 The [English translation record](docs/english-translation.md) documents the language change, preserved behavior, and its validation limits.
 
@@ -171,6 +173,8 @@ For installer or validator changes, also check shell syntax, run the repository 
 bash -n scripts/install.sh
 python3 -m unittest discover -s tests -v
 ```
+
+The optional [simplification fixture calibration](tests/test_quality_simplification_fixture.py) uses an existing Node.js 18+ runtime and skips when Node is absent. It does not affect Python-free installation or establish model behavior. Run it separately with `python3 -m unittest discover -s tests -p "test_quality_simplification_fixture.py" -v`.
 
 For significant instruction changes, run the relevant behavioral cases and record actual results. Existing sufficient checks need not be repeated solely to produce another report.
 
