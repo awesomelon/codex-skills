@@ -113,6 +113,11 @@ Expected A: no separate architecture invocation merely because the helper is exp
 Input B: relocate shared state ownership across modules.
 Expected B: invoke architecture guidance and inspect affected consumers. The snippet and description should use the same boundary.
 
+## 21. Complete a small boundary implementation
+
+Input: remove a shared module's dependency on a feature by passing the required value from its existing callers; implement and verify the change.
+Expected: inspect the affected dependency and callers, make the local boundary fix, and run checks for the affected behavior. Preserve unrelated code and tests. Do not require a separate PR-review phase or read comparison-history guidance merely to finish implementation. If a change review is explicitly requested as well, select `review.md` and establish the relevant comparison scope.
+
 ## Evaluation records
 
 Record the model/version, skill version or hash, fixture commit, user input, invocation, reading scope, actual output, changed files, and validation commands. Check skill invocation and `AGENTS.md` integration separately. Repeat unstable invocation/scope cases to assess variation. Do not relax criteria to reach a score target.

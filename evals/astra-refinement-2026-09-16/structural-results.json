@@ -1,0 +1,118 @@
+{
+  "baseline": "8d59c883a8e5b1ada712c76f9feb051c16cef2fa",
+  "platform": "darwin",
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "commands": [
+    {
+      "command": [
+        "/Users/j-ho/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate.py"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS architecture-guard: basic metadata, portable contents, local references\nPASS code-quality-guard: basic metadata, portable contents, local references\nPASS react-quality-guard: basic metadata, portable contents, local references\nPASS tanstack-query-guard: basic metadata, portable contents, local references\nPASS typescript-quality-guard: basic metadata, portable contents, local references\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/j-ho/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/j-ho/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "skills/architecture-guard"
+      ],
+      "exit_code": 0,
+      "stdout": "Skill is valid!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/j-ho/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/j-ho/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "skills/code-quality-guard"
+      ],
+      "exit_code": 0,
+      "stdout": "Skill is valid!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/j-ho/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/j-ho/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "skills/react-quality-guard"
+      ],
+      "exit_code": 0,
+      "stdout": "Skill is valid!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/j-ho/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/j-ho/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "skills/tanstack-query-guard"
+      ],
+      "exit_code": 0,
+      "stdout": "Skill is valid!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/j-ho/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/j-ho/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "skills/typescript-quality-guard"
+      ],
+      "exit_code": 0,
+      "stdout": "Skill is valid!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "skills": {
+    "architecture-guard": {
+      "before_characters": 3360,
+      "after_characters": 3391,
+      "before_description_characters": 112,
+      "after_description_characters": 112,
+      "sha256": "540a9c5f0e4290d099c1f13145107b83da43b2645a13c7d554fa743c63f9cf2b"
+    },
+    "code-quality-guard": {
+      "before_characters": 3044,
+      "after_characters": 3044,
+      "before_description_characters": 93,
+      "after_description_characters": 93,
+      "sha256": "984cbef2b7bb9081bff07a7cb4de42cb4ff9bfa913dea07936c373eea6197463"
+    },
+    "react-quality-guard": {
+      "before_characters": 2903,
+      "after_characters": 2903,
+      "before_description_characters": 141,
+      "after_description_characters": 141,
+      "sha256": "aae34f1f6be12648e26cbab9ca8586fad24568da26df901193b69aab1b0484f3"
+    },
+    "tanstack-query-guard": {
+      "before_characters": 2216,
+      "after_characters": 2224,
+      "before_description_characters": 157,
+      "after_description_characters": 165,
+      "sha256": "9d8e61469bc91087c2ac8346690d1b64c1f8180b7c01a986fffd7093e09a1bdf"
+    },
+    "typescript-quality-guard": {
+      "before_characters": 2439,
+      "after_characters": 2216,
+      "before_description_characters": 101,
+      "after_description_characters": 99,
+      "sha256": "af9a3eb06221a53ea4f6d48f11864ddcb4e8b5936981c74b971307be3d9f0b77"
+    }
+  },
+  "limits": [
+    "Character counts are Unicode code points, not tokens or speed measurements.",
+    "Structural validation does not establish model behavior.",
+    "Installer and validator implementations were unchanged; their regression suite was not rerun."
+  ]
+}

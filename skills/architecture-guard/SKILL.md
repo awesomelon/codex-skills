@@ -9,7 +9,7 @@ Assess responsibilities and dependencies so the next change can be understood, m
 
 ## Select the work
 
-Use [preflight.md](references/preflight.md) for design and planning, and [review.md](references/review.md) for PR/change reviews and current-architecture diagnosis. Read only the reference needed for the current stage. Implementation or improvement requests include necessary design decisions, edits, and a final change review. Planning, review, and explanation preserve the assessed material; write only explicitly requested deliverables, such as a plan or report.
+Use [preflight.md](references/preflight.md) for design and planning, and [review.md](references/review.md) for PR/change reviews and current-architecture diagnosis. Read only the reference needed for the current decision. Implementation or improvement requests include necessary design decisions, edits, and verification of affected boundaries and contracts. Planning, review, and explanation preserve the assessed material; write only explicitly requested deliverables, such as a plan or report.
 
 Start with the specified change and its directly connected callers, consumers, and state owners. Distinguish explicit boundary rules from conventions inferred from code. Expand investigation to boundaries affected by the change; for a requested full audit, identify the major boundaries and samples covered. A local function edit without changed boundaries or contracts needs no separate architecture review. If explicitly invoked for a wording-only or formatting-only change, confirm whether it has architectural impact and finish briefly.
 

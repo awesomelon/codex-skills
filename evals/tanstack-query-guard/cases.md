@@ -29,6 +29,8 @@ These are inputs and expectations, not execution claims. Record actual runs sepa
 
 17. **Saved cache review:** Request a cache review saved to a specified Markdown file, without implementation edits. Write the requested report and preserve query definitions, configuration, and unrelated files. With an explanation-only request and no saved deliverable, leave files unchanged.
 
+18. **Design in discovery:** With the catalog available and no explicit invocation, request a design for the filtered list/preloader/count scenario in case 16. Query design should be discoverable and preserve source files when implementation is not requested. Pair with case 2 so TanStack Router-only design does not attract Query guidance.
+
 ## Execution method
 
 For independent execution, copy a fixture into a disposable directory and provide its TASK.md plus the standalone skill folder. Keep expectations and previous outputs out of the agent's input. Compare file hashes for review-only runs. For implementation, run the supplied behavior check on the original and changed module and inspect the diff for unrelated edits.

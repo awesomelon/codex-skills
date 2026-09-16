@@ -11,8 +11,8 @@ GitHub repository: [awesomelon/codex-skills](https://github.com/awesomelon/codex
 | [architecture-guard](skills/architecture-guard/SKILL.md) | Design and review module boundaries, dependency direction, shared-state ownership, and contracts between modules. Local edits without boundary impact need no architecture review. |
 | [react-quality-guard](skills/react-quality-guard/SKILL.md) | Design and improve React components, hooks, state, and performance. Separate shared behavior from consumer-specific interaction state. |
 | [code-quality-guard](skills/code-quality-guard/SKILL.md) | Design and implement shared business rules; review, improve, and compare maintainability using task-specific guidance and evidence of actual change costs. |
-| [tanstack-query-guard](skills/tanstack-query-guard/SKILL.md) | Implement and review Query behavior using task-specific v5 guidance. Keep shared query definitions consistent when readers, filters, or writes are added. |
-| [typescript-quality-guard](skills/typescript-quality-guard/SKILL.md) | Design, implement, and review TypeScript types, checked input, assertions, and configuration inference. |
+| [tanstack-query-guard](skills/tanstack-query-guard/SKILL.md) | Design, implement, and review Query behavior using task-specific v5 guidance. Keep shared query definitions consistent when readers, filters, or writes are added. |
+| [typescript-quality-guard](skills/typescript-quality-guard/SKILL.md) | Design and review TypeScript types, fix diagnostics, and implement or review input validation. |
 
 `architecture-guard` focuses on module boundaries, `react-quality-guard` on React execution and user behavior, `code-quality-guard` on maintainability across languages and frameworks, and `tanstack-query-guard` on TanStack Query-specific cache and request behavior. Each skill works when installed alone. Reuse existing evidence when a task needs several perspectives; there is no need to invoke every skill each time. Small current-state quality reviews can use the skill body alone. Select [change-review guidance](skills/code-quality-guard/references/review.md) for PRs, full audits, maintainability improvements, or future-change analysis; select comparison, scoring, and source-metric references only for those requested decisions.
 
@@ -49,6 +49,8 @@ The [2026-09-15 audit](docs/skill-audit-2026-09-15.md) covers all five skill ent
 The [2026-09-15 follow-up audit](docs/skill-audit-2026-09-15-followup.md) covers requested-document boundaries, UI work modes, and the TypeScript rename, including installation migration and validation limits.
 
 The [2026-09-16 follow-up audit](docs/skill-audit-2026-09-16.md) records the five-entrypoint inspection, code-quality reference routing, selective-install examples, and the limits of source retrieval and validation.
+
+The [Astra refinement](docs/astra-refinement-2026-09-16.md) records the fresh article check, focused discovery and workflow updates, upstream ideas considered, and independent evaluation limits.
 
 The [English translation record](docs/english-translation.md) documents the language change, preserved behavior, and its validation limits.
 
@@ -154,6 +156,8 @@ Create `skills/<skill-name>/SKILL.md`, adding `references/`, `scripts/`, or `age
 Python 3.10+ is required only for repository development and validation. The checks below are not part of user installation. The shell installer uses Bash 3.2-compatible syntax and BSD-compatible options; the test runner exercises the CLI directly.
 
 Use [prompts/add-skill.md](prompts/add-skill.md), filling in one concrete skill purpose. There is no need to create many skills up front or abstract a common framework.
+
+For an existing skill or collection audit, use [prompts/improve-skills.md](prompts/improve-skills.md). It anchors changes in the designated Astra article and concrete findings, and separates structural checks from independent behavioral evaluation. Keep effective instructions instead of rewriting every skill on each audit.
 
 For skill changes, check structure and local references:
 

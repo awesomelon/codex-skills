@@ -1,0 +1,1 @@
+Review these TypeScript types and exhaustive handling for correctness and future variant additions. Answer with findings and evidence only; preserve all files. Compiler execution is unavailable in this fixture, so do not install tools.
