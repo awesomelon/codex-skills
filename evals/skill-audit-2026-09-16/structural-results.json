@@ -1,0 +1,170 @@
+{
+  "baseline_commit": "247aac97db443fa4e38e7836cf253b9d5ae806b2",
+  "environment": "Linux; connector-fetched partial checkout; original bytes verified by Git blob SHA",
+  "scope": "Changed code-quality-guard package, changed README and evaluation catalog; not all five skill packages",
+  "checks": [
+    {
+      "name": "repository_validator",
+      "status": "pass",
+      "details": {
+        "command": "python3 scripts/validate.py",
+        "returncode": 0,
+        "stdout": "PASS code-quality-guard: basic metadata, portable contents, local references\n",
+        "validated_skills": [
+          "code-quality-guard"
+        ],
+        "validator_blob": "377109dd2a7aa6c0d741bebc1e6ff264ca9b0afa",
+        "installer_module_blob": "6a051039a8f5b2a4bf95af007f1292f739add041"
+      }
+    },
+    {
+      "name": "metadata_yaml",
+      "status": "pass",
+      "details": {
+        "parser": "PyYAML 6.0.3",
+        "name": "code-quality-guard",
+        "ui_unchanged": true
+      }
+    },
+    {
+      "name": "standalone_local_links",
+      "status": "pass",
+      "details": {
+        "count": 8,
+        "links": [
+          [
+            "skills/code-quality-guard/SKILL.md",
+            "references/implementation.md"
+          ],
+          [
+            "skills/code-quality-guard/SKILL.md",
+            "references/review.md"
+          ],
+          [
+            "skills/code-quality-guard/SKILL.md",
+            "references/measurement.md"
+          ],
+          [
+            "skills/code-quality-guard/SKILL.md",
+            "references/scoring.md"
+          ],
+          [
+            "skills/code-quality-guard/SKILL.md",
+            "references/earendil-metrics.md"
+          ],
+          [
+            "skills/code-quality-guard/references/review.md",
+            "measurement.md"
+          ],
+          [
+            "skills/code-quality-guard/references/earendil-metrics.md",
+            "measurement.md"
+          ],
+          [
+            "skills/code-quality-guard/references/scoring.md",
+            "measurement.md"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "existing_references_and_ui_preserved",
+      "status": "pass",
+      "details": {
+        "skills/code-quality-guard/references/earendil-metrics.md": "20ab27603d58c320d2b8aefa2b62cec7ec6acf98",
+        "skills/code-quality-guard/references/measurement.md": "f44385f5058bbfdb187711ed9a83217b9726a2ed",
+        "skills/code-quality-guard/references/scoring.md": "e966c67fda620e85812cb1e6577a3afd8836c031",
+        "skills/code-quality-guard/references/implementation.md": "57197376f377e0fd89adc84c4f74c2ece5d0fb23",
+        "skills/code-quality-guard/agents/openai.yaml": "1a807aeedc3a29debccc422c57110813069de5d6"
+      }
+    },
+    {
+      "name": "relocated_decision_text",
+      "status": "pass",
+      "details": {
+        "paragraphs": 4,
+        "method": "Exact paragraph comparison, allowing only the explicit reference link and safety/verification statements retained in the entrypoint."
+      }
+    },
+    {
+      "name": "entrypoint_boundary_presence",
+      "status": "pass",
+      "details": {
+        "method": "Static text presence; not a behavioral pass",
+        "checks": 7
+      }
+    },
+    {
+      "name": "readme_link_change_scope",
+      "status": "pass",
+      "details": {
+        "all_prior_targets_preserved": true,
+        "new_targets": [
+          "docs/skill-audit-2026-09-16.md",
+          "skills/code-quality-guard/references/review.md"
+        ],
+        "audit_target": "exists; checked after writing audit"
+      }
+    },
+    {
+      "name": "scenario_catalog_preservation",
+      "status": "pass",
+      "details": {
+        "unchanged_cases": 17,
+        "updated_cases": [
+          11
+        ],
+        "added_cases": [
+          19,
+          20,
+          21
+        ],
+        "model_cases_executed": 0
+      }
+    },
+    {
+      "name": "changed_text_hygiene",
+      "status": "pass",
+      "details": {
+        "files": 4,
+        "checks": [
+          "trailing whitespace",
+          "final newline",
+          "LF line endings"
+        ]
+      }
+    }
+  ],
+  "size_metrics": {
+    "unit": "Unicode code points, including frontmatter and whitespace",
+    "skill_before": 4408,
+    "skill_after": 3044,
+    "reduction_percent": 30.94,
+    "new_review_reference": 1368,
+    "entrypoint_plus_review": 4412,
+    "description_before": 143,
+    "description_after": 93,
+    "not_measured": [
+      "tokens",
+      "latency",
+      "model quality",
+      "automatic skill selection"
+    ]
+  },
+  "changed_content_blobs": {
+    "README.md": "546010f30c299999b34403c8a7f8a4850ac9b2ef",
+    "skills/code-quality-guard/SKILL.md": "c6b8e79b1754f129383d5dbf9cd5c4037eb22987",
+    "skills/code-quality-guard/references/review.md": "655d5a6a77898488ed526da12f827674dc3d1b7b",
+    "evals/code-quality-guard/cases.md": "fa91af65adb2971069be87f4c820b5ef7e5eab3d"
+  },
+  "not_run": [
+    "All-five-package repository validator",
+    "Official skill-creator validator",
+    "Full installer/validator regression suite (implementations unchanged)",
+    "macOS or Bash 3.2 execution",
+    "Codex fresh-session behavioral cases",
+    "Automatic skill selection",
+    "Controlled model A/B or token/latency measurement"
+  ],
+  "source_limit": "The designated article could not be retrieved; prior repository audit interpretations were cross-checked against accessible current OpenAI Build skills and Model guidance pages, not against a freshly retrieved article."
+}

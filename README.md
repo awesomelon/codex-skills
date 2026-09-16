@@ -10,11 +10,11 @@ GitHub repository: [awesomelon/codex-skills](https://github.com/awesomelon/codex
 | --- | --- |
 | [architecture-guard](skills/architecture-guard/SKILL.md) | Design and review module boundaries, dependency direction, shared-state ownership, and contracts between modules. Local edits without boundary impact need no architecture review. |
 | [react-quality-guard](skills/react-quality-guard/SKILL.md) | Design and improve React components, hooks, state, and performance. Separate shared behavior from consumer-specific interaction state. |
-| [code-quality-guard](skills/code-quality-guard/SKILL.md) | Design and implement shared business rules; review maintainability and compare implementations using evidence of actual change costs. |
+| [code-quality-guard](skills/code-quality-guard/SKILL.md) | Design and implement shared business rules; review, improve, and compare maintainability using task-specific guidance and evidence of actual change costs. |
 | [tanstack-query-guard](skills/tanstack-query-guard/SKILL.md) | Implement and review Query behavior using task-specific v5 guidance. Keep shared query definitions consistent when readers, filters, or writes are added. |
 | [typescript-quality-guard](skills/typescript-quality-guard/SKILL.md) | Design, implement, and review TypeScript types, checked input, assertions, and configuration inference. |
 
-`architecture-guard` focuses on module boundaries, `react-quality-guard` on React execution and user behavior, `code-quality-guard` on maintainability across languages and frameworks, and `tanstack-query-guard` on TanStack Query-specific cache and request behavior. Each skill works when installed alone. Reuse existing evidence when a task needs several perspectives; there is no need to invoke every skill each time. Small quality reviews can use the skill body alone. Select references for before/after or A/B comparison, scoring, and special metrics according to the request.
+`architecture-guard` focuses on module boundaries, `react-quality-guard` on React execution and user behavior, `code-quality-guard` on maintainability across languages and frameworks, and `tanstack-query-guard` on TanStack Query-specific cache and request behavior. Each skill works when installed alone. Reuse existing evidence when a task needs several perspectives; there is no need to invoke every skill each time. Small current-state quality reviews can use the skill body alone. Select [change-review guidance](skills/code-quality-guard/references/review.md) for PRs, full audits, maintainability improvements, or future-change analysis; select comparison, scoring, and source-metric references only for those requested decisions.
 
 For TypeScript, use `Use $typescript-quality-guard to implement and verify this parser` or `Use $typescript-quality-guard to review these types without editing files`. The skill supports automatic selection for type modeling, type diagnostics, and input validation; a .ts or .tsx extension alone is not a trigger. Its entrypoint routes to type modeling, input validation, or narrowing guidance as needed. It works independently and does not require a framework-specific review. Install it with `bash scripts/install.sh --skill typescript-quality-guard`. See [evaluation cases](evals/typescript-quality-guard/cases.md) and [historical example checks](evals/typescript-quality-guard/results.md), recorded before this rename.
 
@@ -48,6 +48,8 @@ The [2026-09-15 audit](docs/skill-audit-2026-09-15.md) covers all five skill ent
 
 The [2026-09-15 follow-up audit](docs/skill-audit-2026-09-15-followup.md) covers requested-document boundaries, UI work modes, and the TypeScript rename, including installation migration and validation limits.
 
+The [2026-09-16 follow-up audit](docs/skill-audit-2026-09-16.md) records the five-entrypoint inspection, code-quality reference routing, selective-install examples, and the limits of source retrieval and validation.
+
 The [English translation record](docs/english-translation.md) documents the language change, preserved behavior, and its validation limits.
 
 ### TypeScript skill rename
@@ -68,15 +70,22 @@ No compatibility skill is installed under the old name; keeping both would add d
 
 The default destination for all skills is `~/.agents/skills`. User configuration and `AGENTS.md` are not modified automatically.
 
-With Git available, run each command only after the preceding one succeeds:
+With Git available, clone the repository and inspect the available skills. Run each command only after the preceding one succeeds:
 
 ```bash
 git clone https://github.com/awesomelon/codex-skills.git
 cd codex-skills
-bash scripts/install.sh
+bash scripts/install.sh --list
 ```
 
-Install only skills you expect to use repeatedly. The command above installs the full collection; use `bash scripts/install.sh --list` to inspect it and repeat `--skill <name>` to select a subset. Selecting fewer skills reduces always-loaded discovery metadata; it is not a measured performance claim.
+Choose only skills you expect to use repeatedly. For example, to install the code-quality skill alone:
+
+```bash
+bash scripts/install.sh --skill code-quality-guard --dry-run
+bash scripts/install.sh --skill code-quality-guard
+```
+
+Replace the example name or repeat `--skill <name>` for your chosen subset. To deliberately install the whole collection, run `bash scripts/install.sh` without `--skill`. The installer's default is unchanged. Selecting fewer skills reduces discovery metadata; it is not a measured performance claim.
 
 `install.sh` is the installation/update entry point. It does not invoke Python, Node, jq, or package installation.
 
@@ -86,7 +95,7 @@ The default mode creates symbolic links. Clone into a durable location rather th
 
 ```bash
 bash scripts/install.sh --list
-bash scripts/install.sh --dry-run
+bash scripts/install.sh --skill architecture-guard --dry-run
 bash scripts/install.sh --skill architecture-guard
 ```
 
@@ -95,7 +104,7 @@ In Codex CLI/IDE, inspect `/skills` or invoke `$architecture-guard`. If it is mi
 To copy skills into a team project, specify that project's path. Avoid duplicate installation of the same skill at both user and project scope.
 
 ```bash
-bash scripts/install.sh --mode copy --dest /path/to/other-project/.agents/skills
+bash scripts/install.sh --skill code-quality-guard --mode copy --dest /path/to/other-project/.agents/skills
 ```
 
 Installing this collection into itself is blocked. Before changing installation modes, back up and remove or reconcile the existing installation separately.
@@ -106,10 +115,10 @@ Run from the cloned `codex-skills` folder. If pull fails, do not proceed to inst
 
 ```bash
 git pull --ff-only
-bash scripts/install.sh
+bash scripts/install.sh --skill code-quality-guard
 ```
 
-To maintain only selected skills, use the same `--skill` options each time. The default includes all repository skills; selections are not saved separately.
+The update command above matches the single-skill installation example. Retain your actual `--skill` selections, `--dest`, and `--mode` options. To maintain the entire collection, omit `--skill`. Selections are not saved separately; a bare installer command also installs skills you did not previously select.
 
 For links, changes to existing skills take effect in the source immediately after pull; rerunning the installer links newly added skills. For copies, rerunning updates managed copies and adds new skills. Review script and skill changes before installation.
 
