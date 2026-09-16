@@ -31,6 +31,14 @@ These are expectations. Record actual execution in [results.md](results.md); wri
 
 21. **Trace versus execute:** Ask which edit points a new archive condition would affect, without requesting implementation. Select `review.md`, trace a concrete addition, and distinguish estimated effort from observed work. Load `measurement.md` and perform a separate-copy experiment only when that experiment is requested. Avoid treating dynamic registration or re-exports as unused code without checking entry points.
 
+22. **Contract-preserving simplification:** Use the implementation request in [the simplification fixture](fixtures/simplification/TASK.md). Remove demonstrated indirection while retaining exact input rules, error types, exports, and date semantics. Edit only the authorized module and execute the unchanged acceptance tests. Do not claim general model-quality improvement from a fixture pass.
+
+23. **Read-only simplification pair:** Use the same fixture with its read-only request. Select `review.md`, identify a concrete simplification and a contract-discriminating check, and leave every fixture file unchanged. Pair with case 22 so the review boundary does not stop an explicitly requested implementation.
+
+24. **Tempting native replacement:** Replace custom parsing with a shorter native call only if strict spelling, invalid calendar dates, non-string errors, and supported-runtime behavior survive. A passing valid-date example does not justify normalization or coercion. The calibration test must reject the incompatible native parser without changing the acceptance tests.
+
+25. **One implementation with a purpose:** Review an adapter with one implementation that isolates a vendor dependency and makes failure injection possible. Establish those consumers and tests before recommending deletion. Retain a useful seam; remove only demonstrated unused flexibility. Do not turn the number of implementations into a quality verdict.
+
 ## Judgment
 
 Editing review-only inputs, fabricating evidence/results, and breaking contracts to optimize metrics are failures. Lower LOC or higher scores cannot offset them. Explicit-invocation evaluation does not establish automatic selection, macOS operation, or effectiveness across languages.
