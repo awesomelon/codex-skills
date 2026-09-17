@@ -5,7 +5,7 @@ description: Design, implement, and review React web components, hooks, state, a
 
 # React Quality Guard
 
-Reduce state errors and unnecessary React work while preserving user behavior and data contracts. Use Vercel React Best Practices as a judgment reference.
+Reduce state errors and unnecessary React work while preserving user behavior and data contracts. Use Vercel React Best Practices and Composition Patterns as judgment references.
 
 Planning, review, and explanation preserve the assessed material; write only explicitly requested deliverables, such as a plan or report. Implementation and improvement requests include necessary edits and verification. Start with the specified code and directly connected state/request paths; perform full audits at the requested scope.
 
@@ -16,6 +16,7 @@ Reuse environment information already provided. Check versions and types when Re
 | Decision area | Reference |
 | --- | --- |
 | Component and hook design, state, Effects, form behavior | [react-correctness.md](references/react-correctness.md) |
+| Component variants, children, render props, compound components, shared providers | [composition.md](references/composition.md) |
 | Requests, client caches, bundles, rendering cost | [performance.md](references/performance.md) |
 | Actual SSR/RSC, server functions, hydration | [server-react.md](references/server-react.md) |
 | Source verification, comparison with upstream, updating the baseline | [sources.md](references/sources.md) |

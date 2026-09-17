@@ -28,7 +28,7 @@ Follow actual update and consumption paths for relevant issues. See [sources.md]
 
 ## Adding a consumer or screen variant
 
-When adding a screen variant or another consumer, distinguish shared product decisions from local draft, focus, and interaction state. Reuse a component or hook when its consumers need the same behavior; keep differing behavior explicit instead of accumulating unrelated boolean options. Extract shared rules without making them depend on component state. Check that one instance can be edited or reset without changing another, and that the added variant preserves existing input and selection behavior.
+When adding a screen variant or another consumer, distinguish shared product decisions from local draft, focus, and interaction state. Extract shared rules without making them depend on component state. Use [composition.md](composition.md) to choose how consumers share UI and express differing behavior. Check that one instance can be edited or reset without changing another, and that the added variant preserves existing input and selection behavior.
 
 ## Select verification
 
