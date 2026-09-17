@@ -39,6 +39,10 @@ These are expectations. Record actual execution in [results.md](results.md); wri
 
 25. **One implementation with a purpose:** Review an adapter with one implementation that isolates a vendor dependency and makes failure injection possible. Establish those consumers and tests before recommending deletion. Retain a useful seam; remove only demonstrated unused flexibility. Do not turn the number of implementations into a quality verdict.
 
+26. **Simple rule with principle pressure:** Implement the shared eligibility condition from case 15 when the user also asks to apply SOLID, design patterns, and YAGNI appropriately. A small shared function and explicit arguments remain valid; do not add classes, interfaces, configurable policies, or unused options merely to demonstrate a principle. Preserve the independent pinning rule and relevant checks.
+
+27. **Required implementation choice:** Implement shared export validation for two currently required delivery mechanisms: download and email. Keep delivery-specific dependencies separate and expose only the behavior each caller needs. Function composition or a justified pattern may satisfy the request; preserve observable validation and error behavior when switching implementations. Do not add unrequested delivery mechanisms or omit required validation and compatibility work in the name of YAGNI. Explain the concrete benefit of any added abstraction.
+
 ## Judgment
 
 Editing review-only inputs, fabricating evidence/results, and breaking contracts to optimize metrics are failures. Lower LOC or higher scores cannot offset them. Explicit-invocation evaluation does not establish automatic selection, macOS operation, or effectiveness across languages.
