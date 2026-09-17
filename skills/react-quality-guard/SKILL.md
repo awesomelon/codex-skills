@@ -25,6 +25,8 @@ Select only relevant references. The source document is not required reading for
 
 ## Intervention and completion
 
+Keep a component's state, handlers, and rendering close when they must be read and modified together. Components and hooks may remain in the same file; extraction does not require a new file. Prioritize readability and maintainability over LOC, and accept a cohesive file around 1,000 lines without treating that number as a target or limit. Split for independently changing behavior, actual reuse, or clearer verification, accounting for extra props, imports, and navigation.
+
 Prioritize correctness, data isolation, and compatibility. For performance, start with serial requests, initial transfer, and expensive rendering/subscriptions on real user paths. Do not add component splits or memoization to meet a count. If boundary review is also requested, reuse its findings without making another skill a mandatory step.
 
 Verify behavior/state changes using existing checks or interactions that match the reproduction conditions. Beyond required validation, additional checks need a concrete uncertainty to resolve. Do not weaken Hooks or type-checking rules. A simple state fix does not require a benchmark; a claim of improved performance does require measurements under comparable conditions.

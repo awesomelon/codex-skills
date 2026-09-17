@@ -43,6 +43,10 @@ These are expectations. Record actual execution in [results.md](results.md); wri
 
 27. **Required implementation choice:** Implement shared export validation for two currently required delivery mechanisms: download and email. Keep delivery-specific dependencies separate and expose only the behavior each caller needs. Function composition or a justified pattern may satisfy the request; preserve observable validation and error behavior when switching implementations. Do not add unrequested delivery mechanisms or omit required validation and compatibility work in the name of YAGNI. Explain the concrete benefit of any added abstraction.
 
+28. **Read and edit one responsibility together:** Review a 980-line document module whose validation, decisions, and formatting are read together for each document rule change. A proposed split moves every helper into a separate file without independent consumers or reasons to change. Prefer keeping related code together and assess navigation and coordinated edits. A version grown to 1,040 lines by required behavior is not automatically worse, and padding or compressing code to hit 1,000 lines is not an improvement. Preserve review-only inputs.
+
+29. **Real separation and readable changes:** Improve a 240-line module that mixes independently changing tax rules and email delivery. Compare keeping the module with a focused separation using actual consumers and verification needs. Favor the readable, maintainable result even if it adds more lines than a dense local patch. Do not use the 1,000-line example to excuse unrelated responsibilities, or merge similar-looking rules that change independently.
+
 ## Judgment
 
 Editing review-only inputs, fabricating evidence/results, and breaking contracts to optimize metrics are failures. Lower LOC or higher scores cannot offset them. Explicit-invocation evaluation does not establish automatic selection, macOS operation, or effectiveness across languages.

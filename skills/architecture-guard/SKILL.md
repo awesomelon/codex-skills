@@ -15,10 +15,10 @@ Start with the specified change and its directly connected callers, consumers, a
 
 ## Design judgment
 
-- **Ownership:** Find duplicated responsibilities or state that require the same policy to be edited in multiple places. Do not combine similar-looking policies that change for different reasons.
+- **Responsibilities:** Keep code that must be read together and changes for the same reason close together, so a policy update can be understood and verified without unnecessary movement between files. Find repeated policy definitions that require coordinated edits; preserve similar-looking policies that change independently.
 - **Dependency paths:** Check public entry points and agreed dependency direction. Include coupling through events, global state, callbacks, and network calls, not just imports.
 - **Contracts:** Check actual consumers of changed APIs, types, caches, and events. Preserve relevant invariants when touching authorization, tenant isolation, concurrency, or transaction boundaries. For a requested contract transition, review consumers and migration order together.
-- **Intervention cost:** Choose the smallest effective option among keeping the structure, making a local fix, and adjusting a boundary. Compare the coupling removed by a new layer or shared abstraction against its added cost. Do not split by file length or duplicate count alone, or apply DTOs, services, DDD, or FSD uniformly.
+- **Intervention cost:** Prefer readable, maintainable code over lower LOC or a smaller diff. A file around 1,000 lines can be appropriate when its responsibilities belong together; that number is neither a target nor a limit. Extract a module when independent change or verification becomes clearer, accounting for extra imports and coordinated edits. Preserve required dependency rules; do not apply DTOs, services, DDD, or FSD uniformly.
 
 ## Validation and completion
 
