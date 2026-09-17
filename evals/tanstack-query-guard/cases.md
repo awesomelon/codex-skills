@@ -31,6 +31,8 @@ These are inputs and expectations, not execution claims. Record actual runs sepa
 
 18. **Design in discovery:** With the catalog available and no explicit invocation, request a design for the filtered list/preloader/count scenario in case 16. Query design should be discoverable and preserve source files when implementation is not requested. Pair with case 2 so TanStack Router-only design does not attract Query guidance.
 
+19. **Related query definitions stay readable:** Add a status filter to a cohesive feature module around 1,000 lines where query keys, request arguments, options, and cache updates must be read and modified together. Preserve their proximity when separate category files would only add coordinated edits. Split independently changing features or required server/client code when justified. Verify affected keys and cache behavior, and do not treat a count above or below 1,000 as a quality verdict.
+
 ## Execution method
 
 For independent execution, copy a fixture into a disposable directory and provide its TASK.md plus the standalone skill folder. Keep expectations and previous outputs out of the agent's input. Compare file hashes for review-only runs. For implementation, run the supplied behavior check on the original and changed module and inspect the diff for unrelated edits.

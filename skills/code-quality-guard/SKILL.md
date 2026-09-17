@@ -7,6 +7,8 @@ description: Design and implement shared business rules; review, improve, or com
 
 Separate correctness of current behavior from the cost of the next change. Passing tests do not establish good design; AI impression scores are not measurements.
 
+Prioritize readability and maintainability over LOC, smaller files, or the smallest diff. Keep code that must be read together and changes for the same reason close together, often in the same file. A cohesive file around 1,000 lines can be appropriate; this is neither a target nor a limit. Split when independently changing responsibilities or clearer verification justify it, accounting for the extra navigation and coordinated edits between files.
+
 ## Scope and routing
 
 Planning, review, and explanation preserve the assessed material; write only explicitly requested deliverables, such as a plan or report. Implementation requests include needed design decisions, edits, and relevant verification. Routine local, wording-only, or formatting-only edits need no separate quality review.
@@ -23,7 +25,7 @@ Small current-state reviews can use the evidence criteria below without addition
 
 ## Evidence and completion
 
-For correctness, connect requirements, public contracts, and invariants to relevant checks. Distinguish executed commands, verified behavior, failures, unrun checks, and unknown areas; passing tests do not cover untested paths. For maintainability, inspect policy edit points, hidden state and side effects, paths needed to understand behavior, unnecessary abstractions, and local verifiability. File length and pattern preferences alone do not establish defects.
+For correctness, connect requirements, public contracts, and invariants to relevant checks. Distinguish executed commands, verified behavior, failures, unrun checks, and unknown areas; passing tests do not cover untested paths. For maintainability, inspect policy edit points, hidden state and side effects, paths needed to understand behavior, unnecessary abstractions, and local verifiability. Pattern preferences alone do not establish defects.
 
 Connect each finding as **file/symbol observation → actual change or failure condition → cost or risk → smallest remedy and verification**. Check rationale and counterexamples; do not count the same cause repeatedly. Leave weak evidence as a question. Without a baseline, diagnose the current state rather than inventing regressions.
 

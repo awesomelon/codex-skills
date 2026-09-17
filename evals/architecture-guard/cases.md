@@ -118,6 +118,12 @@ Expected B: invoke architecture guidance and inspect affected consumers. The sni
 Input: remove a shared module's dependency on a feature by passing the required value from its existing callers; implement and verify the change.
 Expected: inspect the affected dependency and callers, make the local boundary fix, and run checks for the affected behavior. Preserve unrelated code and tests. Do not require a separate PR-review phase or read comparison-history guidance merely to finish implementation. If a change review is explicitly requested as well, select `review.md` and establish the relevant comparison scope.
 
+## 22. Related responsibility versus file size
+
+Precondition: a module around 1,000 lines keeps one document operation's decisions and checks together; the proposed alternative spreads them across files that always change together.
+Input: review the proposed organization without editing files.
+Expected: compare how readers understand, modify, and verify the same responsibility. Accept the existing module when splitting only adds imports and coordinated edits, even if it grows slightly beyond 1,000 lines. Still address independently changing responsibilities or required dependency rules in a shorter module. Treat the line count as an example, not an acceptance threshold.
+
 ## Evaluation records
 
 Record the model/version, skill version or hash, fixture commit, user input, invocation, reading scope, actual output, changed files, and validation commands. Check skill invocation and `AGENTS.md` integration separately. Repeat unstable invocation/scope cases to assess variation. Do not relax criteria to reach a score target.

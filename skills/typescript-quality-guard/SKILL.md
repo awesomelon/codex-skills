@@ -9,6 +9,8 @@ Make types express the values callers can actually provide and the results code 
 
 Use this skill for type modeling, diagnostics, or input validation, not merely because a file ends in .ts or .tsx. Regenerate generated definitions rather than editing them manually. This skill works independently of other skills.
 
+Keep types, schemas, and the code using them close when they must be read and modified for the same responsibility. Readability and maintainability outweigh lower LOC or smaller files; a cohesive file around 1,000 lines is acceptable, neither a target nor a limit. A separate file should clarify an independently changing or reused responsibility, rather than merely collect types or helpers by category.
+
 ## Choose the relevant guidance
 
 | Decision | Reference |
