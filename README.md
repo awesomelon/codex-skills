@@ -9,7 +9,7 @@ GitHub repository: [awesomelon/codex-skills](https://github.com/awesomelon/codex
 | Skill | Purpose |
 | --- | --- |
 | [architecture-guard](skills/architecture-guard/SKILL.md) | Design and review module boundaries, dependency direction, shared-state ownership, and contracts between modules. Local edits without boundary impact need no architecture review. |
-| [react-quality-guard](skills/react-quality-guard/SKILL.md) | Design and improve React components, hooks, state, and performance. Separate shared behavior from consumer-specific interaction state. |
+| [react-quality-guard](skills/react-quality-guard/SKILL.md) | Design and improve React components, composition, hooks, state, and performance. Choose variants and shared providers while preserving independent interaction state. |
 | [code-quality-guard](skills/code-quality-guard/SKILL.md) | Design and implement shared business rules; review, improve, and compare maintainability using task-specific guidance, contract-preserving simplification, and evidence of actual change costs. |
 | [tanstack-query-guard](skills/tanstack-query-guard/SKILL.md) | Design, implement, and review Query behavior using task-specific v5 guidance. Keep shared query definitions consistent when readers, filters, or writes are added. |
 | [typescript-quality-guard](skills/typescript-quality-guard/SKILL.md) | Design and review TypeScript types, fix diagnostics, and implement or review input validation. |
@@ -23,6 +23,8 @@ For TanStack Query, use `Use $tanstack-query-guard to review this mutation witho
 If you installed the former `tanstack-query` name, preserve any local edits and replace that entry with `tanstack-query-guard` to avoid duplicate discovery. The installer does not automatically remove renamed skills.
 
 For review only, ask `Use $react-quality-guard to review the current changes without editing files.` For implementation, ask `Use $react-quality-guard to improve and verify the React code.`
+
+For component variants, use [composition guidance](skills/react-quality-guard/references/composition.md) to choose children, render props, compound components, or shared providers. It preserves ordinary boolean state, simple props, and supported React versions. Try `Use $react-quality-guard to design reply and edit composers from shared elements while preserving independent drafts.`
 
 Example requests for general code quality:
 
@@ -40,7 +42,7 @@ Shared-rule implementation uses [implementation guidance](skills/code-quality-gu
 
 Report passing tests, diagnostic signals such as complexity/duplication, and maintainability judgments separately. Leave unavailable measurements unmeasured; do not optimize for a single score or lower LOC. See [comparison and measurement](skills/code-quality-guard/references/measurement.md), [scoring](skills/code-quality-guard/references/scoring.md), [Earendil source metrics](skills/code-quality-guard/references/earendil-metrics.md), [quality evaluation cases](evals/code-quality-guard/cases.md), and [execution records](evals/code-quality-guard/results.md). The installer discovers new folders automatically; after updating, select this skill with `bash scripts/install.sh --skill code-quality-guard`.
 
-Upstream sources, pinned commits, and exceptions are in [React sources](skills/react-quality-guard/references/sources.md). Behavioral evaluation scope is in [React evaluation results](evals/react-quality-guard/results.md).
+Upstream sources, pinned commits, and exceptions are in [React sources](skills/react-quality-guard/references/sources.md). Behavioral evaluation scope is in [React evaluation results](evals/react-quality-guard/results.md). The [composition validation record](evals/react-quality-guard/composition-results-2026-09-17.md) separates structural checks and author assessment from unrun behavioral evaluations.
 
 The [2026-09-12 audit](docs/skill-audit-2026-09-12.md) records duplicate-instruction cleanup, conditional reference/check selection, and behavioral results. The [2026-09-14 full audit](docs/skill-audit-2026-09-14.md) includes the new quality skill and a fix for repeated checks observed in evaluation. The [follow-up audit](docs/skill-audit-2026-09-14-followup.md) refines reference selection, task-template duplication, and guidance. Each record distinguishes verified and unrun work. See [evaluation evidence](evals/README.md) for the relationship between English translations and original runs.
 
