@@ -27,7 +27,7 @@ Small current-state reviews can use the evidence criteria below without addition
 
 For correctness, connect requirements, public contracts, and invariants to relevant checks. Distinguish executed commands, verified behavior, failures, unrun checks, and unknown areas; passing tests do not cover untested paths. For maintainability, inspect policy edit points, hidden state and side effects, paths needed to understand behavior, unnecessary abstractions, and local verifiability. Pattern preferences alone do not establish defects.
 
-Connect each finding as **file/symbol observation → actual change or failure condition → cost or risk → smallest remedy and verification**. Check rationale and counterexamples; do not count the same cause repeatedly. Leave weak evidence as a question. Without a baseline, diagnose the current state rather than inventing regressions.
+Connect each finding as **file/symbol observation → actual change or failure condition → cost or risk → smallest remedy and verification**. Check rationale and counterexamples. For delegated findings, verify the assessed revision and material evidence, reconcile contradictions against the code or a discriminating check, and merge duplicate causes rather than counting agent votes. Leave weak evidence as a question. Without a baseline, diagnose the current state rather than inventing regressions.
 
 Preserve justified complexity and contractually necessary defensive code. Do not weaken tests, lint, or type rules, or game metrics through file moves or code compression. Quality scores cannot offset significant correctness, security, or data-integrity problems.
 
