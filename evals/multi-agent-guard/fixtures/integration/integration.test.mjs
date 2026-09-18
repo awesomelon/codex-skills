@@ -9,3 +9,7 @@ test('reader keys remain invalidatable within the correct tenant', () => {
   assert.equal(shouldInvalidate(key, 'tenant-b', 'doc-1'), false);
   assert.equal(shouldInvalidate(key, 'tenant-a', 'doc-2'), false);
 });
+
+test('public document key retains resource-tenant-document order', () => {
+  assert.deepEqual(documentKey('tenant-a', 'doc-1'), ['document', 'tenant-a', 'doc-1']);
+});

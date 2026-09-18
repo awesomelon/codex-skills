@@ -9,9 +9,9 @@ Use real subagents to resolve independent questions or deliver bounded changes, 
 
 ## Choose useful delegation
 
-Permission to use multiple agents is not a requirement to spawn them for every task. Delegate when independent investigation, distinct review perspectives, or separable implementation can materially help. Keep tightly dependent steps together; do not manufacture roles for a trivial edit. Choose concurrency for the available work and runtime limits, not a fixed agent count.
+Permission to use multiple agents is not a requirement to spawn them for every task. Delegate when independent investigation, distinct review perspectives, or separable implementation can materially help. Keep tightly dependent steps together; do not manufacture roles for a trivial edit. Respect requested roles and budgets; otherwise choose concurrency for independent work and runtime limits, not a fixed agent count.
 
-When delegation is useful and available, perform it rather than only describing a team. If the runtime cannot spawn agents, state that limit and continue with supported work; sequential self-review is not independent or multi-agent execution. Do not change models, permissions, global configuration, or install tooling just to enable delegation.
+Honor explicit delegation requests with actual subagents when available; permission alone leaves the choice open. If the runtime cannot spawn agents, state that limit and continue with supported work; sequential self-review is not independent or multi-agent execution. Do not change models, permissions, global configuration, or install tooling just to enable delegation.
 
 ## Bound each assignment
 
@@ -23,7 +23,7 @@ For writes, assign one owner per shared artifact. Different files can still shar
 
 ## Reconcile and verify
 
-Collect the assigned results or explicitly account for failed, canceled, or blocked work. A handoff identifies the inspected revision, changed paths or patch, findings with file/symbol evidence and consequences, checks actually run with their conditions, and remaining gaps. A missing check is not a pass. Retry only when there is a concrete reason it can succeed; narrow or complete a failed assignment locally when appropriate.
+Collect the assigned results or explicitly account for failed, canceled, or blocked work. A handoff identifies the inspected revision, changed paths or patch, findings with file/symbol evidence and consequences, checks actually run with their conditions, and remaining gaps. A missing check is not a pass. Before reassigning write scope after a timeout or cancellation, confirm the previous worker has stopped or isolate the replacement workspace; a timeout is not proof of termination. Accept one result per assignment. Retry only for a concrete reason, or narrow and finish the assignment locally.
 
 Verify material worker claims against the relevant code or test evidence. Merge duplicate root causes; settle disagreements with contracts or a discriminating check, not votes or averaged scores. Recheck stale findings after relevant edits. For implementation, inspect the combined diff and verify affected cross-boundary behavior on the integrated state; isolated green checks do not prove the combination works. Reuse checks only when their code, dependencies, and conditions remain applicable.
 

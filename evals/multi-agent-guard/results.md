@@ -2,32 +2,28 @@
 
 ## Scope and source rationale
 
-Base: `awesomelon/codex-skills` at `03ed2fb24b85180b4d894c255a17dc09c403891f` (tree `ae9fcba6c3bf38180f66a612dc0d163a35a4c067`). The earlier improvements and newly merged refactoring skill are preserved.
+Collection base: `03ed2fb24b85180b4d894c255a17dc09c403891f`. Initial improvement: `16a0329b2a0e9985113fd883ddec137550fe0e99`. This record supersedes the preliminary validation prose in that initial improvement; the claims below describe the actual follow-up execution.
 
-The previous improvement prompt covered explicitly requested parallel audits, but not useful parallel implementation. The new independently installable `multi-agent-guard` adds bounded assignments, shared-artifact ownership, evidence reconciliation, failure handling, and integrated-state verification. `code-quality-guard` now checks delegated evidence and rejects vote-counted findings; `refactoring-guard` permits independent transformations while preserving shared contracts. Existing selection metadata and references in those two skills are unchanged. Coordination is not copied into every specialist or made mandatory for ordinary work.
+The new independently installable `multi-agent-guard` covers bounded investigation, review, and implementation. It distinguishes permission from an explicit delegation request, assigns shared-artifact ownership, reconciles evidence, and checks the integrated result. Timeout recovery must not create two active writers for one assignment. `code-quality-guard` verifies delegated findings instead of counting votes. `refactoring-guard` permits disjoint edits against stable shared contracts, rather than excluding all shared interfaces. The improvement prompt and catalog describe optional coordination without imposing it on every task.
 
-The designated Astra article and current official skill/subagent documentation were freshly read. [Source details](../../skills/multi-agent-guard/references/sources.md) separate source guidance from this collection's implementation decisions. No external orchestration framework, hook, model setting, or installer change was imported.
+The designated Astra article and official skill/subagent documentation were freshly read on 2026-09-18. The [source record](../../skills/multi-agent-guard/references/sources.md) separates source guidance from collection-specific safeguards. Short discovery descriptions, conditional references, standalone specialist skills, and existing read-only boundaries are retained. No hooks, global settings, model configuration, or installer code were changed.
 
 ## Executed checks
 
-Environment: Linux, Python 3.13.5, Node.js v22.16.0. Git cloning was unavailable in the execution container, so scoped files were retrieved through the GitHub connector. Reconstructed original README, prompt, refactoring skill, changed evaluation files, and validation scripts were checked against their Git blob hashes before use. This was not a full checkout or a full repository test run.
+Environment: Linux, Python 3.13.5, Node.js v22.16.0. A Git clone attempt failed because the container could not resolve `github.com`. Files were retrieved through the GitHub connector and reconstructed for scoped execution; this is not a full repository checkout.
 
-- Ran the unchanged `python3 scripts/validate.py` in a disposable source snapshot containing only the complete new skill and the original validation scripts. Result: `PASS multi-agent-guard: basic metadata, portable contents, local references`. Script blobs matched `377109dd2a7aa6c0d741bebc1e6ff264ca9b0afa` (`validate.py`) and `6a051039a8f5b2a4bf95af007f1292f739add041` (`install.py`). No installer command or real home-directory modification was performed.
-- Parsed the new frontmatter/UI YAML; checked matching names, explicit invocation, standalone local references, and the 127-character description. Compared the two modified existing entrypoints with the baseline: their frontmatter and reference targets are unchanged. Checked Python syntax, final newlines, whitespace, and the scoped diff.
-- Ran `python3 -m unittest discover -s tests -p 'test_multi_agent_integration_fixture.py' -v`. All three calibration tests passed:
+Before editing, reconstructed new-skill entrypoint, refactoring entrypoint, all six integration-fixture files, calibration runner, and original validation scripts were checked against their GitHub Git blob hashes. The scripts matched `377109dd2a7aa6c0d741bebc1e6ff264ca9b0afa` (`validate.py`) and `6a051039a8f5b2a4bf95af007f1292f739add041` (`install.py`).
 
-```text
-test_baseline_contract_passes ... ok
-test_compatible_changes_in_both_modules_pass ... ok
-test_green_isolated_checks_miss_an_incompatible_tuple ... ok
-Ran 3 tests
-OK
-```
+- Ran the unchanged `python3 scripts/validate.py` in a snapshot containing only the complete new skill and those original scripts: `PASS multi-agent-guard: basic metadata, portable contents, local references`. This does not claim validation of the other six skill packages.
+- Parsed the new frontmatter and UI YAML, checked matching invocation and the 127-character description, checked Python syntax and changed-file whitespace, and verified that the refactoring refinement leaves its frontmatter and reference targets unchanged.
+- Ran `python3 -m unittest discover -s tests -p 'test_multi_agent_integration_fixture.py' -v`: **four calibration tests passed**. [Raw command output](validation-output.txt) and [checked-content hashes](validation-manifest.json) are preserved separately.
 
-The negative calibration reorders the producer's tenant/document tuple without changing any test. Isolated key and invalidation checks still pass; the real integration check fails with an assertion. Restoring the producer makes the combined checks pass. A separate compatible two-module refactoring also passes. These results validate the fixture's ability to expose a shared-contract failure, not an agent's ability to find or fix one.
+The calibration covers a passing baseline, compatible edits in both modules, a producer-only tuple reorder missed by isolated checks but caught by integration, and a coordinated producer/consumer reorder that preserves their mutual behavior but breaks the published tuple. The last case exposed a gap in the initial integration fixture: the producer and consumer agreeing was insufficient to establish public compatibility. A separate tuple assertion now detects it. Existing tests were retained; the harness mutates only implementation files in disposable copies.
+
+These are fixture-calibration results, not evidence that an agent selected or followed the skill, found the failure, or repaired it.
 
 ## Not executed
 
-No subagents were spawned in this authoring environment. No independent behavioral evaluator, actual Codex multi-agent run, automatic skill-selection evaluation, controlled before/after comparison, complete repository suite, shell-installer run, or native macOS validation was performed. The [16 new coordination cases](cases.md) and additional quality/refactoring cases are expectations, not passing model evaluations. No speed, cost, or general quality improvement is claimed from structural checks or fixture calibration.
+No subagents were spawned and no independent behavioral evaluator or actual Codex run was performed. The [19 coordination cases](cases.md) and four added specialist cases describe expectations, not passing model evaluations. Automatic selection, a controlled before/after model comparison, the complete repository suite, shell installation, and native macOS operation remain untested. No installer command touched a real home directory or Codex configuration. No speed, token-cost, or general model-quality improvement is claimed.
 
-For a behavioral evaluation, provide an independent runner only the task, revised skill, and raw fixtures; keep expected answers and this calibration record out of its context. Record actual delegation, ownership, accepted evidence, changes, checks, and read-only preservation. Do not substitute this authored record for that evaluation.
+For a behavioral evaluation, provide an independent runner only the task, revised skill, and raw fixtures; withhold expected answers and this calibration record. Preserve actual delegation records, ownership, changes, checks, and read-only input hashes. Do not substitute structural tests or the author's inspection for that evaluation.

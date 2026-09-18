@@ -70,5 +70,32 @@ class IntegrationFixtureTests(unittest.TestCase):
         self.assert_passes("keys.test.mjs", "invalidation.test.mjs", "integration.test.mjs")
 
 
+    def test_integrated_check_rejects_coordinated_public_contract_break(self) -> None:
+        # The producer and consumer agree, but the published tuple is still broken.
+        source = self.work / "keys.mjs"
+        source.write_text(
+            source.read_text(encoding="utf-8").replace(
+                "['document', tenantId, documentId]", "['document', documentId, tenantId]"
+            ), encoding="utf-8",
+        )
+        consumer = self.work / "invalidation.mjs"
+        consumer.write_text(
+            consumer.read_text(encoding="utf-8").replace(
+                "key[1] === tenantId && key[2] === documentId",
+                "key[2] === tenantId && key[1] === documentId",
+            ), encoding="utf-8",
+        )
+        # The unchanged behavioral integration test still passes for this pair.
+        behavior = subprocess.run(
+            [NODE, "--test", "--test-name-pattern=reader keys", "integration.test.mjs"],
+            cwd=self.work, text=True, capture_output=True, check=False, timeout=20,
+        )
+        self.assertEqual(behavior.returncode, 0, behavior.stdout + behavior.stderr)
+        result = self.run_checks("integration.test.mjs")
+        output = result.stdout + result.stderr
+        self.assertNotEqual(result.returncode, 0, output)
+        self.assertIn("public document key retains", output)
+        self.assertIn("ERR_ASSERTION", output)
+
 if __name__ == "__main__":
     unittest.main()
