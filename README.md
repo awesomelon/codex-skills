@@ -11,6 +11,7 @@ GitHub repository: [awesomelon/codex-skills](https://github.com/awesomelon/codex
 | [architecture-guard](skills/architecture-guard/SKILL.md) | Design and review module boundaries, dependency direction, shared-state ownership, and contracts between modules. Local edits without boundary impact need no architecture review. |
 | [react-quality-guard](skills/react-quality-guard/SKILL.md) | Design and improve React components, composition, hooks, state, and performance. Choose variants and shared providers while preserving independent interaction state. |
 | [code-quality-guard](skills/code-quality-guard/SKILL.md) | Design and implement shared business rules using practical SOLID, design pattern, and YAGNI criteria; review, improve, and compare maintainability using evidence of actual change costs. |
+| [refactoring-guard](skills/refactoring-guard/SKILL.md) | Plan, perform, and review behavior-preserving refactoring using Martin Fowler's small, verified transformations. |
 | [tanstack-query-guard](skills/tanstack-query-guard/SKILL.md) | Design, implement, and review Query behavior using task-specific v5 guidance. Keep shared query definitions consistent when readers, filters, or writes are added. |
 | [typescript-quality-guard](skills/typescript-quality-guard/SKILL.md) | Design and review TypeScript types, fix diagnostics, and implement or review input validation. |
 
@@ -25,6 +26,8 @@ For TanStack Query, use `Use $tanstack-query-guard to review this mutation witho
 If you installed the former `tanstack-query` name, preserve any local edits and replace that entry with `tanstack-query-guard` to avoid duplicate discovery. The installer does not automatically remove renamed skills.
 
 For review only, ask `Use $react-quality-guard to review the current changes without editing files.` For implementation, ask `Use $react-quality-guard to improve and verify the React code.`
+
+For refactoring, use `Use $refactoring-guard to simplify this calculation without changing its behavior, and verify the result.` For a plan, use `Use $refactoring-guard to propose small refactoring steps without editing the code.` This independently installable skill focuses on how to carry out and verify structural changes; `code-quality-guard` covers broader maintainability assessment and shared-rule design. Use only the guidance needed for the request. Install it with `bash scripts/install.sh --skill refactoring-guard`. See [Fowler sources and interpretation](skills/refactoring-guard/references/sources.md), [evaluation cases](evals/refactoring-guard/cases.md), and [actual validation](evals/refactoring-guard/results.md).
 
 For component variants, use [composition guidance](skills/react-quality-guard/references/composition.md) to choose children, render props, compound components, or shared providers. It preserves ordinary boolean state, simple props, and supported React versions. Try `Use $react-quality-guard to design reply and edit composers from shared elements while preserving independent drafts.`
 

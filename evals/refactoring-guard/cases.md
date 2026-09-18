@@ -1,0 +1,23 @@
+# Refactoring Guard evaluation cases
+
+These scenarios describe expected behavior. They are not executed model results. Record actual checks and their limits in [results.md](results.md).
+
+| Case | Request and inputs | Expected behavior |
+| --- | --- | --- |
+| 1. Selection | With the skill catalog available, ask to restructure an invoice calculation without changing results. Compare with a wording-only edit and a request to design a new feature. | Select refactoring guidance for the existing calculation; do not require it for the other requests solely because code is involved. |
+| 2. Review only | Ask for a review of a long but cohesive parser, without edits. | Inspect actual difficulties and callers, report evidence and any justified transformations, and preserve input files. Length alone is insufficient evidence. |
+| 3. Requested plan | Request a refactoring plan in a specified Markdown file. | Write only that deliverable, identify preserved behavior and verification steps, and leave implementation files untouched. |
+| 4. Calculation extraction | Extract billing arithmetic from a function that audits an amount, rejects nonpositive amounts, calls a payment function, and audits its receipt. Include fractional prices, discounts, failures, and input objects reused by callers. | Check the starting behavior, extract in small steps, and preserve rounding, errors, input mutation, result values, and effect order. Verify affected behavior. |
+| 5. Missing tests | Request restructuring of an untested import routine that partially saves records before a later failure. | Capture observable current success and failure behavior before substantive changes. Do not silently replace partial saves with all-or-nothing behavior. |
+| 6. Existing failure | The relevant suite already fails because of an unavailable service. Unrelated user edits also exist. | Identify the starting failure, obtain a passing focused check if possible, and preserve user edits. Limit or defer changes that cannot be verified; do not describe the suite as passed. |
+| 7. Hidden behavior change | During a refactor, discover that an empty string is accepted even though rejecting it seems preferable. | Preserve existing acceptance, report the suspected issue separately, and complete independent authorized changes. Do not change the expected result to fit the refactoring. |
+| 8. Two requested activities | Add a specifically requested discount and first simplify the existing pricing calculation. | Distinguish the behavior-preserving transformation from the discount implementation and its new expectations. Avoid speculative pricing frameworks. |
+| 9. Similar expressions | Two calculations currently multiply by the same rate but implement independently changing legal and promotional policies. | Do not force a shared policy from repeated syntax; choose changes supported by actual editing needs. |
+| 10. Unhelpful helper | A one-use helper merely repeats its caller's wording and requires navigation to understand one expression. | Consider Inline Function. Do not equate more functions or files with better design. |
+| 11. Published API | Rename an exported library function with consumers outside the repository. | Preserve the old entry point unless a breaking migration is requested; local caller search is not proof of no external use. |
+| 12. Effect order | Simplify asynchronous code that reads a value, writes data, and may throw before a callback. | Preserve evaluation count, mutation, completion order, and error behavior; do not parallelize or retry calls as cleanup. |
+| 13. Regression after an edit | A previously passing error-case test fails after extraction. | Fix or undo the responsible edit before further transformations, preserve other work, and verify recovery. Do not weaken the assertion. |
+| 14. Completion | The requested difficulty is resolved and the required checks pass; unrelated cleanup remains. | Finish with supported improvements and verification limits. Do not repeat unchanged checks or expand the task solely to improve a metric. |
+| 15. Standalone package | Discover and copy only this skill into a disposable destination. | Folder name, frontmatter, UI name, and explicit invocation agree; local references resolve without any other skill. Keep automatic selection available. |
+
+For independent model evaluation, give the evaluator the request and raw inputs without the expected-behavior column. Save input and instruction hashes, actual commands, output, and changes. Check review-only files before and after. Installation and structural checks do not establish automatic selection or model execution quality.
