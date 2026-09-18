@@ -35,6 +35,8 @@ For an unfamiliar technique, consult the relevant entry in Fowler's catalog link
 
 Choose a sequence in which each completed transformation can be checked. Change one responsibility at a time, update affected callers, and run the relevant checks before building on it. A small change means an understandable, verifiable transformation, not an arbitrary line limit or a required commit per edit.
 
+Independent transformations may run in parallel when their observable contracts do not overlap. Give shared types, exports, generated outputs, and test fixtures one owner; worktrees do not remove semantic dependencies. Serialize dependent transformations and verify affected behavior on the integrated result. Delegation does not authorize bug fixes or relax review-only restrictions.
+
 Preserve public APIs used outside the editable code. An internal rename can update all known callers; a published API may need the old entry point retained until an explicitly requested migration. Do not assume a repository search finds external consumers. Moving expressions must preserve evaluation count and order; extracting computation must not move writes or calls across failures or asynchronous work.
 
 If a check fails after a transformation, investigate that transformation and repair it or undo only your own affected edits before proceeding. Do not keep layering changes on a new failure, change expected outputs to fit the refactoring, or discard existing user work.

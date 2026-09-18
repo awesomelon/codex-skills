@@ -1,0 +1,4 @@
+interface:
+  display_name: "Multi-Agent Guard"
+  short_description: "Coordinate parallel work and verify the combined result"
+  default_prompt: "Use $multi-agent-guard to coordinate this task with bounded subagents where useful, preserve the requested read-only or edit scope, and verify the combined result."
