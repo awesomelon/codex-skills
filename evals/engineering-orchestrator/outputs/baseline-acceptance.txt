@@ -1,0 +1,158 @@
+✖ producer emits the exact v2 envelope and preserves row order (2.27954ms)
+✖ producer defaults omitted archived to false (0.340324ms)
+✖ consumer imports legacy v1 with an archived default (0.294534ms)
+✖ consumer imports the specified v2 envelope (0.110457ms)
+✖ producer and consumer integrate without losing archived state (0.343027ms)
+✔ unsupported versions remain errors (0.453625ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 1
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 89.229611
+
+✖ failing tests:
+
+test at evals/engineering-orchestrator/acceptance.test.mjs:15:1
+✖ producer emits the exact v2 envelope and preserves row order (2.27954ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   items: [
+  -   entries: [
+        {
+  -       archived: true,
+          id: 'd2',
+          title: 'Archived'
+        },
+        {
+  -       archived: false,
+          id: 'd1',
+          title: 'Active'
+        }
+      ],
+  +   version: 1
+  -   version: 2
+    }
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/61e78040b205/codex-skills/evals/engineering-orchestrator/acceptance.test.mjs:16:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { version: 1, items: [ [Object], [Object] ] },
+    expected: { version: 2, entries: [ [Object], [Object] ] },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at evals/engineering-orchestrator/acceptance.test.mjs:18:1
+✖ producer defaults omitted archived to false (0.340324ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   items: [
+  -   entries: [
+        {
+  -       archived: false,
+          id: 'd3',
+          title: 'Default'
+        }
+      ],
+  +   version: 1
+  -   version: 2
+    }
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/61e78040b205/codex-skills/evals/engineering-orchestrator/acceptance.test.mjs:19:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { version: 1, items: [ [Object] ] },
+    expected: { version: 2, entries: [ [Object] ] },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at evals/engineering-orchestrator/acceptance.test.mjs:23:1
+✖ consumer imports legacy v1 with an archived default (0.294534ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+  -     archived: false,
+        id: 'old',
+        title: 'Legacy'
+      }
+    ]
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/61e78040b205/codex-skills/evals/engineering-orchestrator/acceptance.test.mjs:24:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { id: 'old', title: 'Legacy' } ],
+    expected: [ { id: 'old', title: 'Legacy', archived: false } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at evals/engineering-orchestrator/acceptance.test.mjs:27:1
+✖ consumer imports the specified v2 envelope (0.110457ms)
+  TypeError: Unsupported version
+      at deserialize (file:///workspace/scratch/61e78040b205/codex-skills/evals/engineering-orchestrator/fixtures/migration/consumer.mjs:4:49)
+      at TestContext.<anonymous> (file:///workspace/scratch/61e78040b205/codex-skills/evals/engineering-orchestrator/acceptance.test.mjs:28:20)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at evals/engineering-orchestrator/acceptance.test.mjs:30:1
+✖ producer and consumer integrate without losing archived state (0.343027ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+  -     archived: true,
+        id: 'd2',
+        title: 'Archived'
+      },
+      {
+  -     archived: false,
+        id: 'd1',
+        title: 'Active'
+      }
+    ]
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/61e78040b205/codex-skills/evals/engineering-orchestrator/acceptance.test.mjs:31:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { id: 'd2', title: 'Archived' }, { id: 'd1', title: 'Active' } ],
+    expected: [ { id: 'd2', title: 'Archived', archived: true }, { id: 'd1', title: 'Active', archived: false } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
