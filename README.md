@@ -11,7 +11,6 @@ GitHub repository: [awesomelon/codex-skills](https://github.com/awesomelon/codex
 | [architecture-guard](skills/architecture-guard/SKILL.md) | Design and review module boundaries, dependency direction, shared-state ownership, and contracts between modules. Local edits without boundary impact need no architecture review. |
 | [react-quality-guard](skills/react-quality-guard/SKILL.md) | Design and improve React components, composition, hooks, state, and performance. Choose variants and shared providers while preserving independent interaction state. |
 | [code-quality-guard](skills/code-quality-guard/SKILL.md) | Design and implement shared business rules using practical SOLID, design pattern, and YAGNI criteria; review, improve, and compare maintainability using evidence of actual change costs. |
-| [multi-agent-guard](skills/multi-agent-guard/SKILL.md) | Coordinate useful parallel investigation, review, and implementation with bounded ownership, evidence reconciliation, and integrated verification. |
 | [refactoring-guard](skills/refactoring-guard/SKILL.md) | Plan, perform, and review behavior-preserving refactoring using Martin Fowler's small, verified transformations. |
 | [tanstack-query-guard](skills/tanstack-query-guard/SKILL.md) | Design, implement, and review Query behavior using task-specific v5 guidance. Keep shared query definitions consistent when readers, filters, or writes are added. |
 | [typescript-quality-guard](skills/typescript-quality-guard/SKILL.md) | Design and review TypeScript types, fix diagnostics, and implement or review input validation. |
@@ -63,14 +62,6 @@ The [Astra refinement](docs/astra-refinement-2026-09-16.md) records the fresh ar
 The [upstream comparison audit](docs/skill-audit-2026-09-16-upstream.md) records selective Ponytail/ECC/pstack adoption, unchanged discovery metadata, and the calibrated simplification fixture. The existing [improvement prompt](prompts/improve-skills.md) also supports bounded parallel audits and implementation when useful.
 
 The [English translation record](docs/english-translation.md) documents the language change, preserved behavior, and its validation limits.
-
-### Multi-agent work
-
-`multi-agent-guard` supports parallel investigation, independent review, and safely partitioned implementation. Multiple agents are allowed, not required for every task. The coordinator assigns bounded work, resolves shared-contract ownership and conflicting findings, and verifies the integrated result. Existing specialist skills remain independently usable; installing the coordinator does not force every specialist to run or change Codex settings.
-
-Install it with `bash scripts/install.sh --skill multi-agent-guard`. Try `Use $multi-agent-guard to review this change with independent React-state and query-cache perspectives without editing files.` For implementation, try `Use $multi-agent-guard to implement these independent changes, assign shared files one owner, and verify the combined result.` Actual delegation requires tools exposed by the runtime; the skill does not enable them itself.
-
-See [evaluation cases](evals/multi-agent-guard/cases.md), [validation and limitations](evals/multi-agent-guard/results.md), and [sources](skills/multi-agent-guard/references/sources.md). The [integration fixture calibration](tests/test_multi_agent_integration_fixture.py) demonstrates that isolated checks can pass while the producer-consumer contract fails; it does not measure agent behavior. Run it with `python3 -m unittest discover -s tests -p "test_multi_agent_integration_fixture.py" -v` using an existing Node.js 18+ runtime.
 
 ### TypeScript skill rename
 
@@ -148,7 +139,7 @@ Safety behavior:
 - Manual installations, links to other repositories, and name collisions are preserved and reported as errors. Back up existing folders **outside** skill discovery paths, merge needed changes, and rerun.
 - Managed copies are checked by hash for local additions, edits, and deletions of files/directories; updates stop if changes exist. Prefer editing the source in `skills/<name>/` and committing there. Do not edit a copy's management metadata.
 - Selected paths are checked for conflicts before changes, but the entire collection is not one transaction. Skills installed before an I/O failure remain installed and can be revisited by rerunning. A failed copy replacement attempts restoration; if that also fails, the backup path is reported.
-- Skills removed upstream and other installations are not automatically deleted. Do not run multiple installers concurrently. File permission changes alone are not covered by content hashes.
+- Skills removed upstream and other installations are not automatically deleted. `multi-agent-guard` has been removed from this collection. If previously installed, remove its entry from your actual skill destination (including a broken symlink); preserve any local edits outside skill discovery directories first. Do not run multiple installers concurrently. File permission changes alone are not covered by content hashes.
 
 ### Migrate from the Python installer
 
