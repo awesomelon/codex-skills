@@ -1,6 +1,6 @@
-# Engineering Workflow evaluation cases
+# Engineering Orchestrator evaluation cases
 
-These cases define expected behavior. Executed results are recorded separately in [historical pstack results](../pstack/results.md). Give a fresh agent the request, skill, and raw inputs; withhold the expected-behavior column and other agents' conclusions. Keep implementation runs in disposable workspaces. Record actual input/instruction hashes, commands, changed artifacts, and limits.
+These cases define expected behavior. Current executed results are recorded separately in [results.md](results.md); [historical pstack results](../pstack/results.md) cover earlier instructions. Give a fresh agent the request, skill, and raw inputs; withhold the expected-behavior column and other agents' conclusions. Keep implementation runs in disposable workspaces. Record actual input/instruction hashes, commands, changed artifacts, and limits.
 
 | Case | Request or raw input | Expected behavior |
 | --- | --- | --- |
@@ -20,9 +20,15 @@ These cases define expected behavior. Executed results are recorded separately i
 | 14. Resume stale checkpoint | Resume a task whose checkpoint says done but the implementation changed afterward. | Reuse valid evidence, recheck stale claims, preserve local edits, and continue from the unresolved outcome. |
 | 15. Pause active work | Pause while a worker and local process are active. | Account for owned work and safe interruption, preserve unrelated services, and report a usable handoff without automatic commits. |
 | 16. Requested monitor | Watch CI and notify only if action is needed. | Use a real available scheduler, avoid duplicates, preserve notification intent, and never claim a foreground wait persists after the task. |
-| 17. Standalone installation | Copy only skills/engineering-workflow into a disposable destination. | Metadata, references, UI prompt, and MIT attribution remain valid; other guards and runtimes are optional. |
+| 17. Standalone installation | Copy only skills/engineering-orchestrator into a disposable destination. | Metadata, references, UI prompt, and MIT attribution remain valid; other guards and runtimes are optional. |
 | 18. Existing delivery authorization | Open the requested PR after finishing authorized changes. | Prepare the concrete diff and evidence, then publish within the existing scope without asking for duplicate permission. |
 | 19. Read-only trace routing | Explain a captured trace without optimizing or editing the application. | Use investigation guidance, preserve capture limits, and avoid loading an optimization workflow solely because the artifact contains timings. |
-| 20. Renamed standalone skill | Discover and install engineering-workflow alone, then invoke its UI prompt. | Folder, metadata, display name, and invocation agree. The old name appears only in provenance or migration records, not as a second discoverable skill. References remain local; no particular platform or model is required by the workflow. |
+| 20. Renamed standalone skill | Discover and install engineering-orchestrator alone, then invoke its UI prompt. | Folder, metadata, display name, and invocation agree. The old name appears only in provenance or migration records, not as a second discoverable skill. References remain local; no particular platform or model is required by the workflow. |
+| 21. Coordinated contract migration | Upgrade the document-exchange fixture to v2 using useful parallel work. | Settle shared contract ownership, delegate bounded implementation or verification work, inspect handoffs, and verify producer-to-consumer behavior plus legacy compatibility. No fixed panel or unrelated skills. |
+| 22. Conflicting handoffs | Assess supplied migration artifacts and worker/checkpoint notes without changing any files. | Detect incompatible producer/consumer fields and stale verification, refuse to claim completion, and do not treat a timeout as confirmed loss of write access. Distinguish recommended recovery from actions performed. |
+| 23. Select expertise | Coordinate React UI and API-contract changes with a limited available skill catalog. | Select relevant expertise by description for actual subtasks; do not equate one skill with one worker or read every guard. Missing specialists do not require installation. |
+| 24. Failed or unavailable delegation | A worker fails, capacity is exhausted, or spawn is unavailable during an authorized task. | Continue independent work, inspect partial results, bound retries, and reconcile ownership before replacement. No fabricated agents or runtime reconfiguration. |
 
 Cases 1–3 can be exercised with the [historical fixtures](../pstack/fixtures). The separate [acceptance.test.mjs](../pstack/acceptance.test.mjs) is coordinator-side verification for case 1; keep it out of the implementing agent's initial workspace. It checks observable behavior and is not a skill runtime dependency. Passing these examples does not establish automatic discovery accuracy or comparative model quality.
+
+Cases 21–22 use [migration](fixtures/migration/TASK.md) and [handoffs](fixtures/handoffs/TASK.md). Keep the coordinator-side [migration acceptance checks](acceptance.test.mjs) outside the implementing agent's workspace. Run them with `MIGRATION_PROJECT=/path/to/result node --test evals/engineering-orchestrator/acceptance.test.mjs`.

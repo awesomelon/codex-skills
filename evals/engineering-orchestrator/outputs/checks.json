@@ -1,0 +1,80 @@
+[
+  {
+    "command": [
+      "node",
+      "--test",
+      "evals/engineering-orchestrator/acceptance.test.mjs"
+    ],
+    "exit_code": 1,
+    "output": "baseline-acceptance.txt"
+  },
+  {
+    "command": [
+      "bash",
+      "scripts/install.sh",
+      "--list"
+    ],
+    "exit_code": 0,
+    "output": "installer-list.txt"
+  },
+  {
+    "command": [
+      "bash",
+      "scripts/install.sh",
+      "--skill",
+      "engineering-orchestrator",
+      "--dest",
+      "/tmp/orchestration-install-323k1ath/links",
+      "--dry-run"
+    ],
+    "exit_code": 0,
+    "output": "install-dry-run.txt"
+  },
+  {
+    "command": [
+      "bash",
+      "scripts/install.sh",
+      "--skill",
+      "engineering-orchestrator",
+      "--dest",
+      "/tmp/orchestration-install-323k1ath/links"
+    ],
+    "exit_code": 0,
+    "output": "install-link.txt"
+  },
+  {
+    "command": [
+      "bash",
+      "scripts/install.sh",
+      "--skill",
+      "engineering-orchestrator",
+      "--dest",
+      "/tmp/orchestration-install-323k1ath/copies",
+      "--mode",
+      "copy"
+    ],
+    "exit_code": 0,
+    "output": "install-copy.txt"
+  },
+  {
+    "command": [
+      "python3",
+      "/root/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+      "/tmp/orchestration-install-323k1ath/copies/engineering-orchestrator"
+    ],
+    "exit_code": 0,
+    "output": "copy-quick-validate.txt"
+  },
+  {
+    "command": [
+      "node",
+      "--test",
+      "evals/engineering-orchestrator/acceptance.test.mjs"
+    ],
+    "env": {
+      "MIGRATION_PROJECT": "/workspace/scratch/61e78040b205/orchestration-runs/migration/project"
+    },
+    "exit_code": 0,
+    "output": "final-acceptance.txt"
+  }
+]

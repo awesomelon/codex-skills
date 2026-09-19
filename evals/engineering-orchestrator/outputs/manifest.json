@@ -1,0 +1,72 @@
+{
+  "date": "2026-09-19",
+  "base_commit": "184d8d02d29bccb331ada814e3111606719c6146",
+  "skill_sha256": {
+    "LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+    "SKILL.md": "effb7b6c7a43327f78c8a290ea13b693c945ad86633502248c8a6d88e4db549c",
+    "agents/openai.yaml": "dc8c5ba3adcea41902825d7bc5c8298d3c4ef9d348aef5fd2c10cb5b5eca53c1",
+    "references/changes.md": "4586191079cfed86750467f775160cf494d9bfc9265dec4cee63378398d04564",
+    "references/continuity.md": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+    "references/coordination.md": "bdd11a293c573c4c1e1a4dcd0b0d1cabbdea12b361a1902db8a392053421e441",
+    "references/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+    "references/performance.md": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+    "references/review-and-delivery.md": "0ff8f5c440c23c97aee03c74ab9a1923348bf2f4d9c3f7a26bd3c5b9924d4ba6",
+    "references/sources.md": "857542a38551799512f8c29d5f53035de4125b6d38a0cf3c107326d79dd1829d"
+  },
+  "fixture_sha256": {
+    "migration": {
+      "TASK.md": "2fda896039f088fdd6a40f777105eb8059af94a355a9365de79a14f1c93a1dd0",
+      "consumer.mjs": "c87814ef88f244596d7a4b239e9064db8048152bd0c3d4630a749c0613395399",
+      "contract.mjs": "aed4a3dc1c10de7490d63f07c510f590cb8f54673f76e5ee0afe9bd387ae2b49",
+      "exchange.test.mjs": "8b98ac9ca991a794932286245b4fffdc7d5a8ab5c1d0851211be97cb0f055acf",
+      "producer.mjs": "670bb615834cda451ab01c1a38989dae7a3bd410f9f668aef4bac3435bf768a0"
+    },
+    "handoffs": {
+      "TASK.md": "a89011a0a16d1ea94c1aa60385bc529b94456049664a6da3ac7ebd6b3ec7debd",
+      "checkpoint.json": "03b501dc18d3c02d09761f5c8ed166bc7d5ca438fbed6fcf26f9c3895dfced86",
+      "consumer.mjs": "b8be4488c0097b4adcc14a1f26aa84a8458a9e028a7ceaa3e3822307d0f7b41e",
+      "contract.mjs": "9334663b6268ae4534f1d92699e8ab023566e6f53f986bee3fe713eec8e16df7",
+      "producer.mjs": "ec4770f8c13b7021a7f12c57fec956902c7f23359e63bc365bcd40a5fb4d370f"
+    }
+  },
+  "environment": "Linux; fresh independent agents with no parent history; explicit invocation; isolated copies; no external actions",
+  "handoffs_input_unchanged": true,
+  "handoffs_agent": "/root/handoffs_run",
+  "prompts": {
+    "handoffs": "Use $engineering-orchestrator at /workspace/scratch/61e78040b205/orchestration-runs/handoffs/skill to complete the request in /workspace/scratch/61e78040b205/orchestration-runs/handoffs/project/TASK.md. Use only that project and skill. Do not create or modify any files, start workers, install anything, or perform external actions. Return the requested answer and identify references read and any checks performed.",
+    "migration": "Use $engineering-orchestrator at /workspace/scratch/61e78040b205/orchestration-runs/migration/skill to complete the request in /workspace/scratch/61e78040b205/orchestration-runs/migration/project/TASK.md. That project directory is your writable workspace; keep all implementation and checks there. Do not edit the supplied skill. No external actions, package installs, or other repositories. Use the current runtime defaults. Return the completed outcome, actual changed files and verification, references read, and any remaining limitations."
+  },
+  "migration_agent": "/root/migration_run",
+  "migration_worker": "/root/migration_run/migration_tests",
+  "migration_skill_unchanged": true,
+  "migration_final_sha256": {
+    "TASK.md": "2fda896039f088fdd6a40f777105eb8059af94a355a9365de79a14f1c93a1dd0",
+    "consumer.mjs": "4e91705a98ca0bb1145decb50112dc1e14cb98523c1ee2daae3744d6dd2c35e7",
+    "contract.mjs": "1c53c7c7e80bac3eaf0702cee262033b65322c90c0245a7e805d348194ff0e94",
+    "exchange.test.mjs": "b17df7f08d25493b81b6693a96a8a8e8c4d7cb7172868f26edd0071de3c72426",
+    "producer.mjs": "ddc2e96dab8bedc4628b6003a07ad01ce07434395cf181c296bc1217366d8268"
+  },
+  "acceptance_sha256": "2a4724d33daec07df364ea53f10fbaf06e2836704fddd5603863652f39569ce3",
+  "runtime_versions": {
+    "node": "v24.19.0",
+    "python": "3.12.14"
+  },
+  "output_sha256": {
+    "baseline-acceptance.txt": "fb93b700b296cb29d7a926391e6850309a9c16f7874fc3ac22b48b786149af7f",
+    "checks.json": "fe0ab53e04f6dec60942a91954fadbcb0593e6f9e301a21ea52ec3e6c88cf2cc",
+    "copy-quick-validate.txt": "db349825903d66adffea3ecf1bd8e1803043e8a71cf1a051235dabc5371f5bb0",
+    "final-acceptance.txt": "271ff40760d87229f2c918fe7e2cf2d4a0644fccec496f1d94de87f00c23290f",
+    "handoffs-response.md": "a07c2018d107a1be814a58448cf35fd61045a7f33afc1509875eb5fc47ceb96c",
+    "implementation/TASK.md": "2fda896039f088fdd6a40f777105eb8059af94a355a9365de79a14f1c93a1dd0",
+    "implementation/consumer.mjs": "4e91705a98ca0bb1145decb50112dc1e14cb98523c1ee2daae3744d6dd2c35e7",
+    "implementation/contract.mjs": "1c53c7c7e80bac3eaf0702cee262033b65322c90c0245a7e805d348194ff0e94",
+    "implementation/exchange.test.mjs": "b17df7f08d25493b81b6693a96a8a8e8c4d7cb7172868f26edd0071de3c72426",
+    "implementation/producer.mjs": "ddc2e96dab8bedc4628b6003a07ad01ce07434395cf181c296bc1217366d8268",
+    "implementation.patch": "b643186fb7b47d5a05b4198bc8b24bc2f39f8f3cc06e294cada00ef3b3c0070a",
+    "install-copy.txt": "f8c39bdd688425ea7343fe6881124098861d94816fd4f7a4f35826a0514dcd1a",
+    "install-dry-run.txt": "953947b0fd5a321fb126f3c178b94881a0ec88541e99c935ea62798b6aba0e3f",
+    "install-link.txt": "370829ae17d6b825d00cb60230182531342084e20f210fadc04d961c1982aaef",
+    "installer-list.txt": "7c53df7574a642b81899ee5efa558b0edb14a021e0f5140a135bc511215927e6",
+    "migration-response.md": "f3658cc1ccce83f3cff7c4310831859e83c25907d4a527536c1c76ef017c6ce6"
+  }
+}

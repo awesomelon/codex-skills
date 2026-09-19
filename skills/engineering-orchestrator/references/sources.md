@@ -1,6 +1,6 @@
 # Sources and adaptation
 
-Checked: 2026-09-19. Engineering Workflow is an independent adaptation of the source below. It is not a complete mirror or an official package from the upstream author or platform providers.
+Checked: 2026-09-19. Engineering Orchestrator (formerly Engineering Workflow and pstack) is an independent adaptation of the source below. It is not a complete mirror or an official package from the upstream author or platform providers.
 
 ## Pinned upstream
 
@@ -27,6 +27,8 @@ The main entrypoint, selected supporting skills, and engineering playbooks were 
 - Omit prose rewriting, comment stripping, bot UI generation, transcript mining, skill self-modification, and the Benny automation pack. Those are separate capabilities, not prerequisites for engineering execution.
 
 ## Authoring sources
+
+For the orchestration revision, the designated Astra article was fetched again on 2026-09-19. The entrypoint now centers on task dependencies, skill selection, ownership, and verified integration; execution playbooks remain conditional support. Agent dispatch and recovery details stay in one coordination reference. These are local design choices informed by the article, not claims that it prescribes a particular multi-agent architecture. No new upstream pstack audit was performed for this revision.
 
 The following official pages were fetched during this adaptation:
 

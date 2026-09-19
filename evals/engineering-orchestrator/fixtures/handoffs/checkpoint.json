@@ -1,0 +1,10 @@
+{
+  "goal": "Migrate producer and consumer to the v2 contract and verify their integration",
+  "currentArtifactRevision": "revision-b",
+  "planStatus": "done",
+  "workers": [
+    {"name":"producer","ownedPaths":["producer.mjs"],"report":"done; unit checks pass","checkedRevision":"revision-a","lastRuntimeState":"timed_out","shutdownConfirmed":false},
+    {"name":"consumer","ownedPaths":["consumer.mjs"],"report":"done; unit checks pass","checkedRevision":"revision-b","lastRuntimeState":"finished"}
+  ],
+  "integrationEvidence": {"result":"pass","checkedRevision":"revision-a","command":"node integration.test.mjs"}
+}
