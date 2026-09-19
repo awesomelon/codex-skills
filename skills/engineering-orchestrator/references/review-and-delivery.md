@@ -29,6 +29,10 @@ For dependent PRs, verify their actual base/head relationships and coordinate ow
 
 ## Deliver
 
+For an authorized immediate merge, use the service's expected-head condition with the verified revision; a fresh read alone leaves a race before the write. Confirm the destination as well: a head condition may not guard concurrent retargeting. If the required condition is unavailable, report readiness and the missing guarantee instead of silently using an unguarded action.
+
+Auto-merge and queue admission schedule a future action. Check that existing repository gates cover the revision and context that will actually land; admission-time green checks are insufficient. Before an authorized rewrite or retarget, reconcile affected pending merge requests with their owner and confirm their cancellation when needed. Unknown pending state is not absence. Do not change repository protections to make the operation possible. After delivery, verify the merged state and resulting commit in the intended destination; queued is not merged.
+
 Inspect the final artifact and diff, including accidental changes. A PR description should explain the user-visible result, significant design decisions, actual validation, and remaining limits. Follow the repository's commit and delivery conventions.
 
 Prepare concrete work before requesting any genuinely missing authorization. Existing permission to perform that exact action need not be requested again. After creating a PR, attach it to the current task when that capability is available. Report completed remote actions separately from prepared local work.

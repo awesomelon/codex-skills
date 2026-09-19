@@ -18,7 +18,7 @@ Define the externally visible behavior and the state or contract needed to expre
 
 Work in units that leave a checkable result. For a migration, identify both editable and external consumers, compatibility requirements, and rollout order. Remove obsolete paths when the affected consumers have migrated and the requested contract permits it. A local search is not proof that a public API has no external users.
 
-Verify the behavior through its real entrypoint when practical, including the failure or transition most likely to invalidate the design. UI work needs relevant runtime or visual evidence when its claim depends on appearance or interaction. Keep build-only evidence labeled accordingly.
+Verify the behavior through its real entrypoint when practical, including the failure or transition most likely to invalidate the design. Use [runtime verification](verification.md) when correctness depends on a running UI, CLI, or service. Keep build-only evidence labeled accordingly.
 
 ## Behavior-preserving refactoring
 

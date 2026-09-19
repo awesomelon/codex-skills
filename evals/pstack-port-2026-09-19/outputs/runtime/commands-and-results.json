@@ -1,0 +1,304 @@
+{
+  "python": "3.9.6",
+  "platform": "macOS",
+  "cwd": "$WORK",
+  "source_sha256_before": {
+    "notes.py": "a0df50765b57de263810d1de1354ff6973699c02cc4e4589fb8935f5973e0b68",
+    "README.md": "f049efbf4f7bc3a5e23dde3d6f8f8748c424fdfa3cf63805e61fff08b320f2bb"
+  },
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "fixtures/runtime/notes.py",
+        "--data-dir",
+        "$WORK/data",
+        "list"
+      ],
+      "shell_command": "python3 fixtures/runtime/notes.py --data-dir $WORK/data list",
+      "returncode": 0,
+      "stdout": "[]\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "fixtures/runtime/notes.py",
+        "--data-dir",
+        "$WORK/data",
+        "add",
+        "Release note"
+      ],
+      "shell_command": "python3 fixtures/runtime/notes.py --data-dir $WORK/data add 'Release note'",
+      "returncode": 0,
+      "stdout": "Saved\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "fixtures/runtime/notes.py",
+        "--data-dir",
+        "$WORK/data",
+        "add",
+        "Unicode 메모 with \"quotes\"\nsecond line"
+      ],
+      "shell_command": "python3 fixtures/runtime/notes.py --data-dir $WORK/data add 'Unicode 메모 with \"quotes\"\nsecond line'",
+      "returncode": 0,
+      "stdout": "Saved\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "fixtures/runtime/notes.py",
+        "--data-dir",
+        "$WORK/data",
+        "list"
+      ],
+      "shell_command": "python3 fixtures/runtime/notes.py --data-dir $WORK/data list",
+      "returncode": 0,
+      "stdout": "[\"Release note\", \"Unicode \\uba54\\ubaa8 with \\\"quotes\\\"\\nsecond line\"]\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "fixtures/runtime/notes.py",
+        "--data-dir",
+        "$WORK/data",
+        "export",
+        "--output",
+        "$WORK/existing-export.json",
+        "--dry-run"
+      ],
+      "shell_command": "python3 fixtures/runtime/notes.py --data-dir $WORK/data export --output $WORK/existing-export.json --dry-run",
+      "returncode": 0,
+      "stdout": "Would export 2 notes\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "fixtures/runtime/notes.py",
+        "--data-dir",
+        "$WORK/data",
+        "export",
+        "--output",
+        "$WORK/missing-export.json",
+        "--dry-run"
+      ],
+      "shell_command": "python3 fixtures/runtime/notes.py --data-dir $WORK/data export --output $WORK/missing-export.json --dry-run",
+      "returncode": 0,
+      "stdout": "Would export 2 notes\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "fixtures/runtime/notes.py",
+        "--data-dir",
+        "$WORK/fresh-data",
+        "export",
+        "--output",
+        "$WORK/fresh-export.json",
+        "--dry-run"
+      ],
+      "shell_command": "python3 fixtures/runtime/notes.py --data-dir $WORK/fresh-data export --output $WORK/fresh-export.json --dry-run",
+      "returncode": 0,
+      "stdout": "Would export 0 notes\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "fixtures/runtime/notes.py",
+        "--data-dir",
+        "$WORK/data",
+        "export",
+        "--output",
+        "$WORK/normal-export.json"
+      ],
+      "shell_command": "python3 fixtures/runtime/notes.py --data-dir $WORK/data export --output $WORK/normal-export.json",
+      "returncode": 0,
+      "stdout": "Exported\n",
+      "stderr": ""
+    }
+  ],
+  "checks": [
+    {
+      "name": "list on missing data returns an empty list",
+      "passed": true
+    },
+    {
+      "name": "add note 1 persists exact accumulated values",
+      "passed": true,
+      "stored_notes": {
+        "exists": true,
+        "type": "file",
+        "sha256": "4a28bec3663402c478a083eef22ee8a9f83f422198e9099722545c3c6c6cfde8",
+        "text": "[\"Release note\"]"
+      }
+    },
+    {
+      "name": "add note 2 persists exact accumulated values",
+      "passed": true,
+      "stored_notes": {
+        "exists": true,
+        "type": "file",
+        "sha256": "0c055f1e2b761e8866731b2bf92c528507053f73448bde53a1ce99913208ad25",
+        "text": "[\"Release note\", \"Unicode \\uba54\\ubaa8 with \\\"quotes\\\"\\nsecond line\"]"
+      }
+    },
+    {
+      "name": "a separate process lists both persisted notes in order",
+      "passed": true
+    },
+    {
+      "name": "dry-run with populated data and existing output",
+      "passed": false,
+      "data_directory_unchanged": false,
+      "output_file_unchanged": true,
+      "data_before": {
+        "exists": true,
+        "type": "directory",
+        "entries": {
+          "notes.json": {
+            "exists": true,
+            "type": "file",
+            "sha256": "0c055f1e2b761e8866731b2bf92c528507053f73448bde53a1ce99913208ad25",
+            "text": "[\"Release note\", \"Unicode \\uba54\\ubaa8 with \\\"quotes\\\"\\nsecond line\"]"
+          }
+        }
+      },
+      "data_after": {
+        "exists": true,
+        "type": "directory",
+        "entries": {
+          "exports.log": {
+            "exists": true,
+            "type": "file",
+            "sha256": "cfc7d3afc9c796be62fe6a3e3a1996290f5b9e3ac661f08a4d2689cec85478c1",
+            "text": "$WORK/existing-export.json\n"
+          },
+          "notes.json": {
+            "exists": true,
+            "type": "file",
+            "sha256": "0c055f1e2b761e8866731b2bf92c528507053f73448bde53a1ce99913208ad25",
+            "text": "[\"Release note\", \"Unicode \\uba54\\ubaa8 with \\\"quotes\\\"\\nsecond line\"]"
+          }
+        }
+      },
+      "output_before": {
+        "exists": true,
+        "type": "file",
+        "sha256": "ac2a190f457ca5f1ab01e87ce78cc519ea864c6171f6e9620b53b18dcd4d9d82",
+        "text": "PRE-EXISTING OUTPUT MUST STAY UNCHANGED\n"
+      },
+      "output_after": {
+        "exists": true,
+        "type": "file",
+        "sha256": "ac2a190f457ca5f1ab01e87ce78cc519ea864c6171f6e9620b53b18dcd4d9d82",
+        "text": "PRE-EXISTING OUTPUT MUST STAY UNCHANGED\n"
+      }
+    },
+    {
+      "name": "dry-run with populated data and missing output",
+      "passed": false,
+      "data_directory_unchanged": false,
+      "output_file_unchanged": true,
+      "data_before": {
+        "exists": true,
+        "type": "directory",
+        "entries": {
+          "exports.log": {
+            "exists": true,
+            "type": "file",
+            "sha256": "cfc7d3afc9c796be62fe6a3e3a1996290f5b9e3ac661f08a4d2689cec85478c1",
+            "text": "$WORK/existing-export.json\n"
+          },
+          "notes.json": {
+            "exists": true,
+            "type": "file",
+            "sha256": "0c055f1e2b761e8866731b2bf92c528507053f73448bde53a1ce99913208ad25",
+            "text": "[\"Release note\", \"Unicode \\uba54\\ubaa8 with \\\"quotes\\\"\\nsecond line\"]"
+          }
+        }
+      },
+      "data_after": {
+        "exists": true,
+        "type": "directory",
+        "entries": {
+          "exports.log": {
+            "exists": true,
+            "type": "file",
+            "sha256": "ec656cfa64bb4cad4972b53ab864fda3ae4623b0f2a6104d9dc17104d1ce8e8b",
+            "text": "$WORK/existing-export.json\n$WORK/missing-export.json\n"
+          },
+          "notes.json": {
+            "exists": true,
+            "type": "file",
+            "sha256": "0c055f1e2b761e8866731b2bf92c528507053f73448bde53a1ce99913208ad25",
+            "text": "[\"Release note\", \"Unicode \\uba54\\ubaa8 with \\\"quotes\\\"\\nsecond line\"]"
+          }
+        }
+      },
+      "output_before": {
+        "exists": false
+      },
+      "output_after": {
+        "exists": false
+      }
+    },
+    {
+      "name": "dry-run with missing data and missing output",
+      "passed": false,
+      "data_directory_unchanged": false,
+      "output_file_unchanged": true,
+      "data_before": {
+        "exists": false
+      },
+      "data_after": {
+        "exists": true,
+        "type": "directory",
+        "entries": {
+          "exports.log": {
+            "exists": true,
+            "type": "file",
+            "sha256": "15a5a7cece1a016fe585a6649d3e0ab2fddfb78259b1c3cdb41f6cdb39ae6821",
+            "text": "$WORK/fresh-export.json\n"
+          }
+        }
+      },
+      "output_before": {
+        "exists": false
+      },
+      "output_after": {
+        "exists": false
+      }
+    },
+    {
+      "name": "normal export writes all persisted notes",
+      "passed": true,
+      "exported_file": {
+        "exists": true,
+        "type": "file",
+        "sha256": "0c055f1e2b761e8866731b2bf92c528507053f73448bde53a1ce99913208ad25",
+        "text": "[\"Release note\", \"Unicode \\uba54\\ubaa8 with \\\"quotes\\\"\\nsecond line\"]"
+      }
+    },
+    {
+      "name": "application and documentation content remains unchanged",
+      "passed": true
+    }
+  ],
+  "source_sha256_after": {
+    "notes.py": "a0df50765b57de263810d1de1354ff6973699c02cc4e4589fb8935f5973e0b68",
+    "README.md": "f049efbf4f7bc3a5e23dde3d6f8f8748c424fdfa3cf63805e61fff08b320f2bb"
+  },
+  "cleanup": {
+    "removed_run_directory": "$WORK",
+    "run_directory_absent": true
+  },
+  "publication_note": "Absolute paths use EVAL_ROOT or $WORK placeholders. Machine environment and filesystem timestamps/sizes are omitted. Remaining hashes describe original observed bytes; displayed paths are normalized."
+}
