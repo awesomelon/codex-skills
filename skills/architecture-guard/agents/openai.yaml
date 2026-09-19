@@ -1,6 +1,6 @@
 interface:
   display_name: "Architecture Guard"
   short_description: "Design and review module responsibilities and dependencies"
-  default_prompt: "Use $architecture-guard to complete the requested design, implementation, or architecture review with evidence and relevant verification."
+  default_prompt: "Use $architecture-guard for the requested module-boundary or contract work."
 policy:
   allow_implicit_invocation: true

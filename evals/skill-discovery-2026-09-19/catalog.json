@@ -1,0 +1,30 @@
+[
+  {
+    "name": "architecture-guard",
+    "description": "Design or review module boundaries, dependency direction, shared-state ownership, and contracts between modules."
+  },
+  {
+    "name": "code-quality-guard",
+    "description": "Design and implement shared business rules; review, improve, or compare code maintainability."
+  },
+  {
+    "name": "engineering-orchestrator",
+    "description": "Orchestrate engineering work across dependent tasks, specialist skills, and agents through verified integration. Use for coordinated delivery, explicit orchestration, or resuming multi-part work; routine edits and standalone domain reviews need no orchestration."
+  },
+  {
+    "name": "react-quality-guard",
+    "description": "Design, implement, and review React web components, hooks, state, and performance. Exclude wording-only, styling-only, and React Native work."
+  },
+  {
+    "name": "refactoring-guard",
+    "description": "Plan, perform, or review behavior-preserving refactoring using Martin Fowler's principles. Use for restructuring existing code, not feature design or formatting alone."
+  },
+  {
+    "name": "tanstack-query-guard",
+    "description": "Design, implement, review, and debug TanStack Query queries, mutations, and caching in React applications. Exclude generic React work and TanStack Router-only tasks."
+  },
+  {
+    "name": "typescript-quality-guard",
+    "description": "Design, fix, or review TypeScript types and runtime input validation."
+  }
+]

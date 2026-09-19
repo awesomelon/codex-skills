@@ -1,0 +1,2 @@
+PASS: 9 derivation assertions
+Scope: extracted JavaScript calculation; no React rendering or TypeScript compilation.

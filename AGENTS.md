@@ -6,6 +6,8 @@ Write maintained instructions, documentation, and UI metadata in English. Preser
 
 Store skills in `skills/<kebab-case-name>/SKILL.md`. To match this repository's validator, put each frontmatter `name` and `description` on a single line. Descriptions should contain the purpose needed for selection and only exclusions that prevent likely confusion. Link to details when needed; keep installation and evaluation material outside skills. References must work when only the skill folder is installed.
 
+For optional `agents/openai.yaml`, use two-space field indentation and JSON-quoted single-line UI strings. A supplied default prompt must invoke the current `$skill-name`; keep it a task starter and leave execution rules in the skill body. Preserve existing invocation policy and dependency fields.
+
 Base skill improvements and additions on [Rethinking skills and prompts for GPT-6 Astra](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra). Distinguish fresh source verification from earlier audit interpretations if the page is unavailable.
 
 Read existing skills and conventions relevant to the task. Do not add duplicate instructions across always-loaded guidance, bodies, and references, blanket checklists, or mandatory delegation. Preserve each skill's purpose and read-only scope. Reflect changed use cases and expected behavior in the README catalog and `evals/<name>/cases.md`; record actual execution separately from scenarios.

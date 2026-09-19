@@ -1,0 +1,44 @@
+{
+  "kind": "normalized selections from independent metadata-only session",
+  "selections": {
+    "react-state": [
+      "react-quality-guard"
+    ],
+    "query-cache": [
+      "tanstack-query-guard"
+    ],
+    "type-diagnostic": [
+      "typescript-quality-guard"
+    ],
+    "architecture": [
+      "architecture-guard"
+    ],
+    "shared-policy": [
+      "code-quality-guard"
+    ],
+    "refactor": [
+      "code-quality-guard",
+      "refactoring-guard"
+    ],
+    "orchestration": [
+      "architecture-guard",
+      "engineering-orchestrator",
+      "react-quality-guard"
+    ],
+    "resume": [
+      "engineering-orchestrator"
+    ],
+    "copy-only": [],
+    "style-only": [],
+    "router-only": [],
+    "type-extension-only": [],
+    "native": [],
+    "local-constant": [],
+    "review-readonly": [
+      "code-quality-guard"
+    ],
+    "plan-readonly": [
+      "engineering-orchestrator"
+    ]
+  }
+}
