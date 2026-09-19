@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pstack"
+  short_description: "Engineering workflows with inspectable evidence"
+  default_prompt: "Use $pstack to carry out the requested engineering task, select the relevant workflow, and finish with evidence appropriate to the requested scope."

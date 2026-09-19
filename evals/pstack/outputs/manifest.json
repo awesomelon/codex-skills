@@ -1,0 +1,270 @@
+{
+  "date": "2026-09-19",
+  "repository_base": "145acdd41d130eb6979372bc36a195f4a5b62183",
+  "upstream_commit": "032be146865d973682535de75f2287da438550bf",
+  "workspace": "/private/tmp/pstack-work-g4gk8oro",
+  "skill_hashes": {
+    "LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+    "SKILL.md": "2cd5c5392188701900bc1702a506d5f8ef4da22d09bcc12a7a9596cbda599f33",
+    "agents/openai.yaml": "8f5f63f2efa9307d15b359edc4ca152b994e3390930063e6a92f8449ffeb71cb",
+    "references/changes.md": "4586191079cfed86750467f775160cf494d9bfc9265dec4cee63378398d04564",
+    "references/continuity.md": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+    "references/coordination.md": "5ff98c3dba36a00056f97c2750672aa7ca99d43d14485fb3951f547134afc7cd",
+    "references/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+    "references/performance.md": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+    "references/review-and-delivery.md": "5cb2f61f147b4fe08619d3d11ce2aed7006a5f150f13b6562860f2592dadf173",
+    "references/sources.md": "9fbb979754dfae1a3a10122e2afaa043fbd11579825cb2630962ba41448bf153"
+  },
+  "fixture_hashes": {
+    "pr-status/snapshot.json": "a631c53bff97bdf8c4d91dc2fa4f73c73b9930f9b42d4a95ab6d71770b18edf8",
+    "search-controller/README.md": "db973bf4ff93af1f01a5f179297049747924a99c208af2127321dc6adb06cb04",
+    "search-controller/search.mjs": "bbe9b8e4435236050dd02a5893f8e29789c915d1f9f6e9a02e3e88369fd6c412",
+    "search-controller/search.test.mjs": "87afe27df7eb662f7a5cc59ca61d70e65e21aa6052eda80631a659f386baeb5c"
+  },
+  "initial_run_hashes": {
+    "implementation/.agents/skills/pstack/LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+    "implementation/.agents/skills/pstack/SKILL.md": "2cd5c5392188701900bc1702a506d5f8ef4da22d09bcc12a7a9596cbda599f33",
+    "implementation/.agents/skills/pstack/agents/openai.yaml": "8f5f63f2efa9307d15b359edc4ca152b994e3390930063e6a92f8449ffeb71cb",
+    "implementation/.agents/skills/pstack/references/changes.md": "4586191079cfed86750467f775160cf494d9bfc9265dec4cee63378398d04564",
+    "implementation/.agents/skills/pstack/references/continuity.md": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+    "implementation/.agents/skills/pstack/references/coordination.md": "5ff98c3dba36a00056f97c2750672aa7ca99d43d14485fb3951f547134afc7cd",
+    "implementation/.agents/skills/pstack/references/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+    "implementation/.agents/skills/pstack/references/performance.md": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+    "implementation/.agents/skills/pstack/references/review-and-delivery.md": "5cb2f61f147b4fe08619d3d11ce2aed7006a5f150f13b6562860f2592dadf173",
+    "implementation/.agents/skills/pstack/references/sources.md": "9fbb979754dfae1a3a10122e2afaa043fbd11579825cb2630962ba41448bf153",
+    "implementation/README.md": "db973bf4ff93af1f01a5f179297049747924a99c208af2127321dc6adb06cb04",
+    "implementation/search.mjs": "bbe9b8e4435236050dd02a5893f8e29789c915d1f9f6e9a02e3e88369fd6c412",
+    "implementation/search.test.mjs": "87afe27df7eb662f7a5cc59ca61d70e65e21aa6052eda80631a659f386baeb5c",
+    "investigation/.agents/skills/pstack/LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+    "investigation/.agents/skills/pstack/SKILL.md": "2cd5c5392188701900bc1702a506d5f8ef4da22d09bcc12a7a9596cbda599f33",
+    "investigation/.agents/skills/pstack/agents/openai.yaml": "8f5f63f2efa9307d15b359edc4ca152b994e3390930063e6a92f8449ffeb71cb",
+    "investigation/.agents/skills/pstack/references/changes.md": "4586191079cfed86750467f775160cf494d9bfc9265dec4cee63378398d04564",
+    "investigation/.agents/skills/pstack/references/continuity.md": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+    "investigation/.agents/skills/pstack/references/coordination.md": "5ff98c3dba36a00056f97c2750672aa7ca99d43d14485fb3951f547134afc7cd",
+    "investigation/.agents/skills/pstack/references/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+    "investigation/.agents/skills/pstack/references/performance.md": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+    "investigation/.agents/skills/pstack/references/review-and-delivery.md": "5cb2f61f147b4fe08619d3d11ce2aed7006a5f150f13b6562860f2592dadf173",
+    "investigation/.agents/skills/pstack/references/sources.md": "9fbb979754dfae1a3a10122e2afaa043fbd11579825cb2630962ba41448bf153",
+    "investigation/README.md": "db973bf4ff93af1f01a5f179297049747924a99c208af2127321dc6adb06cb04",
+    "investigation/search.mjs": "bbe9b8e4435236050dd02a5893f8e29789c915d1f9f6e9a02e3e88369fd6c412",
+    "investigation/search.test.mjs": "87afe27df7eb662f7a5cc59ca61d70e65e21aa6052eda80631a659f386baeb5c",
+    "status/.agents/skills/pstack/LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+    "status/.agents/skills/pstack/SKILL.md": "2cd5c5392188701900bc1702a506d5f8ef4da22d09bcc12a7a9596cbda599f33",
+    "status/.agents/skills/pstack/agents/openai.yaml": "8f5f63f2efa9307d15b359edc4ca152b994e3390930063e6a92f8449ffeb71cb",
+    "status/.agents/skills/pstack/references/changes.md": "4586191079cfed86750467f775160cf494d9bfc9265dec4cee63378398d04564",
+    "status/.agents/skills/pstack/references/continuity.md": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+    "status/.agents/skills/pstack/references/coordination.md": "5ff98c3dba36a00056f97c2750672aa7ca99d43d14485fb3951f547134afc7cd",
+    "status/.agents/skills/pstack/references/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+    "status/.agents/skills/pstack/references/performance.md": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+    "status/.agents/skills/pstack/references/review-and-delivery.md": "5cb2f61f147b4fe08619d3d11ce2aed7006a5f150f13b6562860f2592dadf173",
+    "status/.agents/skills/pstack/references/sources.md": "9fbb979754dfae1a3a10122e2afaa043fbd11579825cb2630962ba41448bf153",
+    "status/snapshot.json": "a631c53bff97bdf8c4d91dc2fa4f73c73b9930f9b42d4a95ab6d71770b18edf8"
+  },
+  "final_run_hashes": {
+    "implementation/.agents/skills/pstack/LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+    "implementation/.agents/skills/pstack/SKILL.md": "2cd5c5392188701900bc1702a506d5f8ef4da22d09bcc12a7a9596cbda599f33",
+    "implementation/.agents/skills/pstack/agents/openai.yaml": "8f5f63f2efa9307d15b359edc4ca152b994e3390930063e6a92f8449ffeb71cb",
+    "implementation/.agents/skills/pstack/references/changes.md": "4586191079cfed86750467f775160cf494d9bfc9265dec4cee63378398d04564",
+    "implementation/.agents/skills/pstack/references/continuity.md": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+    "implementation/.agents/skills/pstack/references/coordination.md": "5ff98c3dba36a00056f97c2750672aa7ca99d43d14485fb3951f547134afc7cd",
+    "implementation/.agents/skills/pstack/references/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+    "implementation/.agents/skills/pstack/references/performance.md": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+    "implementation/.agents/skills/pstack/references/review-and-delivery.md": "5cb2f61f147b4fe08619d3d11ce2aed7006a5f150f13b6562860f2592dadf173",
+    "implementation/.agents/skills/pstack/references/sources.md": "9fbb979754dfae1a3a10122e2afaa043fbd11579825cb2630962ba41448bf153",
+    "implementation/README.md": "db973bf4ff93af1f01a5f179297049747924a99c208af2127321dc6adb06cb04",
+    "implementation/search.mjs": "f9e5d30f0fadb70cee4eff45c0579160cc5c830423a2f6fe713a8d2f73114a55",
+    "implementation/search.test.mjs": "ceed3ff21a9f66d74fec8593b878c4d40412be01012fbd772bb4d1b77c8e4fc2",
+    "investigation/.agents/skills/pstack/LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+    "investigation/.agents/skills/pstack/SKILL.md": "2cd5c5392188701900bc1702a506d5f8ef4da22d09bcc12a7a9596cbda599f33",
+    "investigation/.agents/skills/pstack/agents/openai.yaml": "8f5f63f2efa9307d15b359edc4ca152b994e3390930063e6a92f8449ffeb71cb",
+    "investigation/.agents/skills/pstack/references/changes.md": "4586191079cfed86750467f775160cf494d9bfc9265dec4cee63378398d04564",
+    "investigation/.agents/skills/pstack/references/continuity.md": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+    "investigation/.agents/skills/pstack/references/coordination.md": "5ff98c3dba36a00056f97c2750672aa7ca99d43d14485fb3951f547134afc7cd",
+    "investigation/.agents/skills/pstack/references/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+    "investigation/.agents/skills/pstack/references/performance.md": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+    "investigation/.agents/skills/pstack/references/review-and-delivery.md": "5cb2f61f147b4fe08619d3d11ce2aed7006a5f150f13b6562860f2592dadf173",
+    "investigation/.agents/skills/pstack/references/sources.md": "9fbb979754dfae1a3a10122e2afaa043fbd11579825cb2630962ba41448bf153",
+    "investigation/README.md": "db973bf4ff93af1f01a5f179297049747924a99c208af2127321dc6adb06cb04",
+    "investigation/search.mjs": "bbe9b8e4435236050dd02a5893f8e29789c915d1f9f6e9a02e3e88369fd6c412",
+    "investigation/search.test.mjs": "87afe27df7eb662f7a5cc59ca61d70e65e21aa6052eda80631a659f386baeb5c",
+    "status/.agents/skills/pstack/LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+    "status/.agents/skills/pstack/SKILL.md": "2cd5c5392188701900bc1702a506d5f8ef4da22d09bcc12a7a9596cbda599f33",
+    "status/.agents/skills/pstack/agents/openai.yaml": "8f5f63f2efa9307d15b359edc4ca152b994e3390930063e6a92f8449ffeb71cb",
+    "status/.agents/skills/pstack/references/changes.md": "4586191079cfed86750467f775160cf494d9bfc9265dec4cee63378398d04564",
+    "status/.agents/skills/pstack/references/continuity.md": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+    "status/.agents/skills/pstack/references/coordination.md": "5ff98c3dba36a00056f97c2750672aa7ca99d43d14485fb3951f547134afc7cd",
+    "status/.agents/skills/pstack/references/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+    "status/.agents/skills/pstack/references/performance.md": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+    "status/.agents/skills/pstack/references/review-and-delivery.md": "5cb2f61f147b4fe08619d3d11ce2aed7006a5f150f13b6562860f2592dadf173",
+    "status/.agents/skills/pstack/references/sources.md": "9fbb979754dfae1a3a10122e2afaa043fbd11579825cb2630962ba41448bf153",
+    "status/snapshot.json": "a631c53bff97bdf8c4d91dc2fa4f73c73b9930f9b42d4a95ab6d71770b18edf8"
+  },
+  "changed_run_paths": [
+    "implementation/search.mjs",
+    "implementation/search.test.mjs"
+  ],
+  "installation_workspace": "/private/tmp/pstack-install-ey0jkukq",
+  "commands": [
+    {
+      "label": "structure",
+      "argv": [
+        "/Users/j-ho/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate.py"
+      ],
+      "cwd": "/Users/j-ho/.codex/visualizations/2026/09/19/01a0b740-de71-7cb1-b710-d08141df3031/pstack-port/codex-skills",
+      "exit_code": 0
+    },
+    {
+      "label": "quick-validate",
+      "argv": [
+        "/Users/j-ho/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/j-ho/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "skills/pstack"
+      ],
+      "cwd": "/Users/j-ho/.codex/visualizations/2026/09/19/01a0b740-de71-7cb1-b710-d08141df3031/pstack-port/codex-skills",
+      "exit_code": 0
+    },
+    {
+      "label": "implementation-tests",
+      "argv": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "search.test.mjs"
+      ],
+      "cwd": "/private/tmp/pstack-work-g4gk8oro/implementation",
+      "exit_code": 0
+    },
+    {
+      "label": "final-acceptance",
+      "argv": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "evals/pstack/acceptance.test.mjs"
+      ],
+      "cwd": "/Users/j-ho/.codex/visualizations/2026/09/19/01a0b740-de71-7cb1-b710-d08141df3031/pstack-port/codex-skills",
+      "exit_code": 0
+    },
+    {
+      "label": "installer-list",
+      "argv": [
+        "/bin/bash",
+        "scripts/install.sh",
+        "--list"
+      ],
+      "cwd": "/Users/j-ho/.codex/visualizations/2026/09/19/01a0b740-de71-7cb1-b710-d08141df3031/pstack-port/codex-skills",
+      "exit_code": 0
+    },
+    {
+      "label": "install-dry-run",
+      "argv": [
+        "/bin/bash",
+        "scripts/install.sh",
+        "--skill",
+        "pstack",
+        "--dest",
+        "/private/tmp/pstack-install-ey0jkukq/dry",
+        "--dry-run"
+      ],
+      "cwd": "/Users/j-ho/.codex/visualizations/2026/09/19/01a0b740-de71-7cb1-b710-d08141df3031/pstack-port/codex-skills",
+      "exit_code": 0
+    },
+    {
+      "label": "install-link",
+      "argv": [
+        "/bin/bash",
+        "scripts/install.sh",
+        "--skill",
+        "pstack",
+        "--dest",
+        "/private/tmp/pstack-install-ey0jkukq/link"
+      ],
+      "cwd": "/Users/j-ho/.codex/visualizations/2026/09/19/01a0b740-de71-7cb1-b710-d08141df3031/pstack-port/codex-skills",
+      "exit_code": 0
+    },
+    {
+      "label": "install-link-repeat",
+      "argv": [
+        "/bin/bash",
+        "scripts/install.sh",
+        "--skill",
+        "pstack",
+        "--dest",
+        "/private/tmp/pstack-install-ey0jkukq/link"
+      ],
+      "cwd": "/Users/j-ho/.codex/visualizations/2026/09/19/01a0b740-de71-7cb1-b710-d08141df3031/pstack-port/codex-skills",
+      "exit_code": 0
+    },
+    {
+      "label": "install-copy",
+      "argv": [
+        "/bin/bash",
+        "scripts/install.sh",
+        "--skill",
+        "pstack",
+        "--dest",
+        "/private/tmp/pstack-install-ey0jkukq/copy",
+        "--mode",
+        "copy"
+      ],
+      "cwd": "/Users/j-ho/.codex/visualizations/2026/09/19/01a0b740-de71-7cb1-b710-d08141df3031/pstack-port/codex-skills",
+      "exit_code": 0
+    },
+    {
+      "label": "install-copy-repeat",
+      "argv": [
+        "/bin/bash",
+        "scripts/install.sh",
+        "--skill",
+        "pstack",
+        "--dest",
+        "/private/tmp/pstack-install-ey0jkukq/copy",
+        "--mode",
+        "copy"
+      ],
+      "cwd": "/Users/j-ho/.codex/visualizations/2026/09/19/01a0b740-de71-7cb1-b710-d08141df3031/pstack-port/codex-skills",
+      "exit_code": 0
+    },
+    {
+      "label": "copy-quick-validate",
+      "argv": [
+        "/Users/j-ho/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/j-ho/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+        "/private/tmp/pstack-install-ey0jkukq/copy/pstack"
+      ],
+      "cwd": "/Users/j-ho/.codex/visualizations/2026/09/19/01a0b740-de71-7cb1-b710-d08141df3031/pstack-port/codex-skills",
+      "exit_code": 0
+    }
+  ],
+  "environment": {
+    "os": "27.0",
+    "python": "Python 3.12.14",
+    "node": "v24.16.0",
+    "bash": "GNU bash, version 3.2.57(1)-release (arm64-apple-darwin26)",
+    "PyYAML": "6.0.3 (temporary target only)"
+  },
+  "agent_runs": [
+    {
+      "agent": "/root/search_fix",
+      "case": 1,
+      "workspace": "implementation",
+      "report": "implementation-report.md",
+      "prompt": "Use $pstack at /private/tmp/pstack-work-g4gk8oro/implementation/.agents/skills/pstack/SKILL.md for this task: The search controller sometimes shows an older query's result after a newer query completes. Reproduce the bug, fix it, and verify the result. Work in /private/tmp/pstack-work-g4gk8oro/implementation and preserve the documented public contract. You own implementation files and tests only within that directory. Do not edit the skill. No commits, publishing, installs, external services, or further delegation. You are not alone in the workspace; preserve others' changes and do not edit any other directory. Return the outcome, commands actually run, reproduction evidence, changed paths, and verification limits."
+    },
+    {
+      "agent": "/root/search_diagnosis",
+      "case": 2,
+      "workspace": "investigation",
+      "report": "investigation-report.md",
+      "prompt": "Use $pstack at /private/tmp/pstack-work-g4gk8oro/investigation/.agents/skills/pstack/SKILL.md for this task: Explain why this search controller can show results for the previous query after the user has entered a newer query. Work in /private/tmp/pstack-work-g4gk8oro/investigation. Investigate only; do not change or create any files, including tests, logs, scratch artifacts, reports, or skill files. Existing code can be read and non-writing commands can run. No external services, publishing, installs, or further delegation. You are not alone in the workspace; do not edit any other directory or revert others' changes. Return a concise evidence-backed diagnosis and distinguish confirmed behavior from hypotheses."
+    },
+    {
+      "agent": "/root/pr_status",
+      "case": 3,
+      "workspace": "status",
+      "report": "status-report.md",
+      "prompt": "Use $pstack at /private/tmp/pstack-work-g4gk8oro/status/.agents/skills/pstack/SKILL.md for this task: Check whether PR 17 is green and ready to merge based on snapshot.json in /private/tmp/pstack-work-g4gk8oro/status. This is the only supplied repository record and there is no live connection for this example repository. Give a one-time status report. Do not create or edit files, contact a remote service, rerun jobs, comment, schedule, publish, merge, install, or delegate. You are not alone in the workspace; leave all files and other work untouched. Report the evidence and limits."
+    }
+  ]
+}
