@@ -1,0 +1,37 @@
+[
+  {
+    "name": "codex-skills:architecture-guard",
+    "description": "Design or review module boundaries, dependency direction, shared-state ownership, and contracts between modules.",
+    "resource": "/tmp/orchestration-package-v9kdnymc/resources/expertise/architecture-guard/SKILL.md"
+  },
+  {
+    "name": "codex-skills:code-quality-guard",
+    "description": "Design and implement shared business rules; review, improve, or compare code maintainability.",
+    "resource": "/tmp/orchestration-package-v9kdnymc/resources/expertise/code-quality-guard/SKILL.md"
+  },
+  {
+    "name": "codex-skills:engineering-orchestrator",
+    "description": "Orchestrate engineering work across dependent tasks, specialist skills, and agents through verified integration. Use for coordinated delivery, explicit orchestration, or resuming multi-part work; routine edits and standalone domain reviews need no orchestration.",
+    "resource": "/tmp/orchestration-package-v9kdnymc/resources/entrypoint/engineering-orchestrator/SKILL.md"
+  },
+  {
+    "name": "codex-skills:react-quality-guard",
+    "description": "Design, implement, and review React web components, hooks, state, and performance. Exclude wording-only, styling-only, and React Native work.",
+    "resource": "/tmp/orchestration-package-v9kdnymc/resources/expertise/react-quality-guard/SKILL.md"
+  },
+  {
+    "name": "codex-skills:refactoring-guard",
+    "description": "Plan, perform, or review behavior-preserving refactoring using Martin Fowler's principles. Use for restructuring existing code, not feature design or formatting alone.",
+    "resource": "/tmp/orchestration-package-v9kdnymc/resources/expertise/refactoring-guard/SKILL.md"
+  },
+  {
+    "name": "codex-skills:tanstack-query-guard",
+    "description": "Design, implement, review, and debug TanStack Query queries, mutations, and caching in React applications. Exclude generic React work and TanStack Router-only tasks.",
+    "resource": "/tmp/orchestration-package-v9kdnymc/resources/expertise/tanstack-query-guard/SKILL.md"
+  },
+  {
+    "name": "codex-skills:typescript-quality-guard",
+    "description": "Design, fix, or review TypeScript types and runtime input validation.",
+    "resource": "/tmp/orchestration-package-v9kdnymc/resources/expertise/typescript-quality-guard/SKILL.md"
+  }
+]
