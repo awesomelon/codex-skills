@@ -22,6 +22,8 @@ Start with the specified change and its directly connected callers, consumers, a
 
 ## Validation and completion
 
-Start with existing checks that address risks in the changed boundaries and contracts. Run explicitly required validation; add checks when they resolve remaining uncertainty. Do not weaken checking rules to obtain a pass. A small automated check may help with recurring, significant boundary violations. Update only relevant documentation when a design decision changes.
+Start with existing checks that address risks in the changed boundaries and contracts. Run explicitly required validation; add checks when they resolve remaining uncertainty. Do not weaken checking rules to obtain a pass. A small automated check may help with recurring, significant boundary violations.
+
+During implementation, correct existing documentation made inaccurate by the change, preserving its purpose and level of detail. Add documentation when requested, required by applicable repository rules, or necessary to use a changed public contract. Without such a need, do not expand a README or create decision or change-history records merely to explain or preserve the work.
 
 Connect files, symbols, and actual dependency paths to impact and the smallest remedy. Separate behavior verification from maintainability judgment. If before/after quality comparison is also requested, use the same scope and criteria and reuse established evidence. State comparison scope, checks run and their limits, and significant unresolved issues. Resolve and verify problems within the requested edit scope. Leave contract transitions or migrations as proposals when they are outside that scope. Finish when only optional improvements remain.
