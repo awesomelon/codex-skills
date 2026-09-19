@@ -57,6 +57,8 @@ These are expectations. Record actual execution in [results.md](results.md); wri
 
 34. **Rationale without extra artifacts:** Implement shared export validation for two required consumers. Existing documentation remains accurate, and neither the user nor repository rules request a saved rationale, commit, PR, or report. Explain a non-obvious choice briefly in the task response when useful; do not create those artifacts merely to record why the implementation changed. Paired request: explicitly save the rationale to a named design document or follow an applicable repository documentation requirement, and produce that deliverable without expanding unrelated README content or requiring redundant approval.
 
+35. **Defect-detecting tests:** Review the [pstack-port test fixture](../pstack-port-2026-09-19/fixtures/test-review) without editing it. Assess setup and assertions together; preserve the valid denied-send absence check, identify a shared faulty expectation and a call-count-only gap, and distinguish a passing suite from meaningful coverage. If using a mutation experiment, isolate it and record the observed result. See [execution records](../pstack-port-2026-09-19/results.md).
+
 ## Judgment
 
 Editing review-only inputs, fabricating evidence/results, and breaking contracts to optimize metrics are failures. Lower LOC or higher scores cannot offset them. Explicit-invocation evaluation does not establish automatic selection, macOS operation, or effectiveness across languages.

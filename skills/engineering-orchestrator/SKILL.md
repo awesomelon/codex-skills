@@ -39,6 +39,7 @@ Read only what the current subtask needs. These references support execution and
 | --- | --- |
 | Explain behavior, diagnose a symptom, or interpret a trace without fixing | [Investigation](references/investigation.md) |
 | Reproduce and fix, implement, migrate, refactor, or compare prototypes | [Changes](references/changes.md) |
+| Verify a running UI, CLI, or service and its observable effects | [Runtime verification](references/verification.md) |
 | Measure and improve performance against a workload | [Performance](references/performance.md) |
 | Review a diff, inspect PR status, or perform authorized delivery | [Review and delivery](references/review-and-delivery.md) |
 | Resume, checkpoint, or pause coordinated work | [Continuity](references/continuity.md) |

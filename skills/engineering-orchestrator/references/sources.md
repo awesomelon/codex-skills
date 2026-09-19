@@ -19,6 +19,18 @@ The main entrypoint, selected supporting skills, and engineering playbooks were 
 
 ## Deliberate changes
 
+### Additional port review
+
+[michael-denyer/pstack-claude](https://github.com/michael-denyer/pstack-claude/tree/af7aa63b5e196cb3d04fbe18dc2a970918fc883a), commit `af7aa63b5e196cb3d04fbe18dc2a970918fc883a`, was inspected separately on 2026-09-19. Selected source paths under `plugins/pstack/skills/`:
+
+- `create-verification-skill/SKILL.md`: adapt public-path checks, instance identity, side-effect observation, and evidence-preserving cleanup into [runtime verification](verification.md). Reuse existing drivers; do not generate a verification skill on every task.
+- `poteto-mode/playbooks/shipping.md` and `poteto-mode/references/merge-safety.md`: add service-enforced head conditions, distinguish future merge requests, and confirm the destination after an authorized merge in [delivery](review-and-delivery.md). No watcher or forge-specific script is bundled.
+- `poteto-mode/references/codex-tools.md`, `playbooks/orchestrate.md`, `playbooks/session-pickup.md`, and `references/resume-storage.md`: retain capability-based tools, existing scoped handoffs, and checkpoint reconciliation. Do not import fixed model panels, automatic hooks, global settings, or a new checkpoint store.
+
+The port carries the same Lauren Tan MIT notice already preserved in [LICENSE](../LICENSE). These are independently worded, selective adaptations, not a full port, a runtime compatibility certification, or measured speed/token improvements. The Astra authoring article below was freshly fetched for this review; conditional detail stays outside the discovery description.
+
+### Existing adaptations
+
 - Replace platform-specific frontmatter, sticky mode, slash commands, `Task` parameters, named model slugs, and custom agent requirements with ordinary skill metadata and available runtime capabilities. Automatic selection remains enabled by default.
 - Replace the 23-playbook root and principle-loading cascade with a short router and selectively loaded references. Existing specialist guards remain optional; no instruction requires reading every skill or principle.
 - Remove automatic PR creation, blanket external-action permission, unrelated follow-up PRs, destructive worktree recovery, and simulator/cache cleanup. Task requests determine the endpoint.

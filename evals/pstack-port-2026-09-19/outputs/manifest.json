@@ -1,0 +1,111 @@
+{
+  "source_base": "197a5205c050f88a5529e9853fff9860598d109a",
+  "upstream": "af7aa63b5e196cb3d04fbe18dc2a970918fc883a",
+  "runs": {
+    "runtime": {
+      "before": {
+        "skill/LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+        "skill/SKILL.md": "40954941c2c3e393d99d3d3019061f5b904f4848c3547ce1d609b9f19d739778",
+        "skill/agents/openai.yaml": "dc8c5ba3adcea41902825d7bc5c8298d3c4ef9d348aef5fd2c10cb5b5eca53c1",
+        "skill/references/changes.md": "3a98b9c37d8b2d952dff35f0a6a7b60c9b8593aac2a09602ef2ef4d3ec30c224",
+        "skill/references/continuity.md": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+        "skill/references/coordination.md": "bdd11a293c573c4c1e1a4dcd0b0d1cabbdea12b361a1902db8a392053421e441",
+        "skill/references/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+        "skill/references/performance.md": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+        "skill/references/review-and-delivery.md": "e15de0fac2587645dd6070cb1ec4f3315155e76fb17d30eaf5342d520e7cb967",
+        "skill/references/sources.md": "3d19179576a6d9850003ecb6c7a7f222f592b8e00cfa23c188528e5661d6a564",
+        "skill/references/verification.md": "42954448676251b082b44a34105390184fe72d803d4826bb7e36aba80af0d498",
+        "input/README.md": "f049efbf4f7bc3a5e23dde3d6f8f8748c424fdfa3cf63805e61fff08b320f2bb",
+        "input/notes.py": "a0df50765b57de263810d1de1354ff6973699c02cc4e4589fb8935f5973e0b68"
+      },
+      "directory": "EVAL_ROOT/runtime",
+      "after": {
+        "skill/LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+        "skill/SKILL.md": "40954941c2c3e393d99d3d3019061f5b904f4848c3547ce1d609b9f19d739778",
+        "skill/agents/openai.yaml": "dc8c5ba3adcea41902825d7bc5c8298d3c4ef9d348aef5fd2c10cb5b5eca53c1",
+        "skill/references/changes.md": "3a98b9c37d8b2d952dff35f0a6a7b60c9b8593aac2a09602ef2ef4d3ec30c224",
+        "skill/references/continuity.md": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+        "skill/references/coordination.md": "bdd11a293c573c4c1e1a4dcd0b0d1cabbdea12b361a1902db8a392053421e441",
+        "skill/references/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+        "skill/references/performance.md": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+        "skill/references/review-and-delivery.md": "e15de0fac2587645dd6070cb1ec4f3315155e76fb17d30eaf5342d520e7cb967",
+        "skill/references/sources.md": "3d19179576a6d9850003ecb6c7a7f222f592b8e00cfa23c188528e5661d6a564",
+        "skill/references/verification.md": "42954448676251b082b44a34105390184fe72d803d4826bb7e36aba80af0d498",
+        "input/README.md": "f049efbf4f7bc3a5e23dde3d6f8f8748c424fdfa3cf63805e61fff08b320f2bb",
+        "input/notes.py": "a0df50765b57de263810d1de1354ff6973699c02cc4e4589fb8935f5973e0b68"
+      },
+      "fresh_context": true
+    },
+    "delivery": {
+      "before": {
+        "skill/LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+        "skill/SKILL.md": "40954941c2c3e393d99d3d3019061f5b904f4848c3547ce1d609b9f19d739778",
+        "skill/agents/openai.yaml": "dc8c5ba3adcea41902825d7bc5c8298d3c4ef9d348aef5fd2c10cb5b5eca53c1",
+        "skill/references/changes.md": "3a98b9c37d8b2d952dff35f0a6a7b60c9b8593aac2a09602ef2ef4d3ec30c224",
+        "skill/references/continuity.md": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+        "skill/references/coordination.md": "bdd11a293c573c4c1e1a4dcd0b0d1cabbdea12b361a1902db8a392053421e441",
+        "skill/references/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+        "skill/references/performance.md": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+        "skill/references/review-and-delivery.md": "e15de0fac2587645dd6070cb1ec4f3315155e76fb17d30eaf5342d520e7cb967",
+        "skill/references/sources.md": "3d19179576a6d9850003ecb6c7a7f222f592b8e00cfa23c188528e5661d6a564",
+        "skill/references/verification.md": "42954448676251b082b44a34105390184fe72d803d4826bb7e36aba80af0d498",
+        "input/proposal.md": "a67ccfcc046f5357093d03ff919c34e6efb3703449cfddf4c083d2d17e499d25"
+      },
+      "directory": "EVAL_ROOT/delivery",
+      "after": {
+        "skill/LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+        "skill/SKILL.md": "40954941c2c3e393d99d3d3019061f5b904f4848c3547ce1d609b9f19d739778",
+        "skill/agents/openai.yaml": "dc8c5ba3adcea41902825d7bc5c8298d3c4ef9d348aef5fd2c10cb5b5eca53c1",
+        "skill/references/changes.md": "3a98b9c37d8b2d952dff35f0a6a7b60c9b8593aac2a09602ef2ef4d3ec30c224",
+        "skill/references/continuity.md": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+        "skill/references/coordination.md": "bdd11a293c573c4c1e1a4dcd0b0d1cabbdea12b361a1902db8a392053421e441",
+        "skill/references/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+        "skill/references/performance.md": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+        "skill/references/review-and-delivery.md": "e15de0fac2587645dd6070cb1ec4f3315155e76fb17d30eaf5342d520e7cb967",
+        "skill/references/sources.md": "3d19179576a6d9850003ecb6c7a7f222f592b8e00cfa23c188528e5661d6a564",
+        "skill/references/verification.md": "42954448676251b082b44a34105390184fe72d803d4826bb7e36aba80af0d498",
+        "input/proposal.md": "a67ccfcc046f5357093d03ff919c34e6efb3703449cfddf4c083d2d17e499d25"
+      },
+      "fresh_context": true
+    },
+    "test-review": {
+      "before": {
+        "skill/SKILL.md": "489095d0aa4998fb1e00050667017f0a5ccb2cdc01370c5d6bc2c83f43385743",
+        "skill/agents/openai.yaml": "a9e8dd2df97225ed449c32c1f67bebb56bf5d79202228f8488ebe71bf2216bd2",
+        "skill/references/earendil-metrics.md": "fecfdaee836b60cffd54bd95fd7a28fea75ab68441d4ad99252c51a5b5686f82",
+        "skill/references/implementation.md": "30bfda7b8afd1b408b7b6627d55579065b00a50a539657650d6f6b9231e3b267",
+        "skill/references/measurement.md": "2c70dc6b5b4d76b97935deb6ff6c39c733ded6e582f8a521ccb7d0dbe3e1ecc7",
+        "skill/references/pstack-LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+        "skill/references/review.md": "cd9a9df0ad4e73d982a0489028dbc1f617f821a2036b34cbf38a7bf92af93bd8",
+        "skill/references/scoring.md": "bd5717e1bc9c87b22f91fc94acd773ec090bc19f4f7cef0f6b5df94f3e31ee05",
+        "input/README.md": "f400e5c876d56c0c6a76da76450bfb6b06e656e5c4ec1c4c2e17487ed4b04327",
+        "input/invoice.py": "160866bef299d64f12f1bbe102582548f31b6276ffeec9e0ecf21e745c276622",
+        "input/test_invoice.py": "c1094dcfef279f79ae448800dc899f2d4a4345f59a371f91b97912e3aabe1ffb"
+      },
+      "directory": "EVAL_ROOT/test-review",
+      "after": {
+        "skill/SKILL.md": "489095d0aa4998fb1e00050667017f0a5ccb2cdc01370c5d6bc2c83f43385743",
+        "skill/agents/openai.yaml": "a9e8dd2df97225ed449c32c1f67bebb56bf5d79202228f8488ebe71bf2216bd2",
+        "skill/references/earendil-metrics.md": "fecfdaee836b60cffd54bd95fd7a28fea75ab68441d4ad99252c51a5b5686f82",
+        "skill/references/implementation.md": "30bfda7b8afd1b408b7b6627d55579065b00a50a539657650d6f6b9231e3b267",
+        "skill/references/measurement.md": "2c70dc6b5b4d76b97935deb6ff6c39c733ded6e582f8a521ccb7d0dbe3e1ecc7",
+        "skill/references/pstack-LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+        "skill/references/review.md": "cd9a9df0ad4e73d982a0489028dbc1f617f821a2036b34cbf38a7bf92af93bd8",
+        "skill/references/scoring.md": "bd5717e1bc9c87b22f91fc94acd773ec090bc19f4f7cef0f6b5df94f3e31ee05",
+        "input/README.md": "f400e5c876d56c0c6a76da76450bfb6b06e656e5c4ec1c4c2e17487ed4b04327",
+        "input/invoice.py": "160866bef299d64f12f1bbe102582548f31b6276ffeec9e0ecf21e745c276622",
+        "input/test_invoice.py": "c1094dcfef279f79ae448800dc899f2d4a4345f59a371f91b97912e3aabe1ffb"
+      },
+      "fresh_context": false
+    }
+  },
+  "output_sha256": {
+    "delivery-response.md": "efdfa9b08a573c82c00fdbfa9c7206aeb21ff8b9118d6982350a1940b2c72605",
+    "prompts.json": "02cab7081485903e534c7198127060bc3e36992bf9cc4d2487c49682ed254db1",
+    "runtime/commands-and-results.json": "ca9c779de01af3ca60f5afe0b72ebc5246e472f9a8974ce5acd7f6cee03a9f52",
+    "runtime/report.md": "aae1f742a09773b9d28a0ca3199f52efcbfacdccd7831130a3b3ab129b35451c",
+    "test-checks.json": "5c9bdb3223eece4c889077bdbb4639a49b317616a3b505afc8a3037b5d947415",
+    "test-response.md": "13c4633d3e95a5d8405bec411dc25942caca77ced01ee797af90b21a5442d02e"
+  },
+  "publication_note": "Paths normalized to EVAL_ROOT, SCRATCH, or $WORK; machine environment omitted. Input hashes preserve original bytes; output hashes cover the published sanitized evidence."
+}

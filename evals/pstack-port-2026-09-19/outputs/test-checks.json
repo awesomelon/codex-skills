@@ -1,0 +1,42 @@
+[
+  {
+    "command": [
+      "python3",
+      "-B",
+      "-m",
+      "unittest",
+      "-v"
+    ],
+    "cwd": "SCRATCH/test-review",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "test_no_delivery (test_invoice.DeniedTest) ... ok\ntest_active_send (test_invoice.InvoiceTest) ... ok\ntest_render (test_invoice.InvoiceTest) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n"
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "-c",
+      "from invoice import total,render,send_invoice; rows=[{'quantity':2,'cents':150}]; out=[]; result=send_invoice({'active':True,'email':'buyer@example.test'},rows,lambda *args:out.append(args)); print({'total':total(rows),'render':render(rows),'sent':result,'payload':out}); assert total(rows)==301; assert out==[('buyer@example.test','Invoice ready')]"
+    ],
+    "cwd": "SCRATCH/test-review",
+    "exit_code": 0,
+    "stdout": "{'total': 301, 'render': 'Total: 301', 'sent': True, 'payload': [('buyer@example.test', 'Invoice ready')]}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "-m",
+      "unittest",
+      "-v",
+      "test_invoice.DeniedTest"
+    ],
+    "cwd": "SCRATCH/denied-mutation",
+    "mutation": "Remove inactive-user rejection in isolated copy",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "test_no_delivery (test_invoice.DeniedTest) ... FAIL\n\n======================================================================\nFAIL: test_no_delivery (test_invoice.DeniedTest)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"SCRATCH/denied-mutation/test_invoice.py\", line 26, in test_no_delivery\n    self.assertEqual(self.outbox, [])\nAssertionError: Lists differ: [('local@example.test', 'Invoice ready')] != []\n\nFirst list contains 1 additional elements.\nFirst extra element 0:\n('local@example.test', 'Invoice ready')\n\n- [('local@example.test', 'Invoice ready')]\n+ []\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n"
+  }
+]

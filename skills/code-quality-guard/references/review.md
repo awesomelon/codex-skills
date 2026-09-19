@@ -19,3 +19,7 @@ One implementation or caller is a search hint, not proof that an abstraction is 
 ## Verify an authorized improvement
 
 After improvement, verify before/after evidence and relevant behavior using the same scope and criteria. For a replacement, include a discriminating case where the old contract and a tempting but incompatible shortcut behave differently. An unchanged happy-path test is insufficient evidence for that replacement.
+
+When judging regression coverage, name a plausible defect and ask whether the whole test, including setup, would detect it. Where a permitted isolated experiment helps, introduce that defect temporarily and observe the result. An expectation computed through the same faulty code can agree with a wrong result. Preserve absence checks and fixed values when they express the contract; neither assertion style nor a passing suite establishes adequacy. Check observable effects or meaningful payloads rather than only a substitute's call count.
+
+This test-review guidance is independently adapted from pstack's [behavior-testing principle](https://github.com/michael-denyer/pstack-claude/blob/af7aa63b5e196cb3d04fbe18dc2a970918fc883a/plugins/pstack/skills/principle-test-behavior-not-implementation/SKILL.md). Its [MIT notice](pstack-LICENSE) accompanies the adaptation; no mutation-testing runtime is required.
