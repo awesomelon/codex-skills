@@ -1,4 +1,4 @@
 interface:
   display_name: "Refactoring Guard"
   short_description: "Refactor with small, behavior-preserving changes"
-  default_prompt: "Use $refactoring-guard for the requested refactoring work; preserve observable behavior, keep review and planning free of implementation edits, and verify requested changes in small steps."
+  default_prompt: "Use $refactoring-guard for the requested behavior-preserving refactoring task."

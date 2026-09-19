@@ -1,6 +1,6 @@
 ---
 name: typescript-quality-guard
-description: Design and review TypeScript types, fix type diagnostics, and implement or review input validation.
+description: Design, fix, or review TypeScript types and runtime input validation.
 ---
 
 # TypeScript Quality Guard
@@ -8,8 +8,6 @@ description: Design and review TypeScript types, fix type diagnostics, and imple
 Make types express the values callers can actually provide and the results code can actually return. Preserve repository conventions, supported TypeScript versions, generated API definitions, and existing error behavior. Planning, review, and explanation preserve the assessed material; write only explicitly requested deliverables, such as a plan or report. Implementation requests include relevant fixes and verification.
 
 Use this skill for type modeling, diagnostics, or input validation, not merely because a file ends in .ts or .tsx. Regenerate generated definitions rather than editing them manually. This skill works independently of other skills.
-
-Keep types, schemas, and the code using them close when they must be read and modified for the same responsibility. Readability and maintainability outweigh lower LOC or smaller files; a cohesive file around 1,000 lines is acceptable, neither a target nor a limit. A separate file should clarify an independently changing or reused responsibility, rather than merely collect types or helpers by category.
 
 ## Choose the relevant guidance
 
@@ -20,7 +18,7 @@ Keep types, schemas, and the code using them close when they must be read and mo
 | Predicates, assertions, satisfies, exhaustive handling | [Narrowing and construction](references/narrowing.md) |
 | A concrete example needed to resolve a modeling or inference question | Relevant section of [patterns.md](references/patterns.md) |
 
-Read only the guidance needed for the current decision. A configuration inference fix need not load parser or domain-modeling guidance.
+Select references only when their detail resolves the current decision; a small familiar diagnostic fix can use this entrypoint alone. A configuration inference fix need not load parser or domain-modeling guidance.
 
 ## Complete the requested work
 

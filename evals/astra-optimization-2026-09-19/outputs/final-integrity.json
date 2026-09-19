@@ -1,0 +1,56 @@
+[
+  {
+    "task": "refactoring",
+    "changed_files": [
+      "checkout.mjs"
+    ],
+    "unexpected_or_missing_files": []
+  },
+  {
+    "task": "typescript",
+    "changed_files": [
+      "options.ts"
+    ],
+    "unexpected_or_missing_files": []
+  },
+  {
+    "task": "query-ssr",
+    "changed_files": [],
+    "unexpected_or_missing_files": []
+  },
+  {
+    "task": "trace",
+    "changed_files": [],
+    "unexpected_or_missing_files": []
+  },
+  {
+    "task": "trace-renamed",
+    "changed_files": [],
+    "unexpected_or_missing_files": []
+  },
+  {
+    "check": "query-split-preservation",
+    "technical_paragraphs": 7,
+    "source_urls": 5,
+    "passed": true
+  },
+  {
+    "check": "current-document-links",
+    "targets_checked": 73,
+    "passed": true
+  },
+  {
+    "check": "workflow-product-positioning",
+    "codex_mentions_in_skill_markdown": 0
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

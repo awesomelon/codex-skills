@@ -1,6 +1,6 @@
 interface:
   display_name: "TypeScript Quality Guard"
   short_description: "Design and verify TypeScript types and input validation"
-  default_prompt: "Use $typescript-quality-guard for the requested TypeScript work; review without implementation edits unless changes are requested, and verify the affected types or runtime behavior."
+  default_prompt: "Use $typescript-quality-guard for the requested TypeScript type or input-validation task."
 policy:
   allow_implicit_invocation: true

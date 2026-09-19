@@ -1,0 +1,183 @@
+{
+  "baseline": "02b3906e4a45cc4ea151df19c379248da30d62a7",
+  "source": "https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra",
+  "source_fetched": "2026-09-19",
+  "files": {
+    "skills/architecture-guard/SKILL.md": {
+      "sha256": "3efebff0ab5ab2dfe294436b9aabe761ffa0e0608bc0ae9edf9b7eb3aed768c7",
+      "bytes": 3636
+    },
+    "skills/architecture-guard/agents/openai.yaml": {
+      "sha256": "858dc8964e731cf9bdb29945e6d08028f29f4fd6ed54741a47a85bb375c59097",
+      "bytes": 330
+    },
+    "skills/architecture-guard/references/preflight.md": {
+      "sha256": "3dd7734a650b6cee0053a5876175f00e8927be2d7d3c538cd36af43f8a713d37",
+      "bytes": 1426
+    },
+    "skills/architecture-guard/references/review.md": {
+      "sha256": "1638e29c479594f884a826a92d74e26b355bb80e03cec18eab9a34a0c9be518e",
+      "bytes": 2377
+    },
+    "skills/code-quality-guard/SKILL.md": {
+      "sha256": "489095d0aa4998fb1e00050667017f0a5ccb2cdc01370c5d6bc2c83f43385743",
+      "bytes": 3653
+    },
+    "skills/code-quality-guard/agents/openai.yaml": {
+      "sha256": "a9e8dd2df97225ed449c32c1f67bebb56bf5d79202228f8488ebe71bf2216bd2",
+      "bytes": 343
+    },
+    "skills/code-quality-guard/references/earendil-metrics.md": {
+      "sha256": "fecfdaee836b60cffd54bd95fd7a28fea75ab68441d4ad99252c51a5b5686f82",
+      "bytes": 1172
+    },
+    "skills/code-quality-guard/references/implementation.md": {
+      "sha256": "3dd4ba4fb1027bc4777f139892ff51686df445d15ee045abca3db43e39a12ea4",
+      "bytes": 2472
+    },
+    "skills/code-quality-guard/references/measurement.md": {
+      "sha256": "b29d357071df1240582dab044c0f56023da1638e213164fa6d85842c45c946d4",
+      "bytes": 4269
+    },
+    "skills/code-quality-guard/references/review.md": {
+      "sha256": "2af423bb719d423a1de99922ec92d363dcf5328fec7764cc83f52dd866280110",
+      "bytes": 2396
+    },
+    "skills/code-quality-guard/references/scoring.md": {
+      "sha256": "bd5717e1bc9c87b22f91fc94acd773ec090bc19f4f7cef0f6b5df94f3e31ee05",
+      "bytes": 847
+    },
+    "skills/pstack/SKILL.md": {
+      "sha256": "2cd5c5392188701900bc1702a506d5f8ef4da22d09bcc12a7a9596cbda599f33",
+      "bytes": 4649
+    },
+    "skills/pstack/agents/openai.yaml": {
+      "sha256": "8f5f63f2efa9307d15b359edc4ca152b994e3390930063e6a92f8449ffeb71cb",
+      "bytes": 275
+    },
+    "skills/pstack/references/changes.md": {
+      "sha256": "4586191079cfed86750467f775160cf494d9bfc9265dec4cee63378398d04564",
+      "bytes": 3710
+    },
+    "skills/pstack/references/continuity.md": {
+      "sha256": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+      "bytes": 2515
+    },
+    "skills/pstack/references/coordination.md": {
+      "sha256": "5ff98c3dba36a00056f97c2750672aa7ca99d43d14485fb3951f547134afc7cd",
+      "bytes": 2075
+    },
+    "skills/pstack/references/investigation.md": {
+      "sha256": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+      "bytes": 1704
+    },
+    "skills/pstack/references/performance.md": {
+      "sha256": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+      "bytes": 1970
+    },
+    "skills/pstack/references/review-and-delivery.md": {
+      "sha256": "5cb2f61f147b4fe08619d3d11ce2aed7006a5f150f13b6562860f2592dadf173",
+      "bytes": 3684
+    },
+    "skills/pstack/references/sources.md": {
+      "sha256": "9fbb979754dfae1a3a10122e2afaa043fbd11579825cb2630962ba41448bf153",
+      "bytes": 3873
+    },
+    "skills/react-quality-guard/SKILL.md": {
+      "sha256": "f0c1370a0b82816db17c79d1efaad0c56d41758097de4d00f032dada63b6c35d",
+      "bytes": 3537
+    },
+    "skills/react-quality-guard/agents/openai.yaml": {
+      "sha256": "41c31bea210a1e4a52447da7ca702540b9df7c1c9b03fe95ce2c99a72cf38583",
+      "bytes": 326
+    },
+    "skills/react-quality-guard/references/composition.md": {
+      "sha256": "6632dbce24bc6801dac0a668444e120e3ed1448cdedd7268fb3c60a497a711bd",
+      "bytes": 4470
+    },
+    "skills/react-quality-guard/references/performance.md": {
+      "sha256": "a2ac07be758394f59c8c37012c37ac04f5356366836b2435c0a929651b2f9e33",
+      "bytes": 5075
+    },
+    "skills/react-quality-guard/references/react-correctness.md": {
+      "sha256": "c9fb92c70921a87ff80a7d0ebbf5dac4a5cceacbe65f4e090674e30af46f3166",
+      "bytes": 4370
+    },
+    "skills/react-quality-guard/references/server-react.md": {
+      "sha256": "c0ca19b18fa53c7a52c09f7932604f654aa18c85300bec88968053f0e4dd5d44",
+      "bytes": 2550
+    },
+    "skills/react-quality-guard/references/sources.md": {
+      "sha256": "d420ed55174cb442a0c506e6641c8f61d97e2dfaa0a797d546497bad64857bd3",
+      "bytes": 7171
+    },
+    "skills/refactoring-guard/SKILL.md": {
+      "sha256": "4aac450e218678c929639e58d5d40075e20562e9f82ee6172648130e37785544",
+      "bytes": 6325
+    },
+    "skills/refactoring-guard/agents/openai.yaml": {
+      "sha256": "919207e814bb1330cb4cc5e62e06cf0ae22e09bf046b1b2309b1eddede3335c3",
+      "bytes": 328
+    },
+    "skills/refactoring-guard/references/sources.md": {
+      "sha256": "b336ea67d33537e7191e442fa0879d025056517c4dfb4154cabfb6dfb2781723",
+      "bytes": 2027
+    },
+    "skills/tanstack-query-guard/SKILL.md": {
+      "sha256": "147fa2d48879d0d979e6291ea41b1e4fdffecacc6a4c918513fec8c88c030f0f",
+      "bytes": 2671
+    },
+    "skills/tanstack-query-guard/agents/openai.yaml": {
+      "sha256": "33596fe4730985eaa76ef30c7db1f46ffb0713fdb15576355f8283a5fc0a50c3",
+      "bytes": 271
+    },
+    "skills/tanstack-query-guard/references/cache-and-keys.md": {
+      "sha256": "4ed4209aaa524415a2c6c98bbc47a68ca806e3fede1ec6ea38d013009538a169",
+      "bytes": 3535
+    },
+    "skills/tanstack-query-guard/references/mutations.md": {
+      "sha256": "336000388435e6a2de4b46d997ebefc37ba7bd658bae196fa74192486b16c34b",
+      "bytes": 3439
+    },
+    "skills/tanstack-query-guard/references/pagination-and-prefetch.md": {
+      "sha256": "0d0be0d773ea0afaaa04e3ceea92093eee86b282f12ebdcd864361d4676e75ac",
+      "bytes": 3033
+    },
+    "skills/tanstack-query-guard/references/requests-and-rendering.md": {
+      "sha256": "4545d403a3e04c43e0fc44a35d337f1935d7d7edb37a786cc1ae0411b3502a85",
+      "bytes": 3237
+    },
+    "skills/tanstack-query-guard/references/server-and-offline.md": {
+      "sha256": "7657c350416ebc7da5fc3a96eeec1f582d61543e09a5be0f2269c0e4f6502765",
+      "bytes": 3302
+    },
+    "skills/tanstack-query-guard/references/sources.md": {
+      "sha256": "f8c052b81894640f022bd8b437e4470ada15a933e1c312da2d3d5a18388b17a4",
+      "bytes": 3339
+    },
+    "skills/typescript-quality-guard/SKILL.md": {
+      "sha256": "6c59300feceddacbeabc8de5d1a0911e87d3acd6886c6c2f36eeeef04556ab46",
+      "bytes": 2622
+    },
+    "skills/typescript-quality-guard/agents/openai.yaml": {
+      "sha256": "e09214b60bab368d6d2a13dcfdc79409826f10cffd5f2d0d05adb14cf541bec6",
+      "bytes": 377
+    },
+    "skills/typescript-quality-guard/references/input-validation.md": {
+      "sha256": "0d4508c728fa57e7d4e5096c16ba96f38b7ecbafa7665236d3672fc3af665948",
+      "bytes": 1162
+    },
+    "skills/typescript-quality-guard/references/narrowing.md": {
+      "sha256": "3f871b360addb3c7b154effeea1218d4a1d8fa2504b8544ebdf060a7d6c09319",
+      "bytes": 1703
+    },
+    "skills/typescript-quality-guard/references/patterns.md": {
+      "sha256": "d64ffb6f6bc50e337be70b6f505c6424530769276af907b4c84711aac0dba9bf",
+      "bytes": 6271
+    },
+    "skills/typescript-quality-guard/references/type-modeling.md": {
+      "sha256": "cef586fb0cb439356b24c6a1559807b04142760e00ba6253b1ef4fb6a2f80703",
+      "bytes": 1673
+    }
+  }
+}

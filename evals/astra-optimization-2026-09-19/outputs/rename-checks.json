@@ -1,0 +1,52 @@
+[
+  {
+    "command": [
+      "/Users/j-ho/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "scripts/validate.py"
+    ],
+    "exit_code": 0,
+    "stdout": "PASS architecture-guard: basic metadata, portable contents, local references\nPASS code-quality-guard: basic metadata, portable contents, local references\nPASS engineering-workflow: basic metadata, portable contents, local references\nPASS react-quality-guard: basic metadata, portable contents, local references\nPASS refactoring-guard: basic metadata, portable contents, local references\nPASS tanstack-query-guard: basic metadata, portable contents, local references\nPASS typescript-quality-guard: basic metadata, portable contents, local references\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/j-ho/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/Users/j-ho/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+      "skills/engineering-workflow"
+    ],
+    "exit_code": 0,
+    "stdout": "Skill is valid!\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/bin/bash",
+      "scripts/install.sh",
+      "--skill",
+      "engineering-workflow",
+      "--mode",
+      "copy",
+      "--dest",
+      "/private/tmp/astra-optimization-20260919/install-smoke"
+    ],
+    "exit_code": 0,
+    "stdout": "install: /private/tmp/astra-optimization-20260919/install-smoke/engineering-workflow (copy)\nInstallation complete.\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/j-ho/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/Users/j-ho/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+      "/private/tmp/astra-optimization-20260919/install-smoke/engineering-workflow"
+    ],
+    "exit_code": 0,
+    "stdout": "Skill is valid!\n",
+    "stderr": ""
+  },
+  {
+    "check": "standalone-copy-and-rename",
+    "source_files_matched": 10,
+    "old_skill_absent": true,
+    "upstream_license_preserved": true
+  }
+]

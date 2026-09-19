@@ -1,0 +1,106 @@
+[
+  {
+    "name": "refactoring-baseline",
+    "command": [
+      "node",
+      "--test",
+      "checkout.test.mjs"
+    ],
+    "cwd": "/Users/j-ho/.codex/visualizations/2026/09/19/01a0b740-de71-7cb1-b710-d08141df3031/pstack-port/codex-skills/evals/astra-optimization-2026-09-19/fixtures/refactoring",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "\u2714 receipt and effect sequence, expedited=false (0.8915ms)\n\u2714 receipt and effect sequence, expedited=true (0.09825ms)\n\u2714 empty orders perform no effects (0.403792ms)\n\u2714 quote failure stops subsequent effects and preserves the error (0.125583ms)\n\u2714 audit failure stops subsequent effects and preserves the error (0.081833ms)\n\u2714 reserve failure stops subsequent effects and preserves the error (0.069ms)\n\u2714 ship failure stops subsequent effects and preserves the error (0.090334ms)\n\u2714 does not ship before reservation completes (3.653ms)\n\u2139 tests 8\n\u2139 suites 0\n\u2139 pass 8\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 52.207084\n",
+    "stderr": ""
+  },
+  {
+    "name": "refactoring-candidate",
+    "command": [
+      "node",
+      "--test",
+      "checkout.test.mjs"
+    ],
+    "cwd": "/private/tmp/astra-optimization-20260919/refactoring",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "\u2714 receipt and effect sequence, expedited=false (1.01275ms)\n\u2714 receipt and effect sequence, expedited=true (0.097333ms)\n\u2714 empty orders perform no effects (0.665541ms)\n\u2714 quote failure stops subsequent effects and preserves the error (0.111458ms)\n\u2714 audit failure stops subsequent effects and preserves the error (0.073458ms)\n\u2714 reserve failure stops subsequent effects and preserves the error (0.066041ms)\n\u2714 ship failure stops subsequent effects and preserves the error (0.084625ms)\n\u2714 does not ship before reservation completes (2.972083ms)\n\u2139 tests 8\n\u2139 suites 0\n\u2139 pass 8\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 51.3055\n",
+    "stderr": ""
+  },
+  {
+    "name": "typescript-baseline",
+    "command": [
+      "node",
+      "/Users/j-ho/Projects/into-sign/into-sign-client/node_modules/typescript/lib/tsc.js",
+      "--strict",
+      "--noEmit",
+      "--target",
+      "es2022",
+      "options.ts"
+    ],
+    "cwd": "/Users/j-ho/.codex/visualizations/2026/09/19/01a0b740-de71-7cb1-b710-d08141df3031/pstack-port/codex-skills/evals/astra-optimization-2026-09-19/fixtures/typescript",
+    "exit_code": 2,
+    "expected_exit_code": 2,
+    "stdout": "options.ts(9,23): error TS2345: Argument of type '{ mode: string; timeoutMs: number; }' is not assignable to parameter of type 'LoadOptions'.\n  Types of property 'mode' are incompatible.\n    Type 'string' is not assignable to type '\"cached\" | \"fresh\"'.\n",
+    "stderr": ""
+  },
+  {
+    "name": "query-ssr-read-only",
+    "changed_files": [],
+    "added_files": []
+  },
+  {
+    "name": "trace-read-only",
+    "changed_files": [],
+    "added_files": []
+  },
+  {
+    "name": "candidate-skills-unchanged",
+    "files_compared": 48,
+    "passed": true
+  },
+  {
+    "name": "typescript-candidate",
+    "command": [
+      "node",
+      "/Users/j-ho/Projects/into-sign/into-sign-client/node_modules/typescript/lib/tsc.js",
+      "--strict",
+      "--noEmit",
+      "--target",
+      "es2022",
+      "options.ts"
+    ],
+    "cwd": "/private/tmp/astra-optimization-20260919/typescript",
+    "exit_code": 0,
+    "expected_exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "name": "typescript-file-scope",
+    "changed_files": [
+      "options.ts"
+    ],
+    "task_unchanged": true,
+    "unexpected_files": []
+  },
+  {
+    "name": "tool-version",
+    "command": [
+      "node",
+      "--version"
+    ],
+    "exit_code": 0,
+    "stdout": "v24.16.0\n",
+    "stderr": ""
+  },
+  {
+    "name": "tool-version",
+    "command": [
+      "node",
+      "/Users/j-ho/Projects/into-sign/into-sign-client/node_modules/typescript/lib/tsc.js",
+      "--version"
+    ],
+    "exit_code": 0,
+    "stdout": "Version 6.0.3\n",
+    "stderr": ""
+  }
+]

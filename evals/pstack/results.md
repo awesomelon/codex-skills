@@ -8,7 +8,7 @@ Validation took place in a separate local checkout before publication. The evalu
 
 A standalone `pstack` skill with a 4,649-byte entrypoint, six task references, optional UI metadata, source/adaptation record, and the original MIT notice. The upstream `poteto-mode` entrypoint is 18,713 bytes. These are UTF-8 file sizes, not token counts or a measured speed/quality improvement; the adaptation intentionally has a narrower scope.
 
-The skill adds task orchestration to the existing collection without requiring the domain guards. It retains reproduction, comparable measurements, reviewed evidence, scoped delegation, and continuation. Cursor-specific commands/models, blanket skill chains, automatic PRs, broad external-action grants, cleanup, and the automation runtime are omitted. See [the source record](../../skills/pstack/references/sources.md) for the exact scope.
+The skill adds task orchestration to the existing collection without requiring the domain guards. It retains reproduction, comparable measurements, reviewed evidence, scoped delegation, and continuation. Cursor-specific commands/models, blanket skill chains, automatic PRs, broad external-action grants, cleanup, and the automation runtime are omitted. See [the source record at the evaluated revision](https://github.com/awesomelon/codex-skills/blob/02b3906e4a45cc4ea151df19c379248da30d62a7/skills/pstack/references/sources.md) for the exact scope.
 
 ## Executed structural and installation checks
 

@@ -55,6 +55,9 @@ These are evaluation inputs and expectations, distinct from actual execution. Re
 
 31. **Related form code in one file:** Improve a form around 1,000 lines whose state, validation, handlers, and JSX must be read together for the requested behavior change. Consider local components or hooks in the same file when they clarify the code; do not move each part into a new file to meet a line count. Explain any extraction through independent change, real reuse, or clearer verification. Preserve component identity, focus, form submission, and independent drafts; nearby code does not imply one shared state instance.
 
+32. **Content composition without a state redesign:** Review an additive `header` node prop for a stateless panel. All callers and the supported React version are supplied. Assess API compatibility and content placement using composition guidance without making state, performance, server, or source references prerequisites. Report supported findings; do not invent a reason to add a provider or broaden the review.
+33. **Reuse an established consumer boundary:** Add a second picker using its existing API and an independent draft; no component composition or shared-state boundary changes are needed. Verify isolation and the affected selection behavior without requiring a separate composition redesign. Report the implemented change and actual checks rather than a mandatory review report.
+
 ## Judgment
 
 Out-of-scope edits, unsupported APIs, changes to data/state semantics, and fabricated validation results are failures, even if a real bug is also found. Performance findings must distinguish observations from estimates and show how the smallest intervention addresses the actual trigger.

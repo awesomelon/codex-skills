@@ -33,6 +33,9 @@ These are inputs and expectations, not execution claims. Record actual runs sepa
 
 19. **Related query definitions stay readable:** Add a status filter to a cohesive feature module around 1,000 lines where query keys, request arguments, options, and cache updates must be read and modified together. Preserve their proximity when separate category files would only add coordinated edits. Split independently changing features or required server/client code when justified. Verify affected keys and cache behavior, and do not treat a count above or below 1,000 as a quality verdict.
 
+20. **SSR-only reference selection:** Review a supplied request-scoped server client and hydration setup with the installed version established and no persistence requirement. Use server-rendering guidance to assess isolation, safe transfer, timestamps, and browser freshness. Do not load offline/persistence guidance or add storage work solely because server guidance applies.
+21. **Client-only offline restoration:** Fix restoration of a persisted mutation in a browser-only app with existing persistence configured. Use offline/persistence and relevant mutation guidance, preserving replay safety and account storage scope. Do not make server-rendering guidance, server client setup, or hydration architecture prerequisites.
+
 ## Execution method
 
 For independent execution, copy a fixture into a disposable directory and provide its TASK.md plus the standalone skill folder. Keep expectations and previous outputs out of the agent's input. Compare file hashes for review-only runs. For implementation, run the supplied behavior check on the original and changed module and inspect the diff for unrelated edits.
