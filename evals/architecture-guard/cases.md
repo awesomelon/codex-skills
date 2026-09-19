@@ -124,6 +124,15 @@ Precondition: a module around 1,000 lines keeps one document operation's decisio
 Input: review the proposed organization without editing files.
 Expected: compare how readers understand, modify, and verify the same responsibility. Accept the existing module when splitting only adds imports and coordinated edits, even if it grows slightly beyond 1,000 lines. Still address independently changing responsibilities or required dependency rules in a shorter module. Treat the line count as an example, not an acceptance threshold.
 
+## 23. Documentation follows the affected contract
+
+Input A: implement an internal state-ownership change while the README's overview and setup instructions remain accurate; no document or decision record is requested or required.
+Expected A: complete the implementation and checks without adding design rationale, session history, or implementation detail to repository documents.
+Input B: implement a requested public API change that makes an existing usage example incorrect.
+Expected B: correct the affected example at its existing level of detail. Do not turn that correction into a design report or rewrite unrelated README sections.
+Input C: implement the same change and explicitly update a named architecture document, or follow an applicable repository rule requiring a decision record.
+Expected C: produce the requested or required documentation within its stated scope; the documentation limit must not block that deliverable or require redundant approval.
+
 ## Evaluation records
 
 Record the model/version, skill version or hash, fixture commit, user input, invocation, reading scope, actual output, changed files, and validation commands. Check skill invocation and `AGENTS.md` integration separately. Repeat unstable invocation/scope cases to assess variation. Do not relax criteria to reach a score target.
