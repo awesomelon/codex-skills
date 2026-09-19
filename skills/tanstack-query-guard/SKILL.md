@@ -21,7 +21,8 @@ The references target TanStack Query v5. Check the installed version and types w
 | Request failures, cancellation, parallel reads, subscriptions | [Requests and rendering](references/requests-and-rendering.md) |
 | Saving data, cache updates, optimistic UI, concurrent writes | [Mutations](references/mutations.md) |
 | Pagination, infinite lists, route loading, prefetching | [Pagination and prefetch](references/pagination-and-prefetch.md) |
-| Server rendering, persisted caches, offline requests | [Server and offline](references/server-and-offline.md) |
+| Request-scoped clients, server prefetching, hydration | [Server rendering](references/server-rendering.md) |
+| Network modes, persisted caches, restoring mutations | [Offline and persistence](references/offline-and-persistence.md) |
 | Attribution, upstream comparison, updating this skill | [Sources](references/sources.md) |
 
 Read only what the current decision needs. A small query fix does not require server/offline guidance or another review skill. Use existing checks that exercise the changed cache or request behavior; distinguish code inspection from executed runtime checks and measured performance.

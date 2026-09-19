@@ -31,4 +31,4 @@ For dependent PRs, verify their actual base/head relationships and coordinate ow
 
 Inspect the final artifact and diff, including accidental changes. A PR description should explain the user-visible result, significant design decisions, actual validation, and remaining limits. Follow the repository's commit and delivery conventions.
 
-Prepare concrete work before requesting any genuinely missing authorization. Existing permission to perform that exact action need not be requested again. After creating a PR in Codex, attach it to the current task when that capability is available. Report completed remote actions separately from prepared local work.
+Prepare concrete work before requesting any genuinely missing authorization. Existing permission to perform that exact action need not be requested again. After creating a PR, attach it to the current task when that capability is available. Report completed remote actions separately from prepared local work.

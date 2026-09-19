@@ -1,0 +1,49 @@
+{
+  "unit": "UTF-8 bytes of SKILL.md and agents/openai.yaml; not tokens, latency, or quality",
+  "skills": [
+    {
+      "skill": "architecture-guard",
+      "baseline_entrypoint_and_ui_bytes": 3966,
+      "candidate_entrypoint_and_ui_bytes": 3980,
+      "difference": 14
+    },
+    {
+      "skill": "code-quality-guard",
+      "baseline_entrypoint_and_ui_bytes": 3996,
+      "candidate_entrypoint_and_ui_bytes": 3996,
+      "difference": 0
+    },
+    {
+      "skill": "pstack",
+      "baseline_entrypoint_and_ui_bytes": 4924,
+      "candidate_entrypoint_and_ui_bytes": 3631,
+      "difference": -1293
+    },
+    {
+      "skill": "react-quality-guard",
+      "baseline_entrypoint_and_ui_bytes": 3863,
+      "candidate_entrypoint_and_ui_bytes": 3938,
+      "difference": 75
+    },
+    {
+      "skill": "refactoring-guard",
+      "baseline_entrypoint_and_ui_bytes": 6653,
+      "candidate_entrypoint_and_ui_bytes": 3193,
+      "difference": -3460
+    },
+    {
+      "skill": "tanstack-query-guard",
+      "baseline_entrypoint_and_ui_bytes": 2942,
+      "candidate_entrypoint_and_ui_bytes": 3063,
+      "difference": 121
+    },
+    {
+      "skill": "typescript-quality-guard",
+      "baseline_entrypoint_and_ui_bytes": 2999,
+      "candidate_entrypoint_and_ui_bytes": 2550,
+      "difference": -449
+    }
+  ],
+  "baseline_total": 29343,
+  "candidate_total": 24351
+}

@@ -51,6 +51,10 @@ These are expectations. Record actual execution in [results.md](results.md); wri
 
 31. **Stale delegated verification:** A worker reports passing checks before another change alters a dependency. Reuse only evidence applicable to the integrated code and conditions; run the affected check or state the remaining uncertainty. Do not describe an unrun integration check as passed.
 
+32. **Qualitative comparison without a metric inventory:** Compare two supplied policy implementations in a short paragraph using their ownership, edit points, and verification cost. Inspect the same contract and scope without collecting unrelated analyzer versions or reporting unrequested complexity/clone metrics. Preserve the supplied files and distinguish inference from observed changes. Paired numerical request: when the user requests analyzer-derived metrics, record relevant tools, versions, configuration, language support, and scope; report unavailable requested metrics as unmeasured.
+
+33. **Relevant alternatives only:** Review a duplicated eligibility policy where existing consumers and the required dependency direction make a local shared function the only supported remedy. Explain its benefit and tradeoff without inventing a boundary redesign to satisfy a three-option itinerary. Consider a different boundary when actual ownership or dependencies make that alternative material. Preserve review-only inputs.
+
 ## Judgment
 
 Editing review-only inputs, fabricating evidence/results, and breaking contracts to optimize metrics are failures. Lower LOC or higher scores cannot offset them. Explicit-invocation evaluation does not establish automatic selection, macOS operation, or effectiveness across languages.

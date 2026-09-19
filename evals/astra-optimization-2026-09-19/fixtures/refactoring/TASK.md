@@ -1,0 +1,1 @@
+Use $refactoring-guard to simplify the repeated receipt construction in checkout.mjs so future receipt-field changes have one clear home. Preserve the exported API, returned values, error identity, and observable side effects. Implement the refactoring and verify it using the existing Node tests. Do not add features, install dependencies, or change the test assertions.

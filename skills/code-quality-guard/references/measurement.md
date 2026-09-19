@@ -2,9 +2,11 @@
 
 ## Comparable conditions
 
-Record the baseline commit/snapshot, target files and languages, tools with versions and configuration, and excluded paths. Use the same conditions before and after. Separate product code, tests, generated code, vendor files, and lockfiles; do not count file moves or renames as improvements. Include added and deleted files. Do not invent deltas without a baseline.
+Identify the compared snapshots and scope, including added and deleted files. Use the same requirements and evaluation criteria before and after; do not invent deltas without a baseline. A qualitative comparison may be supported by code paths and observed edit points without numerical metrics.
 
-Prefer analyzers, lint, type checks, and test tools already in the project. Do not use automatic fixes or snapshot-update options during a review. If a tool is unavailable, report AST complexity or clone rate as unmeasured with qualitative evidence, rather than estimating by eye or regex. Do not add dependencies or CI simply to populate metrics unless separately requested.
+For tool-derived measurements, record relevant languages, tool versions, configuration, and excluded paths. Keep measurement conditions comparable and distinguish product code, tests, generated code, vendor files, and lockfiles in aggregates. File moves or renames alone are not quality improvements.
+
+Use existing project tools for requested measurements and behavior checks. Do not use automatic fixes or snapshot-update options during a review. If a required analyzer is unavailable, report the requested metric as unmeasured with qualitative evidence, rather than estimating AST complexity or clone rate by eye or regex. Do not add dependencies or CI simply to populate metrics unless separately requested.
 
 Compare two implementations against the same requirements, tests, and scope. Allow ties or withheld judgment when the difference is unclear. If order or author labels could affect the conclusion, consider hiding labels and reversing the order. This reassessment does not replace a correctness oracle and is not needed for every single-implementation review.
 

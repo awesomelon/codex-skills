@@ -1,0 +1,4 @@
+interface:
+  display_name: "Engineering Workflow"
+  short_description: "Engineering workflows with inspectable evidence"
+  default_prompt: "Use $engineering-workflow for the requested engineering task."

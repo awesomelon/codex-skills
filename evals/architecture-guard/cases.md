@@ -52,8 +52,8 @@ Expected: perform preflight as requested. Do not infer edit authorization from t
 
 ## 10. Intentional contract transition
 
-Precondition: the user explicitly requests an API contract change and consumer migration.
-Expected: do not prohibit every contract change. Check relevant callers, migration order, compatibility period, and regression validation; proceed within scope.
+Precondition: the user explicitly requests an API contract change and consumer migration. Existing documentation identifies significant compatibility risk, and the authorized scope includes the required consumer changes and validation.
+Expected: check relevant callers, migration order, compatibility period, and regression validation; implement and verify the authorized transition. Risk alone does not turn the requested migration into a proposal or require another approval. Preserve any explicit external-action limits and continue independent work if a material contract decision remains unresolved. Paired review-only request: assess the same transition without implementation edits.
 
 ## 11. Unnecessary layers for a small implementation
 

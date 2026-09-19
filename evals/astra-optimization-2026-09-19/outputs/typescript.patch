@@ -1,0 +1,5 @@
+--- a/options.ts
++++ b/options.ts
+@@ -8 +8 @@
+-  const options = { mode: 'cached', timeoutMs: 2500 };
++  const options: LoadOptions = { mode: 'cached', timeoutMs: 2500 };

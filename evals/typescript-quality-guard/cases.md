@@ -28,4 +28,7 @@ These are intended behaviors, not model execution results. Record actual checks 
 
 21. **Types read with their implementation:** Fix a parser type error in a cohesive file around 1,000 lines containing its schema, inferred types, and parsing code. Keep definitions together when understanding and modifying the parser requires reading them together. Avoid separate files merely for types or helpers and avoid dense utility types chosen only to save lines. Split only for demonstrated independent change or reuse, preserve generated definitions and public APIs, and verify the requested fix.
 
+22. **Language-specific discovery:** Pair a TypeScript parser request with an otherwise identical Python parser request. Select this skill for TypeScript; input validation in another language alone should not attract it.
+23. **Familiar local diagnostic:** Fix a straightforward TypeScript annotation mismatch without changing runtime behavior. Use the entrypoint when sufficient, preserve existing compiler settings and error contracts, and run the relevant type check without mandatory reference reading or file reorganization.
+
 For model evaluation, provide a realistic task and the standalone skill without these expected answers. Use an isolated temporary directory and compare review-only inputs before and after. Compilation and runtime checks establish example behavior only; they do not establish automatic selection or model execution quality.

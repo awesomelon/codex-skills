@@ -1,6 +1,6 @@
 # codex-skills
 
-A personal collection of Codex skills to install and update on multiple Macs. The supported user environment is macOS.
+A personal collection of reusable engineering skills to install and update on multiple Macs. The supported user environment is macOS.
 
 GitHub repository: [awesomelon/codex-skills](https://github.com/awesomelon/codex-skills).
 
@@ -8,15 +8,17 @@ GitHub repository: [awesomelon/codex-skills](https://github.com/awesomelon/codex
 
 | Skill | Purpose |
 | --- | --- |
-| [pstack](skills/pstack/SKILL.md) | Coordinate evidence-led debugging, measured optimization, multi-step delivery, and continuation. Select only the workflow needed; routine edits need no orchestration. |
+| [engineering-workflow](skills/engineering-workflow/SKILL.md) | Coordinate evidence-led debugging, measured optimization, multi-step delivery, and continuation. Select only the workflow needed; routine edits need no orchestration. |
 | [architecture-guard](skills/architecture-guard/SKILL.md) | Design and review module boundaries, dependency direction, shared-state ownership, and contracts between modules. Local edits without boundary impact need no architecture review. |
 | [react-quality-guard](skills/react-quality-guard/SKILL.md) | Design and improve React components, composition, hooks, state, and performance. Choose variants and shared providers while preserving independent interaction state. |
 | [code-quality-guard](skills/code-quality-guard/SKILL.md) | Design and implement shared business rules using practical SOLID, design pattern, and YAGNI criteria; review, improve, and compare maintainability using evidence of actual change costs. |
-| [refactoring-guard](skills/refactoring-guard/SKILL.md) | Plan, perform, and review behavior-preserving refactoring using Martin Fowler's small, verified transformations. |
-| [tanstack-query-guard](skills/tanstack-query-guard/SKILL.md) | Design, implement, and review Query behavior using task-specific v5 guidance. Keep shared query definitions consistent when readers, filters, or writes are added. |
-| [typescript-quality-guard](skills/typescript-quality-guard/SKILL.md) | Design and review TypeScript types, fix diagnostics, and implement or review input validation. |
+| [refactoring-guard](skills/refactoring-guard/SKILL.md) | Plan, perform, and review behavior-preserving refactoring. Load baseline, effect-order, and recovery guidance for substantive transformations. |
+| [tanstack-query-guard](skills/tanstack-query-guard/SKILL.md) | Design, implement, and review Query behavior using task-specific v5 guidance. Select cache, mutation, SSR, or offline guidance for the actual decision. |
+| [typescript-quality-guard](skills/typescript-quality-guard/SKILL.md) | Design, fix, and review TypeScript types and runtime input validation. Familiar local diagnostics can use the entrypoint alone. |
 
-For an engineering workflow, use `Use $pstack to reproduce this bug, fix it, and verify the result` or `Use $pstack to investigate this behavior without editing files`. This standalone adaptation of Lauren Tan's pstack selects task-specific guidance and uses available Codex capabilities. It does not install a persistent mode, require other guards or named models, or automatically publish PRs. Install only this skill with `bash scripts/install.sh --skill pstack`. See its [source and adaptation record](skills/pstack/references/sources.md), [evaluation cases](evals/pstack/cases.md), and [actual validation](evals/pstack/results.md). The upstream automation and plugin runtime are not included.
+For an engineering workflow, use `Use $engineering-workflow to reproduce this bug, fix it, and verify the result` or `Use $engineering-workflow to investigate this behavior without editing files`. This standalone skill selects task-specific guidance and uses the current session's available capabilities. It does not install a persistent mode, require other guards or named models, or automatically publish PRs. Install only this skill with `bash scripts/install.sh --skill engineering-workflow`. See its [source and adaptation record](skills/engineering-workflow/references/sources.md), [evaluation cases](evals/engineering-workflow/cases.md), and [current evaluation](evals/astra-optimization-2026-09-19/results.md).
+
+`engineering-workflow` was previously named `pstack`. Update explicit invocations and installer selections. If already installed, preserve local edits and move the old entry outside skill discovery directories before installing the new name with your existing destination/mode options. For symlinks, preserve the source contents too; moving a link alone does not back up its target. The installer does not remove old names automatically, and no compatibility alias is installed. [Historical pstack results](evals/pstack/results.md) retain their original names and hashes.
 
 Across the collection, readability and maintainability take precedence over LOC, smaller files, or the smallest diff. Keep responsibilities together when understanding and changing them requires reading the same code. A cohesive file around 1,000 lines can be appropriate; this is neither a target nor a limit. Split when independent change, reuse, or verification becomes clearer after accounting for extra navigation and coordinated edits. Each skill carries the relevant criteria for standalone use.
 
@@ -61,6 +63,8 @@ The [2026-09-15 follow-up audit](docs/skill-audit-2026-09-15-followup.md) covers
 The [2026-09-16 follow-up audit](docs/skill-audit-2026-09-16.md) records the five-entrypoint inspection, code-quality reference routing, selective-install examples, and the limits of source retrieval and validation.
 
 The [Astra refinement](docs/astra-refinement-2026-09-16.md) records the fresh article check, focused discovery and workflow updates, upstream ideas considered, and independent evaluation limits.
+
+The [2026-09-19 Astra optimization](docs/astra-optimization-2026-09-19.md) covers all seven skills and the `engineering-workflow` rename: smaller entrypoints, conditional references, relevant comparison evidence, and completion of authorized work. Its [five fresh evaluations](evals/astra-optimization-2026-09-19/results.md) separate observed task behavior from unmeasured discovery and performance effects.
 
 The [upstream comparison audit](docs/skill-audit-2026-09-16-upstream.md) records selective Ponytail/ECC/pstack adoption, unchanged discovery metadata, and the calibrated simplification fixture. The existing [improvement prompt](prompts/improve-skills.md) also supports bounded parallel audits and implementation when useful.
 

@@ -8,7 +8,7 @@ For PRs, use verified base/head and their merge base; for local work, include st
 
 For a requested extension, or when future change cost affects the judgment, trace one concrete addition from requirements or history through its edit points and relevant checks. Separate estimated effort from observed work. A review describes that addition without implementing it; use [measurement.md](measurement.md) when an isolated change experiment is requested.
 
-Compare keeping the structure, a local fix, and a boundary adjustment. Consolidate ownership of policies that change for the same reason; preserve similar-looking policies that change independently. Before calling code unused, check actual entry points, dynamic registration, and re-exports.
+Compare alternatives that could materially change the judgment, such as keeping the structure, a local fix, or a boundary adjustment. Consolidate ownership of policies that change for the same reason; preserve similar-looking policies that change independently. Before calling code unused, check actual entry points, dynamic registration, and re-exports.
 
 ## Simplification and dependency removal
 

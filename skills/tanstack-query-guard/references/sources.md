@@ -16,7 +16,8 @@ This is an adaptation, not an official TanStack release or an automatic upstream
 | `err-error-boundaries`, `err-retry-config`, `query-cancellation`, `parallel-use-queries`, other `perf-*` | [Requests and rendering](requests-and-rendering.md) |
 | `mut-*` | [Mutations](mutations.md) |
 | `inf-*`, `pf-*` | [Pagination and prefetch](pagination-and-prefetch.md) |
-| `ssr-*`, `network-mode`, `persist-queries` | [Server and offline](server-and-offline.md) |
+| `ssr-*` | [Server rendering](server-rendering.md) |
+| `network-mode`, `persist-queries` | [Offline and persistence](offline-and-persistence.md) |
 
 ## Corrections and conditional choices
 
