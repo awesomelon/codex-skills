@@ -20,6 +20,8 @@ For orchestration, use `Use $engineering-orchestrator to coordinate this migrati
 
 The [pstack port review](evals/pstack-port-2026-09-19/results.md) adds conditional runtime verification and revision-aware delivery guidance to Engineering Orchestrator, plus defect-oriented regression-test assessment to Code Quality Guard. Existing drivers and configured runtime capabilities remain sufficient; no routing hook, model panel, or background service is installed.
 
+The [discovery and UI metadata audit](evals/skill-discovery-2026-09-19/results.md) compares current OpenAI, Anthropic, Vercel, pstack, ECC, and Ponytail guidance. Existing discovery descriptions remain intact; four UI task starters are shorter, and development validation catches stale skill invocations and invalid policy types. The record separates metadata-only selection, task execution, and structural checks.
+
 `engineering-orchestrator` replaces `engineering-workflow` (earlier `pstack`). Update explicit invocations and installer selections. If already installed, preserve local edits and move the old entry outside skill discovery directories before installing the new name with your existing destination/mode options. For symlinks, preserve the source contents too; moving a link alone does not back up its target. The installer does not remove old names automatically, and no compatibility alias is installed. Historical evaluation inputs, results, and hashes retain the name used for their run.
 
 Across the collection, readability and maintainability take precedence over LOC, smaller files, or the smallest diff. Keep responsibilities together when understanding and changing them requires reading the same code. A cohesive file around 1,000 lines can be appropriate; this is neither a target nor a limit. Split when independent change, reuse, or verification becomes clearer after accounting for extra navigation and coordinated edits. Each skill carries the relevant criteria for standalone use.
@@ -194,7 +196,7 @@ The optional [simplification fixture calibration](tests/test_quality_simplificat
 
 For significant instruction changes, run the relevant behavioral cases and record actual results. Existing sufficient checks need not be repeated solely to produce another report.
 
-`validate.py` is a small check for this repository's single-line `name`/`description` convention and local references. It is neither a general YAML parser nor an official Codex validator. Evaluate invocation, non-invocation, and execution quality separately using `evals/` scenarios.
+`validate.py` checks this repository's single-line `name`/`description` convention, portable local references, and known fields in optional `agents/openai.yaml`. UI strings use JSON quoting and two-space indentation; supplied prompts must invoke the current skill, short descriptions use 25–64 characters, and invocation policy uses a boolean. It does not validate the entire YAML schema or dependency declarations and is not an official Codex validator. Evaluate invocation, non-invocation, and execution quality separately using `evals/` scenarios.
 
 ## References
 

@@ -1,0 +1,19 @@
+[
+  {
+    "run": "metadata-selection",
+    "task": "Select the useful skills for each independent user request in queries.json, using only the names and descriptions in catalog.json. Return a JSON array of {id, selected: [skill names], reason: concise sentence}. An empty selection is allowed; select every skill whose guidance materially helps the request, not every keyword match. Do not execute the user requests or inspect skill bodies, repository files, other evaluations, or external sources. This is a metadata-only selection task, not a live invocation. Read only those two supplied files and return the JSON in your final answer; do not write files.",
+    "note": "Workspace prefixes omitted; selection results normalized without changing selected names."
+  },
+  {
+    "run": "quality-ui-review",
+    "fixture": "evals/code-quality-guard/fixtures/policy",
+    "task": "Use the supplied standalone code-quality-guard skill. Read its agents/openai.yaml default_prompt as the selected task starter and apply SKILL.md as relevant. User request: Review the document action module in the sibling work directory for correctness and maintainability, without creating or modifying any files. TASK.md describes the current contract. This snapshot has no historical baseline. Report supported findings and verification in Korean. Work only within this supplied skill and fixture; no network or unrelated repository reads. Do not delegate.",
+    "note": "Absolute workspace paths normalized to supplied standalone paths."
+  },
+  {
+    "run": "react-ui-implementation",
+    "fixture": "evals/react-quality-guard/fixtures/implementation",
+    "task": "Use the supplied standalone react-quality-guard skill. Read its agents/openai.yaml default_prompt as the selected task starter and apply SKILL.md as relevant. Complete the request in sibling work/TASK.md. This work directory is the complete supplied project. Edit only necessary files in work; keep skill inputs unchanged. No network, dependencies installation, delegation, or unrelated repository reads. Report the result and actual verification in Korean.",
+    "note": "Absolute workspace paths normalized to supplied standalone paths."
+  }
+]

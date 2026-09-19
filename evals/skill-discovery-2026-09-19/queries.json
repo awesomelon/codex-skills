@@ -1,0 +1,66 @@
+[
+  {
+    "id": "react-state",
+    "request": "모달에서 입력 중인 값이 부모 리렌더링 때 초기화돼. React 상태와 컴포넌트 identity를 검토해줘."
+  },
+  {
+    "id": "query-cache",
+    "request": "TanStack Query v5에서 저장 후 목록 캐시가 갱신되지 않아. mutation과 query key를 고쳐줘."
+  },
+  {
+    "id": "type-diagnostic",
+    "request": "이 TypeScript union 타입이 좁혀지지 않는 오류를 해결해줘."
+  },
+  {
+    "id": "architecture",
+    "request": "API DTO를 UI 모델로 변환하는 경계와 모듈 의존성 방향을 설계해줘."
+  },
+  {
+    "id": "shared-policy",
+    "request": "문서 목록, 상세, 일괄 메뉴에서 쓰는 동일한 삭제 가능 규칙을 한 곳에서 관리하게 구현해줘."
+  },
+  {
+    "id": "refactor",
+    "request": "공개 동작을 그대로 유지하면서 이 긴 계산 함수를 이해하기 쉽게 리팩터링해줘."
+  },
+  {
+    "id": "orchestration",
+    "request": "여러 패키지의 API 계약과 React 화면을 함께 마이그레이션해줘. 의존 작업을 나누고 통합 결과까지 검증해줘."
+  },
+  {
+    "id": "resume",
+    "request": "중단했던 여러 서비스 마이그레이션을 체크포인트부터 이어서 조율해줘."
+  },
+  {
+    "id": "copy-only",
+    "request": "React TSX의 버튼 문구만 저장에서 적용으로 바꿔줘. 동작은 그대로 둬."
+  },
+  {
+    "id": "style-only",
+    "request": "React 컴포넌트 버튼의 배경색 CSS만 파란색에서 회색으로 바꿔줘."
+  },
+  {
+    "id": "router-only",
+    "request": "TanStack Router의 URL 경로 이름만 바꿔줘. 데이터 조회나 Query는 쓰지 않아."
+  },
+  {
+    "id": "type-extension-only",
+    "request": "config.ts의 API 주소 문자열 하나만 변경해줘. 타입이나 구조는 바꾸지 마."
+  },
+  {
+    "id": "native",
+    "request": "React Native 화면에서 키보드가 입력칸을 가리는 배치 문제를 봐줘."
+  },
+  {
+    "id": "local-constant",
+    "request": "타임아웃 상수를 30초에서 45초로 바꿔줘. 다른 설계 변경은 없어."
+  },
+  {
+    "id": "review-readonly",
+    "request": "이 모듈의 유지보수성과 변경 비용만 검토해줘. 코드는 수정하지 마."
+  },
+  {
+    "id": "plan-readonly",
+    "request": "의존하는 세 작업의 수행 순서와 담당 범위만 계획해줘. 구현은 하지 마."
+  }
+]

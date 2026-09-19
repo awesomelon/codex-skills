@@ -1,0 +1,68 @@
+{
+  "baseline_commit": "90832a76688a28984b5b29c52d7bb140529dbf38",
+  "evaluation_runtime": "fresh subagents in the current Codex Work session; inherited model; runtime did not expose a model version",
+  "input_hashes": {
+    "code-quality-guard/skill/SKILL.md": "489095d0aa4998fb1e00050667017f0a5ccb2cdc01370c5d6bc2c83f43385743",
+    "code-quality-guard/work/detail.mjs": "713e05d389fab1ec7967b0719ab6b3a8eb9c2792636d9526549a5dd6723bf821",
+    "code-quality-guard/work/policy.test.mjs": "586f4bc0df40127f85c7565f15429653cea61ccba04caab81e794c1c1133df1b",
+    "code-quality-guard/work/list.mjs": "c8d146433782e2e56783e250e0b220be765ebdd7096caf6ea08630a2aceb4168",
+    "code-quality-guard/work/TASK.md": "baafffa701ad45df7f860aeb2694fd8caeb93ef1950147d7a573472dc09eb872",
+    "code-quality-guard/work/bulk.mjs": "fa01058ddd03be6e7cc74d5345c0f113197dab7d7916d59b878be5126188e352",
+    "code-quality-guard/skill/references/implementation.md": "30bfda7b8afd1b408b7b6627d55579065b00a50a539657650d6f6b9231e3b267",
+    "code-quality-guard/skill/references/measurement.md": "2c70dc6b5b4d76b97935deb6ff6c39c733ded6e582f8a521ccb7d0dbe3e1ecc7",
+    "code-quality-guard/skill/references/earendil-metrics.md": "fecfdaee836b60cffd54bd95fd7a28fea75ab68441d4ad99252c51a5b5686f82",
+    "code-quality-guard/skill/references/review.md": "cd9a9df0ad4e73d982a0489028dbc1f617f821a2036b34cbf38a7bf92af93bd8",
+    "code-quality-guard/skill/references/scoring.md": "bd5717e1bc9c87b22f91fc94acd773ec090bc19f4f7cef0f6b5df94f3e31ee05",
+    "code-quality-guard/skill/references/pstack-LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+    "code-quality-guard/skill/agents/openai.yaml": "d80d90d76a5ceb12fd35d863d362e2e97bf2b6a6412695d4d2ae13b0aa2733a6",
+    "react-quality-guard/skill/SKILL.md": "041edc8532ff93b15270f62378fd9da8a3cbd6a1cf9b34f16b07769d2ef7b2c3",
+    "react-quality-guard/work/DocumentPicker.tsx": "13cc6c5aea62ef00b3d4188b54fbecf41e3ae1745452d77646d5c6d71a87b721",
+    "react-quality-guard/work/package.json": "a3aac6778a37596a8190b555b288f704d6217c1c2a01f098cc8498826c3487b4",
+    "react-quality-guard/work/TASK.md": "5481e6f1be972e52416fcbdf608fd38976440aaba961df77650f6448f83ea25d",
+    "react-quality-guard/skill/references/sources.md": "d420ed55174cb442a0c506e6641c8f61d97e2dfaa0a797d546497bad64857bd3",
+    "react-quality-guard/skill/references/server-react.md": "c0ca19b18fa53c7a52c09f7932604f654aa18c85300bec88968053f0e4dd5d44",
+    "react-quality-guard/skill/references/react-correctness.md": "2c1097df229aafb3e3dde0eecd06c4b63aba8998c6640963c7bd610b653326c8",
+    "react-quality-guard/skill/references/performance.md": "a2ac07be758394f59c8c37012c37ac04f5356366836b2435c0a929651b2f9e33",
+    "react-quality-guard/skill/references/composition.md": "156120fec3f2fe9bb3df9ddbac2ee609a81684fb70a85167b3b466bde5e05a6f",
+    "react-quality-guard/skill/agents/openai.yaml": "e695024731794f6fbe230284f13517fdfd445e5982ca3be6d9d94acb340ff6e1"
+  },
+  "output_hashes": {
+    "code-quality-guard/skill/SKILL.md": "489095d0aa4998fb1e00050667017f0a5ccb2cdc01370c5d6bc2c83f43385743",
+    "code-quality-guard/work/detail.mjs": "713e05d389fab1ec7967b0719ab6b3a8eb9c2792636d9526549a5dd6723bf821",
+    "code-quality-guard/work/policy.test.mjs": "586f4bc0df40127f85c7565f15429653cea61ccba04caab81e794c1c1133df1b",
+    "code-quality-guard/work/list.mjs": "c8d146433782e2e56783e250e0b220be765ebdd7096caf6ea08630a2aceb4168",
+    "code-quality-guard/work/TASK.md": "baafffa701ad45df7f860aeb2694fd8caeb93ef1950147d7a573472dc09eb872",
+    "code-quality-guard/work/bulk.mjs": "fa01058ddd03be6e7cc74d5345c0f113197dab7d7916d59b878be5126188e352",
+    "code-quality-guard/skill/references/implementation.md": "30bfda7b8afd1b408b7b6627d55579065b00a50a539657650d6f6b9231e3b267",
+    "code-quality-guard/skill/references/measurement.md": "2c70dc6b5b4d76b97935deb6ff6c39c733ded6e582f8a521ccb7d0dbe3e1ecc7",
+    "code-quality-guard/skill/references/earendil-metrics.md": "fecfdaee836b60cffd54bd95fd7a28fea75ab68441d4ad99252c51a5b5686f82",
+    "code-quality-guard/skill/references/review.md": "cd9a9df0ad4e73d982a0489028dbc1f617f821a2036b34cbf38a7bf92af93bd8",
+    "code-quality-guard/skill/references/scoring.md": "bd5717e1bc9c87b22f91fc94acd773ec090bc19f4f7cef0f6b5df94f3e31ee05",
+    "code-quality-guard/skill/references/pstack-LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+    "code-quality-guard/skill/agents/openai.yaml": "d80d90d76a5ceb12fd35d863d362e2e97bf2b6a6412695d4d2ae13b0aa2733a6",
+    "react-quality-guard/skill/SKILL.md": "041edc8532ff93b15270f62378fd9da8a3cbd6a1cf9b34f16b07769d2ef7b2c3",
+    "react-quality-guard/work/DocumentPicker.tsx": "8a069f468804c38b6a5ddf01ec2996cf35d3735ce41d5ed063b499eab3918bf9",
+    "react-quality-guard/work/package.json": "a3aac6778a37596a8190b555b288f704d6217c1c2a01f098cc8498826c3487b4",
+    "react-quality-guard/work/TASK.md": "5481e6f1be972e52416fcbdf608fd38976440aaba961df77650f6448f83ea25d",
+    "react-quality-guard/skill/references/sources.md": "d420ed55174cb442a0c506e6641c8f61d97e2dfaa0a797d546497bad64857bd3",
+    "react-quality-guard/skill/references/server-react.md": "c0ca19b18fa53c7a52c09f7932604f654aa18c85300bec88968053f0e4dd5d44",
+    "react-quality-guard/skill/references/react-correctness.md": "2c1097df229aafb3e3dde0eecd06c4b63aba8998c6640963c7bd610b653326c8",
+    "react-quality-guard/skill/references/performance.md": "a2ac07be758394f59c8c37012c37ac04f5356366836b2435c0a929651b2f9e33",
+    "react-quality-guard/skill/references/composition.md": "156120fec3f2fe9bb3df9ddbac2ee609a81684fb70a85167b3b466bde5e05a6f",
+    "react-quality-guard/skill/agents/openai.yaml": "e695024731794f6fbe230284f13517fdfd445e5982ca3be6d9d94acb340ff6e1"
+  },
+  "changed_files": [
+    "react-quality-guard/work/DocumentPicker.tsx"
+  ],
+  "parent_derivation_check": {
+    "command": "node evals/skill-discovery-2026-09-19/check-picker.mjs",
+    "exit_code": 0,
+    "assertions": 9
+  },
+  "limitations": [
+    "Metadata-only selection, not live automatic invocation",
+    "One selection pass; no repeated estimate or A/B performance comparison",
+    "Two explicit UI-prompt task runs; architecture and Query UI prompts inspected but not separately executed",
+    "Linux runner; no macOS, React renderer, TypeScript compiler, browser, or model speed/token measurement"
+  ]
+}
