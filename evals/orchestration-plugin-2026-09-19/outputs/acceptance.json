@@ -1,0 +1,15 @@
+{
+  "command": [
+    "node",
+    "--test",
+    "evals/engineering-orchestrator/acceptance.test.mjs"
+  ],
+  "MIGRATION_PROJECT": "/tmp/orchestration-package-v9kdnymc/resume",
+  "exitCode": 0,
+  "baseline": {
+    "project": "evals/engineering-orchestrator/fixtures/migration",
+    "exitCode": 1,
+    "passed": 1,
+    "failed": 5
+  }
+}

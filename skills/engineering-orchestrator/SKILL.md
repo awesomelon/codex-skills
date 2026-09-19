@@ -19,7 +19,9 @@ Decompose by independently checkable outcomes, not arbitrary file counts or fixe
 
 Keep short or tightly coupled work local. Delegate when independent investigation, separable implementation, or a distinct review perspective is worth its coordination cost. Honor requested parallelism within available capabilities; do not manufacture workers or reconfigure the runtime when delegation is unavailable.
 
-Use available skill descriptions to select expertise for a concrete subtask. Load only the relevant skill or reference, and pass its usable location and purpose to the responsible worker. A skill provides guidance; it is not an agent. Multiple skills can serve one worker, and one skill can serve several disjoint tasks. No fixed panel or full guard sequence is required. If a specialist skill is unavailable, use the relevant guidance below and report only limitations that affect the result.
+Use available skill descriptions to select expertise for a concrete subtask. Resolve its name and resource location from the current catalog; plugin prefixes and installation paths can differ. Load only the relevant skill or reference, and pass its usable location and purpose to the responsible worker. A skill provides guidance; it is not an agent. Multiple skills can serve one worker, and one skill can serve several disjoint tasks. No fixed panel or full guard sequence is required. If a specialist skill is unavailable, use the relevant guidance below and report only limitations that affect the result.
+
+The coordinator owns scope, dependencies, shared decisions, and integration. Specialists inform the assigned technical decision without expanding its scope or imposing another workflow. Read [expertise boundaries](references/expertise.md) when several specialties overlap or their recommendations conflict; reuse established findings rather than repeating the same review under another skill.
 
 Read [coordination](references/coordination.md) when delegating, changing ownership, or integrating delegated results. Keep useful complementary work local while workers run.
 

@@ -1,0 +1,40 @@
+{
+  "changedFiles": {
+    "resume/checkpoint.json": {
+      "before": "decb5339f733b970f66be274d2e5c0e76ebc58242434368d75c4c40c61a39f63",
+      "after": "e41ff86f6febcf197521647dd104a42745308b5ca124ff67d89b8ee3a4cc6e86"
+    },
+    "resume/consumer.mjs": {
+      "before": "c87814ef88f244596d7a4b239e9064db8048152bd0c3d4630a749c0613395399",
+      "after": "28592237cd73a595c46df629a02a113cea7a250009c2c47c5d425cdda7413db6"
+    },
+    "resume/contract.mjs": {
+      "before": "aed4a3dc1c10de7490d63f07c510f590cb8f54673f76e5ee0afe9bd387ae2b49",
+      "after": "1c53c7c7e80bac3eaf0702cee262033b65322c90c0245a7e805d348194ff0e94"
+    },
+    "resume/exchange.test.mjs": {
+      "before": "8b98ac9ca991a794932286245b4fffdc7d5a8ab5c1d0851211be97cb0f055acf",
+      "after": "41e4b4627d5d55f85b80bb6c859bf3458f172bbf90fd5db484f18b13454c7170"
+    },
+    "resume/producer.mjs": {
+      "before": "670bb615834cda451ab01c1a38989dae7a3bd410f9f668aef4bac3435bf768a0",
+      "after": "ddc2e96dab8bedc4628b6003a07ad01ce07434395cf181c296bc1217366d8268"
+    },
+    "tiny/README.md": {
+      "before": "ed9e6dc8e0a967a36192ed5ac3e0da86faa9bfcb4859aa5097d709d5d8c42599",
+      "after": "3129c097072fe0049287c66ad4e0f0f9007a9010689072aabdab82f45547b628"
+    }
+  },
+  "assertions": {
+    "tinyExactReplacement": true,
+    "planningUnchanged": true,
+    "handoffsUnchanged": true,
+    "skillResourcesUnchanged": true,
+    "resumeUnrelatedNoteUnchanged": true
+  },
+  "environment": {
+    "system": "Linux",
+    "python": "3.12.14",
+    "node": "v24.19.0"
+  }
+}
