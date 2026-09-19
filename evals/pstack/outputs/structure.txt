@@ -1,0 +1,7 @@
+PASS architecture-guard: basic metadata, portable contents, local references
+PASS code-quality-guard: basic metadata, portable contents, local references
+PASS pstack: basic metadata, portable contents, local references
+PASS react-quality-guard: basic metadata, portable contents, local references
+PASS refactoring-guard: basic metadata, portable contents, local references
+PASS tanstack-query-guard: basic metadata, portable contents, local references
+PASS typescript-quality-guard: basic metadata, portable contents, local references

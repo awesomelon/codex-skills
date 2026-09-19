@@ -8,12 +8,15 @@ GitHub repository: [awesomelon/codex-skills](https://github.com/awesomelon/codex
 
 | Skill | Purpose |
 | --- | --- |
+| [pstack](skills/pstack/SKILL.md) | Coordinate evidence-led debugging, measured optimization, multi-step delivery, and continuation. Select only the workflow needed; routine edits need no orchestration. |
 | [architecture-guard](skills/architecture-guard/SKILL.md) | Design and review module boundaries, dependency direction, shared-state ownership, and contracts between modules. Local edits without boundary impact need no architecture review. |
 | [react-quality-guard](skills/react-quality-guard/SKILL.md) | Design and improve React components, composition, hooks, state, and performance. Choose variants and shared providers while preserving independent interaction state. |
 | [code-quality-guard](skills/code-quality-guard/SKILL.md) | Design and implement shared business rules using practical SOLID, design pattern, and YAGNI criteria; review, improve, and compare maintainability using evidence of actual change costs. |
 | [refactoring-guard](skills/refactoring-guard/SKILL.md) | Plan, perform, and review behavior-preserving refactoring using Martin Fowler's small, verified transformations. |
 | [tanstack-query-guard](skills/tanstack-query-guard/SKILL.md) | Design, implement, and review Query behavior using task-specific v5 guidance. Keep shared query definitions consistent when readers, filters, or writes are added. |
 | [typescript-quality-guard](skills/typescript-quality-guard/SKILL.md) | Design and review TypeScript types, fix diagnostics, and implement or review input validation. |
+
+For an engineering workflow, use `Use $pstack to reproduce this bug, fix it, and verify the result` or `Use $pstack to investigate this behavior without editing files`. This standalone adaptation of Lauren Tan's pstack selects task-specific guidance and uses available Codex capabilities. It does not install a persistent mode, require other guards or named models, or automatically publish PRs. Install only this skill with `bash scripts/install.sh --skill pstack`. See its [source and adaptation record](skills/pstack/references/sources.md), [evaluation cases](evals/pstack/cases.md), and [actual validation](evals/pstack/results.md). The upstream automation and plugin runtime are not included.
 
 Across the collection, readability and maintainability take precedence over LOC, smaller files, or the smallest diff. Keep responsibilities together when understanding and changing them requires reading the same code. A cohesive file around 1,000 lines can be appropriate; this is neither a target nor a limit. Split when independent change, reuse, or verification becomes clearer after accounting for extra navigation and coordinated edits. Each skill carries the relevant criteria for standalone use.
 

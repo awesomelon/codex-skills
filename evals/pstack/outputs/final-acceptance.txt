@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: late success cannot replace the newer result
+ok 1 - late success cannot replace the newer result
+  ---
+  duration_ms: 0.842
+  type: 'test'
+  ...
+# Subtest: late failure cannot replace the newer result
+ok 2 - late failure cannot replace the newer result
+  ---
+  duration_ms: 0.514792
+  type: 'test'
+  ...
+# Subtest: clear remains idle after pending resolve
+ok 3 - clear remains idle after pending resolve
+  ---
+  duration_ms: 0.103125
+  type: 'test'
+  ...
+# Subtest: clear remains idle after pending reject
+ok 4 - clear remains idle after pending reject
+  ---
+  duration_ms: 0.070625
+  type: 'test'
+  ...
+# Subtest: repeated identical queries are distinct user intents
+ok 5 - repeated identical queries are distinct user intents
+  ---
+  duration_ms: 0.094417
+  type: 'test'
+  ...
+# Subtest: active failure preserves error identity and completes the search
+ok 6 - active failure preserves error identity and completes the search
+  ---
+  duration_ms: 0.08375
+  type: 'test'
+  ...
+# Subtest: an older request cannot replace a newer loading state
+ok 7 - an older request cannot replace a newer loading state
+  ---
+  duration_ms: 0.085292
+  type: 'test'
+  ...
+# Subtest: independent controllers do not invalidate each other
+ok 8 - independent controllers do not invalidate each other
+  ---
+  duration_ms: 0.098083
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 50.682416

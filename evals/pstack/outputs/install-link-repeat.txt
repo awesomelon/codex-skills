@@ -1,0 +1,2 @@
+unchanged: /private/tmp/pstack-install-ey0jkukq/link/pstack (link)
+Installation complete.

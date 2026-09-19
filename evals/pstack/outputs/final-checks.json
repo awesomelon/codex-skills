@@ -1,0 +1,24 @@
+{
+  "ui_metadata": "pass",
+  "license_byte_identity": "pass",
+  "default_automatic_invocation_policy": "preserved",
+  "local_links": "pass",
+  "whitespace": "pass",
+  "checked_docs": [
+    "README.md",
+    "skills/pstack/SKILL.md",
+    "skills/pstack/references/review-and-delivery.md",
+    "skills/pstack/references/sources.md",
+    "skills/pstack/references/coordination.md",
+    "skills/pstack/references/investigation.md",
+    "skills/pstack/references/continuity.md",
+    "skills/pstack/references/performance.md",
+    "skills/pstack/references/changes.md",
+    "evals/pstack/results.md",
+    "evals/pstack/cases.md",
+    "evals/pstack/outputs/investigation-report.md",
+    "evals/pstack/outputs/status-report.md",
+    "evals/pstack/outputs/implementation-report.md",
+    "evals/pstack/fixtures/search-controller/README.md"
+  ]
+}
