@@ -1,0 +1,68 @@
+{
+  "base_commit": "b5f419a3c9a4c033e56824dd2f32306dcbf0b96c",
+  "agent": "fresh thread, inherited model defaults; exact backend build and token counts not recorded",
+  "node": "v24.19.0",
+  "changed_files": [
+    "ids.mjs",
+    "records.test.mjs"
+  ],
+  "fixture_sha256": {
+    "TASK.md": "bc2d7ea0747a45627e42c496c7bfbfe5acad63e2fcd5a0edeb7c01989a6f8b61",
+    "export.mjs": "74eafd98a9607d5ac3072eaf8fcf233ee73778aead1a300d85b5a2b5bbdbe600",
+    "ids.mjs": "d665958f934a1b7a5fbd8626d1e496397a147c334280081e2c77b7659ddaae0c",
+    "import.mjs": "29fcc43d391acb188825fec44f19d952163641f33bc8bb7823af7c7e84bfef4c",
+    "package.json": "67bf036e130c0a49ed6382244c295ba8bf8e9a3616d65d841183a8836a0e303d",
+    "records.test.mjs": "c66c100cc5a576081587d386dbe75c83949f975d4dc7909933fb33950898c939"
+  },
+  "output_sha256": {
+    "TASK.md": "bc2d7ea0747a45627e42c496c7bfbfe5acad63e2fcd5a0edeb7c01989a6f8b61",
+    "export.mjs": "74eafd98a9607d5ac3072eaf8fcf233ee73778aead1a300d85b5a2b5bbdbe600",
+    "ids.mjs": "5a522fc08cc6e66d66b6ec6935c66b2332ccf16a08868aa25aebf9d9c695f903",
+    "import.mjs": "29fcc43d391acb188825fec44f19d952163641f33bc8bb7823af7c7e84bfef4c",
+    "package.json": "67bf036e130c0a49ed6382244c295ba8bf8e9a3616d65d841183a8836a0e303d",
+    "records.test.mjs": "5dfe29b16cc702e3d440af33eb3243274704d63a61aa19c169b392579979a534"
+  },
+  "skills_sha256": {
+    "engineering-orchestrator": {
+      "LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+      "SKILL.md": "5c671136bc831020fdbf65d7962354f77e4d406176a0c19770870480c41cb0a2",
+      "THIRD_PARTY_NOTICES.md": "30a5039f327e01385a78e442126399e504ec72cca4f60ca526c3cc456783bf24",
+      "agents/openai.yaml": "dc8c5ba3adcea41902825d7bc5c8298d3c4ef9d348aef5fd2c10cb5b5eca53c1",
+      "references/changes.md": "455d8d2565db7aea400de6ab68190b224f8d6619047408f6b7de5c6a0c8b819a",
+      "references/continuity.md": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+      "references/coordination.md": "25733504f37f96ab107c5e437b7cde3350635a61f5b31a92c6da4a9c9a855e8d",
+      "references/expertise.md": "2b9724eed2e4dcd7a6aa4771e05fdc3fc261d86d5b13ccf5fbc204bc8a2acb2d",
+      "references/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+      "references/performance.md": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+      "references/review-and-delivery.md": "e15de0fac2587645dd6070cb1ec4f3315155e76fb17d30eaf5342d520e7cb967",
+      "references/sources.md": "f13e81be9f6192eac6c96e9a0eeedeb90675d329c66442e1a695d68a67d7cab8",
+      "references/spec-driven-changes.md": "c3b9f1ba1a4a20dd91b55f85903813598e898517c165080d6092f621f7234928",
+      "references/verification.md": "42954448676251b082b44a34105390184fe72d803d4826bb7e36aba80af0d498"
+    },
+    "code-quality-guard": {
+      "SKILL.md": "489095d0aa4998fb1e00050667017f0a5ccb2cdc01370c5d6bc2c83f43385743",
+      "agents/openai.yaml": "d80d90d76a5ceb12fd35d863d362e2e97bf2b6a6412695d4d2ae13b0aa2733a6",
+      "references/earendil-metrics.md": "fecfdaee836b60cffd54bd95fd7a28fea75ab68441d4ad99252c51a5b5686f82",
+      "references/implementation.md": "37e750f0f476a607fcd716552869be116c355137889947cc170be097277ccec5",
+      "references/measurement.md": "2c70dc6b5b4d76b97935deb6ff6c39c733ded6e582f8a521ccb7d0dbe3e1ecc7",
+      "references/ponytail-LICENSE": "fb1bc6909ac3ef82d5c22106e32ef682b0cff66788fa915fb9b53b15c9d2f3ab",
+      "references/pstack-LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+      "references/review.md": "cd9a9df0ad4e73d982a0489028dbc1f617f821a2036b34cbf38a7bf92af93bd8",
+      "references/scoring.md": "bd5717e1bc9c87b22f91fc94acd773ec090bc19f4f7cef0f6b5df94f3e31ee05"
+    }
+  },
+  "patch_replay": "all output files byte-identical",
+  "acceptance_before": {
+    "pass": 3,
+    "fail": 3
+  },
+  "acceptance_after": {
+    "pass": 6,
+    "fail": 0
+  },
+  "local_tests": {
+    "pass": 7,
+    "fail": 0
+  },
+  "checks": "all seven skills pass repository validator; both changed skills pass quick_validate.py; git diff --check passes"
+}

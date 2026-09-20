@@ -1,0 +1,98 @@
+✖ shared: normalized identity, stable order, no mutation (2.208372ms)
+✔ shared: exact boundary errors survive (0.574103ms)
+✖ export: normalized identity, stable order, no mutation (0.392541ms)
+✔ export: exact boundary errors survive (0.161063ms)
+✖ import: normalized identity, stable order, no mutation (0.327402ms)
+✔ import: exact boundary errors survive (0.191908ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 3
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 108.323025
+
+✖ failing tests:
+
+test at evals/ponytail-adoption-2026-09-20/acceptance.test.mjs:14:3
+✖ shared: normalized identity, stable order, no mutation (2.208372ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+      'beta',
+      'alpha',
+  +   'beta',
+  +   'alpha',
+      'gamma'
+    ]
+
+      at TestContext.<anonymous> (file:///workspace/scratch/4eb68078cbb7/codex-skills-audit/evals/ponytail-adoption-2026-09-20/acceptance.test.mjs:16:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'beta', 'alpha', 'beta', 'alpha', 'gamma' ],
+    expected: [ 'beta', 'alpha', 'gamma' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at evals/ponytail-adoption-2026-09-20/acceptance.test.mjs:14:3
+✖ export: normalized identity, stable order, no mutation (0.392541ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+      'beta',
+      'alpha',
+  +   'beta',
+  +   'alpha',
+      'gamma'
+    ]
+
+      at TestContext.<anonymous> (file:///workspace/scratch/4eb68078cbb7/codex-skills-audit/evals/ponytail-adoption-2026-09-20/acceptance.test.mjs:16:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'beta', 'alpha', 'beta', 'alpha', 'gamma' ],
+    expected: [ 'beta', 'alpha', 'gamma' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at evals/ponytail-adoption-2026-09-20/acceptance.test.mjs:14:3
+✖ import: normalized identity, stable order, no mutation (0.327402ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+      'beta',
+      'alpha',
+  +   'beta',
+  +   'alpha',
+      'gamma'
+    ]
+
+      at TestContext.<anonymous> (file:///workspace/scratch/4eb68078cbb7/codex-skills-audit/evals/ponytail-adoption-2026-09-20/acceptance.test.mjs:16:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'beta', 'alpha', 'beta', 'alpha', 'gamma' ],
+    expected: [ 'beta', 'alpha', 'gamma' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

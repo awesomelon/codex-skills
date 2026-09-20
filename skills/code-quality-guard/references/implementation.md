@@ -10,6 +10,10 @@ Use SOLID and design patterns as design aids when separating responsibilities, r
 
 For an addition already present in requirements, explain where its rule would change and how existing consumers would keep working. Choose a design that makes those requirements easy to understand, modify, and verify without unnecessary structure. Apply YAGNI by implementing only the requested behavior; extra options or a configurable rule system need actual differing requirements. Do not use YAGNI to omit validation, compatibility, or changes needed to keep the current code maintainable.
 
+When choosing a deliberately limited solution, identify the known constraint and the observed condition that would justify replacing it. Preserve explicit requirements; present a narrower alternative for discussion if it cannot meet them. Record a non-obvious limitation where maintainers need it, using existing conventions, without speculative TODOs or a new tracking system.
+
 When a non-obvious design choice needs explanation, give a brief rationale in the task response. This does not require adding rationale to repository files or creating a commit, PR, or report; follow the user's requested deliverables and applicable repository rules. A separate design approval is unnecessary when the decision is already supported by the task.
 
 Verify the shared decision through the affected public functions and at least the independently changing behavior relevant to the edit. Choose existing checks where suitable. Successful output alone does not establish easier extension: identify the rule definitions and consumer-specific decisions that a later change would touch. Record actual effort only when it was observed.
+
+The bounded-solution guidance selectively adapts [Ponytail](https://github.com/DietrichGebert/ponytail/blob/e3ba2aa6f1e6f0bc4d69eb09c9f0d0a93af56156/skills/ponytail/SKILL.md); its [MIT notice](ponytail-LICENSE) accompanies standalone installations.

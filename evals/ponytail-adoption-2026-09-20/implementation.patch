@@ -1,0 +1,66 @@
+--- a/ids.mjs
++++ b/ids.mjs
+@@ -9 +9,2 @@
+-  return [...new Set(values)].map(normalizeId);
++  const ids = [...new Set(values)].map(normalizeId);
++  return [...new Set(ids)];
+--- a/records.test.mjs
++++ b/records.test.mjs
+@@ -4,0 +5 @@
++import { normalizeId, normalizeIds } from './ids.mjs';
+@@ -12,0 +14,55 @@
++
++const whitespaceIds = Object.freeze([
++  ' beta ', 'alpha', 'beta', '\talpha\n', 'gamma-2', ' gamma-2 ', 'beta',
++]);
++const expectedIds = ['beta', 'alpha', 'gamma-2'];
++
++test('export deduplicates normalized IDs in first-occurrence order without mutating input', () => {
++  assert.equal(exportRecords(whitespaceIds),
++    JSON.stringify({ version: 1, ids: expectedIds }));
++});
++
++test('import deduplicates normalized IDs in first-occurrence order', () => {
++  assert.deepEqual(importRecords(JSON.stringify({ ids: whitespaceIds })), expectedIds);
++});
++
++test('normalization deduplicates whitespace variants and preserves iterable inputs', () => {
++  assert.deepEqual(normalizeIds(whitespaceIds), expectedIds);
++  assert.deepEqual(normalizeIds(new Set(whitespaceIds)), expectedIds);
++  assert.equal(normalizeId('\talpha-2\n'), 'alpha-2');
++});
++
++test('empty and nullish collections retain existing behavior', () => {
++  for (const values of [[], null, undefined]) {
++    assert.deepEqual(normalizeIds(values), []);
++    assert.equal(exportRecords(values), '{"version":1,"ids":[]}');
++  }
++  assert.deepEqual(importRecords('{"ids":[]}'), []);
++  assert.deepEqual(importRecords('{"ids":null}'), []);
++  assert.deepEqual(importRecords('{}'), []);
++});
++
++test('normalization, import and export preserve ID validation and error types', () => {
++  const cases = [
++    [42, TypeError, 'ID must be a string'],
++    [null, TypeError, 'ID must be a string'],
++    ['', RangeError, 'Invalid ID'],
++    [' \t ', RangeError, 'Invalid ID'],
++    ['Alpha', RangeError, 'Invalid ID'],
++    ['1alpha', RangeError, 'Invalid ID'],
++    ['alpha beta', RangeError, 'Invalid ID'],
++    ['alpha_', RangeError, 'Invalid ID'],
++  ];
++  for (const [value, error, message] of cases) {
++    assert.throws(() => normalizeId(value), { name: error.name, message });
++    const values = [' alpha ', 'alpha', value];
++    for (const operation of [
++      () => normalizeIds(values),
++      () => exportRecords(values),
++      () => importRecords(JSON.stringify({ ids: values })),
++    ]) {
++      assert.throws(operation, { name: error.name, message });
++    }
++  }
++  assert.throws(() => importRecords('{'), SyntaxError);
++});

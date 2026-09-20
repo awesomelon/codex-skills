@@ -8,6 +8,8 @@ Reproduce the reported failure before choosing a fix. Match the trigger, data, t
 
 Trace the failure to the responsible state transition or contract. Choose a test or observation that separates the surviving hypothesis from its strongest alternative. Use temporary instrumentation only when permitted and needed, and remove your diagnostic additions before delivery unless they are useful project diagnostics.
 
+Inspect callers of the suspected owner, including paths outside the reported symptom. Fix a shared cause at that owner when the callers require the same behavior; preserve intentional differences instead of spreading guards or forcing unlike policies together.
+
 When a cheap regression test exercises the actual failure, demonstrate that it fails for the intended reason on the starting code, then passes with the fix. Keep return values, errors, and meaningful effects in the assertion; do not assert merely that a helper was renamed or invoked. Do not stage broken commits just to preserve a red-first history.
 
 Apply the supported fix and rerun the original reproduction on the available affected surface, plus required checks and relevant neighboring cases. Compile success alone does not prove that the reported bug disappeared. If the target cannot be exercised, finish useful in-scope work and identify exactly which result remains unverified.
@@ -18,7 +20,7 @@ Reuse the request and authoritative product artifacts to establish intended beha
 
 Express material acceptance conditions as a starting situation, action, observable result, and relevant forbidden effect or compatibility constraint. Identify how each will be checked; several conditions may share one test, and some need runtime or manual observation. Keep these in the existing task or plan unless a durable artifact is useful and in scope. Do not create a specification for an obvious local edit.
 
-Inspect existing implementations and dependencies before introducing another helper or package. Search further when a concrete gap remains, without requiring an external survey for every change. Define the state or contract needed to express the behavior and inspect actual consumers before changing a shared shape. Choose the simplest coherent design for the concrete requirement; crossing a function boundary alone is not a reason for a design competition.
+Before adding code, check whether existing behavior already meets the requested outcome. Otherwise consider repository facilities, standard-library or native features, and installed dependencies before custom machinery. Verify semantic fit, including failure behavior and supported environments; stop searching once a sufficient option is established. Define the state or contract needed to express the behavior and inspect actual consumers before changing a shared shape. Choose the simplest coherent design for the concrete requirement; crossing a function boundary alone is not a reason for a design competition.
 
 For an independently consumed boundary, identify the authoritative contract and revision, its owner, affected producers/consumers, and acceptance evidence before splitting implementation. Use an existing schema or generation path where available; generated types and mocks must agree with that same contract. Check actual serialized output against consumer expectations. A type cast, matching prose, or both sides accepting the same accidental shape is insufficient evidence.
 

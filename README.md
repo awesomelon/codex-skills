@@ -29,7 +29,7 @@ For a selected subset, use the [macOS skill installer](#install-on-a-new-mac). F
 | [engineering-orchestrator](skills/engineering-orchestrator/SKILL.md) | Decompose coordinated engineering work, select relevant skills and agents, manage dependencies and ownership, and verify the integrated result. |
 | [architecture-guard](skills/architecture-guard/SKILL.md) | Design and review module boundaries, dependency direction, shared-state ownership, and contracts between modules. Local edits without boundary impact need no architecture review. |
 | [react-quality-guard](skills/react-quality-guard/SKILL.md) | Design and improve React components, composition, hooks, state, and performance. Choose variants and shared providers while preserving independent interaction state. |
-| [code-quality-guard](skills/code-quality-guard/SKILL.md) | Design and implement shared business rules using practical SOLID, design pattern, and YAGNI criteria; review, improve, and compare maintainability using evidence of actual change costs. |
+| [code-quality-guard](skills/code-quality-guard/SKILL.md) | Design shared business rules and bounded solutions using practical SOLID, design pattern, and YAGNI criteria; review, improve, and compare maintainability using evidence of actual change costs. |
 | [refactoring-guard](skills/refactoring-guard/SKILL.md) | Plan, perform, and review behavior-preserving refactoring. Load baseline, effect-order, and recovery guidance for substantive transformations. |
 | [tanstack-query-guard](skills/tanstack-query-guard/SKILL.md) | Design, implement, and review Query behavior using task-specific v5 guidance. Select cache, mutation, SSR, or offline guidance for the actual decision. |
 | [typescript-quality-guard](skills/typescript-quality-guard/SKILL.md) | Design, fix, and review TypeScript types and runtime input validation. Familiar local diagnostics can use the entrypoint alone. |
@@ -87,6 +87,8 @@ The [2026-09-16 follow-up audit](docs/skill-audit-2026-09-16.md) records the fiv
 The [Astra refinement](docs/astra-refinement-2026-09-16.md) records the fresh article check, focused discovery and workflow updates, upstream ideas considered, and independent evaluation limits.
 
 The [2026-09-19 Astra optimization](docs/astra-optimization-2026-09-19.md) covers all seven skills and the `engineering-workflow` rename: smaller entrypoints, conditional references, relevant comparison evidence, and completion of authorized work. Its [five fresh evaluations](evals/astra-optimization-2026-09-19/results.md) separate observed task behavior from unmeasured discovery and performance effects.
+
+The [Ponytail follow-up](evals/ponytail-adoption-2026-09-20/results.md) strengthens reuse decisions, shared-cause repair, and explicit limits for deliberately simple solutions. It preserves required behavior and records the scope of fresh validation.
 
 The [upstream comparison audit](docs/skill-audit-2026-09-16-upstream.md) records selective Ponytail/ECC/pstack adoption, unchanged discovery metadata, and the calibrated simplification fixture. The existing [improvement prompt](prompts/improve-skills.md) also supports bounded parallel audits and implementation when useful.
 
