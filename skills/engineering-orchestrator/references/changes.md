@@ -14,7 +14,13 @@ Apply the supported fix and rerun the original reproduction on the available aff
 
 ## Feature or migration
 
-Define the externally visible behavior and the state or contract needed to express it. Inspect actual consumers before changing a shared shape. Choose the simplest coherent design for the concrete requirement; crossing a function boundary alone is not a reason for a design competition.
+Reuse the request and authoritative product artifacts to establish intended behavior. Code establishes current behavior, not an unstated business policy. Resolve only uncertainty that could change the result; a clear request needs no discovery interview or extra approval. Keep unresolved decisions separate from facts and continue independent work.
+
+Express material acceptance conditions as a starting situation, action, observable result, and relevant forbidden effect or compatibility constraint. Identify how each will be checked; several conditions may share one test, and some need runtime or manual observation. Keep these in the existing task or plan unless a durable artifact is useful and in scope. Do not create a specification for an obvious local edit.
+
+Inspect existing implementations and dependencies before introducing another helper or package. Search further when a concrete gap remains, without requiring an external survey for every change. Define the state or contract needed to express the behavior and inspect actual consumers before changing a shared shape. Choose the simplest coherent design for the concrete requirement; crossing a function boundary alone is not a reason for a design competition.
+
+For an independently consumed boundary, identify the authoritative contract and revision, its owner, affected producers/consumers, and acceptance evidence before splitting implementation. Use an existing schema or generation path where available; generated types and mocks must agree with that same contract. Check actual serialized output against consumer expectations. A type cast, matching prose, or both sides accepting the same accidental shape is insufficient evidence.
 
 Work in units that leave a checkable result. For a migration, identify both editable and external consumers, compatibility requirements, and rollout order. Remove obsolete paths when the affected consumers have migrated and the requested contract permits it. A local search is not proof that a public API has no external users.
 

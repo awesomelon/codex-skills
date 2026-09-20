@@ -1,6 +1,6 @@
 # Sources and adaptation
 
-Checked: 2026-09-19. Engineering Orchestrator (formerly Engineering Workflow and pstack) is an independent adaptation of the source below. It is not a complete mirror or an official package from the upstream author or platform providers.
+Checked: 2026-09-20. Engineering Orchestrator (formerly Engineering Workflow and pstack) is an independent adaptation of the sources below. It is not a complete mirror or an official package from the upstream authors or platform providers.
 
 ## Pinned upstream
 
@@ -39,6 +39,19 @@ The port carries the same Lauren Tan MIT notice already preserved in [LICENSE](.
 - Omit prose rewriting, comment stripping, bot UI generation, transcript mining, skill self-modification, and the Benny automation pack. Those are separate capabilities, not prerequisites for engineering execution.
 
 ## Authoring sources
+
+### ECC and OpenSpec integration
+
+Reviewed on 2026-09-20: [ECC](https://github.com/affaan-m/ECC/tree/934195f955cf0da847d59fcd6f68856bce112d8b), commit `934195f955cf0da847d59fcd6f68856bce112d8b`, and [OpenSpec](https://github.com/Fission-AI/OpenSpec/tree/bae58cf61479986431bb798acbe5a688a591c18c), commit `bae58cf61479986431bb798acbe5a688a591c18c` (CLI 1.13.1). Their MIT notices are preserved in [third-party notices](../THIRD_PARTY_NOTICES.md). Upstream code, installers, and generated skills are not bundled.
+
+- ECC `skills/intent-driven-development/SKILL.md` and `skills/contract-first/SKILL.md` inform acceptance conditions and producer/consumer evidence in [changes](changes.md). Reuse existing product artifacts and schemas; omit mandatory discovery interviews, new documents, or new schema tools for small work.
+- ECC `skills/search-first/SKILL.md` and `skills/iterative-retrieval/SKILL.md` inform bounded reuse searches and missing-context handoffs. Omit fixed search cycles, score thresholds, and mandatory researcher agents.
+- ECC `skills/agent-eval/SKILL.md` and `skills/skill-stocktake/SKILL.md` inform repository evaluation and maintenance practices, outside the installed task workflow. No external evaluation CLI, background learning, or session-observation hooks are dependencies.
+- OpenSpec's `src/core/templates/workflows/{propose,apply-change,verify-change,sync-specs,archive-change}.ts`, `src/commands/workflow/instructions.ts`, `schemas/spec-driven/schema.yaml`, and `docs/supported-tools.md` inform [the optional adapter](openspec.md). Preserve the proposal-only endpoint, schema-resolved context files, and lifecycle scope. Add explicit separation between checked tasks and verified application behavior.
+
+OpenSpec Plus at `311dd818f2de99d38c1f0a144fc4946895d6aed4` and Superpowers OpenSpec Team Skills at `1426ddcb85f203c7de8a13b5d1ba4cfd188fb265` were also inspected. Their additional execution coordinators, recurring review panels, and overlapping plan stores are not imported. No blanket claim of upstream incompatibility or comparative performance is made.
+
+The designated Astra article was fetched again for this revision. Keep discovery descriptions unchanged, put OpenSpec details behind a task-specific link, and extend existing decision guidance instead of adding another orchestration skill. These are local design choices; the article does not prescribe this integration.
 
 For the orchestration revision, the designated Astra article was fetched again on 2026-09-19. The entrypoint now centers on task dependencies, skill selection, ownership, and verified integration; execution playbooks remain conditional support. Agent dispatch and recovery details stay in one coordination reference. These are local design choices informed by the article, not claims that it prescribes a particular multi-agent architecture. No new upstream pstack audit was performed for this revision.
 

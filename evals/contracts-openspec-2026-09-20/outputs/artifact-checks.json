@@ -1,0 +1,97 @@
+{
+  "baseline-migration": {
+    "changed_paths": [
+      "consumer.mjs",
+      "contract.mjs",
+      "exchange.test.mjs",
+      "producer.mjs"
+    ],
+    "resources_unchanged": true,
+    "project_after": {
+      "consumer.mjs": "78d2f6a7234bcc28258489413c9573036de5046e686025d51368106dac038cef",
+      "contract.mjs": "5a6c2253f5617ea8a4f0b1d0ff33c63b19745f53908beed4d45f7844b621f0b0",
+      "exchange.test.mjs": "b276e5fd5b7c1dd7773312735b26aab51838c29fd979368edfe561a0c753a890",
+      "notes.txt": "9f337a38f9d9a28f3eb5bcd1ad8955a700f9b8cb53a87c5c4e601355587fe859",
+      "producer.mjs": "c420c7f0e71c836745b6b2f6110f9f6f80b060fdd9c8a0f2fccfedc476c75e9c"
+    }
+  },
+  "candidate-migration": {
+    "changed_paths": [
+      "consumer.mjs",
+      "contract.mjs",
+      "exchange.test.mjs",
+      "producer.mjs"
+    ],
+    "resources_unchanged": true,
+    "project_after": {
+      "consumer.mjs": "28592237cd73a595c46df629a02a113cea7a250009c2c47c5d425cdda7413db6",
+      "contract.mjs": "1c53c7c7e80bac3eaf0702cee262033b65322c90c0245a7e805d348194ff0e94",
+      "exchange.test.mjs": "7c1910846e610e2aa122935b36a2458066c85f2f75a18c7d4c73de18a7a12809",
+      "notes.txt": "9f337a38f9d9a28f3eb5bcd1ad8955a700f9b8cb53a87c5c4e601355587fe859",
+      "producer.mjs": "ddc2e96dab8bedc4628b6003a07ad01ce07434395cf181c296bc1217366d8268"
+    }
+  },
+  "baseline-status": {
+    "changed_paths": [],
+    "resources_unchanged": true,
+    "project_after": {
+      "apply.json": "e2e5331b8cc57631cbcd3e7198bc7446cd6d38013c182d0375ddb4357b436379",
+      "consumer.mjs": "c87814ef88f244596d7a4b239e9064db8048152bd0c3d4630a749c0613395399",
+      "contract.mjs": "aed4a3dc1c10de7490d63f07c510f590cb8f54673f76e5ee0afe9bd387ae2b49",
+      "exchange.test.mjs": "8b98ac9ca991a794932286245b4fffdc7d5a8ab5c1d0851211be97cb0f055acf",
+      "notes.txt": "9f337a38f9d9a28f3eb5bcd1ad8955a700f9b8cb53a87c5c4e601355587fe859",
+      "planning/changes/document-v2/requirements.md": "9e9eb9eced0692a669b559ecd0e87ff8f4b0d4c658c4c899564bf5751416fc94",
+      "planning/changes/document-v2/work.md": "8ab60a3302a5d2e6a9c1f62ef82892c9d90d4d164c8b53616d3f77f966c2ab6a",
+      "producer.mjs": "670bb615834cda451ab01c1a38989dae7a3bd410f9f668aef4bac3435bf768a0",
+      "status.json": "5e4a66905c11a4d69041091f11f6d346de9e9d4608c14b699c5f9972b37da8e2"
+    }
+  },
+  "candidate-status": {
+    "changed_paths": [],
+    "resources_unchanged": true,
+    "project_after": {
+      "apply.json": "e2e5331b8cc57631cbcd3e7198bc7446cd6d38013c182d0375ddb4357b436379",
+      "consumer.mjs": "c87814ef88f244596d7a4b239e9064db8048152bd0c3d4630a749c0613395399",
+      "contract.mjs": "aed4a3dc1c10de7490d63f07c510f590cb8f54673f76e5ee0afe9bd387ae2b49",
+      "exchange.test.mjs": "8b98ac9ca991a794932286245b4fffdc7d5a8ab5c1d0851211be97cb0f055acf",
+      "notes.txt": "9f337a38f9d9a28f3eb5bcd1ad8955a700f9b8cb53a87c5c4e601355587fe859",
+      "planning/changes/document-v2/requirements.md": "9e9eb9eced0692a669b559ecd0e87ff8f4b0d4c658c4c899564bf5751416fc94",
+      "planning/changes/document-v2/work.md": "8ab60a3302a5d2e6a9c1f62ef82892c9d90d4d164c8b53616d3f77f966c2ab6a",
+      "producer.mjs": "670bb615834cda451ab01c1a38989dae7a3bd410f9f668aef4bac3435bf768a0",
+      "status.json": "5e4a66905c11a4d69041091f11f6d346de9e9d4608c14b699c5f9972b37da8e2"
+    }
+  },
+  "candidate-tiny": {
+    "changed_paths": [
+      "README.md"
+    ],
+    "resources_unchanged": true,
+    "project_after": {
+      "README.md": "2a340fedbe67d0b17fc2674f1579d29780e438228addaab70441158427857473",
+      "openspec/config.yaml": "85b53dd24fbe7d19c8b0f0ddccf5e82600c5c372c76b57a2a89dc34dfb0fc5b9"
+    }
+  },
+  "candidate-proposal": {
+    "changed_paths": [
+      "proposal.md"
+    ],
+    "resources_unchanged": true,
+    "project_after": {
+      "apply.json": "e2e5331b8cc57631cbcd3e7198bc7446cd6d38013c182d0375ddb4357b436379",
+      "consumer.mjs": "c87814ef88f244596d7a4b239e9064db8048152bd0c3d4630a749c0613395399",
+      "contract.mjs": "aed4a3dc1c10de7490d63f07c510f590cb8f54673f76e5ee0afe9bd387ae2b49",
+      "exchange.test.mjs": "8b98ac9ca991a794932286245b4fffdc7d5a8ab5c1d0851211be97cb0f055acf",
+      "notes.txt": "9f337a38f9d9a28f3eb5bcd1ad8955a700f9b8cb53a87c5c4e601355587fe859",
+      "planning/changes/document-v2/requirements.md": "9e9eb9eced0692a669b559ecd0e87ff8f4b0d4c658c4c899564bf5751416fc94",
+      "planning/changes/document-v2/work.md": "8ab60a3302a5d2e6a9c1f62ef82892c9d90d4d164c8b53616d3f77f966c2ab6a",
+      "producer.mjs": "670bb615834cda451ab01c1a38989dae7a3bd410f9f668aef4bac3435bf768a0",
+      "proposal.md": "80eb99e3a062a41d955cd415cef2fadc00939d1733bc29c17debb966911eb739",
+      "status.json": "5e4a66905c11a4d69041091f11f6d346de9e9d4608c14b699c5f9972b37da8e2"
+    }
+  },
+  "runtime": {
+    "os": "Linux",
+    "python": "3.12.14",
+    "node": "v24.19.0"
+  }
+}

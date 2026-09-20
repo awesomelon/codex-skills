@@ -12,8 +12,13 @@ GitHub repository: [awesomelon/codex-skills](https://github.com/awesomelon/codex
 | Standalone technical review | The relevant `*-guard` | Assess its domain within the requested read/write scope. |
 | Dependent changes across components or specialties | `engineering-orchestrator` | Establish contracts, select expertise, coordinate ownership, and verify integration. |
 | Resume interrupted multi-part work | `engineering-orchestrator` | Reconcile the checkpoint with current artifacts and continue unresolved work. |
+| Coordinate a selected OpenSpec change | `engineering-orchestrator` with optional OpenSpec guidance | Follow its current artifacts, coordinate implementation, and verify behavior before claiming completion. |
 
 The coordinator owns delivery decisions; the six guards provide technical expertise. One worker may use several skills, and delegation is optional. The installed collection does not require a fixed sequence of reviews. See [expertise boundaries](skills/engineering-orchestrator/references/expertise.md) for overlapping responsibilities.
+
+For features and migrations, reuse existing requirements to connect observable acceptance conditions, shared contracts, and verification evidence. Architecture Guard has conditional [boundary-contract guidance](skills/architecture-guard/references/contracts.md) for independently consumed APIs, events, and serialized formats. Clear local edits need no specification or contract toolchain.
+
+OpenSpec users can follow the [optional integration guide](docs/openspec.md). Its official generated skills manage the specification workflow; this collection adds coordination and integration judgment without bundling OpenSpec or requiring it for other tasks. See the [ECC/OpenSpec evaluation](evals/contracts-openspec-2026-09-20/results.md) for executed cases and limitations.
 
 For a selected subset, use the [macOS skill installer](#install-on-a-new-mac). For the collection, see [plugin packaging and local testing](docs/plugin.md). Both use the same `skills/` contents. Choose one installation route for each skill to avoid duplicate discovery. The [orchestration package evaluation](evals/orchestration-plugin-2026-09-19/results.md) separates task behavior, package checks, and host-installation limits.
 
