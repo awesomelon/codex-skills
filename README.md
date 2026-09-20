@@ -191,7 +191,15 @@ Project guidance belongs in that project's `AGENTS.md`. Personal global guidance
 
 Create `skills/<skill-name>/SKILL.md`, adding `references/`, `scripts/`, or `agents/openai.yaml` only when useful. Update the README catalog and `evals/<skill-name>/cases.md`. The installer discovers folders automatically.
 
-Python 3.10+ is required only for repository development and validation. The checks below are not part of user installation. The shell installer uses Bash 3.2-compatible syntax and BSD-compatible options; the test runner exercises the CLI directly.
+Python 3.10+ and the dependencies in `requirements-dev.txt` are required only for repository development and validation. The checks below are not part of user installation. The shell installer uses Bash 3.2-compatible syntax and BSD-compatible options; the test runner exercises the CLI directly.
+
+Prepare an isolated development environment once:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements-dev.txt
+```
 
 Use [prompts/add-skill.md](prompts/add-skill.md), filling in one concrete skill purpose. There is no need to create many skills up front or abstract a common framework.
 
@@ -214,7 +222,11 @@ The optional [simplification fixture calibration](tests/test_quality_simplificat
 
 For significant instruction changes, run the relevant behavioral cases and record actual results. Existing sufficient checks need not be repeated solely to produce another report.
 
-`validate.py` checks this repository's single-line `name`/`description` convention, portable local references, and known fields in optional `agents/openai.yaml`. UI strings use JSON quoting and two-space indentation; supplied prompts must invoke the current skill, short descriptions use 25–64 characters, and invocation policy uses a boolean. It does not validate the entire YAML schema or dependency declarations and is not an official Codex validator. Evaluate invocation, non-invocation, and execution quality separately using `evals/` scenarios.
+`validate.py` safely parses frontmatter and optional `agents/openai.yaml`, rejects duplicate YAML keys and non-string names/descriptions, and checks this repository's single-line metadata convention and portable local references. UI strings use JSON quoting and two-space indentation; supplied prompts must invoke the current skill, short descriptions use 25–64 characters, and invocation policy uses a boolean. Dependency declarations must be valid YAML, but their host-specific schema remains outside this checker. It is not an official Codex validator. Evaluate invocation, non-invocation, and execution quality separately using `evals/` scenarios.
+
+[Validate skills](.github/workflows/validate.yml) runs the structural checks, shell syntax check, and regression suite on pull requests and pushes to `main`, using Linux/Python 3.10 and macOS/Python 3.13. The shell tests invoke `/bin/bash` and install only into disposable paths. CI results establish repository checks on those runners; native Codex plugin discovery and model behavior require separate evaluation. The workflow needs no model API key and grants only read access to repository contents.
+
+The [validation and recovery evaluation](evals/orchestration-reliability-2026-09-20/results.md) records YAML regression coverage, a staged requirement-change comparison with and without the skill, and one live cooperative delayed-writer recovery. Both comparison variants passed; no comparative success-rate or cost improvement is claimed.
 
 ## References
 

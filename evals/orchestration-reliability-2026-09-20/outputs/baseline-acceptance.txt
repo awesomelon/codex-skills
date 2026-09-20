@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: exports the revised wire contract independently of the importer
+ok 1 - exports the revised wire contract independently of the importer
+  ---
+  duration_ms: 1.217562
+  type: 'test'
+  ...
+# Subtest: imports independently constructed v2 values to the original domain shape
+ok 2 - imports independently constructed v2 values to the original domain shape
+  ---
+  duration_ms: 0.245429
+  type: 'test'
+  ...
+# Subtest: keeps legacy v1 import
+ok 3 - keeps legacy v1 import
+  ---
+  duration_ms: 0.163406
+  type: 'test'
+  ...
+# Subtest: does not mutate caller rows and preserves integrated values
+ok 4 - does not mutate caller rows and preserves integrated values
+  ---
+  duration_ms: 0.342565
+  type: 'test'
+  ...
+# Subtest: rejects unsupported and incorrectly typed versions
+ok 5 - rejects unsupported and incorrectly typed versions
+  ---
+  duration_ms: 0.440693
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 81.755867

@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: empty documents round trip
+ok 1 - empty documents round trip
+  ---
+  duration_ms: 1.14356
+  type: 'test'
+  ...
+# Subtest: unsupported versions fail
+ok 2 - unsupported versions fail
+  ---
+  duration_ms: 0.396226
+  type: 'test'
+  ...
+# Subtest: legacy v1 imports retain order and Unicode with archived defaulting to false
+ok 3 - legacy v1 imports retain order and Unicode with archived defaulting to false
+  ---
+  duration_ms: 0.254873
+  type: 'test'
+  ...
+# Subtest: v2 wire imports map isArchived and default omitted values
+ok 4 - v2 wire imports map isArchived and default omitted values
+  ---
+  duration_ms: 0.257758
+  type: 'test'
+  ...
+# Subtest: nonempty v2 round trip preserves values without mutating caller data
+ok 5 - nonempty v2 round trip preserves values without mutating caller data
+  ---
+  duration_ms: 0.294443
+  type: 'test'
+  ...
+# Subtest: legacy import can be re-exported as the revised v2 wire format
+ok 6 - legacy import can be re-exported as the revised v2 wire format
+  ---
+  duration_ms: 0.132991
+  type: 'test'
+  ...
+# Subtest: shared contract names the v2 wire format
+ok 7 - shared contract names the v2 wire format
+  ---
+  duration_ms: 0.758291
+  type: 'test'
+  ...
+# Subtest: empty export has the exact v2 wire shape
+ok 8 - empty export has the exact v2 wire shape
+  ---
+  duration_ms: 0.150336
+  type: 'test'
+  ...
+# Subtest: export preserves row order, Unicode, and explicit archived values
+ok 9 - export preserves row order, Unicode, and explicit archived values
+  ---
+  duration_ms: 0.741155
+  type: 'test'
+  ...
+# Subtest: export defaults omitted archived without changing caller-owned data
+ok 10 - export defaults omitted archived without changing caller-owned data
+  ---
+  duration_ms: 0.27956
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 98.352414

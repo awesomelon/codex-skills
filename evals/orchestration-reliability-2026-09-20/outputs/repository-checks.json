@@ -1,0 +1,22 @@
+{
+  "platform": "Linux",
+  "commands": [
+    {
+      "command": "python3 scripts/validate.py",
+      "exit_code": 0,
+      "skills": 7
+    },
+    {
+      "command": "/bin/bash -n scripts/install.sh",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "tests": 65,
+      "skipped": 0
+    }
+  ],
+  "native_plugin_host": "not available",
+  "remote_ci": "pending PR execution"
+}

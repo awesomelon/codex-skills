@@ -1,0 +1,112 @@
+--- a/consumer.mjs
++++ b/consumer.mjs
+@@ -1 +1,6 @@
+-import { CURRENT_VERSION, COLLECTION_FIELD } from './contract.mjs';
++import {
++  CURRENT_VERSION,
++  COLLECTION_FIELD,
++  LEGACY_VERSION,
++  LEGACY_COLLECTION_FIELD,
++} from './contract.mjs';
+@@ -4,2 +9,5 @@
+-  if (packet.version !== CURRENT_VERSION) throw new TypeError('Unsupported version');
+-  return packet[COLLECTION_FIELD].map(({ id, title }) => ({ id, title }));
++  let collectionField;
++  if (packet.version === CURRENT_VERSION) collectionField = COLLECTION_FIELD;
++  else if (packet.version === LEGACY_VERSION) collectionField = LEGACY_COLLECTION_FIELD;
++  else throw new TypeError('Unsupported version');
++  return packet[collectionField].map(({ id, title, archived = false }) => ({ id, title, archived }));
+--- a/contract.mjs
++++ b/contract.mjs
+@@ -1,2 +1,4 @@
+-export const CURRENT_VERSION = 1;
+-export const COLLECTION_FIELD = 'items';
++export const CURRENT_VERSION = 2;
++export const COLLECTION_FIELD = 'entries';
++export const LEGACY_VERSION = 1;
++export const LEGACY_COLLECTION_FIELD = 'items';
+--- a/exchange.test.mjs
++++ b/exchange.test.mjs
+@@ -10,0 +11,56 @@
++
++const rows = [
++  { id: 'β', title: 'Café ☕', archived: true },
++  { id: 'a', title: '日本語', archived: false },
++  { id: '末', title: 'Last row' },
++];
++const normalizedRows = rows.map(row => ({ ...row, archived: row.archived ?? false }));
++
++test('export emits the exact v2 contract without changing caller data', () => {
++  const input = rows.map(row => Object.freeze({ ...row }));
++  Object.freeze(input);
++  const before = structuredClone(input);
++  const packet = JSON.parse(serialize(input));
++  assert.deepEqual(packet, { version: 2, entries: normalizedRows });
++  assert.deepEqual(input, before);
++});
++
++test('v2 import preserves order, Unicode and archived values', () => {
++  assert.deepEqual(
++    deserialize(JSON.stringify({ version: 2, entries: rows })),
++    normalizedRows,
++  );
++});
++
++test('legacy v1 imports retain order and content with archived defaulting to false', () => {
++  const legacyRows = rows.map(({ id, title }) => ({ id, title }));
++  assert.deepEqual(
++    deserialize(JSON.stringify({ version: 1, items: legacyRows })),
++    legacyRows.map(row => ({ ...row, archived: false })),
++  );
++  assert.deepEqual(deserialize('{"version":1,"items":[]}'), []);
++});
++
++test('assembled v2 round trip preserves populated documents', () => {
++  assert.deepEqual(deserialize(serialize(rows)), normalizedRows);
++});
++
++test('legacy import can be re-exported and re-imported as v2', () => {
++  const legacyRows = rows.map(({ id, title }) => ({ id, title }));
++  const imported = deserialize(JSON.stringify({ version: 1, items: legacyRows }));
++  const exported = serialize(imported);
++  assert.deepEqual(JSON.parse(exported), {
++    version: 2,
++    entries: legacyRows.map(row => ({ ...row, archived: false })),
++  });
++  assert.deepEqual(deserialize(exported), imported);
++});
++
++test('unsupported and missing versions consistently raise TypeError', () => {
++  for (const version of [0, 3, '1', '2', null, undefined]) {
++    assert.throws(
++      () => deserialize(JSON.stringify({ version, items: [], entries: [] })),
++      TypeError,
++    );
++  }
++});
+--- a/producer.mjs
++++ b/producer.mjs
+@@ -5 +5 @@
+-    [COLLECTION_FIELD]: rows.map(({ id, title }) => ({ id, title })),
++    [COLLECTION_FIELD]: rows.map(({ id, title, archived = false }) => ({ id, title, archived })),
+--- a/work.md
++++ b/work.md
+@@ -3,3 +3,15 @@
+-- [ ] Export v2 and shared contract
+-- [ ] Import v1/v2
+-- [ ] Verify integrated compatibility
++- [x] Export v2 and shared contract: version 2, entries, archived defaults to false.
++- [x] Import v1/v2: legacy items and v2 entries normalize to id/title/archived rows.
++- [x] Verify integrated compatibility: `node --test exchange.test.mjs` — 8 passed, 0 failed.
++
++The previously timed-out exporter worker was stopped through its project-local
++control. Its acknowledgement confirms it stopped before writing, and no late-write
++marker exists. Ownership transferred only after that acknowledgement. The
++coordinator separately confirmed the managed worker session exited with code 0.
++
++Verification covers the exact serialized v2 contract, both import formats,
++populated and empty round trips, legacy-to-v2 conversion, row order, Unicode,
++archived values/defaults, caller-data preservation, and unsupported versions.
++The expanded suite exposed five expected failures before implementation.
++
++No remaining work or active writers. Unrelated notes and processes were preserved.

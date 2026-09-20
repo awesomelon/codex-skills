@@ -25,6 +25,10 @@ Try these representative requests:
 
 Check that coordinated work reaches its requested endpoint, a standalone review preserves files, and a tiny edit stays small. A successful manifest check alone does not establish discovery or execution behavior.
 
+For host verification, retain the host version, OS, source commit, installation route, advertised skill names, exact request, and observed skill/resource loads for each task above. Use a fresh conversation per request and omit explicit skill names when testing automatic selection. Record file changes and observable outcomes separately from the selection result; a correct answer alone does not prove that the host loaded the intended skill. Include a plain explanation request and a typo fix as adjacent negative cases. Keep unobserved selection as unknown rather than inferring it from the answer.
+
+The [repository CI](../.github/workflows/validate.yml) exercises installation mechanics on macOS and Linux. It does not launch Codex or register this package with a native host. Record native-host results separately using the evidence fields above.
+
 When switching from individually installed skills, preserve any local modifications and move superseded entries outside every skill discovery directory before enabling the package. Reconcile existing symlink sources too. The shell installer does not migrate skills into a plugin or remove old entries. For a subset of the collection, keep using the [individual macOS installer](../README.md#install-on-a-new-mac).
 
 ## Maintain and validate

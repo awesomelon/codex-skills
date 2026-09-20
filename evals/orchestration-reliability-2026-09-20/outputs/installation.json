@@ -1,0 +1,26 @@
+[
+  {
+    "command": [
+      "/bin/bash",
+      "scripts/install.sh",
+      "--mode",
+      "link",
+      "--dest",
+      "/tmp/codex-install-verification-luzc59l8/link"
+    ],
+    "exit_code": 0,
+    "skills_matched": 7
+  },
+  {
+    "command": [
+      "/bin/bash",
+      "scripts/install.sh",
+      "--mode",
+      "copy",
+      "--dest",
+      "/tmp/codex-install-verification-luzc59l8/copy"
+    ],
+    "exit_code": 0,
+    "skills_matched": 7
+  }
+]

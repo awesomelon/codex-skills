@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: empty documents round trip
+ok 1 - empty documents round trip
+  ---
+  duration_ms: 1.255699
+  type: 'test'
+  ...
+# Subtest: unsupported versions fail
+ok 2 - unsupported versions fail
+  ---
+  duration_ms: 0.433602
+  type: 'test'
+  ...
+# Subtest: legacy v1 imports preserve row order and Unicode with archived defaulting to false
+ok 3 - legacy v1 imports preserve row order and Unicode with archived defaulting to false
+  ---
+  duration_ms: 0.251118
+  type: 'test'
+  ...
+# Subtest: v2 imports map isArchived to archived and default omitted flags
+ok 4 - v2 imports map isArchived to archived and default omitted flags
+  ---
+  duration_ms: 0.20568
+  type: 'test'
+  ...
+# Subtest: populated v2 round trips preserve row order, Unicode, flags, and caller-owned data
+ok 5 - populated v2 round trips preserve row order, Unicode, flags, and caller-owned data
+  ---
+  duration_ms: 0.375755
+  type: 'test'
+  ...
+# Subtest: legacy v1 documents can be imported and re-exported as the revised v2 format
+ok 6 - legacy v1 documents can be imported and re-exported as the revised v2 format
+  ---
+  duration_ms: 0.148533
+  type: 'test'
+  ...
+# Subtest: shared contract identifies the v2 wire format
+ok 7 - shared contract identifies the v2 wire format
+  ---
+  duration_ms: 0.739783
+  type: 'test'
+  ...
+# Subtest: empty exports use the v2 envelope
+ok 8 - empty exports use the v2 envelope
+  ---
+  duration_ms: 0.65147
+  type: 'test'
+  ...
+# Subtest: exports retain archived flags and default omitted or undefined flags to false
+ok 9 - exports retain archived flags and default omitted or undefined flags to false
+  ---
+  duration_ms: 0.197867
+  type: 'test'
+  ...
+# Subtest: exports preserve row order, Unicode, and caller-owned data
+ok 10 - exports preserve row order, Unicode, and caller-owned data
+  ---
+  duration_ms: 0.244348
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 92.55192

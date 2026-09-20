@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: producer emits the exact v2 envelope and preserves row order
+ok 1 - producer emits the exact v2 envelope and preserves row order
+  ---
+  duration_ms: 1.250351
+  type: 'test'
+  ...
+# Subtest: producer defaults omitted archived to false
+ok 2 - producer defaults omitted archived to false
+  ---
+  duration_ms: 0.187282
+  type: 'test'
+  ...
+# Subtest: consumer imports legacy v1 with an archived default
+ok 3 - consumer imports legacy v1 with an archived default
+  ---
+  duration_ms: 0.243287
+  type: 'test'
+  ...
+# Subtest: consumer imports the specified v2 envelope
+ok 4 - consumer imports the specified v2 envelope
+  ---
+  duration_ms: 0.132409
+  type: 'test'
+  ...
+# Subtest: producer and consumer integrate without losing archived state
+ok 5 - producer and consumer integrate without losing archived state
+  ---
+  duration_ms: 0.176034
+  type: 'test'
+  ...
+# Subtest: unsupported versions remain errors
+ok 6 - unsupported versions remain errors
+  ---
+  duration_ms: 0.519702
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 84.034045

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Check repository metadata conventions and local reference paths.
 
-Not a general YAML parser or an official Codex validator. No model is invoked.
+Parses YAML safely and checks repository conventions. Not an official
+Codex schema validator. No model is invoked.
 """
 from __future__ import annotations
 
@@ -11,11 +12,41 @@ import re
 import sys
 from urllib.parse import unquote, urlsplit
 
+import yaml
+
 from install import ROOT, discover
 
 
+class UniqueKeyLoader(yaml.SafeLoader):
+    """Reject ambiguous duplicate keys instead of silently taking the last value."""
+
+    def construct_mapping(self, node, deep=False):
+        keys = set()
+        for key_node, _ in node.value:
+            if key_node.tag == "tag:yaml.org,2002:merge":
+                continue
+            key = self.construct_object(key_node, deep=deep)
+            try:
+                if key in keys:
+                    raise ValueError(f"Duplicate YAML key: {key}")
+                keys.add(key)
+            except TypeError as exc:
+                raise ValueError("YAML mapping keys must be scalar values") from exc
+        return super().construct_mapping(node, deep=deep)
+
+
+def yaml_mapping(text: str, path: Path) -> dict:
+    try:
+        value = yaml.load(text, Loader=UniqueKeyLoader)
+    except (yaml.YAMLError, ValueError) as exc:
+        raise ValueError(f"Invalid YAML in {path}: {exc}") from exc
+    if not isinstance(value, dict):
+        raise ValueError(f"Expected a YAML mapping in {path}")
+    return value
+
+
 def validate_ui_metadata(folder: Path, name: str) -> None:
-    """Check known fields in our single-line UI metadata; not a YAML parser.
+    """Check YAML syntax and known fields in our single-line UI metadata.
 
     UI metadata and its fields remain optional. Unrelated fields (including
     dependency declarations) are left to the host's schema validation.
@@ -23,10 +54,11 @@ def validate_ui_metadata(folder: Path, name: str) -> None:
     path = folder / "agents" / "openai.yaml"
     if not path.exists():
         return
+    text = path.read_text(encoding="utf-8")
     section = None
     seen = set()
     string_fields = {"display_name", "short_description", "default_prompt"}
-    for line in path.read_text(encoding="utf-8").splitlines():
+    for line in text.splitlines():
         if not line.strip() or line.lstrip().startswith("#"):
             continue
         if not line[0].isspace():
@@ -62,6 +94,14 @@ def validate_ui_metadata(folder: Path, name: str) -> None:
             rf"(?<![\w$])\${re.escape(name)}(?![\w-])", value
         ):
             raise ValueError(f"UI default_prompt must invoke ${name}")
+    metadata = yaml_mapping(text, path)
+    for section in ("interface", "policy"):
+        if section in metadata and not isinstance(metadata[section], dict):
+            raise ValueError(f"UI {section} must be a mapping in {name}")
+        known = string_fields if section == "interface" else {"allow_implicit_invocation"}
+        for field in metadata.get(section, {}):
+            if field in known and (section, field) not in seen:
+                raise ValueError(f"Use two-space UI field indentation in {name}: {field}")
 
 
 def validate(root: Path = ROOT) -> list[str]:
@@ -72,20 +112,19 @@ def validate(root: Path = ROOT) -> list[str]:
         if not lines or lines[0] != "---" or "---" not in lines[1:]:
             raise ValueError(f"Missing frontmatter: {name}")
         end = lines.index("---", 1)
-        fields = {}
+        seen = set()
         for line in lines[1:end]:
             # This collection intentionally uses only single-line name/description.
             match = re.fullmatch(r"(name|description):\s*(.+)", line)
-            if not match or match[1] in fields:
+            if not match or match[1] in seen:
                 raise ValueError(f"Use one single-line name and description in {name}")
-            value = match[2].strip()
-            if value.startswith(('"', "'")):
-                if len(value) < 2 or value[-1] != value[0]:
-                    raise ValueError(f"Unclosed metadata quote: {name}")
-                value = value[1:-1]
-            if not value or value in ("|", ">", "|-", ">-"):
+            if match[2].strip() in ("|", ">", "|-", ">-"):
                 raise ValueError(f"Use a nonempty single-line metadata value: {name}")
-            fields[match[1]] = value
+            seen.add(match[1])
+        fields = yaml_mapping("\n".join(lines[1:end]), folder / "SKILL.md")
+        if any(not isinstance(fields.get(key), str) or not fields[key].strip()
+               for key in ("name", "description")):
+            raise ValueError(f"Use nonempty strings for name and description in {name}")
         if fields.get("name") != name or not fields.get("description"):
             raise ValueError(f"Frontmatter name/description mismatch: {name}")
         if len(fields["description"]) > 1024:

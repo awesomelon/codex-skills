@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: empty documents round trip
+ok 1 - empty documents round trip
+  ---
+  duration_ms: 1.276361
+  type: 'test'
+  ...
+# Subtest: unsupported versions fail
+ok 2 - unsupported versions fail
+  ---
+  duration_ms: 0.323347
+  type: 'test'
+  ...
+# Subtest: export emits the exact v2 contract without changing caller data
+ok 3 - export emits the exact v2 contract without changing caller data
+  ---
+  duration_ms: 0.654105
+  type: 'test'
+  ...
+# Subtest: v2 import preserves order, Unicode and archived values
+ok 4 - v2 import preserves order, Unicode and archived values
+  ---
+  duration_ms: 0.174933
+  type: 'test'
+  ...
+# Subtest: legacy v1 imports retain order and content with archived defaulting to false
+ok 5 - legacy v1 imports retain order and content with archived defaulting to false
+  ---
+  duration_ms: 0.164448
+  type: 'test'
+  ...
+# Subtest: assembled v2 round trip preserves populated documents
+ok 6 - assembled v2 round trip preserves populated documents
+  ---
+  duration_ms: 0.129735
+  type: 'test'
+  ...
+# Subtest: legacy import can be re-exported and re-imported as v2
+ok 7 - legacy import can be re-exported and re-imported as v2
+  ---
+  duration_ms: 0.194012
+  type: 'test'
+  ...
+# Subtest: unsupported and missing versions consistently raise TypeError
+ok 8 - unsupported and missing versions consistently raise TypeError
+  ---
+  duration_ms: 0.18658
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 98.287751

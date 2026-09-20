@@ -1,0 +1,83 @@
+{
+  "baseline": {
+    "acceptance": {
+      "command": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "/workspace/scratch/4eb68078cbb7/codex-skills-audit/evals/orchestration-reliability-2026-09-20/changed-contract.test.mjs"
+      ],
+      "exit_code": 0
+    },
+    "local_tests_exit_code": 0,
+    "notes_unchanged": true,
+    "final_files": {
+      "consumer.mjs": "28a88c334bb97efbf081d0cec85fdad7151af059deb6b7d978b49ce1e6b4bdd1",
+      "contract.mjs": "ea21cf3718678b471d220999e7ae30dd68eca21b2e3c631e99518f9efd2d2d84",
+      "exchange.test.mjs": "67a00748759ef7e8465b91ff74e9b46e6bc81af587b67b454a4ba901e02812a8",
+      "notes.txt": "9f337a38f9d9a28f3eb5bcd1ad8955a700f9b8cb53a87c5c4e601355587fe859",
+      "producer.mjs": "186d83febcfb69bd893609c2d4c52eacc2eee492f01a64aa5dd7a085a3ada842",
+      "producer.test.mjs": "27a52ace73560694d8689d858e4450afe0c918f379f6f6c93bce2e6dfa0ebd8b",
+      "requirements.md": "821b5fda5a5b418b0972293088e18922efad94804cfa6117380ff93705ae596e",
+      "work.md": "62af5da569ca6f1bac9ac3cac22fa481e44dd2d4766c321f39016928e39f6634"
+    }
+  },
+  "candidate": {
+    "acceptance": {
+      "command": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "/workspace/scratch/4eb68078cbb7/codex-skills-audit/evals/orchestration-reliability-2026-09-20/changed-contract.test.mjs"
+      ],
+      "exit_code": 0
+    },
+    "local_tests_exit_code": 0,
+    "notes_unchanged": true,
+    "final_files": {
+      "consumer.mjs": "1d32863016d28ac6fc3b60db49c8844073f5443dd74a7e7361656957e83dbb99",
+      "contract.mjs": "be38da0a45d92887bdac1d901eadd551267724d485043135b0c2e02a7e5108c7",
+      "exchange.test.mjs": "b2057da2ff827ad18d1f03f993b3a86677941124d2939925f5cdec888f09f682",
+      "notes.txt": "9f337a38f9d9a28f3eb5bcd1ad8955a700f9b8cb53a87c5c4e601355587fe859",
+      "producer.mjs": "bca0ca33ec7cb2816d667a2bd900f2efd4b148738702cb937d9a74b4f92b6961",
+      "producer.test.mjs": "3207585e5db2b561009b4c13dd14f9c64d985e421c519bb126fe2b2c8a670f3c",
+      "requirements.md": "95079eca2e962e0db2eafcf4fc3997140d22a69d98073482c3bd2ca782509a3f",
+      "work.md": "0bc04d498e79ac9d75f73dfa724ba287046ec93485f5873f1c2e9486f1382b1b"
+    },
+    "skill_unchanged": true
+  },
+  "recovery": {
+    "acceptance": {
+      "command": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "/workspace/scratch/4eb68078cbb7/codex-skills-audit/evals/engineering-orchestrator/acceptance.test.mjs"
+      ],
+      "exit_code": 0
+    },
+    "local_tests_exit_code": 0,
+    "notes_unchanged": true,
+    "final_files": {
+      ".stop-worker": "c9b3aff94065c16ecfc6ecbb9eb8f993356b3c2ff3acaf6891fc5161d6a86319",
+      ".worker-ready": "ed1a545bb85e55816bbf9566b028b2a0bc456b88f49f6f266c0401048824194b",
+      ".worker-stopped": "f612af87136f9f2b771f871894823e4c2cfeed5ef109ee47895f815f181bb5f1",
+      "checkpoint.json": "d75eb3b688646ddcdd1a767ca30b6975160bf78ae1aa6623aace8b6d0f3fdf26",
+      "consumer.mjs": "efb7d62134bc3e847960eaf6beaaf868ccf9c6fb20ad294e0c00b9a1fece6bf9",
+      "contract.mjs": "1c53c7c7e80bac3eaf0702cee262033b65322c90c0245a7e805d348194ff0e94",
+      "exchange.test.mjs": "8c80608aa14d1483284163934d4c671a507c0c6893ae134f97027b6d1268fd0f",
+      "notes.txt": "9f337a38f9d9a28f3eb5bcd1ad8955a700f9b8cb53a87c5c4e601355587fe859",
+      "producer.mjs": "ddc2e96dab8bedc4628b6003a07ad01ce07434395cf181c296bc1217366d8268",
+      "requirements.md": "d44e5d77a39de990d76ac0c60897b918eeef83bf9092d2fd170eaa42ea131c79",
+      "work.md": "97a2be27df1c45494e3dd74de63b81bd3d813f00c0cbfc361e4aed04eda5eaa2",
+      "worker.json": "0e28f86631e68ef4037373457471951c5aee009cb9b08aca646b68845e817ba9"
+    },
+    "skill_unchanged": true,
+    "worker": {
+      "stop_acknowledgement": "stopped before writing\n",
+      "managed_session_exit_code": 0,
+      "late_write_marker_present": false,
+      "producer_unchanged_after_release": true
+    }
+  }
+}

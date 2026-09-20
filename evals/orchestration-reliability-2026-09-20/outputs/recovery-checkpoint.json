@@ -1,0 +1,62 @@
+{
+  "objective": "v2 document migration",
+  "tasks": {
+    "exporter": "complete",
+    "consumer": "complete",
+    "integration": "complete"
+  },
+  "worker_record": "worker.json",
+  "status": "complete",
+  "reconciliation": "The prior exporter timeout was not completion evidence. The owned delayed writer was stopped cooperatively and acknowledged stopping before writing before exporter ownership transferred to this recovery task.",
+  "contract": {
+    "export_version": 2,
+    "export_collection": "entries",
+    "import_versions": [
+      1,
+      2
+    ],
+    "legacy_collection": "items",
+    "omitted_archived": false
+  },
+  "changed_files": [
+    "contract.mjs",
+    "producer.mjs",
+    "consumer.mjs",
+    "exchange.test.mjs",
+    "work.md",
+    "checkpoint.json",
+    "worker.json"
+  ],
+  "verification": {
+    "command": "node --test exchange.test.mjs",
+    "result": "8 passed, 0 failed",
+    "baseline": "Original 2 tests passed; expanded acceptance suite had 5 intended failures before implementation.",
+    "coverage": [
+      "exact v2 serialized shape",
+      "v1 and v2 imports",
+      "populated v2 round trip",
+      "v1 import / v2 export / v2 import",
+      "empty documents",
+      "row order and Unicode",
+      "archived true, false, and omitted default",
+      "frozen caller data preserved",
+      "unsupported and missing versions raise TypeError"
+    ]
+  },
+  "worker_disposition": {
+    "state": "cooperative stop acknowledged",
+    "control": ".stop-worker",
+    "evidence": ".worker-stopped contains: stopped before writing",
+    "late_write_marker_present": false,
+    "remaining_writers": "none: inspected script exits the writer loop immediately after acknowledging stop",
+    "runtime_confirmation": "Coordinator confirmed managed worker session completed with exit code 0."
+  },
+  "preserved": [
+    "requirements.md",
+    "notes.txt",
+    "supplied read-only skill resources",
+    "unrelated processes and files"
+  ],
+  "unresolved": [],
+  "next_action": "none; migration complete"
+}

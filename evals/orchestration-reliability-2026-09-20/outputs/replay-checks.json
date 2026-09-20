@@ -1,0 +1,17 @@
+[
+  {
+    "variant": "baseline",
+    "patch_applies": true,
+    "matches_inspected_artifacts": true
+  },
+  {
+    "variant": "candidate",
+    "patch_applies": true,
+    "matches_inspected_artifacts": true
+  },
+  {
+    "variant": "recovery",
+    "patch_applies": true,
+    "matches_inspected_artifacts": true
+  }
+]
