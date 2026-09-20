@@ -1,11 +1,11 @@
 ---
 name: engineering-orchestrator
-description: Orchestrate engineering work across dependent tasks, specialist skills, and agents through verified integration. Use for coordinated delivery, explicit orchestration, or resuming multi-part work; routine edits and standalone domain reviews need no orchestration.
+description: Select engineering priorities and plan or deliver dependent work through verified integration. Use for problem discovery, technical strategy, coordinated delivery, or resuming multi-part work; routine edits and standalone domain reviews need no orchestration.
 ---
 
 # Engineering Orchestrator
 
-Own the requested outcome from task decomposition through integration. Choose which work stays local, which expertise to load, and which independent work to delegate. The coordinator remains responsible for the final artifact and evidence.
+Own the requested outcome from problem selection through integration. When the problem is already established, start at the unresolved delivery decision. Choose which work stays local, which expertise to load, and which independent work to delegate. The coordinator remains responsible for the final artifact and evidence.
 
 ## Frame and divide the work
 
@@ -39,6 +39,8 @@ Read only what the current subtask needs. These references support execution and
 
 | Subtask decision | Guidance |
 | --- | --- |
+| Discover worthwhile problems, challenge a proposed solution, or prioritize competing opportunities | [Problem selection](references/problem-selection.md) |
+| Turn an uncertain or cross-team initiative into a feasible plan, rollout, and outcome check | [Execution strategy](references/execution-strategy.md) |
 | Explain behavior, diagnose a symptom, or interpret a trace without fixing | [Investigation](references/investigation.md) |
 | Reproduce and fix, implement, migrate, refactor, or compare prototypes | [Changes](references/changes.md) |
 | Keep evolving requirements, implementation tasks, and completion evidence aligned across a behavior change | [Spec-driven changes](references/spec-driven-changes.md) |

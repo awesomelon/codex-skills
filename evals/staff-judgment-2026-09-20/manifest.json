@@ -1,0 +1,41 @@
+{
+  "base_commit": "03a90c2c19f1a19d65d171c857facacc60a6a44f",
+  "method": "One independent evaluation agent, four requests in a shared session; expected behavior withheld. Explicit skill invocation, not native discovery.",
+  "input_sha256": {
+    "evals/staff-judgment-2026-09-20/fixtures/README.md": "78313a84fd0810e2b80d0226b7e31311c73fd1e7fa3e08b2e43352e09aa96a4b",
+    "evals/staff-judgment-2026-09-20/fixtures/delivery.md": "16992d502496c99fedf8860100cc8db475f3ddaa9b6c6ed01dd9152f496a702f",
+    "evals/staff-judgment-2026-09-20/fixtures/design.md": "0b53c9b71a24c12f087c03f97e9381b7a12abba90e196360e8f37c3916fe5e33",
+    "evals/staff-judgment-2026-09-20/fixtures/priority.md": "0e73bf3c118d35615283e8dbf0c53a1c6ac7744c15823d627ea1e35db6282d5e",
+    "evals/staff-judgment-2026-09-20/fixtures/routine-task.md": "52fb4c21ee034c7b6f997641ee4f06e607c12207e02b473fde3512f94ad4f5b3",
+    "skills/architecture-guard/SKILL.md": "ebe2b0c816171151362d1922776c00403c3db9a9e4801161600dc03ccc5dd3ae",
+    "skills/architecture-guard/THIRD_PARTY_NOTICES.md": "b3a95153343e3e4368fcb1a10461e8c8cf25da1f51e1c9c1d56de6295e50f17a",
+    "skills/architecture-guard/references/contracts.md": "1699d7d298437a16bdb71191148f4be9c1db850dc601cc6334f2fd52f5fc359c",
+    "skills/architecture-guard/references/preflight.md": "92dc06e2d0443eed3b4c2adbc644dcf4d0537500be64235748848bad36cd935a",
+    "skills/architecture-guard/references/review.md": "1638e29c479594f884a826a92d74e26b355bb80e03cec18eab9a34a0c9be518e",
+    "skills/engineering-orchestrator/SKILL.md": "becac705399b3d050407068f2ba20f1b6a5a6700bd14b91b6eb6a43799ea4290",
+    "skills/engineering-orchestrator/THIRD_PARTY_NOTICES.md": "30a5039f327e01385a78e442126399e504ec72cca4f60ca526c3cc456783bf24",
+    "skills/engineering-orchestrator/references/changes.md": "455d8d2565db7aea400de6ab68190b224f8d6619047408f6b7de5c6a0c8b819a",
+    "skills/engineering-orchestrator/references/continuity.md": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+    "skills/engineering-orchestrator/references/coordination.md": "25733504f37f96ab107c5e437b7cde3350635a61f5b31a92c6da4a9c9a855e8d",
+    "skills/engineering-orchestrator/references/execution-strategy.md": "bf0e8de38a8ece1714d51775c76efa85c2e07e898a889e9d6913733d7a9e687c",
+    "skills/engineering-orchestrator/references/expertise.md": "2b9724eed2e4dcd7a6aa4771e05fdc3fc261d86d5b13ccf5fbc204bc8a2acb2d",
+    "skills/engineering-orchestrator/references/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+    "skills/engineering-orchestrator/references/performance.md": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+    "skills/engineering-orchestrator/references/problem-selection.md": "0a7fa9981dfc67cdb8dbf3423be201115114659ca2c9a27953971eb7c24e2e9d",
+    "skills/engineering-orchestrator/references/review-and-delivery.md": "e15de0fac2587645dd6070cb1ec4f3315155e76fb17d30eaf5342d520e7cb967",
+    "skills/engineering-orchestrator/references/sources.md": "04b70f253c21f92afa05726702eb396e79624348b043ddc44019b8d415e3029e",
+    "skills/engineering-orchestrator/references/spec-driven-changes.md": "c3b9f1ba1a4a20dd91b55f85903813598e898517c165080d6092f621f7234928",
+    "skills/engineering-orchestrator/references/verification.md": "42954448676251b082b44a34105390184fe72d803d4826bb7e36aba80af0d498",
+    "AGENTS.md": "8cd56d51494291480e406220e627b62472de1ad564dc2ce49f665ed70bf9fc5d"
+  },
+  "output_sha256": {
+    "outputs/delivery.md": "1b5b4e3cf27d2ac1e1035e0f24e18bf9924b92a78f1002a4942822355d185a70",
+    "outputs/design.md": "1bde06d494f53e511883097843fada658bc7300b380e2cdb6377665c72788953",
+    "outputs/priority.md": "f03cf8c86e53260ce2b2ceb6f3796965f63d691b9689b302e4b9d7b1e4fe7708",
+    "outputs/routine.md": "0ac3e3e77b1eb61df08bc0a5002e00817e97cfcd97cc3f636a2a65a5591120d6",
+    "outputs/routine.patch": "e8a90323785d35984b3be735eafa82c2a1c3e002f2db29a4c0b757d447d01029",
+    "outputs/execution.md": "b0482de3c78d41ec2d2eddffa41590f9932ef17debdffe7f388cd90f9aa26b8e"
+  },
+  "source_fixtures_unchanged": true,
+  "routine_exact_edit_verified": true
+}

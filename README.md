@@ -1,6 +1,6 @@
 # codex-skills
 
-Engineering orchestration skills for Codex: coordinate dependent work, select the expertise each decision needs, and verify the integrated result. Use the skills independently or package the collection as the **Engineering Orchestration** plugin. Individual skill installation supports macOS.
+Engineering skills for Codex aimed at staff-level judgment: select worthwhile problems, compare designs, plan dependent work, implement with focused expertise, and distinguish verified delivery from observed impact. Use the skills independently or package the collection as the **Engineering Orchestration** plugin. Individual skill installation supports macOS.
 
 GitHub repository: [awesomelon/codex-skills](https://github.com/awesomelon/codex-skills).
 
@@ -8,11 +8,15 @@ GitHub repository: [awesomelon/codex-skills](https://github.com/awesomelon/codex
 
 | Task | Entry point | Responsibility |
 | --- | --- | --- |
+| Find worthwhile problems or set technical priorities | `engineering-orchestrator` | Connect workflow evidence to priorities, uncertainty, and the next useful action. |
+| Plan an uncertain or cross-team initiative | `engineering-orchestrator` | Test consequential assumptions, sequence dependencies, and define rollout and outcome evidence. |
 | Small local change | Direct task or a relevant specialist | Make and check the requested change. |
 | Standalone technical review | The relevant `*-guard` | Assess its domain within the requested read/write scope. |
 | Dependent changes across components or specialties | `engineering-orchestrator` | Establish contracts, select expertise, coordinate ownership, and verify integration. |
 | Resume interrupted multi-part work | `engineering-orchestrator` | Reconcile the checkpoint with current artifacts and continue unresolved work. |
 | Coordinate an evolving behavior change | `engineering-orchestrator` with conditional spec-driven guidance | Connect intent, changed requirements, tasks, and current verification evidence. |
+
+For problem discovery, try `Use $engineering-orchestrator to identify which problems in these incidents and support reports deserve investment; recommend a next step without implementing.` For strategic planning, try `Use $engineering-orchestrator to compare the credible approaches, test the assumption most likely to invalidate this initiative, and plan delivery and outcome verification.` Detailed [problem selection](skills/engineering-orchestrator/references/problem-selection.md) and [execution strategy](skills/engineering-orchestrator/references/execution-strategy.md) guidance loads only for those decisions. Staff-level judgment is the design goal, not a measured capability guarantee. See the [focused evaluation](evals/staff-judgment-2026-09-20/results.md) for evidence and limits.
 
 The coordinator owns delivery decisions; the six guards provide technical expertise. One worker may use several skills, and delegation is optional. The installed collection does not require a fixed sequence of reviews. See [expertise boundaries](skills/engineering-orchestrator/references/expertise.md) for overlapping responsibilities.
 
@@ -26,7 +30,7 @@ For a selected subset, use the [macOS skill installer](#install-on-a-new-mac). F
 
 | Skill | Purpose |
 | --- | --- |
-| [engineering-orchestrator](skills/engineering-orchestrator/SKILL.md) | Decompose coordinated engineering work, select relevant skills and agents, manage dependencies and ownership, and verify the integrated result. |
+| [engineering-orchestrator](skills/engineering-orchestrator/SKILL.md) | Select engineering priorities, shape feasible execution plans, coordinate dependent work, and distinguish integration evidence from actual impact. |
 | [architecture-guard](skills/architecture-guard/SKILL.md) | Design and review module boundaries, dependency direction, shared-state ownership, and contracts between modules. Local edits without boundary impact need no architecture review. |
 | [react-quality-guard](skills/react-quality-guard/SKILL.md) | Design and improve React components, composition, hooks, state, and performance. Choose variants and shared providers while preserving independent interaction state. |
 | [code-quality-guard](skills/code-quality-guard/SKILL.md) | Design shared business rules and bounded solutions using practical SOLID, design pattern, and YAGNI criteria; review, improve, and compare maintainability using evidence of actual change costs. |

@@ -133,6 +133,11 @@ Expected B: correct the affected example at its existing level of detail. Do not
 Input C: implement the same change and explicitly update a named architecture document, or follow an applicable repository rule requiring a decision record.
 Expected C: produce the requested or required documentation within its stated scope; the documentation limit must not block that deliverable or require redundant approval.
 
+## 24. Consequential design hypothesis
+
+Input: assess a proposed common cache for consumers with different retention, offline use, and permission constraints; answer without editing files.
+Expected: identify the actual mechanism and conflicting requirements, compare credible local and shared alternatives, identify a discriminating check, and avoid presenting a happy-path prototype as proof of migration or recovery. Missing workload evidence remains unknown rather than invented scale requirements.
+
 ## Evaluation records
 
 Additional boundary-contract scenarios:
