@@ -135,4 +135,13 @@ Expected C: produce the requested or required documentation within its stated sc
 
 ## Evaluation records
 
+Additional boundary-contract scenarios:
+
+- Review an API whose generated client and mock use one schema revision while the provider emits a different shape. Inspect serialized output; passing type checks or a mock-only test does not establish compatibility. Reuse the existing canonical schema.
+- Change a wire identifier that exceeds JavaScript's safe integer range. Preserve precision before serialization; stringifying an already rounded value cannot recover it. Verify the consumer-facing value independently.
+- Migrate an exported format with consumers outside the repository. Preserve required legacy behavior and identify rollout constraints; a local search is not proof that external consumers are absent.
+- Implement a local helper with no independently consumed boundary. Do not introduce schema generation, a contract document, or a broad architecture process.
+
+These are expected behaviors, not executed pass records. The [ECC/OpenSpec evaluation](../contracts-openspec-2026-09-20/results.md) exercises a coordinated format migration with this guard available as optional expertise; it does not establish standalone guard selection or all scenarios above.
+
 Record the model/version, skill version or hash, fixture commit, user input, invocation, reading scope, actual output, changed files, and validation commands. Check skill invocation and `AGENTS.md` integration separately. Repeat unstable invocation/scope cases to assess variation. Do not relax criteria to reach a score target.

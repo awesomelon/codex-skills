@@ -1,0 +1,36 @@
+{
+  "changeName": "document-v2",
+  "schemaName": "team-exchange",
+  "contextFiles": {
+    "requirements": [
+      "planning/changes/document-v2/requirements.md"
+    ],
+    "work": [
+      "planning/changes/document-v2/work.md"
+    ]
+  },
+  "progress": {
+    "total": 3,
+    "complete": 3,
+    "remaining": 0
+  },
+  "tasks": [
+    {
+      "id": "1.1",
+      "description": "Update producer and contract",
+      "done": true
+    },
+    {
+      "id": "1.2",
+      "description": "Update consumer",
+      "done": true
+    },
+    {
+      "id": "1.3",
+      "description": "Verify compatibility",
+      "done": true
+    }
+  ],
+  "state": "all_done",
+  "instruction": "All tasks are complete. You can archive this change."
+}

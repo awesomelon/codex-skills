@@ -1,0 +1,35 @@
+[
+  {
+    "name": "starting",
+    "command": [
+      "node",
+      "--test",
+      "evals/engineering-orchestrator/acceptance.test.mjs"
+    ],
+    "cwd": "/workspace/scratch/00fe3e4d7417/codex-skills",
+    "MIGRATION_PROJECT": "/workspace/scratch/00fe3e4d7417/codex-skills/evals/engineering-orchestrator/fixtures/migration",
+    "exit_code": 1
+  },
+  {
+    "name": "baseline-migration",
+    "command": [
+      "node",
+      "--test",
+      "evals/engineering-orchestrator/acceptance.test.mjs"
+    ],
+    "cwd": "/workspace/scratch/00fe3e4d7417/codex-skills",
+    "MIGRATION_PROJECT": "/tmp/codex-contracts-openspec-evaluation/baseline-migration/project",
+    "exit_code": 0
+  },
+  {
+    "name": "candidate-migration",
+    "command": [
+      "node",
+      "--test",
+      "evals/engineering-orchestrator/acceptance.test.mjs"
+    ],
+    "cwd": "/workspace/scratch/00fe3e4d7417/codex-skills",
+    "MIGRATION_PROJECT": "/tmp/codex-contracts-openspec-evaluation/candidate-migration/project",
+    "exit_code": 0
+  }
+]
