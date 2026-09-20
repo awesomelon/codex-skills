@@ -1,0 +1,19 @@
+{
+  "changeName": "document-v2",
+  "schemaName": "team-exchange",
+  "changeDir": "planning/changes/document-v2",
+  "isComplete": true,
+  "applyRequires": [
+    "work"
+  ],
+  "artifacts": [
+    {
+      "id": "requirements",
+      "status": "done"
+    },
+    {
+      "id": "work",
+      "status": "done"
+    }
+  ]
+}

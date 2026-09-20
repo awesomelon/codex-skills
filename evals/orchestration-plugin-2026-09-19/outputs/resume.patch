@@ -1,0 +1,120 @@
+--- a/contract.mjs
++++ b/contract.mjs
+@@ -1,2 +1,4 @@
+-export const CURRENT_VERSION = 1;
+-export const COLLECTION_FIELD = 'items';
++export const CURRENT_VERSION = 2;
++export const COLLECTION_FIELD = 'entries';
++export const LEGACY_VERSION = 1;
++export const LEGACY_COLLECTION_FIELD = 'items';
+--- a/producer.mjs
++++ b/producer.mjs
+@@ -2,6 +2,6 @@
+ export function serialize(rows) {
+   return JSON.stringify({
+     version: CURRENT_VERSION,
+-    [COLLECTION_FIELD]: rows.map(({ id, title }) => ({ id, title })),
++    [COLLECTION_FIELD]: rows.map(({ id, title, archived = false }) => ({ id, title, archived })),
+   });
+ }
+--- a/consumer.mjs
++++ b/consumer.mjs
+@@ -1,6 +1,14 @@
+-import { CURRENT_VERSION, COLLECTION_FIELD } from './contract.mjs';
++import {
++  CURRENT_VERSION,
++  COLLECTION_FIELD,
++  LEGACY_VERSION,
++  LEGACY_COLLECTION_FIELD,
++} from './contract.mjs';
+ export function deserialize(text) {
+   const packet = JSON.parse(text);
++  if (packet.version === LEGACY_VERSION) {
++    return packet[LEGACY_COLLECTION_FIELD].map(({ id, title }) => ({ id, title, archived: false }));
++  }
+   if (packet.version !== CURRENT_VERSION) throw new TypeError('Unsupported version');
+-  return packet[COLLECTION_FIELD].map(({ id, title }) => ({ id, title }));
++  return packet[COLLECTION_FIELD].map(({ id, title, archived = false }) => ({ id, title, archived }));
+ }
+--- a/exchange.test.mjs
++++ b/exchange.test.mjs
+@@ -3,8 +3,67 @@
+ import { serialize } from './producer.mjs';
+ import { deserialize } from './consumer.mjs';
+ test('empty documents round trip', () => {
++  assert.deepEqual(JSON.parse(serialize([])), { version: 2, entries: [] });
+   assert.deepEqual(deserialize(serialize([])), []);
+ });
++test('exports v2 entries in order, retaining archived and defaulting omitted values', () => {
++  const rows = [
++    { id: 'second', title: 'Archived document', archived: true },
++    { id: 'first', title: 'Active document', archived: false },
++    { id: 'third', title: 'Default document' },
++  ];
++  const text = serialize(rows);
++  assert.equal(typeof text, 'string');
++  assert.deepEqual(JSON.parse(text), {
++    version: 2,
++    entries: [
++      { id: 'second', title: 'Archived document', archived: true },
++      { id: 'first', title: 'Active document', archived: false },
++      { id: 'third', title: 'Default document', archived: false },
++    ],
++  });
++});
++test('imports legacy v1 items in order with archived set to false', () => {
++  assert.deepEqual(deserialize(JSON.stringify({
++    version: 1,
++    items: [
++      { id: 'second', title: 'Legacy document' },
++      { id: 'first', title: 'Another legacy document', archived: true },
++    ],
++  })), [
++    { id: 'second', title: 'Legacy document', archived: false },
++    { id: 'first', title: 'Another legacy document', archived: false },
++  ]);
++  assert.deepEqual(deserialize('{"version":1,"items":[]}'), []);
++});
++test('imports v2 entries with archived values intact', () => {
++  const rows = [
++    { id: 'second', title: 'Archived document', archived: true },
++    { id: 'first', title: 'Active document', archived: false },
++  ];
++  assert.deepEqual(deserialize(JSON.stringify({ version: 2, entries: rows })), rows);
++});
++test('documents round trip through v2 with normalized archived values', () => {
++  const rows = [
++    { id: 'second', title: 'Archived document', archived: true },
++    { id: 'first', title: 'Active document', archived: false },
++    { id: 'third', title: 'Default document' },
++  ];
++  assert.deepEqual(deserialize(serialize(rows)), [
++    { id: 'second', title: 'Archived document', archived: true },
++    { id: 'first', title: 'Active document', archived: false },
++    { id: 'third', title: 'Default document', archived: false },
++  ]);
++});
++test('legacy imports can be re-exported as v2', () => {
++  const legacy = '{"version":1,"items":[{"id":"legacy","title":"Legacy document"}]}';
++  assert.deepEqual(JSON.parse(serialize(deserialize(legacy))), {
++    version: 2,
++    entries: [{ id: 'legacy', title: 'Legacy document', archived: false }],
++  });
++});
+ test('unsupported versions fail', () => {
+-  assert.throws(() => deserialize('{"version":99,"items":[]}'), TypeError);
++  for (const version of [0, 3, 99, '2', null, undefined]) {
++    assert.throws(() => deserialize(JSON.stringify({ version, items: [], entries: [] })), TypeError);
++  }
+ });
+--- a/checkpoint.json
++++ b/checkpoint.json
+@@ -1,7 +1,7 @@
+ {
+   "goal": "Upgrade document exchange to v2 while retaining v1 import",
+   "status": "done",
+-  "verification": "passed before the current working files were restored",
++  "verification": "node --test exchange.test.mjs passed on the current implementation: 7 tests, 0 failures",
+   "activeWorkers": [],
+   "nextAction": "report completion"
+ }

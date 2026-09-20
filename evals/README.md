@@ -2,6 +2,10 @@
 
 Scenario catalogs define expected behavior. Result documents and saved responses describe particular runs; neither proves that every scenario passes.
 
+For a before/after comparison, hold the task input, starting fixture revision, model configuration, tool access, and permissions constant. Give fresh workers only the task, raw artifacts, and the selected skill resources; withhold expected findings and coordinator acceptance checks. Record the skill and reference content hashes, changed artifacts, commands/results, and actual output. Use independent behavioral assertions rather than checking for headings or preferred wording. Repeat cases when observed variation affects the conclusion; a single pair is a smoke comparison, not a reliability benchmark.
+
+For incremental maintenance, review changes to referenced resources, metadata, fixtures, and checks along with SKILL.md. Use Git/content changes rather than file modification time. Keep a reason for retaining, improving, merging, or removing a skill, and leave task success, automatic discovery, elapsed time, token usage, and cost as separate measures. Do not infer unmeasured usage or savings from shorter prompts.
+
 Repository instructions, Markdown documentation, UI metadata, and task descriptions are now in English. Historical reports and saved Markdown responses are labeled translations with links to their original versions. Translation is not a new model run, and historical character counts, tool versions, commands, and pass totals still describe the original run.
 
 ## Reproduce a historical run

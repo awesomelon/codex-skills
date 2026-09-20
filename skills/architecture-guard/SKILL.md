@@ -20,6 +20,8 @@ Start with the specified change and its directly connected callers, consumers, a
 - **Contracts:** Check actual consumers of changed APIs, types, caches, and events. Preserve relevant invariants when touching authorization, tenant isolation, concurrency, or transaction boundaries. For a requested contract transition, review consumers and migration order together.
 - **Intervention cost:** Prefer readable, maintainable code over lower LOC or a smaller diff. A file around 1,000 lines can be appropriate when its responsibilities belong together; that number is neither a target nor a limit. Extract a module when independent change or verification becomes clearer, accounting for extra imports and coordinated edits. Preserve required dependency rules; do not apply DTOs, services, DDD, or FSD uniformly.
 
+Read [boundary contracts](references/contracts.md) when changing an independently consumed API, event, or serialized format. Local changes with no such boundary need no contract tooling.
+
 ## Validation and completion
 
 Start with existing checks that address risks in the changed boundaries and contracts. Run explicitly required validation; add checks when they resolve remaining uncertainty. Do not weaken checking rules to obtain a pass. A small automated check may help with recurring, significant boundary violations.

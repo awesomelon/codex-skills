@@ -1,0 +1,31 @@
+{
+  "name": "codex-skills",
+  "version": "0.1.0",
+  "description": "Coordinate engineering changes with focused specialist skills and verified integration.",
+  "author": {
+    "name": "awesomelon"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Engineering Orchestration",
+    "shortDescription": "Coordinate engineering work through verified integration.",
+    "longDescription": "Coordinate dependent engineering work and apply focused architecture, code quality, React, refactoring, TanStack Query, and TypeScript expertise. Skills also work independently.",
+    "developerName": "awesomelon",
+    "category": "Developer Tools",
+    "capabilities": [],
+    "websiteURL": "https://github.com/awesomelon/codex-skills",
+    "defaultPrompt": [
+      "Use Engineering Orchestrator to coordinate this change through verification.",
+      "Use Engineering Orchestrator to plan this multi-part change without editing code.",
+      "Use Engineering Orchestrator to resume this task and reconcile its current state."
+    ]
+  },
+  "homepage": "https://github.com/awesomelon/codex-skills",
+  "repository": "https://github.com/awesomelon/codex-skills",
+  "keywords": [
+    "engineering",
+    "orchestration",
+    "code-review",
+    "codex"
+  ]
+}

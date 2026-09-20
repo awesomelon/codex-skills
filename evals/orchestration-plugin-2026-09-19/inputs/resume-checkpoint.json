@@ -1,0 +1,7 @@
+{
+  "goal": "Upgrade document exchange to v2 while retaining v1 import",
+  "status": "done",
+  "verification": "passed before the current working files were restored",
+  "activeWorkers": [],
+  "nextAction": "report completion"
+}

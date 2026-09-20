@@ -1,0 +1,14 @@
+✔ producer emits the exact v2 envelope and preserves row order (1.317862ms)
+✔ producer defaults omitted archived to false (0.237988ms)
+✔ consumer imports legacy v1 with an archived default (0.209104ms)
+✔ consumer imports the specified v2 envelope (0.127842ms)
+✔ producer and consumer integrate without losing archived state (0.153892ms)
+✔ unsupported versions remain errors (0.448054ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 82.532894

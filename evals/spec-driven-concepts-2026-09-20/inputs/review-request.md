@@ -1,0 +1,1 @@
+Use $engineering-orchestrator to assess whether the behavior change in change.md is complete and explain the remaining implementation/verification plan. Use the existing specification, work record, and current source. Respond in the conversation only; preserve every project file. Work locally without delegation, new dependencies, external services, or publication.

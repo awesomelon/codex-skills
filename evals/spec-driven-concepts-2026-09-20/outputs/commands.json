@@ -1,0 +1,23 @@
+[
+  {
+    "command": [
+      "node",
+      "--test",
+      "evals/engineering-orchestrator/acceptance.test.mjs"
+    ],
+    "cwd": "/workspace/scratch/00fe3e4d7417/codex-skills",
+    "MIGRATION_PROJECT": "/tmp/codex-spec-concepts-evaluation/implementation/project",
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "node",
+      "--input-type=module",
+      "-e",
+      "import assert from 'node:assert/strict';\nimport {pathToFileURL} from 'node:url';\nconst root = process.env.MIGRATION_PROJECT;\nconst {serialize} = await import(pathToFileURL(root + '/producer.mjs'));\nconst {deserialize} = await import(pathToFileURL(root + '/consumer.mjs'));\nconst rows = [{id:'b',title:'서명 📝',archived:true},{id:'a',title:'é文'}];\nconst before = structuredClone(rows);\nconst wire = serialize(rows);\nassert.deepEqual(rows, before);\nassert.deepEqual(JSON.parse(wire).entries.map(row => row.title), ['서명 📝','é文']);\nassert.deepEqual(deserialize(wire).map(row => row.title), ['서명 📝','é文']);\nassert.deepEqual(deserialize(JSON.stringify({version:1,items:[{id:'b',title:'서명 📝'}]})), [{id:'b',title:'서명 📝',archived:false}]);\nconsole.log('PASS: Unicode preserved across current and legacy boundaries; caller rows unchanged.');\n"
+    ],
+    "cwd": "/workspace/scratch/00fe3e4d7417/codex-skills",
+    "MIGRATION_PROJECT": "/tmp/codex-spec-concepts-evaluation/implementation/project",
+    "exit_code": 0
+  }
+]

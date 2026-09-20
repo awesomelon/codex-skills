@@ -1,0 +1,62 @@
+[
+  {
+    "command": [
+      "bash",
+      "scripts/install.sh",
+      "--list"
+    ],
+    "exitCode": 0,
+    "stdout": "architecture-guard\ncode-quality-guard\nengineering-orchestrator\nreact-quality-guard\nrefactoring-guard\ntanstack-query-guard\ntypescript-quality-guard\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "bash",
+      "scripts/install.sh",
+      "--dest",
+      "/tmp/package-install-i270ll8e/links"
+    ],
+    "exitCode": 0,
+    "stdout": "install: /tmp/package-install-i270ll8e/links/architecture-guard (link)\ninstall: /tmp/package-install-i270ll8e/links/code-quality-guard (link)\ninstall: /tmp/package-install-i270ll8e/links/engineering-orchestrator (link)\ninstall: /tmp/package-install-i270ll8e/links/react-quality-guard (link)\ninstall: /tmp/package-install-i270ll8e/links/refactoring-guard (link)\ninstall: /tmp/package-install-i270ll8e/links/tanstack-query-guard (link)\ninstall: /tmp/package-install-i270ll8e/links/typescript-quality-guard (link)\nInstallation complete.\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "bash",
+      "scripts/install.sh",
+      "--skill",
+      "engineering-orchestrator",
+      "--mode",
+      "copy",
+      "--dest",
+      "/tmp/package-install-i270ll8e/copies"
+    ],
+    "exitCode": 0,
+    "stdout": "install: /tmp/package-install-i270ll8e/copies/engineering-orchestrator (copy)\nInstallation complete.\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python3",
+      "/root/.codex/skills/.system/skill-creator/scripts/quick_validate.py",
+      "/tmp/package-install-i270ll8e/copies/engineering-orchestrator"
+    ],
+    "exitCode": 0,
+    "stdout": "Skill is valid!\n",
+    "stderr": ""
+  },
+  {
+    "check": "Plugin skill set equals shell installer links; standalone copy bytes match all source files",
+    "result": "pass",
+    "skills": [
+      "architecture-guard",
+      "code-quality-guard",
+      "engineering-orchestrator",
+      "react-quality-guard",
+      "refactoring-guard",
+      "tanstack-query-guard",
+      "typescript-quality-guard"
+    ],
+    "sourceManifestSha256": "a40189a833f0389809dc7fe355fe0206e3ec6b9d0b72815913bec5855eed540f"
+  }
+]

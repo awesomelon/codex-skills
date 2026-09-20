@@ -1,0 +1,92 @@
+{
+  "starting_revision": "19605a4388bfd46b090372f3959f0541c357d32a",
+  "model": "Inherited session default; no override or exact model build exported",
+  "runs": {
+    "implementation": {
+      "project": "/tmp/codex-spec-concepts-evaluation/implementation/project",
+      "resources": "/tmp/codex-spec-concepts-evaluation/implementation/resources",
+      "project_before": {
+        "change.md": "e801441fa7631475d75e04a906b44625ac7a18da7db9336c3748979bee6fb6e6",
+        "consumer.mjs": "c87814ef88f244596d7a4b239e9064db8048152bd0c3d4630a749c0613395399",
+        "contract.mjs": "aed4a3dc1c10de7490d63f07c510f590cb8f54673f76e5ee0afe9bd387ae2b49",
+        "current-behavior.md": "70bfb8b1bd32327e020e72ad8b561b2d4229f0fb9ee12d2923c08624237c3a1d",
+        "exchange.test.mjs": "8b98ac9ca991a794932286245b4fffdc7d5a8ab5c1d0851211be97cb0f055acf",
+        "notes.txt": "9f337a38f9d9a28f3eb5bcd1ad8955a700f9b8cb53a87c5c4e601355587fe859",
+        "producer.mjs": "670bb615834cda451ab01c1a38989dae7a3bd410f9f668aef4bac3435bf768a0",
+        "work.md": "5d004fe4bca007d652951f2351f070cffeac631683877615e8238af6314575fd"
+      },
+      "resource_hashes": {
+        "engineering-orchestrator/LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+        "engineering-orchestrator/SKILL.md": "5c671136bc831020fdbf65d7962354f77e4d406176a0c19770870480c41cb0a2",
+        "engineering-orchestrator/THIRD_PARTY_NOTICES.md": "95af135a8c573fe2a8c71bcd4e86e5da958663f977cd5672f3b4adcb95d19528",
+        "engineering-orchestrator/agents/openai.yaml": "dc8c5ba3adcea41902825d7bc5c8298d3c4ef9d348aef5fd2c10cb5b5eca53c1",
+        "engineering-orchestrator/references/changes.md": "bec95fa947647221fd72c6733863e7e9307c31671af8d0070252ebea75d4ec96",
+        "engineering-orchestrator/references/continuity.md": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+        "engineering-orchestrator/references/coordination.md": "25733504f37f96ab107c5e437b7cde3350635a61f5b31a92c6da4a9c9a855e8d",
+        "engineering-orchestrator/references/expertise.md": "2b9724eed2e4dcd7a6aa4771e05fdc3fc261d86d5b13ccf5fbc204bc8a2acb2d",
+        "engineering-orchestrator/references/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+        "engineering-orchestrator/references/performance.md": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+        "engineering-orchestrator/references/review-and-delivery.md": "e15de0fac2587645dd6070cb1ec4f3315155e76fb17d30eaf5342d520e7cb967",
+        "engineering-orchestrator/references/sources.md": "5b6db0640dedffe06e519c17c3fdc58fdd8fe4919ad13f4a7a598a23bfff569e",
+        "engineering-orchestrator/references/spec-driven-changes.md": "c3b9f1ba1a4a20dd91b55f85903813598e898517c165080d6092f621f7234928",
+        "engineering-orchestrator/references/verification.md": "42954448676251b082b44a34105390184fe72d803d4826bb7e36aba80af0d498"
+      },
+      "request_sha256": "52a847175c354c40902d1cebef2f35b6fc8e3db67533030e3489e60be4e69b91"
+    },
+    "review": {
+      "project": "/tmp/codex-spec-concepts-evaluation/review/project",
+      "resources": "/tmp/codex-spec-concepts-evaluation/review/resources",
+      "project_before": {
+        "change.md": "e801441fa7631475d75e04a906b44625ac7a18da7db9336c3748979bee6fb6e6",
+        "consumer.mjs": "c87814ef88f244596d7a4b239e9064db8048152bd0c3d4630a749c0613395399",
+        "contract.mjs": "aed4a3dc1c10de7490d63f07c510f590cb8f54673f76e5ee0afe9bd387ae2b49",
+        "current-behavior.md": "70bfb8b1bd32327e020e72ad8b561b2d4229f0fb9ee12d2923c08624237c3a1d",
+        "exchange.test.mjs": "8b98ac9ca991a794932286245b4fffdc7d5a8ab5c1d0851211be97cb0f055acf",
+        "notes.txt": "9f337a38f9d9a28f3eb5bcd1ad8955a700f9b8cb53a87c5c4e601355587fe859",
+        "producer.mjs": "670bb615834cda451ab01c1a38989dae7a3bd410f9f668aef4bac3435bf768a0",
+        "work.md": "5d004fe4bca007d652951f2351f070cffeac631683877615e8238af6314575fd"
+      },
+      "resource_hashes": {
+        "engineering-orchestrator/LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+        "engineering-orchestrator/SKILL.md": "5c671136bc831020fdbf65d7962354f77e4d406176a0c19770870480c41cb0a2",
+        "engineering-orchestrator/THIRD_PARTY_NOTICES.md": "95af135a8c573fe2a8c71bcd4e86e5da958663f977cd5672f3b4adcb95d19528",
+        "engineering-orchestrator/agents/openai.yaml": "dc8c5ba3adcea41902825d7bc5c8298d3c4ef9d348aef5fd2c10cb5b5eca53c1",
+        "engineering-orchestrator/references/changes.md": "bec95fa947647221fd72c6733863e7e9307c31671af8d0070252ebea75d4ec96",
+        "engineering-orchestrator/references/continuity.md": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+        "engineering-orchestrator/references/coordination.md": "25733504f37f96ab107c5e437b7cde3350635a61f5b31a92c6da4a9c9a855e8d",
+        "engineering-orchestrator/references/expertise.md": "2b9724eed2e4dcd7a6aa4771e05fdc3fc261d86d5b13ccf5fbc204bc8a2acb2d",
+        "engineering-orchestrator/references/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+        "engineering-orchestrator/references/performance.md": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+        "engineering-orchestrator/references/review-and-delivery.md": "e15de0fac2587645dd6070cb1ec4f3315155e76fb17d30eaf5342d520e7cb967",
+        "engineering-orchestrator/references/sources.md": "5b6db0640dedffe06e519c17c3fdc58fdd8fe4919ad13f4a7a598a23bfff569e",
+        "engineering-orchestrator/references/spec-driven-changes.md": "c3b9f1ba1a4a20dd91b55f85903813598e898517c165080d6092f621f7234928",
+        "engineering-orchestrator/references/verification.md": "42954448676251b082b44a34105390184fe72d803d4826bb7e36aba80af0d498"
+      },
+      "request_sha256": "a71d01e55524b8647de35e6899046aae76486ec257e767999ee8be0cda9b444b"
+    },
+    "tiny": {
+      "project": "/tmp/codex-spec-concepts-evaluation/tiny/project",
+      "resources": "/tmp/codex-spec-concepts-evaluation/tiny/resources",
+      "project_before": {
+        "README.md": "6117b586cf5243ad1c601bbf896ac32c12bb3a9a2ed6cf8d6e10d7dd5d0a9a93"
+      },
+      "resource_hashes": {
+        "engineering-orchestrator/LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+        "engineering-orchestrator/SKILL.md": "5c671136bc831020fdbf65d7962354f77e4d406176a0c19770870480c41cb0a2",
+        "engineering-orchestrator/THIRD_PARTY_NOTICES.md": "95af135a8c573fe2a8c71bcd4e86e5da958663f977cd5672f3b4adcb95d19528",
+        "engineering-orchestrator/agents/openai.yaml": "dc8c5ba3adcea41902825d7bc5c8298d3c4ef9d348aef5fd2c10cb5b5eca53c1",
+        "engineering-orchestrator/references/changes.md": "bec95fa947647221fd72c6733863e7e9307c31671af8d0070252ebea75d4ec96",
+        "engineering-orchestrator/references/continuity.md": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+        "engineering-orchestrator/references/coordination.md": "25733504f37f96ab107c5e437b7cde3350635a61f5b31a92c6da4a9c9a855e8d",
+        "engineering-orchestrator/references/expertise.md": "2b9724eed2e4dcd7a6aa4771e05fdc3fc261d86d5b13ccf5fbc204bc8a2acb2d",
+        "engineering-orchestrator/references/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+        "engineering-orchestrator/references/performance.md": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+        "engineering-orchestrator/references/review-and-delivery.md": "e15de0fac2587645dd6070cb1ec4f3315155e76fb17d30eaf5342d520e7cb967",
+        "engineering-orchestrator/references/sources.md": "5b6db0640dedffe06e519c17c3fdc58fdd8fe4919ad13f4a7a598a23bfff569e",
+        "engineering-orchestrator/references/spec-driven-changes.md": "c3b9f1ba1a4a20dd91b55f85903813598e898517c165080d6092f621f7234928",
+        "engineering-orchestrator/references/verification.md": "42954448676251b082b44a34105390184fe72d803d4826bb7e36aba80af0d498"
+      },
+      "request_sha256": "470220c0997f13418601400674a624717184f15b20e3a7b7764759dec5ff9293"
+    }
+  }
+}

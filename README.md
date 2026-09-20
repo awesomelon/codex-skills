@@ -1,8 +1,26 @@
 # codex-skills
 
-A personal collection of reusable engineering skills to install and update on multiple Macs. The supported user environment is macOS.
+Engineering orchestration skills for Codex: coordinate dependent work, select the expertise each decision needs, and verify the integrated result. Use the skills independently or package the collection as the **Engineering Orchestration** plugin. Individual skill installation supports macOS.
 
 GitHub repository: [awesomelon/codex-skills](https://github.com/awesomelon/codex-skills).
+
+## Choose how to work
+
+| Task | Entry point | Responsibility |
+| --- | --- | --- |
+| Small local change | Direct task or a relevant specialist | Make and check the requested change. |
+| Standalone technical review | The relevant `*-guard` | Assess its domain within the requested read/write scope. |
+| Dependent changes across components or specialties | `engineering-orchestrator` | Establish contracts, select expertise, coordinate ownership, and verify integration. |
+| Resume interrupted multi-part work | `engineering-orchestrator` | Reconcile the checkpoint with current artifacts and continue unresolved work. |
+| Coordinate an evolving behavior change | `engineering-orchestrator` with conditional spec-driven guidance | Connect intent, changed requirements, tasks, and current verification evidence. |
+
+The coordinator owns delivery decisions; the six guards provide technical expertise. One worker may use several skills, and delegation is optional. The installed collection does not require a fixed sequence of reviews. See [expertise boundaries](skills/engineering-orchestrator/references/expertise.md) for overlapping responsibilities.
+
+For features and migrations, reuse existing requirements to connect observable acceptance conditions, shared contracts, and verification evidence. Architecture Guard has conditional [boundary-contract guidance](skills/architecture-guard/references/contracts.md) for independently consumed APIs, events, and serialized formats. Clear local edits need no specification or contract toolchain.
+
+The [spec-driven change guide](docs/spec-driven-changes.md) adapts OpenSpec's concepts: separate intent, behavior, and design; track added/modified/removed requirements; connect tasks to evidence; and reconcile changes with existing specifications. Use ordinary project artifacts without installing OpenSpec or imposing a document set. See the [concept evaluation](evals/spec-driven-concepts-2026-09-20/results.md) for executed cases and limitations.
+
+For a selected subset, use the [macOS skill installer](#install-on-a-new-mac). For the collection, see [plugin packaging and local testing](docs/plugin.md). Both use the same `skills/` contents. Choose one installation route for each skill to avoid duplicate discovery. The [orchestration package evaluation](evals/orchestration-plugin-2026-09-19/results.md) separates task behavior, package checks, and host-installation limits.
 
 ## Included skills
 

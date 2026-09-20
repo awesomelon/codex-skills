@@ -1,0 +1,1 @@
+PASS: Unicode preserved across current and legacy boundaries; caller rows unchanged.

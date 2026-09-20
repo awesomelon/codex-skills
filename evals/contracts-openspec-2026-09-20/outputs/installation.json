@@ -1,0 +1,53 @@
+{
+  "command": [
+    "bash",
+    "scripts/install.sh",
+    "--skill",
+    "engineering-orchestrator",
+    "--skill",
+    "architecture-guard",
+    "--mode",
+    "copy",
+    "--dest",
+    "/tmp/codex-contracts-copy-8xs7mhj3/skills"
+  ],
+  "exit_code": 0,
+  "copied_skills": {
+    "engineering-orchestrator": {
+      "source_file_hashes": {
+        "LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+        "SKILL.md": "7a145254a20d1d9091788f409ff2dd9552df7361e9997a98f4cba0cccecc2006",
+        "THIRD_PARTY_NOTICES.md": "95af135a8c573fe2a8c71bcd4e86e5da958663f977cd5672f3b4adcb95d19528",
+        "agents/openai.yaml": "dc8c5ba3adcea41902825d7bc5c8298d3c4ef9d348aef5fd2c10cb5b5eca53c1",
+        "references/changes.md": "bec95fa947647221fd72c6733863e7e9307c31671af8d0070252ebea75d4ec96",
+        "references/continuity.md": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+        "references/coordination.md": "25733504f37f96ab107c5e437b7cde3350635a61f5b31a92c6da4a9c9a855e8d",
+        "references/expertise.md": "2b9724eed2e4dcd7a6aa4771e05fdc3fc261d86d5b13ccf5fbc204bc8a2acb2d",
+        "references/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+        "references/openspec.md": "0370f424f923bbe6adcd177af1a79392e8862fd6695b32705c2e17cd6c8f98b9",
+        "references/performance.md": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+        "references/review-and-delivery.md": "e15de0fac2587645dd6070cb1ec4f3315155e76fb17d30eaf5342d520e7cb967",
+        "references/sources.md": "ec7c793cf029ce84750a8cdc0366f2e780bca1086dc57be5de5ca3fb524f7842",
+        "references/verification.md": "42954448676251b082b44a34105390184fe72d803d4826bb7e36aba80af0d498"
+      },
+      "extra_paths": [
+        ".codex-skills-install.v2"
+      ]
+    },
+    "architecture-guard": {
+      "source_file_hashes": {
+        "SKILL.md": "ebe2b0c816171151362d1922776c00403c3db9a9e4801161600dc03ccc5dd3ae",
+        "THIRD_PARTY_NOTICES.md": "b3a95153343e3e4368fcb1a10461e8c8cf25da1f51e1c9c1d56de6295e50f17a",
+        "agents/openai.yaml": "f12f554448925a154375b1183f6c076bc2e1dbbb8de93d51be802552dedbcf9f",
+        "references/contracts.md": "1699d7d298437a16bdb71191148f4be9c1db850dc601cc6334f2fd52f5fc359c",
+        "references/preflight.md": "3dd7734a650b6cee0053a5876175f00e8927be2d7d3c538cd36af43f8a713d37",
+        "references/review.md": "1638e29c479594f884a826a92d74e26b355bb80e03cec18eab9a34a0c9be518e"
+      },
+      "extra_paths": [
+        ".codex-skills-install.v2"
+      ]
+    }
+  },
+  "os": "Linux",
+  "note": "Initial equality assertion included the installer ownership marker and failed. Corrected the check to verify all source bytes and allow only the documented .codex-skills-install.v2 marker; reused the existing installation."
+}

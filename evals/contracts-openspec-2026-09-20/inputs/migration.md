@@ -1,0 +1,3 @@
+Use $engineering-orchestrator to complete the document-exchange migration in this workspace. Work locally without delegating or using external services.
+
+The v2 wire format is {version: 2, entries: [{id, title, archived}]}. Export each row in order, retaining archived and defaulting it to false when omitted. Import both legacy v1 {version: 1, items: [{id, title}]} and v2 packets; imported rows have id, title, and archived (false for v1). Unsupported versions throw TypeError. Keep the serialize and deserialize exports and JSON-string interface. contract.mjs is the shared format definition. Update relevant tests and verify the integrated result. Do not add dependencies, publish changes, or alter notes.txt.

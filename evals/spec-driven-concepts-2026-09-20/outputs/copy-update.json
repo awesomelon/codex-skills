@@ -1,0 +1,19 @@
+{
+  "command": [
+    "bash",
+    "scripts/install.sh",
+    "--skill",
+    "engineering-orchestrator",
+    "--mode",
+    "copy",
+    "--dest",
+    "/tmp/codex-contracts-copy-8xs7mhj3/skills"
+  ],
+  "exit_code": 0,
+  "stdout": "update: /tmp/codex-contracts-copy-8xs7mhj3/skills/engineering-orchestrator (copy)\nInstallation complete.\n",
+  "stderr": "",
+  "old_reference_removed": true,
+  "all_source_bytes_match": true,
+  "platform": "Linux",
+  "scope": "Update the disposable copy from the previous evaluation; no user installation changed."
+}

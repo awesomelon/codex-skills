@@ -15,6 +15,8 @@ A concise assignment conveys:
 
 Pass enough raw context to execute the task, without copying unrelated history or predetermining an independent review's conclusions. Workers share a workspace unless isolated; tell them to preserve others' edits and report changes needed outside their ownership. Plan-only and read-only constraints apply to every delegate. Delegation carries no broader authority than the parent task.
 
+When a worker lacks context, request the specific missing contract, caller, or observation and return its source location and remaining uncertainty. Expand retrieval from that gap rather than restarting a broad repository survey or requiring a fixed number of search rounds.
+
 ## Coordinate changes
 
 Different paths can still depend on the same schema, generated output, lockfile, fixture, or running service. Route shared changes through their owner and communicate revised contracts to affected workers before integration. Worktrees isolate filesystem changes, not semantic dependencies or external side effects. Do not combine competing implementations mechanically; compare equivalent inputs and acceptance conditions before selecting one.
