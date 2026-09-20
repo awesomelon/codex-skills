@@ -1,0 +1,51 @@
+{
+  "implementation": {
+    "changed_paths": [
+      "consumer.mjs",
+      "contract.mjs",
+      "current-behavior.md",
+      "exchange.test.mjs",
+      "producer.mjs",
+      "work.md"
+    ],
+    "project_after": {
+      "change.md": "e801441fa7631475d75e04a906b44625ac7a18da7db9336c3748979bee6fb6e6",
+      "consumer.mjs": "7235a803fb0bc46e832933bd4bbbdce48ee5ebc3d87f26a505967e099963f61a",
+      "contract.mjs": "1c53c7c7e80bac3eaf0702cee262033b65322c90c0245a7e805d348194ff0e94",
+      "current-behavior.md": "8119cea69dfab73507d2716dbf1971dbd70b235b8cf8a72d80015414332384fd",
+      "exchange.test.mjs": "c12d754796cd06fed43f26ec18a207d2f9a612ab4c4afe86b29372c83168770a",
+      "notes.txt": "9f337a38f9d9a28f3eb5bcd1ad8955a700f9b8cb53a87c5c4e601355587fe859",
+      "producer.mjs": "ddc2e96dab8bedc4628b6003a07ad01ce07434395cf181c296bc1217366d8268",
+      "work.md": "7c39a95d47df87adf5d680353bf5ea9648bb60b04e38fc062e94f5fd062cc467"
+    },
+    "resources_unchanged": true
+  },
+  "review": {
+    "changed_paths": [],
+    "project_after": {
+      "change.md": "e801441fa7631475d75e04a906b44625ac7a18da7db9336c3748979bee6fb6e6",
+      "consumer.mjs": "c87814ef88f244596d7a4b239e9064db8048152bd0c3d4630a749c0613395399",
+      "contract.mjs": "aed4a3dc1c10de7490d63f07c510f590cb8f54673f76e5ee0afe9bd387ae2b49",
+      "current-behavior.md": "70bfb8b1bd32327e020e72ad8b561b2d4229f0fb9ee12d2923c08624237c3a1d",
+      "exchange.test.mjs": "8b98ac9ca991a794932286245b4fffdc7d5a8ab5c1d0851211be97cb0f055acf",
+      "notes.txt": "9f337a38f9d9a28f3eb5bcd1ad8955a700f9b8cb53a87c5c4e601355587fe859",
+      "producer.mjs": "670bb615834cda451ab01c1a38989dae7a3bd410f9f668aef4bac3435bf768a0",
+      "work.md": "5d004fe4bca007d652951f2351f070cffeac631683877615e8238af6314575fd"
+    },
+    "resources_unchanged": true
+  },
+  "tiny": {
+    "changed_paths": [
+      "README.md"
+    ],
+    "project_after": {
+      "README.md": "2a340fedbe67d0b17fc2674f1579d29780e438228addaab70441158427857473"
+    },
+    "resources_unchanged": true
+  },
+  "runtime": {
+    "os": "Linux",
+    "python": "3.12.14",
+    "node": "v24.19.0"
+  }
+}

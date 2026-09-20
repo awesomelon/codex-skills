@@ -1,0 +1,179 @@
+--- a/consumer.mjs
++++ b/consumer.mjs
+@@ -1,6 +1,16 @@
+-import { CURRENT_VERSION, COLLECTION_FIELD } from './contract.mjs';
++import {
++  CURRENT_VERSION,
++  COLLECTION_FIELD,
++  LEGACY_VERSION,
++  LEGACY_COLLECTION_FIELD,
++} from './contract.mjs';
+ export function deserialize(text) {
+   const packet = JSON.parse(text);
+-  if (packet.version !== CURRENT_VERSION) throw new TypeError('Unsupported version');
+-  return packet[COLLECTION_FIELD].map(({ id, title }) => ({ id, title }));
++  if (packet.version === CURRENT_VERSION) {
++    return packet[COLLECTION_FIELD].map(({ id, title, archived }) => ({ id, title, archived }));
++  }
++  if (packet.version === LEGACY_VERSION) {
++    return packet[LEGACY_COLLECTION_FIELD].map(({ id, title }) => ({ id, title, archived: false }));
++  }
++  throw new TypeError('Unsupported version');
+ }
+--- a/contract.mjs
++++ b/contract.mjs
+@@ -1,2 +1,4 @@
+-export const CURRENT_VERSION = 1;
+-export const COLLECTION_FIELD = 'items';
++export const CURRENT_VERSION = 2;
++export const COLLECTION_FIELD = 'entries';
++export const LEGACY_VERSION = 1;
++export const LEGACY_COLLECTION_FIELD = 'items';
+--- a/current-behavior.md
++++ b/current-behavior.md
+@@ -1,10 +1,16 @@
+ # Accepted document exchange behavior
+ 
+ ## Output
+-Export a JSON string containing numeric version 1 and an items collection. Each row contains id and title in input order.
++Export a JSON string containing numeric version 2 and an entries collection:
++`{version: 2, entries: [{id, title, archived}]}`. Each row contains id, title, and
++archived in input order. Preserve explicit archived values; default an omitted
++archived value to false.
+ 
+ ## Input
+-Import version 1 items as rows containing id and title. Unsupported versions throw TypeError.
++Import numeric version 2 entries as rows containing id, title, and archived,
++preserving archive state and input order. Continue to import numeric version 1
++items as rows containing id, title, and archived: false on every row, in input
++order. Unsupported versions throw TypeError.
+ 
+ ## Unaffected guarantees
+ Preserve Unicode titles exactly. Serialization must not mutate the caller's rows. Keep the named serialize and deserialize exports with JSON-string output/input.
+--- a/exchange.test.mjs
++++ b/exchange.test.mjs
+@@ -8,3 +8,70 @@
+ test('unsupported versions fail', () => {
+   assert.throws(() => deserialize('{"version":99,"items":[]}'), TypeError);
+ });
++test('exports the exact v2 wire format in input order with archive defaults', () => {
++  const text = serialize([
++    { id: 'third', title: 'Archived', archived: true },
++    { id: 'first', title: 'Active', archived: false },
++    { id: 'second', title: 'Default' },
++  ]);
++  assert.equal(typeof text, 'string');
++  assert.deepEqual(JSON.parse(text), {
++    version: 2,
++    entries: [
++      { id: 'third', title: 'Archived', archived: true },
++      { id: 'first', title: 'Active', archived: false },
++      { id: 'second', title: 'Default', archived: false },
++    ],
++  });
++});
++test('imports literal legacy items with archived false in input order', () => {
++  assert.deepEqual(
++    deserialize('{"version":1,"items":[{"id":"b","title":"Legacy B"},{"id":"a","title":"Legacy A","archived":true}]}'),
++    [
++      { id: 'b', title: 'Legacy B', archived: false },
++      { id: 'a', title: 'Legacy A', archived: false },
++    ],
++  );
++});
++test('imports literal v2 entries preserving archive state and input order', () => {
++  assert.deepEqual(
++    deserialize('{"version":2,"entries":[{"id":"b","title":"Archived","archived":true},{"id":"a","title":"Active","archived":false}]}'),
++    [
++      { id: 'b', title: 'Archived', archived: true },
++      { id: 'a', title: 'Active', archived: false },
++    ],
++  );
++});
++test('nonempty documents round trip with explicit and default archive states', () => {
++  assert.deepEqual(
++    deserialize(serialize([
++      { id: 3, title: 'Archived', archived: true },
++      { id: 1, title: 'Active', archived: false },
++      { id: 2, title: 'Default' },
++    ])),
++    [
++      { id: 3, title: 'Archived', archived: true },
++      { id: 1, title: 'Active', archived: false },
++      { id: 2, title: 'Default', archived: false },
++    ],
++  );
++});
++test('preserves Unicode titles exactly through both public entrypoints', () => {
++  const title = 'Café / Cafe\u0301 / 日本語 / 🗂️';
++  const packet = JSON.parse(serialize([{ id: 1, title }]));
++  assert.equal(packet.entries[0].title, title);
++  assert.equal(deserialize('{"version":1,"items":[{"id":1,"title":"Café / Cafe\\u0301 / 日本語 / 🗂️"}]}')[0].title, title);
++  assert.equal(deserialize('{"version":2,"entries":[{"id":1,"title":"Café / Cafe\\u0301 / 日本語 / 🗂️","archived":true}]}')[0].title, title);
++});
++test('serialization does not mutate caller rows or add archive defaults to them', () => {
++  const rows = [
++    { id: 1, title: 'Archived', archived: true },
++    { id: 2, title: 'Active', archived: false },
++    { id: 3, title: 'Default' },
++  ];
++  const before = structuredClone(rows);
++  rows.forEach(Object.freeze);
++  Object.freeze(rows);
++  serialize(rows);
++  assert.deepEqual(rows, before);
++});
+--- a/producer.mjs
++++ b/producer.mjs
+@@ -2,6 +2,6 @@
+ export function serialize(rows) {
+   return JSON.stringify({
+     version: CURRENT_VERSION,
+-    [COLLECTION_FIELD]: rows.map(({ id, title }) => ({ id, title })),
++    [COLLECTION_FIELD]: rows.map(({ id, title, archived = false }) => ({ id, title, archived })),
+   });
+ }
+--- a/work.md
++++ b/work.md
+@@ -5,3 +5,41 @@
+ - [x] Verify required behavior and reconcile current-behavior.md.
+ 
+ Previous handoff: all work complete. No command output or revision was retained.
++
++Starting-state reconciliation: the handoff did not match the inspected source.
++The contract and producer still emitted version 1 items, and the consumer only
++accepted version 1 and returned no archive state. All tasks above were reopened.
++This directory has no Git revision. The existing `node --test exchange.test.mjs`
++baseline on Node v24.19.0 passed 2 tests, covering only an empty round trip and an
++unsupported version.
++
++Completed locally, in dependency order: added acceptance checks to the existing
++test file, updated the shared identifiers and both public entrypoints, verified
++their integrated behavior, then updated current-behavior.md. One local worker
++owned these steps; no delegation, new dependencies, external services, or
++publication were used.
++
++Implementation and completion evidence:
++
++- contract.mjs owns the v2/entries and legacy v1/items format identifiers.
++  producer.mjs now exports v2 entries, retaining explicit archive values and
++  supplying false when omitted.
++- consumer.mjs now preserves archive state in v2 entries and adds archived: false
++  to every imported legacy item. Both import paths retain row order, and other
++  versions still throw TypeError.
++- Before changing production code, `node --test exchange.test.mjs` ran the
++  expanded suite: 3 passed, 5 failed (exit 1). Failures exposed the old wire
++  format, missing legacy archive defaults, rejected v2 input, lost archive state
++  in nonempty round trips, and the absent entries collection in the Unicode check.
++- After integrating the three modules, the same command on Node v24.19.0 passed
++  all 8 tests with 0 failures, skips, or cancellations (exit 0). Tests check exact
++  parsed output independently of deserialize; explicit true, false, and omitted
++  archive values; input order; literal legacy and v2 packets; nonempty and empty
++  round trips; unsupported-version TypeError; exact Unicode preservation; and
++  serialization of frozen caller rows without mutation.
++- current-behavior.md now describes the verified output and both import formats;
++  its unaffected guarantees remain intact. notes.txt was preserved byte for byte
++  (SHA-256: 9f337a38f9d9a28f3eb5bcd1ad8955a700f9b8cb53a87c5c4e601355587fe859).
++
++All acceptance conditions in change.md are covered; no remaining work or known
++verification gaps for this local change.

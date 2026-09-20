@@ -1,8 +1,10 @@
 # ECC and OpenSpec integration evaluation — 2026-09-20
 
+Historical record for commit `08b4044c7b466a0fdc1e6cf2abeeb845fd5c1116`. The user subsequently clarified that OpenSpec concepts, not a CLI adapter, were requested. The adapter/setup guide were removed; these executions are not reruns of the replacement. See the [concept evaluation](../spec-driven-concepts-2026-09-20/results.md) for current guidance. Raw inputs, responses, and hashes below remain unchanged.
+
 ## Change and source basis
 
-This revision keeps the seven existing skills and their discovery metadata. It adds acceptance and shared-contract guidance to Engineering Orchestrator, a conditional boundary-contract reference to Architecture Guard, and an optional OpenSpec adapter. It does not install upstream bundles, copy generated OpenSpec skills, configure models or hooks, or add a new runtime. The [source record](../../skills/engineering-orchestrator/references/sources.md) pins the inspected ECC/OpenSpec revisions; the [setup guide](../../docs/openspec.md) separates optional installation from skill operation.
+This revision keeps the seven existing skills and their discovery metadata. It adds acceptance and shared-contract guidance to Engineering Orchestrator, a conditional boundary-contract reference to Architecture Guard, and an optional OpenSpec adapter. It does not install upstream bundles, copy generated OpenSpec skills, configure models or hooks, or add a new runtime. The [historical source record](https://github.com/awesomelon/codex-skills/blob/08b4044c7b466a0fdc1e6cf2abeeb845fd5c1116/skills/engineering-orchestrator/references/sources.md) pins the inspected ECC/OpenSpec revisions; the [historical setup guide](https://github.com/awesomelon/codex-skills/blob/08b4044c7b466a0fdc1e6cf2abeeb845fd5c1116/docs/openspec.md) separates optional installation from skill operation.
 
 The OpenAI Astra authoring article was fetched during this revision. Only task-relevant details were added behind existing references or a conditional route. Source review and structure checks are separate from observed task behavior.
 
@@ -40,7 +42,7 @@ Checks ran on Linux; versions are in the artifact record. They do not establish 
 
 ## Reproduction
 
-Use the repository revision containing this report for candidate instructions and the pinned baseline revision above for baseline instructions. The recorded candidate source-provenance hash differs as described above; behavioral files and notices can be checked against the manifest. Recreate fresh workspaces and compare the same requests with equivalent model/tool settings.
+Use commit `08b4044c7b466a0fdc1e6cf2abeeb845fd5c1116` for the historical candidate instructions and the pinned baseline revision above for baseline instructions. The recorded candidate source-provenance hash differs as described above; behavioral files and notices can be checked against the manifest. Recreate fresh workspaces and compare the same requests with equivalent model/tool settings.
 
 - Migration: copy the existing [migration fixture](../engineering-orchestrator/fixtures/migration), omitting its TASK.md. Add notes.txt containing `Unrelated local note: retain export column order for the next release.` followed by a newline. Supply [the migration request](inputs/migration.md) and the two skill locations.
 - Status review and proposal: copy [the status fixture](fixtures/status-review) and supply [the review request](inputs/status-review.md) or [the proposal request](inputs/proposal.md). Treat captured relative paths as project-relative, as explicitly stated in those requests.

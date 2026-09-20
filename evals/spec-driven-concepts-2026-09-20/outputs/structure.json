@@ -1,0 +1,20 @@
+{
+  "checks": [
+    {
+      "command": "python3 scripts/validate.py",
+      "exit_code": 0,
+      "result": "All seven skills passed metadata, UI, portable-content, and local-reference validation."
+    },
+    {
+      "command": "python3 /root/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/engineering-orchestrator",
+      "exit_code": 0,
+      "result": "Skill is valid!"
+    },
+    {
+      "command": "rg -n 'openspec (context|status|instructions|init|update)|@fission-ai|openspec-apply|openspec-propose|contextFiles|all_done|docs/openspec.md|references/openspec.md' README.md docs skills evals/engineering-orchestrator/cases.md",
+      "exit_code": 1,
+      "result": "No matches in maintained guidance. Historical evaluation data is outside this search."
+    }
+  ],
+  "note": "The removed adapter is replaced by a conditional reference; discovery descriptions, UI metadata, installers, and plugin manifest are unchanged."
+}
