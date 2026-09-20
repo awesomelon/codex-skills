@@ -1,0 +1,93 @@
+export function normalizeId(value) {
+  if (typeof value !== 'string') throw new TypeError('ID must be a string');
+  const id = value.trim();
+  if (!/^[a-z][a-z0-9-]*$/.test(id)) throw new RangeError('Invalid ID');
+  return id;
+}
+
+export function normalizeIds(values) {
+  const ids = [...new Set(values)].map(normalizeId);
+  return [...new Set(ids)];
+}
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { exportRecords } from './export.mjs';
+import { importRecords } from './import.mjs';
+import { normalizeId, normalizeIds } from './ids.mjs';
+
+test('export retains wire contract and order', () => {
+  assert.deepEqual(JSON.parse(exportRecords(['beta', 'alpha', 'beta'])),
+    { version: 1, ids: ['beta', 'alpha'] });
+});
+test('import normalizes valid IDs', () => {
+  assert.deepEqual(importRecords('{"ids":[" alpha ","beta"]}'), ['alpha', 'beta']);
+});
+
+const whitespaceIds = Object.freeze([
+  ' beta ', 'alpha', 'beta', '\talpha\n', 'gamma-2', ' gamma-2 ', 'beta',
+]);
+const expectedIds = ['beta', 'alpha', 'gamma-2'];
+
+test('export deduplicates normalized IDs in first-occurrence order without mutating input', () => {
+  assert.equal(exportRecords(whitespaceIds),
+    JSON.stringify({ version: 1, ids: expectedIds }));
+});
+
+test('import deduplicates normalized IDs in first-occurrence order', () => {
+  assert.deepEqual(importRecords(JSON.stringify({ ids: whitespaceIds })), expectedIds);
+});
+
+test('normalization deduplicates whitespace variants and preserves iterable inputs', () => {
+  assert.deepEqual(normalizeIds(whitespaceIds), expectedIds);
+  assert.deepEqual(normalizeIds(new Set(whitespaceIds)), expectedIds);
+  assert.equal(normalizeId('\talpha-2\n'), 'alpha-2');
+});
+
+test('empty and nullish collections retain existing behavior', () => {
+  for (const values of [[], null, undefined]) {
+    assert.deepEqual(normalizeIds(values), []);
+    assert.equal(exportRecords(values), '{"version":1,"ids":[]}');
+  }
+  assert.deepEqual(importRecords('{"ids":[]}'), []);
+  assert.deepEqual(importRecords('{"ids":null}'), []);
+  assert.deepEqual(importRecords('{}'), []);
+});
+
+test('normalization, import and export preserve ID validation and error types', () => {
+  const cases = [
+    [42, TypeError, 'ID must be a string'],
+    [null, TypeError, 'ID must be a string'],
+    ['', RangeError, 'Invalid ID'],
+    [' \t ', RangeError, 'Invalid ID'],
+    ['Alpha', RangeError, 'Invalid ID'],
+    ['1alpha', RangeError, 'Invalid ID'],
+    ['alpha beta', RangeError, 'Invalid ID'],
+    ['alpha_', RangeError, 'Invalid ID'],
+  ];
+  for (const [value, error, message] of cases) {
+    assert.throws(() => normalizeId(value), { name: error.name, message });
+    const values = [' alpha ', 'alpha', value];
+    for (const operation of [
+      () => normalizeIds(values),
+      () => exportRecords(values),
+      () => importRecords(JSON.stringify({ ids: values })),
+    ]) {
+      assert.throws(operation, { name: error.name, message });
+    }
+  }
+  assert.throws(() => importRecords('{'), SyntaxError);
+});
+✔ shared: normalized identity, stable order, no mutation (1.20317ms)
+✔ shared: exact boundary errors survive (0.380192ms)
+✔ export: normalized identity, stable order, no mutation (0.151178ms)
+✔ export: exact boundary errors survive (0.162385ms)
+✔ import: normalized identity, stable order, no mutation (0.155594ms)
+✔ import: exact boundary errors survive (0.135324ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 79.0788

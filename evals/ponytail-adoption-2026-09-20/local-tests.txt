@@ -1,0 +1,20 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> test
+> node --test
+
+✔ export retains wire contract and order (1.255729ms)
+✔ import normalizes valid IDs (0.141543ms)
+✔ export deduplicates normalized IDs in first-occurrence order without mutating input (0.140111ms)
+✔ import deduplicates normalized IDs in first-occurrence order (0.167272ms)
+✔ normalization deduplicates whitespace variants and preserves iterable inputs (0.158498ms)
+✔ empty and nullish collections retain existing behavior (0.206741ms)
+✔ normalization, import and export preserve ID validation and error types (0.874296ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 94.390439

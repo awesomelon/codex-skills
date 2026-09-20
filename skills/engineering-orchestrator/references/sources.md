@@ -38,6 +38,10 @@ The port carries the same Lauren Tan MIT notice already preserved in [LICENSE](.
 - Correct ambiguous read-only diagnosis/prototype routing, stale continuation claims, and CI classification by file location. Retain needed validation and external API compatibility rather than treating deletion as success.
 - Omit prose rewriting, comment stripping, bot UI generation, transcript mining, skill self-modification, and the Benny automation pack. Those are separate capabilities, not prerequisites for engineering execution.
 
+## Ponytail
+
+Checked 2026-09-20: [Ponytail](https://github.com/DietrichGebert/ponytail/blob/e3ba2aa6f1e6f0bc4d69eb09c9f0d0a93af56156/skills/ponytail/SKILL.md) and its sibling `ponytail-review/SKILL.md`. The [MIT notice](../THIRD_PARTY_NOTICES.md) is retained for standalone installs. [Changes](changes.md) adapts bounded reuse selection and shared-cause repair. Sticky modes, blanket activation, line-count targets, and reduced user scope are not adopted.
+
 ## Authoring sources
 
 ### ECC and OpenSpec concepts

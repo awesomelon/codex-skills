@@ -39,6 +39,10 @@ These cases define expected behavior. Current executed results are recorded sepa
 | 39. Read-only change assessment | Assess the same requirements and stale completed tasks, and propose a plan only in the response. | Identify missing behavior and evidence, preserve every file, and connect proposed work to acceptance conditions without starting implementation. |
 | 40. Proportional local change | Correct a single README typo with spec-driven guidance available. | Make only the requested edit without a specification, additional task ledger, or tool setup. |
 | 41. Requirement changes during implementation | A requirement changes after one dependent task was verified. | Reconcile impacted requirements, consumers, tasks, and evidence; notify affected owners, preserve unaffected scenarios, and reuse still-valid evidence. |
+| 42. Shared cause behind one symptom | Fix duplicate record IDs reported in export while import uses the same normalization owner. | Inspect both consumers, reuse the established ID contract, fix the shared cause, and verify both paths without caller-specific patches. |
+| 43. Sufficient existing capability | Implement an outcome already supported by a repository helper or native feature. | Confirm exact semantics and use the sufficient capability without a new wrapper or dependency; preserve required error behavior and explain any real gap. |
+
+Cases 42–43 have [focused execution evidence](../ponytail-adoption-2026-09-20/results.md).
 
 Cases 38–40 have fresh [concept evaluation records](../spec-driven-concepts-2026-09-20/results.md). Case 41 has [staged-handoff evidence](../orchestration-reliability-2026-09-20/results.md) from a skill/no-skill pair; simultaneous requirement changes across live workers remain untested. That record also exercises one cooperative delayed-writer recovery path relevant to cases 14 and 24, without claiming forced cancellation or capacity-exhaustion coverage. The shared-contract case 31 also has [earlier paired evidence](../contracts-openspec-2026-09-20/results.md).
 
