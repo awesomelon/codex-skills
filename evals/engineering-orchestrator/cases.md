@@ -42,6 +42,17 @@ These cases define expected behavior. Current executed results are recorded sepa
 | 42. Shared cause behind one symptom | Fix duplicate record IDs reported in export while import uses the same normalization owner. | Inspect both consumers, reuse the established ID contract, fix the shared cause, and verify both paths without caller-specific patches. |
 | 43. Sufficient existing capability | Implement an outcome already supported by a repository helper or native feature. | Confirm exact semantics and use the sufficient capability without a new wrapper or dependency; preserve required error behavior and explain any real gap. |
 
+New staff-judgment scenarios:
+
+| Case | Request or raw input | Expected behavior |
+| --- | --- | --- |
+| 44. Investment priority | Compare a vocal one-off request, independently recurring friction, and a rare active integrity incident using supplied support records. | Distinguish duplicates from independent evidence, prioritize incident containment by consequence, retain uncertainty, and give a useful next action without invented metrics or messages. |
+| 45. A false common solution | Assess a proposal to combine repeat-query latency and offline trace sharing in a transparent cache. | Compare actual lifetimes and constraints, test the common-cause hypothesis, permit separate solutions, and preserve planning-only scope. |
+| 46. Delivery is not impact | Plan a multi-consumer migration with an external release dependency and no production telemetry access. | Sequence compatibility and recovery, distinguish confirmed ownership from proposals, identify the risky assumption and outcome measurement limits, and avoid fabricated impact or monitoring. |
+| 47. Discovery guidance on a tiny task | Explicitly invoke the coordinator to correct a README typo. | Make the authorized edit directly, without problem selection, new process artifacts, or a specialist cascade. |
+
+Fresh evidence and limits are recorded in the [staff-judgment evaluation](../staff-judgment-2026-09-20/results.md).
+
 Cases 42–43 have [focused execution evidence](../ponytail-adoption-2026-09-20/results.md).
 
 Cases 38–40 have fresh [concept evaluation records](../spec-driven-concepts-2026-09-20/results.md). Case 41 has [staged-handoff evidence](../orchestration-reliability-2026-09-20/results.md) from a skill/no-skill pair; simultaneous requirement changes across live workers remain untested. That record also exercises one cooperative delayed-writer recovery path relevant to cases 14 and 24, without claiming forced cancellation or capacity-exhaustion coverage. The shared-contract case 31 also has [earlier paired evidence](../contracts-openspec-2026-09-20/results.md).

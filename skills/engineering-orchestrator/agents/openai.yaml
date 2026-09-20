@@ -1,4 +1,4 @@
 interface:
   display_name: "Engineering Orchestrator"
-  short_description: "Coordinate tasks, agents, and verified integration"
-  default_prompt: "Use $engineering-orchestrator to coordinate the requested work, select useful skills and agents, and verify the integrated result."
+  short_description: "Select priorities and coordinate verified delivery"
+  default_prompt: "Use $engineering-orchestrator to shape the requested engineering decision or delivery, using evidence and relevant expertise."

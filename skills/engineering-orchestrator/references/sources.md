@@ -44,6 +44,12 @@ Checked 2026-09-20: [Ponytail](https://github.com/DietrichGebert/ponytail/blob/e
 
 ## Authoring sources
 
+### Staff engineering judgment
+
+Freshly read on 2026-09-20: [How I Find Problems to Solve as a Staff Engineer](https://lalitm.com/post/find-problems-staff-engineer/) by Lalit Maganti. Its problem-discovery perspective informs [problem selection](problem-selection.md). [Execution strategy](execution-strategy.md) extends the collection's own delivery guidance to connect prioritization, uncertain design decisions, adoption, and outcome evidence. These are original decision aids, not a copy of the article or a guarantee of staff-level performance. Its organizational context is not assumed to apply everywhere.
+
+The designated Astra article was freshly read for this revision too. The existing coordinator gains two conditional references and a specific discovery trigger; no new overlapping skill, fixed thinking ritual, or required agent panel is added.
+
 ### ECC and OpenSpec concepts
 
 Reviewed on 2026-09-20: [ECC](https://github.com/affaan-m/ECC/tree/934195f955cf0da847d59fcd6f68856bce112d8b), commit `934195f955cf0da847d59fcd6f68856bce112d8b`, and [OpenSpec](https://github.com/Fission-AI/OpenSpec/tree/bae58cf61479986431bb798acbe5a688a591c18c), commit `bae58cf61479986431bb798acbe5a688a591c18c` (CLI 1.13.1). Their MIT notices are preserved in [third-party notices](../THIRD_PARTY_NOTICES.md). Upstream code, installers, and generated skills are not bundled.
