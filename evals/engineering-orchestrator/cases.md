@@ -40,7 +40,7 @@ These cases define expected behavior. Current executed results are recorded sepa
 | 40. Proportional local change | Correct a single README typo with spec-driven guidance available. | Make only the requested edit without a specification, additional task ledger, or tool setup. |
 | 41. Requirement changes during implementation | A requirement changes after one dependent task was verified. | Reconcile impacted requirements, consumers, tasks, and evidence; notify affected owners, preserve unaffected scenarios, and reuse still-valid evidence. |
 
-Cases 38–40 have fresh [concept evaluation records](../spec-driven-concepts-2026-09-20/results.md). Case 41 remains unexecuted. The shared-contract case 31 also has [earlier paired evidence](../contracts-openspec-2026-09-20/results.md).
+Cases 38–40 have fresh [concept evaluation records](../spec-driven-concepts-2026-09-20/results.md). Case 41 has [staged-handoff evidence](../orchestration-reliability-2026-09-20/results.md) from a skill/no-skill pair; simultaneous requirement changes across live workers remain untested. That record also exercises one cooperative delayed-writer recovery path relevant to cases 14 and 24, without claiming forced cancellation or capacity-exhaustion coverage. The shared-contract case 31 also has [earlier paired evidence](../contracts-openspec-2026-09-20/results.md).
 
 Cases 32–37 described the initial CLI adapter and are retired. Their original definitions are preserved at [the historical revision](https://github.com/awesomelon/codex-skills/blob/08b4044c7b466a0fdc1e6cf2abeeb845fd5c1116/evals/engineering-orchestrator/cases.md); their [execution record](../contracts-openspec-2026-09-20/results.md) does not validate the replacement concepts.
 

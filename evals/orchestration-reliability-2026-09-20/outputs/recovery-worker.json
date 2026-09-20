@@ -1,0 +1,19 @@
+{
+  "task": "exporter",
+  "workspace": "/workspace/scratch/4eb68078cbb7/orchestration-evaluation/recovery",
+  "script": "/workspace/scratch/4eb68078cbb7/codex-skills-audit/evals/orchestration-reliability-2026-09-20/late_worker.py",
+  "reported_status": "stopped",
+  "command_started": true,
+  "release_file": ".release-worker",
+  "stop_file": ".stop-worker",
+  "stop_acknowledgement": ".worker-stopped",
+  "runtime": "managed execution session; use cooperative project-local controls, not process IDs",
+  "prior_reported_status": "timeout",
+  "disposition": "Cooperative stop acknowledged before writing; exporter ownership transferred to the recovery task.",
+  "stop_evidence": "stopped before writing",
+  "late_write_marker_present": false,
+  "runtime_exit_confirmation": {
+    "source": "coordinator managed-session observation",
+    "exit_code": 0
+  }
+}

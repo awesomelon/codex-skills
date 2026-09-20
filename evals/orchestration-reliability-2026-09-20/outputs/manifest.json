@@ -1,0 +1,58 @@
+{
+  "base_commit": "7fae44bf1da3d13a8d28bfeec781d9b686bf657a",
+  "projects": {
+    "baseline": {
+      "consumer.mjs": "c87814ef88f244596d7a4b239e9064db8048152bd0c3d4630a749c0613395399",
+      "contract.mjs": "aed4a3dc1c10de7490d63f07c510f590cb8f54673f76e5ee0afe9bd387ae2b49",
+      "exchange.test.mjs": "8b98ac9ca991a794932286245b4fffdc7d5a8ab5c1d0851211be97cb0f055acf",
+      "notes.txt": "9f337a38f9d9a28f3eb5bcd1ad8955a700f9b8cb53a87c5c4e601355587fe859",
+      "producer.mjs": "670bb615834cda451ab01c1a38989dae7a3bd410f9f668aef4bac3435bf768a0",
+      "requirements.md": "d44e5d77a39de990d76ac0c60897b918eeef83bf9092d2fd170eaa42ea131c79",
+      "work.md": "686cf9f7653c6b03fd95b9bb1403355c0b99e91e80275f1e5fd09f07d6c99160"
+    },
+    "candidate": {
+      "consumer.mjs": "c87814ef88f244596d7a4b239e9064db8048152bd0c3d4630a749c0613395399",
+      "contract.mjs": "aed4a3dc1c10de7490d63f07c510f590cb8f54673f76e5ee0afe9bd387ae2b49",
+      "exchange.test.mjs": "8b98ac9ca991a794932286245b4fffdc7d5a8ab5c1d0851211be97cb0f055acf",
+      "notes.txt": "9f337a38f9d9a28f3eb5bcd1ad8955a700f9b8cb53a87c5c4e601355587fe859",
+      "producer.mjs": "670bb615834cda451ab01c1a38989dae7a3bd410f9f668aef4bac3435bf768a0",
+      "requirements.md": "d44e5d77a39de990d76ac0c60897b918eeef83bf9092d2fd170eaa42ea131c79",
+      "work.md": "686cf9f7653c6b03fd95b9bb1403355c0b99e91e80275f1e5fd09f07d6c99160"
+    },
+    "recovery": {
+      ".worker-ready": "ed1a545bb85e55816bbf9566b028b2a0bc456b88f49f6f266c0401048824194b",
+      "checkpoint.json": "bfefbcb68481fa3b430fa3d8433c2179b7d49cf944cca7707fa9653c1e2bf19c",
+      "consumer.mjs": "c87814ef88f244596d7a4b239e9064db8048152bd0c3d4630a749c0613395399",
+      "contract.mjs": "aed4a3dc1c10de7490d63f07c510f590cb8f54673f76e5ee0afe9bd387ae2b49",
+      "exchange.test.mjs": "8b98ac9ca991a794932286245b4fffdc7d5a8ab5c1d0851211be97cb0f055acf",
+      "notes.txt": "9f337a38f9d9a28f3eb5bcd1ad8955a700f9b8cb53a87c5c4e601355587fe859",
+      "producer.mjs": "670bb615834cda451ab01c1a38989dae7a3bd410f9f668aef4bac3435bf768a0",
+      "requirements.md": "d44e5d77a39de990d76ac0c60897b918eeef83bf9092d2fd170eaa42ea131c79",
+      "work.md": "686cf9f7653c6b03fd95b9bb1403355c0b99e91e80275f1e5fd09f07d6c99160",
+      "worker.json": "d9b7e752b49e03bec87432fbbbbd853a6e1086c446ef547996fd27d2722a7097"
+    }
+  },
+  "skills": {
+    "skills/engineering-orchestrator/LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+    "skills/engineering-orchestrator/SKILL.md": "5c671136bc831020fdbf65d7962354f77e4d406176a0c19770870480c41cb0a2",
+    "skills/engineering-orchestrator/THIRD_PARTY_NOTICES.md": "95af135a8c573fe2a8c71bcd4e86e5da958663f977cd5672f3b4adcb95d19528",
+    "skills/engineering-orchestrator/agents/openai.yaml": "dc8c5ba3adcea41902825d7bc5c8298d3c4ef9d348aef5fd2c10cb5b5eca53c1",
+    "skills/engineering-orchestrator/references/changes.md": "bec95fa947647221fd72c6733863e7e9307c31671af8d0070252ebea75d4ec96",
+    "skills/engineering-orchestrator/references/continuity.md": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+    "skills/engineering-orchestrator/references/coordination.md": "25733504f37f96ab107c5e437b7cde3350635a61f5b31a92c6da4a9c9a855e8d",
+    "skills/engineering-orchestrator/references/expertise.md": "2b9724eed2e4dcd7a6aa4771e05fdc3fc261d86d5b13ccf5fbc204bc8a2acb2d",
+    "skills/engineering-orchestrator/references/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+    "skills/engineering-orchestrator/references/performance.md": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+    "skills/engineering-orchestrator/references/review-and-delivery.md": "e15de0fac2587645dd6070cb1ec4f3315155e76fb17d30eaf5342d520e7cb967",
+    "skills/engineering-orchestrator/references/sources.md": "5b6db0640dedffe06e519c17c3fdc58fdd8fe4919ad13f4a7a598a23bfff569e",
+    "skills/engineering-orchestrator/references/spec-driven-changes.md": "c3b9f1ba1a4a20dd91b55f85903813598e898517c165080d6092f621f7234928",
+    "skills/engineering-orchestrator/references/verification.md": "42954448676251b082b44a34105390184fe72d803d4826bb7e36aba80af0d498"
+  },
+  "runtime": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "node": "v24.19.0"
+  },
+  "model": "inherited session default; no overrides",
+  "native_host": false,
+  "recovery_setup": "Managed foreground worker with project-local cooperative stop; process IDs are not shared between tool commands. Initial setup attempts were stopped before the agent mutated files."
+}

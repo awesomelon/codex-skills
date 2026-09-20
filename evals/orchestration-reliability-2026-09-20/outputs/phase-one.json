@@ -1,0 +1,30 @@
+{
+  "baseline": {
+    "exit_code": 0,
+    "consumer_unchanged": true,
+    "hashes": {
+      "requirements.md": "d44e5d77a39de990d76ac0c60897b918eeef83bf9092d2fd170eaa42ea131c79",
+      "work.md": "819fa496738dd6449ca31db5fb2731b9d789b59844c0284cb0c76c0c621ec786",
+      "contract.mjs": "9334663b6268ae4534f1d92699e8ab023566e6f53f986bee3fe713eec8e16df7",
+      "exchange.test.mjs": "8b98ac9ca991a794932286245b4fffdc7d5a8ab5c1d0851211be97cb0f055acf",
+      "consumer.mjs": "c87814ef88f244596d7a4b239e9064db8048152bd0c3d4630a749c0613395399",
+      "producer.mjs": "ddc2e96dab8bedc4628b6003a07ad01ce07434395cf181c296bc1217366d8268",
+      "producer.test.mjs": "38ce2bd9cae11fc415d5b2e752c5589b0024bf0ab32156864a84e2b2b9907162",
+      "notes.txt": "9f337a38f9d9a28f3eb5bcd1ad8955a700f9b8cb53a87c5c4e601355587fe859"
+    }
+  },
+  "candidate": {
+    "exit_code": 0,
+    "consumer_unchanged": true,
+    "hashes": {
+      "requirements.md": "d44e5d77a39de990d76ac0c60897b918eeef83bf9092d2fd170eaa42ea131c79",
+      "work.md": "3704831e57a16f60dfe02a4fd377f0b1b5c57dc02afed57bf1adb7b8ea29afec",
+      "contract.mjs": "c47f04286672b86f8a34f92e2818a387e0fb8c094b5d0b0087e9c1eb59ffb3a1",
+      "exchange.test.mjs": "8b98ac9ca991a794932286245b4fffdc7d5a8ab5c1d0851211be97cb0f055acf",
+      "consumer.mjs": "c87814ef88f244596d7a4b239e9064db8048152bd0c3d4630a749c0613395399",
+      "producer.mjs": "ddc2e96dab8bedc4628b6003a07ad01ce07434395cf181c296bc1217366d8268",
+      "producer.test.mjs": "0c178d2f001b75e7bcf3c4c209d855325ffc3e2b240d6d0f56dabbac799eb7ad",
+      "notes.txt": "9f337a38f9d9a28f3eb5bcd1ad8955a700f9b8cb53a87c5c4e601355587fe859"
+    }
+  }
+}

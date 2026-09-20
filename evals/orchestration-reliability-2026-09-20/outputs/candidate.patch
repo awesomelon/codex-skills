@@ -1,0 +1,168 @@
+--- a/consumer.mjs
++++ b/consumer.mjs
+@@ -3,0 +4,3 @@
++  if (packet.version === 1) {
++    return packet.items.map(({ id, title }) => ({ id, title, archived: false }));
++  }
+@@ -5 +8 @@
+-  return packet[COLLECTION_FIELD].map(({ id, title }) => ({ id, title }));
++  return packet[COLLECTION_FIELD].map(({ id, title, isArchived = false }) => ({ id, title, archived: isArchived }));
+--- a/contract.mjs
++++ b/contract.mjs
+@@ -1,2 +1,5 @@
+-export const CURRENT_VERSION = 1;
+-export const COLLECTION_FIELD = 'items';
++// Current wire contract: { version: 2, entries: [{ id, title, isArchived }] }.
++// In-memory rows use archived; an omitted archive flag defaults to false.
++// Legacy imports use { version: 1, items: [{ id, title }] }.
++export const CURRENT_VERSION = 2;
++export const COLLECTION_FIELD = 'entries';
+--- a/exchange.test.mjs
++++ b/exchange.test.mjs
+@@ -9 +9,3 @@
+-  assert.throws(() => deserialize('{"version":99,"items":[]}'), TypeError);
++  for (const version of [0, 3, 99, '1', '2', null, undefined]) {
++    assert.throws(() => deserialize(JSON.stringify({ version, items: [], entries: [] })), TypeError);
++  }
+@@ -10,0 +13,44 @@
++
++test('legacy v1 imports retain order and Unicode with archived defaulting to false', () => {
++  const text = '{"version":1,"items":[{"id":"z-東京","title":"Résumé 📄"},{"id":"a-α","title":"مرحبا"}]}';
++  assert.deepEqual(deserialize(text), [
++    { id: 'z-東京', title: 'Résumé 📄', archived: false },
++    { id: 'a-α', title: 'مرحبا', archived: false },
++  ]);
++  assert.deepEqual(deserialize('{"version":1,"items":[]}'), []);
++});
++
++test('v2 wire imports map isArchived and default omitted values', () => {
++  const text = '{"version":2,"entries":[{"id":"z-東京","title":"Résumé 📄","isArchived":true},{"id":"a-α","title":"مرحبا","isArchived":false},{"id":"default","title":"é"}]}';
++  const expected = [
++    { id: 'z-東京', title: 'Résumé 📄', archived: true },
++    { id: 'a-α', title: 'مرحبا', archived: false },
++    { id: 'default', title: 'é', archived: false },
++  ];
++  const result = deserialize(text);
++  assert.deepEqual(result, expected);
++  result[0].title = 'Changed by caller';
++  assert.deepEqual(deserialize(text), expected);
++});
++
++test('nonempty v2 round trip preserves values without mutating caller data', () => {
++  const rows = Object.freeze([
++    Object.freeze({ id: 'z-東京', title: 'Résumé 📄 — e\u0301', archived: true }),
++    Object.freeze({ id: 'a-α', title: 'مرحبا\n"文書"', archived: false }),
++    Object.freeze({ id: 'default', title: 'Default' }),
++  ]);
++  const before = structuredClone(rows);
++  const result = deserialize(serialize(rows));
++  assert.deepEqual(result, [
++    { id: 'z-東京', title: 'Résumé 📄 — e\u0301', archived: true },
++    { id: 'a-α', title: 'مرحبا\n"文書"', archived: false },
++    { id: 'default', title: 'Default', archived: false },
++  ]);
++  assert.deepEqual(rows, before);
++  assert.notEqual(result[0], rows[0]);
++});
++
++test('legacy import can be re-exported as the revised v2 wire format', () => {
++  const rows = deserialize('{"version":1,"items":[{"id":"old","title":"文書"}]}');
++  assert.equal(serialize(rows), '{"version":2,"entries":[{"id":"old","title":"文書","isArchived":false}]}');
++});
+--- a/producer.mjs
++++ b/producer.mjs
+@@ -5 +5 @@
+-    [COLLECTION_FIELD]: rows.map(({ id, title }) => ({ id, title })),
++    [COLLECTION_FIELD]: rows.map(({ id, title, archived = false }) => ({ id, title, isArchived: archived })),
+--- /dev/null
++++ b/producer.test.mjs
+@@ -0,0 +1,46 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { CURRENT_VERSION, COLLECTION_FIELD } from './contract.mjs';
++import { serialize } from './producer.mjs';
++
++test('shared contract names the v2 wire format', () => {
++  assert.equal(CURRENT_VERSION, 2);
++  assert.equal(COLLECTION_FIELD, 'entries');
++});
++
++test('empty export has the exact v2 wire shape', () => {
++  assert.equal(serialize([]), '{"version":2,"entries":[]}');
++});
++
++test('export preserves row order, Unicode, and explicit archived values', () => {
++  const rows = [
++    { id: 'z-東京', title: 'Résumé 📄 — e\u0301', archived: true },
++    { id: 'a-α', title: 'مرحبا\n"文書"', archived: false },
++  ];
++  assert.deepEqual(JSON.parse(serialize(rows)), {
++    version: 2,
++    entries: [
++      { id: 'z-東京', title: 'Résumé 📄 — e\u0301', isArchived: true },
++      { id: 'a-α', title: 'مرحبا\n"文書"', isArchived: false },
++    ],
++  });
++});
++
++test('export defaults omitted archived without changing caller-owned data', () => {
++  const metadata = Object.freeze({ tag: 'keep' });
++  const rows = Object.freeze([
++    Object.freeze({ id: 'first', title: 'Untouched', metadata }),
++    Object.freeze({ id: 'second', title: 'Undefined', archived: undefined }),
++  ]);
++  const before = structuredClone(rows);
++  assert.deepEqual(JSON.parse(serialize(rows)), {
++    version: 2,
++    entries: [
++      { id: 'first', title: 'Untouched', isArchived: false },
++      { id: 'second', title: 'Undefined', isArchived: false },
++    ],
++  });
++  assert.deepEqual(rows, before);
++  assert.equal(rows[0].metadata, metadata);
++  assert.equal(Object.hasOwn(rows[0], 'archived'), false);
++});
+--- a/requirements.md
++++ b/requirements.md
+@@ -3 +3,7 @@
+-Export v2 as {version: 2, entries: [{id, title, archived}]}; omitted archived defaults to false. Import v1 and v2. Preserve row order, Unicode and caller data. Unsupported versions raise TypeError.
++Export v2 as `{version: 2, entries: [{id, title, isArchived}]}`. In-memory rows use `{id, title, archived}`; export maps `archived` to `isArchived`, defaulting an omitted or undefined value to `false`.
++
++Import v2 `entries`, mapping `isArchived` back to `archived` and defaulting an omitted flag to `false`. Retain legacy v1 imports shaped as `{version: 1, items: [{id, title}]}`, producing rows with `archived: false`. Unsupported versions raise `TypeError`.
++
++Preserve row order, Unicode and caller-owned data without mutation. Export only the declared wire fields, retaining the field order `id`, `title`, `isArchived`.
++
++The importer partner has confirmed this revised v2 contract. The earlier v2 wire spelling `archived` never shipped and does not require compatibility support.
+--- a/work.md
++++ b/work.md
+@@ -3,3 +3,26 @@
+-- [ ] Export v2 and shared contract
+-- [ ] Import v1/v2
+-- [ ] Verify integrated compatibility
++- [x] Export v2 and shared contract
++- [x] Import v1/v2
++- [x] Verify integrated compatibility
++
++## Completed integrated migration
++
++- The partner confirmed the revised v2 wire entry field `isArchived`. In-memory rows continue to use `archived`. The earlier unshipped v2 spelling is superseded and has no compatibility fallback.
++- `contract.mjs` documents the revised wire shape and legacy v1 shape; export version remains 2 with collection field `entries`.
++- `producer.mjs` emits `{version: 2, entries: [{id, title, isArchived}]}`, mapping in-memory `archived` and defaulting omitted or undefined values to `false`. It retains input row order, Unicode, and field order without changing caller-owned rows or extra data.
++- `consumer.mjs` now accepts v1 `items` with `archived: false`, and v2 `entries` with `isArchived` mapped to `archived` (omitted flags default to `false`). Unsupported versions still raise `TypeError`.
++- `requirements.md` reflects the confirmed contract. `producer.test.mjs` and `exchange.test.mjs` cover direct wire fixtures and integrated behavior.
++- The unrelated `notes.txt` is unchanged: its before/after SHA-256 is `9f337a38f9d9a28f3eb5bcd1ad8955a700f9b8cb53a87c5c4e601355587fe859`.
++- This directory is not a Git repository, so no revision or Git diff is available.
++
++## Actual verification
++
++- Before the revised implementation, `node --test` ran 10 tests: 4 passed and 6 failed, exposing the old v2 spelling, rejected v1 imports, and missing imported archive values.
++- After updating export and import together, `node --test`: all 10 tests passed.
++- Verification includes the exact empty v2 wire shape; explicit true/false flags and defaults; independent v1 and v2 import fixtures; unsupported versions (including string, missing, and null versions); empty and nonempty round trips; v1 import followed by exact v2 re-export; row order; Unicode; frozen caller-owned rows; and independence of imported results across calls.
++- `sha256sum notes.txt` confirms the unrelated note was preserved.
++
++## Handoff history and remaining work
++
++The first requested handoff completed only the exporter and shared contract, leaving `consumer.mjs` untouched. At that point 6 tests passed, but a direct probe showed rejected v1 imports and dropped archive flags. That was deliberately an incomplete integration.
++
++Partner confirmation and authorization to finish superseded the importer hold and revised the wire flag to `isArchived`. Both observed integration gaps are now resolved and covered by passing tests. No requested implementation work remains. Verification is local to this module; no external partner service or deployment was exercised.
