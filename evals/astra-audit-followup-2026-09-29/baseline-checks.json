@@ -1,0 +1,19 @@
+{
+  "command": "node --test preferences.test.mjs",
+  "cases": {
+    "valid-diagnosis": {
+      "chunk_id": "e18554",
+      "wall_time_seconds": 0.067741292,
+      "exit_code": 1,
+      "original_token_count": 311,
+      "output": "✖ disabled preference survives a save and reload (1.023ms)\n✔ enabled preference survives a save and reload (0.076708ms)\n✔ omitted preference keeps the established enabled default (0.045292ms)\nℹ tests 3\nℹ suites 0\nℹ pass 2\nℹ fail 1\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 115.973459\n\n✖ failing tests:\n\ntest at preferences.test.mjs:5:1\n✖ disabled preference survives a save and reload (1.023ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n  + actual - expected\n  \n    {\n  +   enabled: true,\n  -   enabled: false,\n      key: 'email'\n    }\n  \n      at TestContext.<anonymous> (file:///private/var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/craftflow-audit-20260929-u7woo2qb/valid-diagnosis/preferences.test.mjs:6:10)\n      at Test.runInAsyncScope (node:async_hooks:226:14)\n      at Test.run (node:internal/test_runner/test:1402:25)\n      at Test.start (node:internal/test_runner/test:1262:17)\n      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: { key: 'email', enabled: true },\n    expected: { key: 'email', enabled: false },\n    operator: 'deepStrictEqual',\n    diff: 'simple'\n  }\n"
+    },
+    "stale-diagnosis": {
+      "chunk_id": "96940f",
+      "wall_time_seconds": 0.067640708,
+      "exit_code": 1,
+      "original_token_count": 310,
+      "output": "✖ disabled preference survives a save and reload (1.024ms)\n✔ enabled preference survives a save and reload (0.079459ms)\n✔ omitted preference keeps the established enabled default (0.047ms)\nℹ tests 3\nℹ suites 0\nℹ pass 2\nℹ fail 1\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 116.032375\n\n✖ failing tests:\n\ntest at preferences.test.mjs:5:1\n✖ disabled preference survives a save and reload (1.024ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n  + actual - expected\n  \n    {\n  +   enabled: true,\n  -   enabled: false,\n      key: 'email'\n    }\n  \n      at TestContext.<anonymous> (file:///private/var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/craftflow-audit-20260929-u7woo2qb/stale-diagnosis/preferences.test.mjs:6:10)\n      at Test.runInAsyncScope (node:async_hooks:226:14)\n      at Test.run (node:internal/test_runner/test:1402:25)\n      at Test.start (node:internal/test_runner/test:1262:17)\n      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: { key: 'email', enabled: true },\n    expected: { key: 'email', enabled: false },\n    operator: 'deepStrictEqual',\n    diff: 'simple'\n  }\n"
+    }
+  }
+}

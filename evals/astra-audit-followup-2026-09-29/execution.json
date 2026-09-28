@@ -1,0 +1,150 @@
+{
+  "valid-diagnosis": [
+    {
+      "command": "/bin/zsh -lc \"pwd; rg --files -g 'TASK.md' -g 'AGENTS.md' -g 'SKILL.md' -g '\"'!node_modules'\"' -g '\"'!vendor'\"'\"",
+      "exit_code": 0,
+      "output_sha256": "09b9974a4b3ecce4dfc3a2e598d5ddad1b2dbc07ac6364aec4f1063dfcd27cea"
+    },
+    {
+      "command": "/bin/zsh -lc 'cat TASK.md; ls -la; for p in /AGENTS.md /private/AGENTS.md /private/var/AGENTS.md /private/var/folders/AGENTS.md /private/var/folders/wv/AGENTS.md /private/var/folders/wv/426zj9m13q34bhblrxtylth80000gn/AGENTS.md /private/var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/AGENTS.md /private/var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/craftflow-audit-20260929-u7woo2qb/AGENTS.md; do if [ -f \"$p\" ]; then cat \"$p\"; fi; done'",
+      "exit_code": 0,
+      "output_sha256": "e173d3afc283189f100be9a364d3ea8cb08a205655ab0f5fa9f869f9fcd1c4d2"
+    },
+    {
+      "command": "/bin/zsh -lc 'cat .agents/skills/craftflow-go/SKILL.md; cat diagnosis.json; cat preferences.mjs; cat preferences.test.mjs; rg --files --hidden .agents'",
+      "exit_code": 0,
+      "output_sha256": "db16ad0d758cf237d3edff230b3d14f9ee57d730009e004f5b7f524b235cfbe3"
+    },
+    {
+      "command": "/bin/zsh -lc 'cat .agents/skills/craftflow-go/references/workflow/changes.md; cat .agents/skills/craftflow-go/references/workflow/verification.md'",
+      "exit_code": 0,
+      "output_sha256": "f5df2cabf46f1d6975fb63760e5f6f50b5a919dfaf006cb61487c961cda2b7d1"
+    },
+    {
+      "command": "/bin/zsh -lc 'shasum -a 256 preferences.mjs preferences.test.mjs; node --test preferences.test.mjs'",
+      "exit_code": 1,
+      "output_sha256": "77b456a7b4575cd45d393283b4faab3312ca69cdbca208f0a0c1bdcc3fadd09b",
+      "output": "# Subtest: disabled preference survives a save and reload\nnot ok 1 - disabled preference survives a save and reload\n  ---\n  duration_ms: 1.118084\n  type: 'test'\n  location: '/private/var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/craftflow-audit-20260929-u7woo2qb/valid-diagnosis/preferences.test.mjs:5:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n    +   enabled: true,\n    -   enabled: false,\n        key: 'email'\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    key: 'email'\n    enabled: false\n  actual:\n    key: 'email'\n    enabled: true\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file:///private/var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/craftflow-audit-20260929-u7woo2qb/valid-diagnosis/preferences.test.mjs:6:10)\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.start (node:internal/test_runner/test:944:17)\n    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)\n  ...\n# Subtest: enabled preference survives a save and reload\nok 2 - enabled preference survives a save and reload\n  ---\n  duration_ms: 0.059834\n  type: 'test'\n  ...\n# Subtest: omitted preference keeps the established enabled default\nok 3 - omitted preference keeps the established enabled default\n  ---\n  duration_ms: 0.03975\n  type: 'test'\n  ...\n1..3\n# tests 3\n# suites 0\n# pass 2\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 39.493084\n"
+    },
+    {
+      "id": "item_8",
+      "type": "file_change",
+      "changes": [
+        {
+          "path": "/var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/craftflow-audit-20260929-u7woo2qb/valid-diagnosis/preferences.mjs",
+          "kind": "update"
+        }
+      ],
+      "status": "completed"
+    },
+    {
+      "command": "/bin/zsh -lc 'node --test preferences.test.mjs; shasum -a 256 preferences.test.mjs; cat preferences.mjs'",
+      "exit_code": 0,
+      "output_sha256": "9f12216ff6d98dcb2baff1ecbeab32bfe37f766d366e325aa463751e76f884c0",
+      "output": "\u2714 disabled preference survives a save and reload (0.472708ms)\n\u2714 enabled preference survives a save and reload (0.046875ms)\n\u2714 omitted preference keeps the established enabled default (0.038709ms)\n\u2139 tests 3\n\u2139 suites 0\n\u2139 pass 3\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 88.300333\n0b40951ae11d2e574fe9ffe9e3db0baf11b0f014d4985230b7744a48c792d8ba  preferences.test.mjs\nexport function encodePreference(input) {\n  return { key: input.key, enabled: input.enabled ?? true };\n}\nexport function decodePreference(payload) {\n  return { key: payload.key, enabled: payload.enabled };\n}\n"
+    }
+  ],
+  "stale-diagnosis": [
+    {
+      "command": "/bin/zsh -lc \"pwd; rg --files -g 'TASK.md' -g 'AGENTS.md' -g 'SKILL.md' -g '\"'!node_modules'\"' -g '\"'!vendor'\"'\"",
+      "exit_code": 0,
+      "output_sha256": "3bae7596d9dd30b45363e30af5a4f7cdc807ff7eceaeaed1a7b379d6bda45722"
+    },
+    {
+      "command": "/bin/zsh -lc 'cat TASK.md; ls -la; for p in /AGENTS.md /private/AGENTS.md /private/var/AGENTS.md /private/var/folders/AGENTS.md /private/var/folders/wv/AGENTS.md /private/var/folders/wv/426zj9m13q34bhblrxtylth80000gn/AGENTS.md /private/var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/AGENTS.md /private/var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/craftflow-audit-20260929-u7woo2qb/AGENTS.md; do if [ -f \"$p\" ]; then cat \"$p\"; fi; done'",
+      "exit_code": 0,
+      "output_sha256": "f738625610c08077dc04a3cccbecc4d575d55cc55c4c4c707c86225a219a482d"
+    },
+    {
+      "command": "/bin/zsh -lc 'cat .agents/skills/craftflow-go/SKILL.md; cat diagnosis.json; cat preferences.mjs; cat preferences.test.mjs; rg --files --hidden .agents'",
+      "exit_code": 0,
+      "output_sha256": "d51ea6d15894063e54a6d4ee4536c40b46c85786a14448ba89a605318274d285"
+    },
+    {
+      "command": "/bin/zsh -lc 'cat .agents/skills/craftflow-go/references/workflow/changes.md; cat .agents/skills/craftflow-go/references/workflow/verification.md'",
+      "exit_code": 0,
+      "output_sha256": "f5df2cabf46f1d6975fb63760e5f6f50b5a919dfaf006cb61487c961cda2b7d1"
+    },
+    {
+      "command": "/bin/zsh -lc 'shasum -a 256 preferences.mjs preferences.test.mjs; node --test preferences.test.mjs'",
+      "exit_code": 1,
+      "output_sha256": "73d02dc9bc6adbe192d6df7ccf26fed9330438427ade188273ab93171191abdc",
+      "output": "\u2716 disabled preference survives a save and reload (0.889292ms)\n\u2714 enabled preference survives a save and reload (0.068209ms)\n\u2714 omitted preference keeps the established enabled default (0.039625ms)\n\u2139 tests 3\n\u2139 suites 0\n\u2139 pass 2\n\u2139 fail 1\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 89.472167\n\n\u2716 failing tests:\n\ntest at preferences.test.mjs:5:1\n\u2716 disabled preference survives a save and reload (0.889292ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n  + actual - expected\n  \n    {\n  +   enabled: true,\n  -   enabled: false,\n      key: 'email'\n    }\n  \n      at TestContext.<anonymous> (file:///private/var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/craftflow-audit-20260929-u7woo2qb/stale-diagnosis/preferences.test.mjs:6:10)\n      at Test.runInAsyncScope (node:async_hooks:226:14)\n      at Test.run (node:internal/test_runner/test:1402:25)\n      at Test.start (node:internal/test_runner/test:1262:17)\n      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: { key: 'email', enabled: true },\n    expected: { key: 'email', enabled: false },\n    operator: 'deepStrictEqual',\n    diff: 'simple'\n  }\n"
+    },
+    {
+      "command": "/bin/zsh -lc \"node --input-type=module <<'JS'\nimport assert from 'node:assert/strict';\nimport { encodePreference, decodePreference } from './preferences.mjs';\nconst encoded = encodePreference({ key: 'email', enabled: false });\nassert.deepEqual(encoded, { key: 'email', enabled: false });\nconst decoded = decodePreference(encoded);\nassert.deepEqual(decoded, { key: 'email', enabled: true });\nconsole.log(JSON.stringify({ encoded, decoded }));\nJS\"",
+      "exit_code": 0,
+      "output_sha256": "e783eb4549d386ff16248f0d531674b58b5110e5443c7168989cd62b2d4636e0",
+      "output": "{\"encoded\":{\"key\":\"email\",\"enabled\":false},\"decoded\":{\"key\":\"email\",\"enabled\":true}}\n"
+    },
+    {
+      "id": "item_9",
+      "type": "file_change",
+      "changes": [
+        {
+          "path": "/var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/craftflow-audit-20260929-u7woo2qb/stale-diagnosis/preferences.mjs",
+          "kind": "update"
+        }
+      ],
+      "status": "completed"
+    },
+    {
+      "command": "/bin/zsh -lc \"node --test preferences.test.mjs; node --input-type=module <<'JS'\nimport assert from 'node:assert/strict';\nimport { encodePreference, decodePreference } from './preferences.mjs';\nfor (const enabled of [false, true, undefined, null]) {\n  const input = { key: 'email', enabled };\n  const expected = { key: 'email', enabled: enabled == null ? true : enabled };\n  assert.deepEqual(encodePreference(input), expected);\n  assert.deepEqual(decodePreference(input), expected);\n  assert.deepEqual(decodePreference(JSON.parse(JSON.stringify(encodePreference(input)))), expected);\n}\nassert.deepEqual(decodePreference({ key: 'email' }), { key: 'email', enabled: true });\nconsole.log('Direct encode/decode and JSON round-trip checks passed.');\nJS\nshasum -a 256 preferences.test.mjs\ncat preferences.mjs\"",
+      "exit_code": 0,
+      "output_sha256": "d37e42328de9eb67bee10ea7c6a5351a938745f85cf3acffe5ef57592ab91554",
+      "output": "\u2714 disabled preference survives a save and reload (0.481334ms)\n\u2714 enabled preference survives a save and reload (0.050291ms)\n\u2714 omitted preference keeps the established enabled default (0.040333ms)\n\u2139 tests 3\n\u2139 suites 0\n\u2139 pass 3\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 90.239208\nDirect encode/decode and JSON round-trip checks passed.\n0b40951ae11d2e574fe9ffe9e3db0baf11b0f014d4985230b7744a48c792d8ba  preferences.test.mjs\nexport function encodePreference(input) {\n  return { key: input.key, enabled: input.enabled ?? true };\n}\nexport function decodePreference(payload) {\n  return { key: payload.key, enabled: payload.enabled ?? true };\n}\n"
+    }
+  ],
+  "review": [
+    {
+      "command": "/bin/zsh -lc \"pwd; rg --files -g TASK.md -g AGENTS.md -g SKILL.md -g '*reference*' -g '\"'!node_modules'\"'\"",
+      "exit_code": 0,
+      "output_sha256": "552c4f2632bc78158eb0bfc028cf202eee6ff7c1258cdebd71d6a5268b4c83e9"
+    },
+    {
+      "command": "/bin/zsh -lc 'cat TASK.md'",
+      "exit_code": 0,
+      "output_sha256": "2f4e867cb0ea238fb0930d0b9d22367d964020e96ae14a2ab053460c82bfced4"
+    },
+    {
+      "command": "/bin/zsh -lc \"ls -la; cat .agents/skills/craftflow-set/SKILL.md; rg --files --hidden -g '\"'! .git'\"'\"",
+      "exit_code": 0,
+      "output_sha256": "ee82c40d3f62d2515feb2dd934e23d830cb395bc2d884e81d380a254d53a4fe1"
+    },
+    {
+      "command": "/bin/zsh -lc 'cat .agents/skills/craftflow-set/references/quality/review-scope.md .agents/skills/craftflow-set/references/architecture/review.md .agents/skills/craftflow-set/references/quality/review.md'",
+      "exit_code": 0,
+      "output_sha256": "0047581ce89c827cc5e53a16da192fdea8dd6740fa69e428a956ec9385a977e1"
+    },
+    {
+      "command": "/bin/zsh -lc 'cat .agents/skills/craftflow-go/SKILL.md; nl -ba Records.tsx; nl -ba records.ts'",
+      "exit_code": 0,
+      "output_sha256": "38c5b60c5ebb35bf7bbd7faccd6ce794c64bc53c593cb71b24e2504ee7c48ac3"
+    },
+    {
+      "command": "/bin/zsh -lc 'cat .agents/skills/craftflow-go/references/tanstack-query/overview.md .agents/skills/craftflow-go/references/tanstack-query/cache-and-keys.md .agents/skills/craftflow-go/references/tanstack-query/requests-and-rendering.md'",
+      "exit_code": 0,
+      "output_sha256": "4231d2a1d36648a44668e4fd82cc043a13f1f41712d7c10f9f96d00380f15356"
+    },
+    {
+      "id": "exec-89549abc-505c-4006-9eb4-2050465a37dd",
+      "type": "web_search",
+      "query": "https://tanstack.com/query/v5/docs/framework/react/guides/query-keys",
+      "action": {
+        "type": "open_page",
+        "url": "https://tanstack.com/query/v5/docs/framework/react/guides/query-keys"
+      },
+      "results": [
+        {
+          "type": "text_result",
+          "domain": "tanstack.com",
+          "ref_id": "turn0view0",
+          "snippet": "Total lines: 351",
+          "thumbnail_url": "https://images.openai.com/static-rsc-1/F0GQBfUsJM8r7P1CY8kSOkrnlKYw_bm8g9JTiCjCbOx2r7ol4YdBXX0GbviVVpwtQTVc6vuWoblkou_Z8MYykwuRz_teSpFpLHkpCA_cbdclaRzNHeQswR8ywSCieL5k-_9Dic3dmeCwQcH7lFIXWk1JR-Br7XrQlzbgDM55T2GgI919VMPp2cF1rpGdLFNKKs8O3fjE7Zm0i5ozsM3bxE9H4Z0jmYO6v3RsLL5g3JIdISE8WZBB3S3xwiM0wxw8vJclnSvrz2jK5nMRrwZPiGTBS1sZjg_RLtwE2DnqFSc1FYtHkKnhGiRNWsZJcLJO3yS9vU3EKfZJO5Sh2N3RPoTcp2j6xIPo1FTqSOoREUM",
+          "title": "Query Keys | TanStack Query React Docs",
+          "url": "https://tanstack.com/query/v5/docs/framework/react/guides/query-keys"
+        }
+      ]
+    }
+  ]
+}

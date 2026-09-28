@@ -1,8 +1,6 @@
 # Change review and maintainability improvement
 
-## Establish the comparison scope
-
-For PRs, use verified base/head and their merge base; for local work, include staged, unstaged, and untracked files. In post-task checks, distinguish starting user changes from the current edits. Without comparison material, limit the conclusion to current-state diagnosis. Distinguish new issues, deterioration, and existing debt; start with the diff and directly connected callers and contracts. For full audits, state the areas sampled and their limits.
+Use [review scope and findings](review-scope.md) for comparison and reporting.
 
 ## Trace change cost
 

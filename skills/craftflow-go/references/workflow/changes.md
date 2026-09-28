@@ -4,7 +4,7 @@ Choose the branch matching the requested behavior. These are decision guides, no
 
 ## Bug fix
 
-Reproduce the reported failure before choosing a fix. Match the trigger, data, timing, and affected surface closely enough to test the suspected mechanism. A deterministic local reproduction is valuable; forcing an unrelated failure is not evidence for this bug. If the live target is unavailable, distinguish a local reproduction from confirmation on that target.
+Check whether an existing diagnosis or reproduction still applies to the affected code and conditions. Reuse valid evidence; reproduce or run a discriminating check when the cause remains uncertain or the evidence is stale. Match the trigger, data, timing, and affected surface closely enough to test the suspected mechanism; forcing an unrelated failure is not evidence for this bug. If the original environment is unavailable but the cause is sufficiently supported, implement the authorized fix and verify what the available surface can establish. Keep confirmation on the unavailable target explicitly unverified.
 
 Trace the failure to the responsible state transition or contract. Choose a test or observation that separates the surviving hypothesis from its strongest alternative. Use temporary instrumentation only when permitted and needed, and remove your diagnostic additions before delivery unless they are useful project diagnostics.
 

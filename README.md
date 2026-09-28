@@ -62,8 +62,8 @@ Run the second command after the first succeeds. This installs both skills as th
 
 | Skill | Decision it supports |
 | --- | --- |
-| [craftflow-set](skills/craftflow-set/SKILL.md) | Investigate, design, plan, and review without modifying assessed material. |
-| [craftflow-go](skills/craftflow-go/SKILL.md) | Implement, fix, refactor, resume, and verify authorized changes. |
+| [craftflow-set](skills/craftflow-set/SKILL.md) | Investigate, design, plan, and review without modifying assessed material; apply shared review criteria with optional domain references. |
+| [craftflow-go](skills/craftflow-go/SKILL.md) | Implement, fix, refactor, resume, and verify authorized changes; reuse valid diagnosis evidence and identify unavailable runtime checks. |
 
 ## Documentation
 

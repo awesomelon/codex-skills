@@ -1,0 +1,34 @@
+{
+  "repository_validator": {
+    "command": "<temporary Python 3.11 venv>/bin/python -B scripts/validate.py",
+    "exit_code": 0,
+    "stdout": "PASS craftflow-go: basic metadata, UI fields, portable contents, local references\nPASS craftflow-set: basic metadata, UI fields, portable contents, local references\n",
+    "record": "Executed before behavioral runs; the final resource hashes match the evaluated and validated files."
+  },
+  "plugin_validator": {
+    "command": "<temporary Python 3.11 venv>/bin/python -B <Plugin Creator>/scripts/validate_plugin.py <repository>",
+    "exit_code": 0,
+    "stdout": "Plugin validation passed: /Users/bangjaeho/Self/craftflow\n",
+    "record": "Executed after the version change; no manifest changes followed."
+  },
+  "local_links": {
+    "documents_checked": 56,
+    "local_targets_checked": 130,
+    "markdown_anchors_checked": 3,
+    "broken": [],
+    "scope": "All skill Markdown, README.md, evals/README.md, current scenario catalog, new results.md; historical/raw-response links excluded."
+  },
+  "package_marketplace": {
+    "name": "craftflow",
+    "version": "0.4.1",
+    "source_path": "./",
+    "skills_path": "./skills/"
+  },
+  "evaluated_skill_hashes_match_current": true,
+  "diff_check": {
+    "command": "git diff --check",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

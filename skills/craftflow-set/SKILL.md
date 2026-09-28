@@ -13,7 +13,7 @@ Trace the symptom, intended outcome, affected consumers, and constraints. Separa
 
 For diagnosis, design, or planning, compare credible alternatives, including keeping the current design or making a local repair. Explain the mechanism, compatibility, maintenance cost, and evidence that could reject the proposal. Identify dependencies, contract ownership, and acceptance evidence where needed. A short recommendation can be the entire plan; no fixed document set is required.
 
-For review, establish the actual base, head, and local changes; use the merge base for PRs. Without comparison material, report current-state findings rather than invented regressions. Include affected consumers, attempt to disprove findings, and merge duplicate causes. Connect each supported issue to its location, trigger, consequence, evidence, and smallest justified remedy; keep weak findings as questions.
+For review, use [comparison scope and findings](references/quality/review-scope.md), then consult domain criteria only for the unresolved questions.
 
 Separate correctness from maintainability and measured performance. File size, repeated syntax, passing tests, or a preferred pattern alone does not justify a redesign. Preserve independently changing policies and useful complexity.
 

@@ -1,0 +1,30 @@
+{
+  "valid-diagnosis": {
+    "command": "node --test preferences.test.mjs",
+    "exit_code": 0,
+    "stdout": "TAP version 13\n# Subtest: disabled preference survives a save and reload\nok 1 - disabled preference survives a save and reload\n  ---\n  duration_ms: 0.492333\n  type: 'test'\n  ...\n# Subtest: enabled preference survives a save and reload\nok 2 - enabled preference survives a save and reload\n  ---\n  duration_ms: 0.044417\n  type: 'test'\n  ...\n# Subtest: omitted preference keeps the established enabled default\nok 3 - omitted preference keeps the established enabled default\n  ---\n  duration_ms: 0.037166\n  type: 'test'\n  ...\n1..3\n# tests 3\n# suites 0\n# pass 3\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 32.931958\n",
+    "stderr": "",
+    "changed_files": [
+      "preferences.mjs"
+    ],
+    "tests_unchanged": true,
+    "skill_files_unchanged": true
+  },
+  "stale-diagnosis": {
+    "command": "node --test preferences.test.mjs",
+    "exit_code": 0,
+    "stdout": "TAP version 13\n# Subtest: disabled preference survives a save and reload\nok 1 - disabled preference survives a save and reload\n  ---\n  duration_ms: 0.471167\n  type: 'test'\n  ...\n# Subtest: enabled preference survives a save and reload\nok 2 - enabled preference survives a save and reload\n  ---\n  duration_ms: 0.045042\n  type: 'test'\n  ...\n# Subtest: omitted preference keeps the established enabled default\nok 3 - omitted preference keeps the established enabled default\n  ---\n  duration_ms: 0.037041\n  type: 'test'\n  ...\n1..3\n# tests 3\n# suites 0\n# pass 3\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 32.948875\n",
+    "stderr": "",
+    "changed_files": [
+      "preferences.mjs"
+    ],
+    "tests_unchanged": true,
+    "skill_files_unchanged": true
+  },
+  "review": {
+    "changed_files": [],
+    "all_input_hashes_match": true,
+    "skill_files_unchanged": true,
+    "runtime_checks": "Not run; no frontend runtime supplied."
+  }
+}

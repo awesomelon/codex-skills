@@ -1,0 +1,9 @@
+--- a/preferences.mjs
++++ b/preferences.mjs
+@@ -1,5 +1,5 @@
+ export function encodePreference(input) {
+-  return { key: input.key, enabled: input.enabled || true };
++  return { key: input.key, enabled: input.enabled ?? true };
+ }
+ export function decodePreference(payload) {
+   return { key: payload.key, enabled: payload.enabled };

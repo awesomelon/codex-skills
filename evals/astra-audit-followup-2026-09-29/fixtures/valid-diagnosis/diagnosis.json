@@ -1,0 +1,17 @@
+{
+  "source_sha256": "55c32f02aabb82200a6fa3fc2daacd6d51c15187398fc2cb374d979e2f2ffd24",
+  "reported_operation": "save and reload an email preference with enabled=false",
+  "observation": {
+    "input": {
+      "key": "email",
+      "enabled": false
+    },
+    "encoded": {
+      "key": "email",
+      "enabled": true
+    }
+  },
+  "cause": "The encoder uses || true and replaces the explicit false value.",
+  "original_environment": "Production account and browser session unavailable in this fixture.",
+  "evidence_kind": "Captured local module observation; does not establish production reproduction."
+}
