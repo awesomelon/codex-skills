@@ -15,6 +15,7 @@ GitHub repository: [awesomelon/codex-skills](https://github.com/awesomelon/codex
 | Dependent changes across components or specialties | `engineering-orchestrator` | Establish contracts, select expertise, coordinate ownership, and verify integration. |
 | Resume interrupted multi-part work | `engineering-orchestrator` | Reconcile the checkpoint with current artifacts and continue unresolved work. |
 | Coordinate an evolving behavior change | `engineering-orchestrator` with conditional spec-driven guidance | Connect intent, changed requirements, tasks, and current verification evidence. |
+| Revisit a recurring problem or retain a verified non-obvious lesson | `engineering-orchestrator` with conditional learning guidance | Validate earlier reasoning against the current project and update only an authorized, useful durable record. |
 
 For problem discovery, try `Use $engineering-orchestrator to identify which problems in these incidents and support reports deserve investment; recommend a next step without implementing.` For strategic planning, try `Use $engineering-orchestrator to compare the credible approaches, test the assumption most likely to invalidate this initiative, and plan delivery and outcome verification.` Detailed [problem selection](skills/engineering-orchestrator/references/problem-selection.md) and [execution strategy](skills/engineering-orchestrator/references/execution-strategy.md) guidance loads only for those decisions. Staff-level judgment is the design goal, not a measured capability guarantee. See the [focused evaluation](evals/staff-judgment-2026-09-20/results.md) for evidence and limits.
 
@@ -24,13 +25,15 @@ For features and migrations, reuse existing requirements to connect observable a
 
 The [spec-driven change guide](docs/spec-driven-changes.md) adapts OpenSpec's concepts: separate intent, behavior, and design; track added/modified/removed requirements; connect tasks to evidence; and reconcile changes with existing specifications. Use ordinary project artifacts without installing OpenSpec or imposing a document set. See the [concept evaluation](evals/spec-driven-concepts-2026-09-20/results.md) for executed cases and limitations.
 
+The [intent, evidence, and learning adaptation](docs/plugin-adaptation-2026-09-28.md) selectively draws on Dryforge, Compound Engineering, and Agent Skills. It distinguishes user-owned decisions from derivable facts, checks that assertions actually ran, and reuses or preserves only applicable verified project reasoning. Try `Use $engineering-orchestrator to implement the approved change, verify its actual contract, and update existing engineering notes only if a non-obvious verified lesson qualifies.` Clear local changes still need no interview, extra approval, document set, or reviewers. The [new scenarios](evals/engineering-orchestrator/cases.md) are expected behavior, not executed model evidence; the adaptation record states the validation limits.
+
 For a selected subset, use the [macOS skill installer](#install-on-a-new-mac). For the collection, see [plugin packaging and local testing](docs/plugin.md). Both use the same `skills/` contents. Choose one installation route for each skill to avoid duplicate discovery. The [orchestration package evaluation](evals/orchestration-plugin-2026-09-19/results.md) separates task behavior, package checks, and host-installation limits.
 
 ## Included skills
 
 | Skill | Purpose |
 | --- | --- |
-| [engineering-orchestrator](skills/engineering-orchestrator/SKILL.md) | Select engineering priorities, shape feasible execution plans, coordinate dependent work, and distinguish integration evidence from actual impact. |
+| [engineering-orchestrator](skills/engineering-orchestrator/SKILL.md) | Select engineering priorities, shape feasible execution plans, resolve consequential intent gaps, coordinate dependent work, and distinguish verification evidence from actual impact. |
 | [architecture-guard](skills/architecture-guard/SKILL.md) | Design and review module boundaries, dependency direction, shared-state ownership, and contracts between modules. Local edits without boundary impact need no architecture review. |
 | [react-quality-guard](skills/react-quality-guard/SKILL.md) | Design and improve React components, composition, hooks, state, and performance. Choose variants and shared providers while preserving independent interaction state. |
 | [code-quality-guard](skills/code-quality-guard/SKILL.md) | Design shared business rules and bounded solutions using practical SOLID, design pattern, and YAGNI criteria; review, improve, and compare maintainability using evidence of actual change costs. |
