@@ -9,7 +9,7 @@ codex plugin marketplace add awesomelon/craftflow
 codex plugin add craftflow@craftflow
 ```
 
-Run each command after the preceding one succeeds. The first registers the GitHub marketplace; the second installs the seven skills as one plugin. The plugin name and marketplace name are both `craftflow`.
+Run each command after the preceding one succeeds. The first registers the GitHub marketplace; the second installs the three skills as one plugin. The plugin name and marketplace name are both `craftflow`.
 
 ## Verify
 
@@ -54,6 +54,12 @@ To stop tracking the marketplace as well, remove it after removing the plugin:
 ```bash
 codex plugin marketplace remove craftflow
 ```
+
+## Upgrade from seven skills
+
+Version 0.3.0 exposes exactly `craftflow-plan`, `craftflow-build`, and `craftflow-review`. Choose by the requested outcome; technical topics are reference documents rather than separate skill entries. Update saved prompts and project instructions to these names. The [legacy name mapping](standalone-installation.md#migrate-older-installations) covers prior names.
+
+Refresh the marketplace and check the installed version as described above. Reinstall if it still supplies the old catalog, then check the host's advertised skills in a new conversation. Remove superseded standalone entries from discovery separately; the plugin does not clean them up. No compatibility aliases are installed.
 
 ## Migrate from individual skills
 

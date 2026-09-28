@@ -1,0 +1,4 @@
+interface:
+  display_name: "CraftFlow Build"
+  short_description: "Implement and verify the requested change"
+  default_prompt: "Use $craftflow-build to implement the requested change and verify the result."

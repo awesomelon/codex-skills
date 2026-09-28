@@ -10,17 +10,15 @@ Repository instructions, Markdown documentation, UI metadata, and task descripti
 
 ## Current skill catalogs
 
-Historical directory names and raw evidence remain unchanged after the CraftFlow rename. Current scenarios use the new invocation names; previous results describe their recorded revisions.
-
 | Skill | Scenarios |
 | --- | --- |
-| `craftflow-orchestrator` | [Cases](engineering-orchestrator/cases.md) |
-| `craftflow-architecture` | [Cases](architecture-guard/cases.md) |
-| `craftflow-code-quality` | [Cases](code-quality-guard/cases.md) |
-| `craftflow-react` | [Cases](react-quality-guard/cases.md) |
-| `craftflow-refactoring` | [Cases](refactoring-guard/cases.md) |
-| `craftflow-tanstack-query` | [Cases](tanstack-query-guard/cases.md) |
-| `craftflow-typescript` | [Cases](typescript-quality-guard/cases.md) |
+| `craftflow-plan` | [Planning cases](three-skills-2026-09-28/cases.md#plan) |
+| `craftflow-build` | [Implementation cases](three-skills-2026-09-28/cases.md#build) |
+| `craftflow-review` | [Review cases](three-skills-2026-09-28/cases.md#review) |
+
+[Three-skill consolidation results](three-skills-2026-09-28/results.md) record actual execution separately.
+
+Historical scenario catalogs and raw evidence retain the names used at their recorded revision: [orchestration](engineering-orchestrator/cases.md), [architecture](architecture-guard/cases.md), [quality](code-quality-guard/cases.md), [React](react-quality-guard/cases.md), [refactoring](refactoring-guard/cases.md), [Query](tanstack-query-guard/cases.md), and [TypeScript](typescript-quality-guard/cases.md). They are not the current install catalog.
 
 ## Focused instruction maintenance
 

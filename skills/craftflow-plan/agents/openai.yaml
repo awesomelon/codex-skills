@@ -1,0 +1,4 @@
+interface:
+  display_name: "CraftFlow Plan"
+  short_description: "Investigate problems and plan the right change"
+  default_prompt: "Use $craftflow-plan to investigate the problem and propose a justified plan without editing code."

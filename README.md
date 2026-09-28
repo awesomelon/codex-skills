@@ -31,17 +31,17 @@ These are decision criteria applied at the relevant depth, not required phases. 
 Ask for the outcome and scope you want:
 
 ```text
-Use $craftflow-orchestrator to assess whether this migration solves the reported
+Use $craftflow-plan to assess whether this migration solves the reported
 problem and propose a plan. Do not edit code.
 
-Use $craftflow-orchestrator to implement the approved change and verify integration.
+Use $craftflow-build to implement the approved change and verify integration.
 
-Use $craftflow-react to review this form's state and request behavior without edits.
+Use $craftflow-review to review this form's state and request behavior without edits.
 ```
 
 For example, a request to split a large module calls for examining what changes together and what changes independently. File length alone does not establish the right boundary. The useful result explains the chosen boundary, its effect on change cost, and the behavior that must remain intact.
 
-The orchestrator owns scope, dependencies, and completion. Specialists support the technical decisions within that work and can also be used independently. Delegation is an execution choice when independent work warrants it. Preserve project learning when verified, non-obvious reasoning will improve a future decision and writing it is in scope.
+Choose **plan, build, or review** by the requested outcome. These are independently usable skills, not a required sequence; build includes the decisions and verification needed to complete a change. Architecture, code quality, React, TanStack Query, TypeScript, and refactoring remain available as references loaded only when relevant. Delegation is optional when independent work warrants it.
 
 In a plugin host, use the skill names advertised by that host; they may include a plugin prefix.
 
@@ -54,7 +54,7 @@ codex plugin marketplace add awesomelon/craftflow
 codex plugin add craftflow@craftflow
 ```
 
-Run the second command after the first succeeds. This installs all seven skills as the **CraftFlow** plugin; no manual clone or shell installer is needed. Confirm the installation with `codex plugin list`.
+Run the second command after the first succeeds. This installs all three skills as the **CraftFlow** plugin; no manual clone or shell installer is needed. Confirm the installation with `codex plugin list`.
 
 [Updates and migration from individual skills](docs/installation.md) · [Plugin package details](docs/plugin.md)
 
@@ -62,13 +62,9 @@ Run the second command after the first succeeds. This installs all seven skills 
 
 | Skill | Decision it supports |
 | --- | --- |
-| [craftflow-orchestrator](skills/craftflow-orchestrator/SKILL.md) | What deserves attention, how dependent work fits together, and when the outcome is complete. |
-| [craftflow-architecture](skills/craftflow-architecture/SKILL.md) | Where responsibilities belong and which boundaries and contracts must hold. |
-| [craftflow-code-quality](skills/craftflow-code-quality/SKILL.md) | What makes the next change costly and which rules should have one owner. |
-| [craftflow-refactoring](skills/craftflow-refactoring/SKILL.md) | How to carry out a structural improvement while preserving observable behavior. |
-| [craftflow-react](skills/craftflow-react/SKILL.md) | How components, hooks, state, and rendering preserve the intended interaction. |
-| [craftflow-tanstack-query](skills/craftflow-tanstack-query/SKILL.md) | How Query v5 reads and writes keep server data correct across consumers. |
-| [craftflow-typescript](skills/craftflow-typescript/SKILL.md) | Which guarantees belong in types and which require runtime validation. |
+| [craftflow-plan](skills/craftflow-plan/SKILL.md) | Investigate the problem, compare alternatives, and propose a plan without modifying assessed code. |
+| [craftflow-build](skills/craftflow-build/SKILL.md) | Implement, fix, refactor, or resume authorized work and verify the result. |
+| [craftflow-review](skills/craftflow-review/SKILL.md) | Assess code, architecture, and verification evidence without modifying the assessed material. |
 
 ## Documentation
 

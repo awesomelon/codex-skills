@@ -10,7 +10,7 @@ The repository contains one marketplace and one skills-only plugin:
 | --- | --- |
 | [`.agents/plugins/marketplace.json`](../.agents/plugins/marketplace.json) | Advertises the `craftflow` marketplace and its `craftflow` plugin. |
 | [`.codex-plugin/plugin.json`](../.codex-plugin/plugin.json) | Defines the plugin identity, version, presentation, and `./skills/` source. |
-| [`skills/`](../skills/) | Single source for all seven skills, also usable independently. |
+| [`skills/`](../skills/) | Single source for all three skills, also usable independently. |
 
 The catalog uses `source.path: "./"`, relative to the marketplace's repository root. This resolves to the existing root plugin; no second plugin directory or copied skill tree is required. The plugin provides guidance using the host's tools and bundles no MCP server, hooks, scheduler, or agent runtime.
 

@@ -1,4 +1,0 @@
-interface:
-  display_name: "CraftFlow React"
-  short_description: "Design and improve React components, hooks, and state"
-  default_prompt: "Use $craftflow-react for the requested React component or behavior work."
