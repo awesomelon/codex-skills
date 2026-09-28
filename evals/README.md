@@ -8,6 +8,20 @@ For incremental maintenance, review changes to referenced resources, metadata, f
 
 Repository instructions, Markdown documentation, UI metadata, and task descriptions are now in English. Historical reports and saved Markdown responses are labeled translations with links to their original versions. Translation is not a new model run, and historical character counts, tool versions, commands, and pass totals still describe the original run.
 
+## Current skill catalogs
+
+Historical directory names and raw evidence remain unchanged after the CraftFlow rename. Current scenarios use the new invocation names; previous results describe their recorded revisions.
+
+| Skill | Scenarios |
+| --- | --- |
+| `craftflow-orchestrator` | [Cases](engineering-orchestrator/cases.md) |
+| `craftflow-architecture` | [Cases](architecture-guard/cases.md) |
+| `craftflow-code-quality` | [Cases](code-quality-guard/cases.md) |
+| `craftflow-react` | [Cases](react-quality-guard/cases.md) |
+| `craftflow-refactoring` | [Cases](refactoring-guard/cases.md) |
+| `craftflow-tanstack-query` | [Cases](tanstack-query-guard/cases.md) |
+| `craftflow-typescript` | [Cases](typescript-quality-guard/cases.md) |
+
 ## Reproduce a historical run
 
 Use the [complete pre-translation tree](https://github.com/awesomelon/codex-skills/tree/ce11c34e3d1da77140087300218b776594bb65cf) for original Korean skill bodies, task wording, and saved responses. For example, create an independent checkout without changing the current working tree:

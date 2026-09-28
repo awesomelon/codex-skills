@@ -1,17 +1,17 @@
-# Engineering Orchestration plugin
+# CraftFlow plugin
 
-The repository root is a skills-only plugin named `codex-skills`, displayed as **Engineering Orchestration**. Its [manifest](../.codex-plugin/plugin.json) points to `./skills/`, sharing the same seven skills as individual installation. The package provides guidance using the host's available tools; it adds no runtime, MCP server, hooks, scheduler, or configuration changes.
+The repository root is a skills-only plugin named `craftflow`, displayed as **CraftFlow**. Its [manifest](../.codex-plugin/plugin.json) points to `./skills/`, sharing the same seven skills as individual installation. The package provides guidance using the host's available tools; it adds no runtime, MCP server, hooks, scheduler, or configuration changes.
 
 ## Install locally
 
-Use a Codex or ChatGPT Work host with local plugin marketplace support. From a durable clone named `codex-skills`, ask the host's built-in Plugin Creator:
+Use a Codex or ChatGPT Work host with local plugin marketplace support. From a durable clone named `craftflow`, ask the host's built-in Plugin Creator:
 
 ```text
-Add the existing plugin at /absolute/path/to/codex-skills to my local marketplace.
+Add the existing plugin at /absolute/path/to/craftflow to my local marketplace.
 Preserve its manifest and skills. Do not scaffold another copy.
 ```
 
-Replace the path, review the proposed entry, refresh the host, and install **Engineering Orchestration** from that local source. In a new conversation, inspect the advertised skill names; the host may add a plugin prefix.
+Replace the path, review the proposed entry, refresh the host, and install **CraftFlow** from that local source. In a new conversation, inspect the advertised skill names; the host may add a plugin prefix.
 
 When switching from individual skills, preserve local modifications and move superseded entries outside all skill discovery directories. Preserve symlink source contents too. The shell installer does not migrate or remove those entries. For a subset, use [individual installation](installation.md).
 

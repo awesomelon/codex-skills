@@ -2,7 +2,7 @@
 
 ## Corrected scope
 
-The user requested OpenSpec's concepts rather than a connection to its CLI. This revision removes the CLI adapter and setup guide, replacing them with conditional [spec-driven change guidance](../../skills/engineering-orchestrator/references/spec-driven-changes.md) and a [concept mapping](../../docs/spec-driven-changes.md). The guidance separates accepted behavior, proposed deltas, implementation design, tasks, and evidence while reusing existing project artifacts. It does not prescribe a tool, schema, folder hierarchy, document set, or approval pipeline.
+The user requested OpenSpec's concepts rather than a connection to its CLI. This revision removes the CLI adapter and setup guide, replacing them with conditional [spec-driven change guidance](https://github.com/awesomelon/codex-skills/blob/e014998580735805036ca3e0f1e18c875d4cdd85/skills/engineering-orchestrator/references/spec-driven-changes.md) and a [concept mapping](../../docs/spec-driven-changes.md). The guidance separates accepted behavior, proposed deltas, implementation design, tasks, and evidence while reusing existing project artifacts. It does not prescribe a tool, schema, folder hierarchy, document set, or approval pipeline.
 
 ECC-derived acceptance and shared-contract guidance stays intact. The seven skill descriptions, UI metadata, plugin manifest, and installer implementations are unchanged. The earlier [CLI-adapter evaluation](../contracts-openspec-2026-09-20/results.md) remains a historical record, with pinned links to removed resources; it is not counted as current validation.
 

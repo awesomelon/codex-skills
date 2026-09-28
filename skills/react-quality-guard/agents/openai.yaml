@@ -1,4 +1,0 @@
-interface:
-  display_name: "React Quality Guard"
-  short_description: "Design and improve React components, hooks, and state"
-  default_prompt: "Use $react-quality-guard for the requested React component or behavior work."

@@ -1,27 +1,27 @@
 {
-  "name": "codex-skills",
-  "version": "0.1.0",
+  "name": "craftflow",
+  "version": "0.2.0",
   "description": "Select engineering priorities, plan dependent work, and deliver with focused expertise and verification.",
   "author": {
     "name": "awesomelon"
   },
   "skills": "./skills/",
   "interface": {
-    "displayName": "Engineering Orchestration",
+    "displayName": "CraftFlow",
     "shortDescription": "Coordinate engineering work through verified integration.",
     "longDescription": "Apply staff-oriented problem selection and execution planning alongside architecture, code quality, React, refactoring, TanStack Query, and TypeScript expertise. Skills also work independently.",
     "developerName": "awesomelon",
     "category": "Developer Tools",
     "capabilities": [],
-    "websiteURL": "https://github.com/awesomelon/codex-skills",
+    "websiteURL": "https://github.com/awesomelon/craftflow",
     "defaultPrompt": [
-      "Use Engineering Orchestrator to coordinate this change through verification.",
-      "Use Engineering Orchestrator to plan this multi-part change without editing code.",
-      "Use Engineering Orchestrator to resume this task and reconcile its current state."
+      "Use $craftflow-orchestrator to coordinate this change through verification.",
+      "Use $craftflow-orchestrator to plan this multi-part change without editing code.",
+      "Use $craftflow-orchestrator to resume this task and reconcile its current state."
     ]
   },
-  "homepage": "https://github.com/awesomelon/codex-skills",
-  "repository": "https://github.com/awesomelon/codex-skills",
+  "homepage": "https://github.com/awesomelon/craftflow",
+  "repository": "https://github.com/awesomelon/craftflow",
   "keywords": [
     "engineering",
     "orchestration",

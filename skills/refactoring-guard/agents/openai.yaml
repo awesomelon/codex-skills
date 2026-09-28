@@ -1,4 +1,0 @@
-interface:
-  display_name: "Refactoring Guard"
-  short_description: "Refactor with small, behavior-preserving changes"
-  default_prompt: "Use $refactoring-guard for the requested behavior-preserving refactoring task."

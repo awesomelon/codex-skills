@@ -1,0 +1,4 @@
+interface:
+  display_name: "CraftFlow Refactoring"
+  short_description: "Refactor with small, behavior-preserving changes"
+  default_prompt: "Use $craftflow-refactoring for the requested behavior-preserving refactoring task."

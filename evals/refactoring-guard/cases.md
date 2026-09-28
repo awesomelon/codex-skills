@@ -1,4 +1,4 @@
-# Refactoring Guard evaluation cases
+# CraftFlow Refactoring evaluation cases
 
 These scenarios describe expected behavior. They are not executed model results. Record actual checks and their limits in [results.md](results.md).
 

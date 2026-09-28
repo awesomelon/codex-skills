@@ -1,9 +1,9 @@
 # Request a focused skill improvement
 
-Use this prompt with `awesomelon/codex-skills` open. Replace the scope with a skill, a demonstrated failure, or the whole collection. This is a task template, not an installed skill or an execution record.
+Use this prompt with `awesomelon/craftflow` open. Replace the scope with a skill, a demonstrated failure, or the whole collection. This is a task template, not an installed skill or an execution record.
 
 ```text
-Improve <scope and any observed failure> in awesomelon/codex-skills and complete the relevant validation.
+Improve <scope and any observed failure> in awesomelon/craftflow and complete the relevant validation.
 
 Read https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra before changing or adding skill instructions. If it cannot be retrieved, distinguish existing interpretations from a fresh source check; do not claim to have verified the article.
 
