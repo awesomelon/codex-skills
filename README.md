@@ -45,23 +45,18 @@ The orchestrator owns scope, dependencies, and completion. Specialists support t
 
 In a plugin host, use the skill names advertised by that host; they may include a plugin prefix.
 
-## Install on a new Mac
+## Install as a Codex plugin
 
-Requires Git and macOS Bash; no Python or package installation. Keep the clone in a permanent location because the installer creates symlinks by default.
+Use a Codex CLI with plugin support and Git available:
 
 ```bash
-git clone https://github.com/awesomelon/craftflow.git
-cd craftflow
-bash scripts/install.sh --list
-bash scripts/install.sh --skill craftflow-orchestrator --dry-run
-bash scripts/install.sh --skill craftflow-orchestrator
+codex plugin marketplace add awesomelon/craftflow
+codex plugin add craftflow@craftflow
 ```
 
-Run each command after the previous one succeeds. Skills install into `~/.agents/skills`; configuration and `AGENTS.md` are left untouched. Repeat `--skill <name>` to select more skills, or omit it to install all seven.
+Run the second command after the first succeeds. This installs all seven skills as the **CraftFlow** plugin; no manual clone or shell installer is needed. Confirm the installation with `codex plugin list`.
 
-[Update, copy mode, and migration](docs/installation.md) · [Plugin installation](docs/plugin.md)
-
-Choose one installation route per skill to avoid duplicate discovery.
+[Updates and migration from individual skills](docs/installation.md) · [Plugin package details](docs/plugin.md)
 
 ## Included skills
 

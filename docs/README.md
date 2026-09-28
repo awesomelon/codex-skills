@@ -6,8 +6,9 @@ Start with the [README](../README.md) for installation and example requests.
 
 | Guide | Contents |
 | --- | --- |
-| [Installation and updates](installation.md) | Skill selection, copy mode, conflicts, and migration from older names/installers. |
-| [Plugin](plugin.md) | Local package installation, host verification, and maintenance. |
+| [Installation and updates](installation.md) | Codex plugin installation, marketplace refresh, removal, and migration from individual skills. |
+| [Plugin](plugin.md) | Marketplace packaging, local development, host verification, and maintenance. |
+| [Legacy standalone installation](standalone-installation.md) | Existing macOS link/copy installations, individual selection, and older skill names. |
 | [Contributing](../CONTRIBUTING.md) | Skill changes, development setup, and validation. |
 | [Specification-driven changes](spec-driven-changes.md) | Applying OpenSpec concepts through existing project artifacts. |
 | [Evaluation evidence](../evals/README.md) | Reading and reproducing behavioral results. |

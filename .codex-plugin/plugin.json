@@ -1,6 +1,6 @@
 {
   "name": "craftflow",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Judgment-driven engineering for Codex: understand the problem, choose a proportionate change, and verify the result.",
   "author": {
     "name": "awesomelon"
