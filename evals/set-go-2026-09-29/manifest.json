@@ -1,0 +1,54 @@
+{
+  "base_commit": "7cd8a58a77e7c1a9f95bc1c4751861f0917c9d06",
+  "skill_sha256": {
+    "LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+    "SKILL.md": "542534fdcc8051f437357fb386e84a50cb562b69823c797b4be40181f40836e8",
+    "THIRD_PARTY_NOTICES.md": "30a5039f327e01385a78e442126399e504ec72cca4f60ca526c3cc456783bf24",
+    "references/sources.md": "20ccdeacc6a497e8d76931f348cf97ba730b677f249cff7de43a47f64024cd53",
+    "agents/openai.yaml": "4f86c5dabe33e72e5588f525ab08e7e4e91533bac145fddaab99deb8fcd0cc0d",
+    "references/quality/scoring.md": "bd5717e1bc9c87b22f91fc94acd773ec090bc19f4f7cef0f6b5df94f3e31ee05",
+    "references/quality/earendil-metrics.md": "fecfdaee836b60cffd54bd95fd7a28fea75ab68441d4ad99252c51a5b5686f82",
+    "references/quality/pstack-LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+    "references/quality/measurement.md": "2c70dc6b5b4d76b97935deb6ff6c39c733ded6e582f8a521ccb7d0dbe3e1ecc7",
+    "references/quality/implementation.md": "37e750f0f476a607fcd716552869be116c355137889947cc170be097277ccec5",
+    "references/quality/ponytail-LICENSE": "fb1bc6909ac3ef82d5c22106e32ef682b0cff66788fa915fb9b53b15c9d2f3ab",
+    "references/quality/review.md": "cd9a9df0ad4e73d982a0489028dbc1f617f821a2036b34cbf38a7bf92af93bd8",
+    "references/architecture/review.md": "1638e29c479594f884a826a92d74e26b355bb80e03cec18eab9a34a0c9be518e",
+    "references/architecture/preflight.md": "92dc06e2d0443eed3b4c2adbc644dcf4d0537500be64235748848bad36cd935a",
+    "references/architecture/THIRD_PARTY_NOTICES.md": "b3a95153343e3e4368fcb1a10461e8c8cf25da1f51e1c9c1d56de6295e50f17a",
+    "references/workflow/problem-selection.md": "0a7fa9981dfc67cdb8dbf3423be201115114659ca2c9a27953971eb7c24e2e9d",
+    "references/workflow/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+    "references/workflow/spec-driven-changes.md": "7d6c0ec5d3b3c8ee65ceaec4cc430e0a7938dae8e569470dbf1f9fb152344f49",
+    "references/workflow/execution-strategy.md": "a1e9a3c9d5503cbfffa4ac5331ff2778677f5d524c4da4304d9a9bf3984e53d4"
+  },
+  "cases": {
+    "plan": {
+      "input_sha256": {
+        "TASK.md": "9b5839c61b3a72e51833103bac4311a8bf45441e30f2f7c2857e62a3b048cbbc"
+      },
+      "post_run_sha256": {
+        "TASK.md": "9b5839c61b3a72e51833103bac4311a8bf45441e30f2f7c2857e62a3b048cbbc"
+      },
+      "response_sha256": "76f80d72a00b381189756c51e77781bfc6e1d14de8652150e5927aa91521de4b",
+      "prompt": "Use $craftflow-set at /workspace/scratch/77406476b916/set-go-runs/skill/SKILL.md to carry out /workspace/scratch/77406476b916/set-go-runs/plan/TASK.md. The task folder is the project. Other optional skills are unavailable. Inspect only these two supplied folders. Return your answer and a short record of resources read and checks actually run."
+    },
+    "review": {
+      "input_sha256": {
+        "consumer.mjs": "b8be4488c0097b4adcc14a1f26aa84a8458a9e028a7ceaa3e3822307d0f7b41e",
+        "TASK.md": "fe28c62cf8bb74964d5a130fb53ee722c38392d0a098742728bb7d023e7a2be7",
+        "checkpoint.json": "03b501dc18d3c02d09761f5c8ed166bc7d5ca438fbed6fcf26f9c3895dfced86",
+        "producer.mjs": "ec4770f8c13b7021a7f12c57fec956902c7f23359e63bc365bcd40a5fb4d370f",
+        "contract.mjs": "9334663b6268ae4534f1d92699e8ab023566e6f53f986bee3fe713eec8e16df7"
+      },
+      "post_run_sha256": {
+        "consumer.mjs": "b8be4488c0097b4adcc14a1f26aa84a8458a9e028a7ceaa3e3822307d0f7b41e",
+        "TASK.md": "fe28c62cf8bb74964d5a130fb53ee722c38392d0a098742728bb7d023e7a2be7",
+        "checkpoint.json": "03b501dc18d3c02d09761f5c8ed166bc7d5ca438fbed6fcf26f9c3895dfced86",
+        "producer.mjs": "ec4770f8c13b7021a7f12c57fec956902c7f23359e63bc365bcd40a5fb4d370f",
+        "contract.mjs": "9334663b6268ae4534f1d92699e8ab023566e6f53f986bee3fe713eec8e16df7"
+      },
+      "response_sha256": "9bf5486902fc9d772405ade425a16c4896e4d398c60954e28ffbcac03165122a",
+      "prompt": "Use $craftflow-set at /workspace/scratch/77406476b916/set-go-runs/skill/SKILL.md to carry out /workspace/scratch/77406476b916/set-go-runs/review/TASK.md. The task folder is the project. Other optional skills are unavailable. Inspect only these two supplied folders. Return your answer and a short record of resources read and checks actually run."
+    }
+  }
+}

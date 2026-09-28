@@ -12,11 +12,10 @@ Repository instructions, Markdown documentation, UI metadata, and task descripti
 
 | Skill | Scenarios |
 | --- | --- |
-| `craftflow-plan` | [Planning cases](three-skills-2026-09-28/cases.md#plan) |
-| `craftflow-build` | [Implementation cases](three-skills-2026-09-28/cases.md#build) |
-| `craftflow-review` | [Review cases](three-skills-2026-09-28/cases.md#review) |
+| `craftflow-set` | [Investigation, planning, and review](set-go-2026-09-29/cases.md#set) |
+| `craftflow-go` | [Implementation and verification](set-go-2026-09-29/cases.md#go) |
 
-[Three-skill consolidation results](three-skills-2026-09-28/results.md) record actual execution separately.
+[Set/Go results](set-go-2026-09-29/results.md) record actual execution separately. The [previous three-skill results](three-skills-2026-09-28/results.md) describe their historical revision.
 
 Historical scenario catalogs and raw evidence retain the names used at their recorded revision: [orchestration](engineering-orchestrator/cases.md), [architecture](architecture-guard/cases.md), [quality](code-quality-guard/cases.md), [React](react-quality-guard/cases.md), [refactoring](refactoring-guard/cases.md), [Query](tanstack-query-guard/cases.md), and [TypeScript](typescript-quality-guard/cases.md). They are not the current install catalog.
 

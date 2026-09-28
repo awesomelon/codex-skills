@@ -31,17 +31,17 @@ These are decision criteria applied at the relevant depth, not required phases. 
 Ask for the outcome and scope you want:
 
 ```text
-Use $craftflow-plan to assess whether this migration solves the reported
+Use $craftflow-set to assess whether this migration solves the reported
 problem and propose a plan. Do not edit code.
 
-Use $craftflow-build to implement the approved change and verify integration.
+Use $craftflow-go to implement the approved change and verify integration.
 
-Use $craftflow-review to review this form's state and request behavior without edits.
+Use $craftflow-set to review this form's state and request behavior without edits.
 ```
 
 For example, a request to split a large module calls for examining what changes together and what changes independently. File length alone does not establish the right boundary. The useful result explains the chosen boundary, its effect on change cost, and the behavior that must remain intact.
 
-Choose **plan, build, or review** by the requested outcome. These are independently usable skills, not a required sequence; build includes the decisions and verification needed to complete a change. Architecture, code quality, React, TanStack Query, TypeScript, and refactoring remain available as references loaded only when relevant. Delegation is optional when independent work warrants it.
+**Set clarifies the decision; Go completes the change.** Use Set for investigation, design, planning, and review; use Go for implementation, fixes, refactoring, and verification. A clear implementation request can start directly with Go. Architecture, code quality, React, TanStack Query, and TypeScript guidance remains available as selectively loaded references.
 
 In a plugin host, use the skill names advertised by that host; they may include a plugin prefix.
 
@@ -54,7 +54,7 @@ codex plugin marketplace add awesomelon/craftflow
 codex plugin add craftflow@craftflow
 ```
 
-Run the second command after the first succeeds. This installs all three skills as the **CraftFlow** plugin; no manual clone or shell installer is needed. Confirm the installation with `codex plugin list`.
+Run the second command after the first succeeds. This installs both skills as the **CraftFlow** plugin; no manual clone or shell installer is needed. Confirm the installation with `codex plugin list`.
 
 [Updates and migration from individual skills](docs/installation.md) · [Plugin package details](docs/plugin.md)
 
@@ -62,9 +62,8 @@ Run the second command after the first succeeds. This installs all three skills 
 
 | Skill | Decision it supports |
 | --- | --- |
-| [craftflow-plan](skills/craftflow-plan/SKILL.md) | Investigate the problem, compare alternatives, and propose a plan without modifying assessed code. |
-| [craftflow-build](skills/craftflow-build/SKILL.md) | Implement, fix, refactor, or resume authorized work and verify the result. |
-| [craftflow-review](skills/craftflow-review/SKILL.md) | Assess code, architecture, and verification evidence without modifying the assessed material. |
+| [craftflow-set](skills/craftflow-set/SKILL.md) | Investigate, design, plan, and review without modifying assessed material. |
+| [craftflow-go](skills/craftflow-go/SKILL.md) | Implement, fix, refactor, resume, and verify authorized changes. |
 
 ## Documentation
 

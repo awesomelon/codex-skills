@@ -18,7 +18,7 @@ Where rollout changes persistent state, independent consumers, or operations, id
 
 ## Close the loop at the requested endpoint
 
-Verify the delivered behavior using changes guidance in `craftflow-build` (`references/workflow/changes.md`, when available) and, when needed, runtime verification guidance in `craftflow-build` (`references/workflow/verification.md`, when available). Then distinguish what shipped, what was technically demonstrated, and what effect is actually observed. Build success, green tests, and stakeholder enthusiasm are different evidence from adoption or reduced operational cost.
+Verify the delivered behavior using changes guidance in `craftflow-go` (`references/workflow/changes.md`, when available) and, when needed, runtime verification guidance in `craftflow-go` (`references/workflow/verification.md`, when available). Then distinguish what shipped, what was technically demonstrated, and what effect is actually observed. Build success, green tests, and stakeholder enthusiasm are different evidence from adoption or reduced operational cost.
 
 If impact cannot yet be observed, specify a proportionate follow-up: baseline or missing baseline, outcome signal, observation window or event, proposed or confirmed owner, and a guardrail against merely moving the cost elsewhere. Choose measures tied to the original problem rather than output counts. A before/after change alone may be confounded by workload, release mix, or traffic; disclose what supports causal attribution and what remains uncertain.
 
