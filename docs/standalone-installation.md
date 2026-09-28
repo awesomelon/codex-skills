@@ -17,14 +17,14 @@ bash scripts/install.sh --list
 The default destination is `~/.agents/skills`. Repeat `--skill` to choose a subset; omitting it installs the entire collection. Preview with `--dry-run`.
 
 ```bash
-bash scripts/install.sh --skill craftflow-architecture --skill craftflow-react --dry-run
-bash scripts/install.sh --skill craftflow-architecture --skill craftflow-react
+bash scripts/install.sh --skill craftflow-plan --skill craftflow-build --dry-run
+bash scripts/install.sh --skill craftflow-plan --skill craftflow-build
 ```
 
 Default **link mode** keeps skills connected to the clone. Moving or deleting that clone breaks the links. For independent managed copies in a team project:
 
 ```bash
-bash scripts/install.sh --skill craftflow-code-quality --mode copy --dest /path/to/project/.agents/skills
+bash scripts/install.sh --skill craftflow-review --mode copy --dest /path/to/project/.agents/skills
 ```
 
 Installing into this collection itself is blocked. Avoid duplicate installations at user/project scope or through both a plugin and the individual installer. In Codex CLI/IDE, inspect `/skills` or invoke a selected `$skill-name`; check a new session if it is missing.
@@ -35,7 +35,7 @@ From the clone, pull first. Continue only if the pull succeeds, then rerun the i
 
 ```bash
 git pull --ff-only
-bash scripts/install.sh --skill craftflow-orchestrator
+bash scripts/install.sh --skill craftflow-build
 ```
 
 Selections are not saved: a bare `bash scripts/install.sh` also installs skills you did not previously select. Review source changes before updating. Existing links reflect pulled changes immediately; rerunning adds links for newly selected skills. Managed copies update when the installer runs.
@@ -59,18 +59,15 @@ The local clone directory can keep its old name. Before pulling the skill rename
 
 ## Migrate older installations
 
-| Previous name | Current name |
+| Previous names | Choose by the requested outcome |
 | --- | --- |
-| `engineering-orchestrator` | `craftflow-orchestrator` |
-| `architecture-guard` | `craftflow-architecture` |
-| `code-quality-guard` | `craftflow-code-quality` |
-| `react-quality-guard` | `craftflow-react` |
-| `refactoring-guard` | `craftflow-refactoring` |
-| `tanstack-query-guard` | `craftflow-tanstack-query` |
-| `typescript-quality-guard` | `craftflow-typescript` |
-| `pstack` / `engineering-workflow` | `craftflow-orchestrator` |
-| `typescript-best-practices` | `craftflow-typescript` |
-| `tanstack-query` | `craftflow-tanstack-query` |
+| `craftflow-orchestrator`, `engineering-orchestrator`, `pstack`, `engineering-workflow` | `craftflow-plan` for investigation/planning; `craftflow-build` for execution/resumption; `craftflow-review` for assessment. |
+| `craftflow-architecture`, `architecture-guard` | `craftflow-plan` for design; `craftflow-build` for boundary changes; `craftflow-review` for architecture reviews. |
+| `craftflow-code-quality`, `code-quality-guard` | `craftflow-build` for improvements; `craftflow-review` for quality assessment. |
+| `craftflow-react`, `react-quality-guard` | `craftflow-build` or `craftflow-review`; React guidance is a reference library. |
+| `craftflow-refactoring`, `refactoring-guard` | `craftflow-build` for transformations; `craftflow-plan` for proposals; `craftflow-review` for assessment. |
+| `craftflow-tanstack-query`, `tanstack-query-guard`, `tanstack-query` | `craftflow-build` or `craftflow-review`; Query guidance is a reference library. |
+| `craftflow-typescript`, `typescript-quality-guard`, `typescript-best-practices` | `craftflow-build` or `craftflow-review`; TypeScript guidance is a reference library. |
 | `multi-agent-guard` | Removed; no replacement entry to install. |
 
 Update explicit invocations and installer selections. Locate the old entry in your actual destination, preserve local edits, and move it outside every skill discovery directory before installing the current name. For symlinks, preserve the source contents too: moving a link does not back up its target. No compatibility aliases are installed. Verify only the intended names appear in a new session.
@@ -84,6 +81,6 @@ Shell copies keep `.codex-skills-install.v2`; Python copies keep `.codex-skills-
 
 ## Optional architecture guidance
 
-For recurring boundary work, merge the relevant [project snippet](../snippets/craftflow-architecture.project.md) into your project's `AGENTS.md`, or the [global snippet](../snippets/craftflow-architecture.global.md) into the personal instructions actually loaded by your host. Do not overwrite existing instructions. With `CODEX_HOME` or `AGENTS.override.md`, identify the active file first.
+For recurring boundary work, merge the relevant [project snippet](../snippets/craftflow.project.md) into your project's `AGENTS.md`, or the [global snippet](../snippets/craftflow.global.md) into the personal instructions actually loaded by your host. Do not overwrite existing instructions. With `CODEX_HOME` or `AGENTS.override.md`, identify the active file first.
 
 The snippets apply to boundaries, dependencies, state ownership, contracts, and requested structural reviews. They do not require an extra review for every edit. Enforce mandatory architecture rules through the target project's lint, tests, or CI.

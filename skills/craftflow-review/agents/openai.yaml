@@ -1,0 +1,4 @@
+interface:
+  display_name: "CraftFlow Review"
+  short_description: "Assess code and evidence without modifying it"
+  default_prompt: "Use $craftflow-review to assess the requested code and evidence without editing files."

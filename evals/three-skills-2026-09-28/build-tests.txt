@@ -1,0 +1,16 @@
+✔ receipt and effect sequence, expedited=false (1.456541ms)
+✔ receipt and effect sequence, expedited=true (0.153852ms)
+✔ empty orders perform no effects (0.486452ms)
+✔ quote failure stops subsequent effects and preserves the error (0.194072ms)
+✔ audit failure stops subsequent effects and preserves the error (0.157827ms)
+✔ reserve failure stops subsequent effects and preserves the error (0.106881ms)
+✔ ship failure stops subsequent effects and preserves the error (0.142775ms)
+✔ does not ship before reservation completes (7.640207ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 84.087464
