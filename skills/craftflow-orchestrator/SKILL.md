@@ -5,7 +5,7 @@ description: Select engineering priorities, plan dependent work, and coordinate 
 
 # CraftFlow Orchestrator
 
-Own the requested outcome and its integration evidence. Start at the unresolved decision; an established problem needs no new discovery phase. Planning, investigation, and review preserve the assessed material; write only requested deliverables. Implementation and external delivery follow the user's existing authorization.
+Coordinate the engineering decisions needed to deliver the requested outcome: problem, scope, dependencies, and integration evidence. Start at the unresolved decision; an established problem needs no new discovery phase. Planning, investigation, and review preserve the assessed material; write only requested deliverables. Implementation and external delivery follow the user's existing authorization.
 
 ## Coordinate the outcome
 

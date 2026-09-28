@@ -1,22 +1,22 @@
 {
   "name": "craftflow",
-  "version": "0.2.0",
-  "description": "Select engineering priorities, plan dependent work, and deliver with focused expertise and verification.",
+  "version": "0.2.1",
+  "description": "Judgment-driven engineering for Codex: understand the problem, choose a proportionate change, and verify the result.",
   "author": {
     "name": "awesomelon"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "CraftFlow",
-    "shortDescription": "Coordinate engineering work through verified integration.",
-    "longDescription": "Apply staff-oriented problem selection and execution planning alongside architecture, code quality, React, refactoring, TanStack Query, and TypeScript expertise. Skills also work independently.",
+    "shortDescription": "Make the right change with engineering judgment.",
+    "longDescription": "Understand the problem, choose a proportionate change, and verify the result. Coordinate dependent work with focused architecture, code quality, refactoring, React, TanStack Query, and TypeScript expertise. Each skill also works independently.",
     "developerName": "awesomelon",
     "category": "Developer Tools",
     "capabilities": [],
     "websiteURL": "https://github.com/awesomelon/craftflow",
     "defaultPrompt": [
-      "Use $craftflow-orchestrator to coordinate this change through verification.",
-      "Use $craftflow-orchestrator to plan this multi-part change without editing code.",
+      "Use $craftflow-orchestrator to assess the problem and propose the right scope of change without editing code.",
+      "Use $craftflow-orchestrator to implement the approved change and verify integration.",
       "Use $craftflow-orchestrator to resume this task and reconcile its current state."
     ]
   },

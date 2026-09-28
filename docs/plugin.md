@@ -1,5 +1,7 @@
 # CraftFlow plugin
 
+**CraftFlow — Make the right change.** The plugin packages the [judgment-driven engineering approach](../README.md#three-principles) for Codex.
+
 The repository root is a skills-only plugin named `craftflow`, displayed as **CraftFlow**. Its [manifest](../.codex-plugin/plugin.json) points to `./skills/`, sharing the same seven skills as individual installation. The package provides guidance using the host's available tools; it adds no runtime, MCP server, hooks, scheduler, or configuration changes.
 
 ## Install locally
