@@ -4,6 +4,8 @@
 
 # CraftFlow
 
+**English** · [한국어](README_ko.md)
+
 **Make the right change.**
 
 Judgment-driven engineering for Codex: understand the problem, choose a proportionate change, and verify the result.
