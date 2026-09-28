@@ -17,14 +17,14 @@ bash scripts/install.sh --list
 The default destination is `~/.agents/skills`. Repeat `--skill` to choose a subset; omitting it installs the entire collection. Preview with `--dry-run`.
 
 ```bash
-bash scripts/install.sh --skill craftflow-plan --skill craftflow-build --dry-run
-bash scripts/install.sh --skill craftflow-plan --skill craftflow-build
+bash scripts/install.sh --skill craftflow-set --skill craftflow-go --dry-run
+bash scripts/install.sh --skill craftflow-set --skill craftflow-go
 ```
 
 Default **link mode** keeps skills connected to the clone. Moving or deleting that clone breaks the links. For independent managed copies in a team project:
 
 ```bash
-bash scripts/install.sh --skill craftflow-review --mode copy --dest /path/to/project/.agents/skills
+bash scripts/install.sh --skill craftflow-set --mode copy --dest /path/to/project/.agents/skills
 ```
 
 Installing into this collection itself is blocked. Avoid duplicate installations at user/project scope or through both a plugin and the individual installer. In Codex CLI/IDE, inspect `/skills` or invoke a selected `$skill-name`; check a new session if it is missing.
@@ -35,7 +35,7 @@ From the clone, pull first. Continue only if the pull succeeds, then rerun the i
 
 ```bash
 git pull --ff-only
-bash scripts/install.sh --skill craftflow-build
+bash scripts/install.sh --skill craftflow-go
 ```
 
 Selections are not saved: a bare `bash scripts/install.sh` also installs skills you did not previously select. Review source changes before updating. Existing links reflect pulled changes immediately; rerunning adds links for newly selected skills. Managed copies update when the installer runs.
@@ -61,13 +61,15 @@ The local clone directory can keep its old name. Before pulling the skill rename
 
 | Previous names | Choose by the requested outcome |
 | --- | --- |
-| `craftflow-orchestrator`, `engineering-orchestrator`, `pstack`, `engineering-workflow` | `craftflow-plan` for investigation/planning; `craftflow-build` for execution/resumption; `craftflow-review` for assessment. |
-| `craftflow-architecture`, `architecture-guard` | `craftflow-plan` for design; `craftflow-build` for boundary changes; `craftflow-review` for architecture reviews. |
-| `craftflow-code-quality`, `code-quality-guard` | `craftflow-build` for improvements; `craftflow-review` for quality assessment. |
-| `craftflow-react`, `react-quality-guard` | `craftflow-build` or `craftflow-review`; React guidance is a reference library. |
-| `craftflow-refactoring`, `refactoring-guard` | `craftflow-build` for transformations; `craftflow-plan` for proposals; `craftflow-review` for assessment. |
-| `craftflow-tanstack-query`, `tanstack-query-guard`, `tanstack-query` | `craftflow-build` or `craftflow-review`; Query guidance is a reference library. |
-| `craftflow-typescript`, `typescript-quality-guard`, `typescript-best-practices` | `craftflow-build` or `craftflow-review`; TypeScript guidance is a reference library. |
+| `craftflow-orchestrator`, `engineering-orchestrator`, `pstack`, `engineering-workflow` | `craftflow-set` for investigation, planning, or assessment; `craftflow-go` for execution/resumption. |
+| `craftflow-architecture`, `architecture-guard` | `craftflow-set` for design or architecture review; `craftflow-go` for boundary changes. |
+| `craftflow-code-quality`, `code-quality-guard` | `craftflow-go` for improvements; `craftflow-set` for quality assessment. |
+| `craftflow-react`, `react-quality-guard` | `craftflow-go` or `craftflow-set`; React guidance is a reference library. |
+| `craftflow-refactoring`, `refactoring-guard` | `craftflow-go` for transformations; `craftflow-set` for proposals or assessment. |
+| `craftflow-tanstack-query`, `tanstack-query-guard`, `tanstack-query` | `craftflow-go` or `craftflow-set`; Query guidance is a reference library. |
+| `craftflow-typescript`, `typescript-quality-guard`, `typescript-best-practices` | `craftflow-go` or `craftflow-set`; TypeScript guidance is a reference library. |
+| `craftflow-plan`, `craftflow-review` | `craftflow-set` for investigation, design, planning, and review. |
+| `craftflow-build` | `craftflow-go` for implementation through verification. |
 | `multi-agent-guard` | Removed; no replacement entry to install. |
 
 Update explicit invocations and installer selections. Locate the old entry in your actual destination, preserve local edits, and move it outside every skill discovery directory before installing the current name. For symlinks, preserve the source contents too: moving a link does not back up its target. No compatibility aliases are installed. Verify only the intended names appear in a new session.

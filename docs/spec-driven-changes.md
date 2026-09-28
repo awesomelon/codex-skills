@@ -1,6 +1,6 @@
 # Applying specification-driven change concepts
 
-CraftFlow Orchestrator applies OpenSpec's useful change-management concepts through ordinary engineering artifacts. It requires no OpenSpec installation, CLI, generated skills, workflow schema, or directory layout. Existing issues, product requirements, plans, and task conversations remain sufficient.
+CraftFlow applies OpenSpec's useful change-management concepts through ordinary engineering artifacts. It requires no OpenSpec installation, CLI, generated skills, workflow schema, or directory layout. Existing issues, product requirements, plans, and task conversations remain sufficient.
 
 | Concept | Application in craftflow |
 | --- | --- |
@@ -12,14 +12,14 @@ CraftFlow Orchestrator applies OpenSpec's useful change-management concepts thro
 | Verification | Assess requirement coverage, actual correctness, and design quality separately; do not infer success from checked tasks. |
 | Reconciliation | Update affected requirements/tasks when evidence changes the plan; incorporate verified behavior into existing specifications when in scope. |
 
-These are information relationships, not mandatory stages or seven documents. The conditional [spec-driven change reference](../skills/craftflow-plan/references/workflow/spec-driven-changes.md) supplies the decision guidance. Choose plan, build, or review by the requested outcome. Build owns execution and integration; supporting references do not change the requested scope.
+These are information relationships, not mandatory stages or seven documents. The conditional [spec-driven change reference](../skills/craftflow-set/references/workflow/spec-driven-changes.md) supplies the decision guidance. Choose Set for assessment and Go for execution. Go owns execution and integration; supporting references do not change the requested scope.
 
 For example, adding archive state to a document export changes its wire representation, adds defaulting behavior, and preserves legacy import. An existing issue can state those changes and their acceptance scenarios. Tasks then connect producer and consumer work to independent wire-format and legacy-import checks. If the specification changes during implementation, revise only affected tasks and evidence; do not treat a prior completed checklist as proof.
 
 ```text
-Use $craftflow-build to implement this document-format change. Reuse the existing issue and specification, distinguish changed and preserved behavior, and verify the required compatibility before completing the task.
+Use $craftflow-go to implement this document-format change. Reuse the existing issue and specification, distinguish changed and preserved behavior, and verify the required compatibility before completing the task.
 
-Use $craftflow-review to review whether this change meets its requirements. Compare the current implementation and evidence with the existing plan; do not edit files.
+Use $craftflow-set to review whether this change meets its requirements. Compare the current implementation and evidence with the existing plan; do not edit files.
 ```
 
 A clear small edit can remain a direct change with a relevant check. Complex work may justify a durable plan or specification, but its location and format follow the project and requested deliverable. Introducing a new document system is not a prerequisite.
