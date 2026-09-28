@@ -4,9 +4,9 @@ Date: 2026-09-18. Environment: macOS, Darwin 27.0.0 arm64. Repository starting c
 
 ## Scope and source review
 
-Added an independently installable [Refactoring Guard](../../skills/refactoring-guard/SKILL.md), UI metadata, primary-source attribution, the README catalog entry, and [15 evaluation cases](cases.md). Existing skill instructions, installer code, and validator code were not changed.
+Added an independently installable [Refactoring Guard](https://github.com/awesomelon/codex-skills/blob/e014998580735805036ca3e0f1e18c875d4cdd85/skills/refactoring-guard/SKILL.md), UI metadata, primary-source attribution, the README catalog entry, and [15 evaluation cases](cases.md). Existing skill instructions, installer code, and validator code were not changed.
 
-Read the Fowler pages and OpenAI authoring article listed in [sources.md](../../skills/refactoring-guard/references/sources.md) directly for this revision. The separate skill addresses the sequence and verification of behavior-preserving edits. The existing code-quality skill retains general maintainability assessment and shared-rule design.
+Read the Fowler pages and OpenAI authoring article listed in [sources.md](https://github.com/awesomelon/codex-skills/blob/e014998580735805036ca3e0f1e18c875d4cdd85/skills/refactoring-guard/references/sources.md) directly for this revision. The separate skill addresses the sequence and verification of behavior-preserving edits. The existing code-quality skill retains general maintainability assessment and shared-rule design.
 
 ## Author assessment
 

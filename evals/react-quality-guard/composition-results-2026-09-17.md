@@ -4,9 +4,9 @@ Date: 2026-09-17. Environment: macOS, Python 3.9.6. Repository starting commit: 
 
 ## Scope and source review
 
-Added [composition guidance](../../skills/react-quality-guard/references/composition.md), connected it to the existing skill and correctness reference, and added [cases 23–30](cases.md). Discovery metadata and UI invocation settings remain unchanged.
+Added [composition guidance](https://github.com/awesomelon/codex-skills/blob/e014998580735805036ca3e0f1e18c875d4cdd85/skills/react-quality-guard/references/composition.md), connected it to the existing skill and correctness reference, and added [cases 23–30](cases.md). Discovery metadata and UI invocation settings remain unchanged.
 
-Compared the addition with the pinned Vercel Composition Patterns source and React's Context, use, createContext, and forwardRef documentation listed in [sources.md](../../skills/react-quality-guard/references/sources.md). Read the [OpenAI skills article](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra) directly for this revision. Kept selection metadata short and placed conditional composition guidance in a separate reference.
+Compared the addition with the pinned Vercel Composition Patterns source and React's Context, use, createContext, and forwardRef documentation listed in [sources.md](https://github.com/awesomelon/codex-skills/blob/e014998580735805036ca3e0f1e18c875d4cdd85/skills/react-quality-guard/references/sources.md). Read the [OpenAI skills article](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra) directly for this revision. Kept selection metadata short and placed conditional composition guidance in a separate reference.
 
 ## Author assessment of the new cases
 

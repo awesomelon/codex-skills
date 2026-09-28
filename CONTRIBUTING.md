@@ -4,7 +4,7 @@ Keep `skills/` as the single source for standalone skills and the plugin. Follow
 
 ## Add or improve a skill
 
-Create `skills/<skill-name>/SKILL.md`; add references, scripts, and UI metadata only when useful. The installer discovers skill folders automatically. Update the [README catalog](README.md#included-skills) and `evals/<skill-name>/cases.md` when supported use cases change.
+Create `skills/<skill-name>/SKILL.md`; add references, scripts, and UI metadata only when useful. The installer discovers skill folders automatically. Update the [README catalog](README.md#included-skills) and the scenario catalog linked from `evals/README.md` when supported use cases change.
 
 Use [add-skill](prompts/add-skill.md) for a concrete new purpose or [improve-skills](prompts/improve-skills.md) for a focused audit. Base instruction changes on the [designated OpenAI article](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra). Keep effective instructions and avoid duplicating skill details in user documentation.
 

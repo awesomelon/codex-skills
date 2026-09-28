@@ -1,0 +1,4 @@
+interface:
+  display_name: "CraftFlow Code Quality"
+  short_description: "Design shared rules and review code maintainability"
+  default_prompt: "Use $craftflow-code-quality for the requested shared-rule or maintainability work."

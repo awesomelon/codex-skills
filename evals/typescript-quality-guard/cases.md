@@ -1,4 +1,4 @@
-# TypeScript Quality Guard evaluation cases
+# CraftFlow TypeScript evaluation cases
 
 These are intended behaviors, not model execution results. Record actual checks in [results.md](results.md).
 
@@ -19,7 +19,7 @@ These are intended behaviors, not model execution results. Record actual checks 
 14. **Parser reference selection:** Implement an input parser in a project with an existing schema. Read input-validation guidance, and narrowing guidance only if the implementation needs it. Preserve established errors and complete relevant runtime verification. Do not survey unrelated React or architecture guidance.
 15. **File extension is not a trigger:** Correct a CSS class string inside a TSX component without changing types, state, or behavior. Do not select this skill merely because the file is TSX.
 
-16. **Renamed discovery and standalone package:** Discover and install `typescript-quality-guard` alone. Directory, frontmatter, display name, and default `$typescript-quality-guard` invocation must agree; all references must resolve inside that package. The repository must not expose a second skill under the old name.
+16. **Renamed discovery and standalone package:** Discover and install `craftflow-typescript` alone. Directory, frontmatter, display name, and default `$craftflow-typescript` invocation must agree; all references must resolve inside that package. The repository must not expose a second skill under the old name.
 17. **UI mode and saved design:** With the UI prompt, request only a union review: preserve files. Request a type-design plan in a specified Markdown file: write only that deliverable. Request a union fix: complete affected type checks without requiring unrelated parser work.
 18. **Existing installation migration:** Using disposable destinations, cover an old symlink (including a broken link after pull) and an old managed copy with a local edit. Follow the README to preserve source/copy edits outside discovery paths and install the new name with the original mode/destination. The old name must no longer be discovered, and new standalone links must resolve. Do not treat a moved symlink as a backup of its source or expect automatic rename cleanup.
 

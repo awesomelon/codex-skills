@@ -1,4 +1,0 @@
-interface:
-  display_name: "Engineering Orchestrator"
-  short_description: "Select priorities and coordinate verified delivery"
-  default_prompt: "Use $engineering-orchestrator to shape the requested engineering decision or delivery, using evidence and relevant expertise."

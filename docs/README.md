@@ -12,7 +12,7 @@ Start with the [README](../README.md) for installation and example requests.
 | [Specification-driven changes](spec-driven-changes.md) | Applying OpenSpec concepts through existing project artifacts. |
 | [Evaluation evidence](../evals/README.md) | Reading and reproducing behavioral results. |
 
-For skill-specific details, follow the references in each [skill entrypoint](../README.md#included-skills). The [expertise map](../skills/engineering-orchestrator/references/expertise.md) explains overlapping responsibilities.
+For skill-specific details, follow the references in each [skill entrypoint](../README.md#included-skills). The [expertise map](../skills/craftflow-orchestrator/references/expertise.md) explains overlapping responsibilities.
 
 ## Design history
 

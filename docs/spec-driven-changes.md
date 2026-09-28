@@ -1,8 +1,8 @@
 # Applying specification-driven change concepts
 
-Engineering Orchestrator applies OpenSpec's useful change-management concepts through ordinary engineering artifacts. It requires no OpenSpec installation, CLI, generated skills, workflow schema, or directory layout. Existing issues, product requirements, plans, and task conversations remain sufficient.
+CraftFlow Orchestrator applies OpenSpec's useful change-management concepts through ordinary engineering artifacts. It requires no OpenSpec installation, CLI, generated skills, workflow schema, or directory layout. Existing issues, product requirements, plans, and task conversations remain sufficient.
 
-| Concept | Application in codex-skills |
+| Concept | Application in craftflow |
 | --- | --- |
 | Proposal | Explain the reason, intended outcome, scope, and compatibility constraints when they need clarification. |
 | Behavioral specification | Describe externally observable requirements and scenarios; keep implementation choices separate. |
@@ -12,14 +12,14 @@ Engineering Orchestrator applies OpenSpec's useful change-management concepts th
 | Verification | Assess requirement coverage, actual correctness, and design quality separately; do not infer success from checked tasks. |
 | Reconciliation | Update affected requirements/tasks when evidence changes the plan; incorporate verified behavior into existing specifications when in scope. |
 
-These are information relationships, not mandatory stages or seven documents. The conditional [spec-driven change reference](../skills/engineering-orchestrator/references/spec-driven-changes.md) supplies the decision guidance. The orchestrator continues to own execution and integration, and guards remain independently usable.
+These are information relationships, not mandatory stages or seven documents. The conditional [spec-driven change reference](../skills/craftflow-orchestrator/references/spec-driven-changes.md) supplies the decision guidance. The orchestrator continues to own execution and integration, and guards remain independently usable.
 
 For example, adding archive state to a document export changes its wire representation, adds defaulting behavior, and preserves legacy import. An existing issue can state those changes and their acceptance scenarios. Tasks then connect producer and consumer work to independent wire-format and legacy-import checks. If the specification changes during implementation, revise only affected tasks and evidence; do not treat a prior completed checklist as proof.
 
 ```text
-Use $engineering-orchestrator to implement this document-format change. Reuse the existing issue and specification, distinguish changed and preserved behavior, and verify the required compatibility before completing the task.
+Use $craftflow-orchestrator to implement this document-format change. Reuse the existing issue and specification, distinguish changed and preserved behavior, and verify the required compatibility before completing the task.
 
-Use $engineering-orchestrator to review whether this change meets its requirements. Compare the current implementation and evidence with the existing plan; do not edit files.
+Use $craftflow-orchestrator to review whether this change meets its requirements. Compare the current implementation and evidence with the existing plan; do not edit files.
 ```
 
 A clear small edit can remain a direct change with a relevant check. Complex work may justify a durable plan or specification, but its location and format follow the project and requested deliverable. Introducing a new document system is not a prerequisite.

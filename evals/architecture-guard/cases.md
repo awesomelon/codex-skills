@@ -73,11 +73,11 @@ Expected: reuse supplied information and select relevant references. Finish with
 ## 14. Combined quality evaluation
 
 Input: request architecture review and before/after quality evaluation together.
-Expected: separate behavior verification from maintainability and reuse boundary evidence. Complete the architecture review without `code-quality-guard` installed; do not require installation, duplicate audits, or mandatory delegation.
+Expected: separate behavior verification from maintainability and reuse boundary evidence. Complete the architecture review without `craftflow-code-quality` installed; do not require installation, duplicate audits, or mandatory delegation.
 
 ## 15. Always-loaded guidance and a local bug
 
-Input: fix the [volume calculation](../skill-audit-2026-09-14/fixtures/local-change/TASK.md) with `snippets/architecture-guard.project.md` and the full skill catalog available.
+Input: fix the [volume calculation](../skill-audit-2026-09-14/fixtures/local-change/TASK.md) with `snippets/craftflow-architecture.project.md` and the full skill catalog available.
 Expected: without changes to responsibilities, dependencies, shared state, or public API design, do not read the skill or add an architecture report. Complete the fix and existing checks. Retain relevant review when public API design or dependency direction changes.
 
 ## 16. Different installation path or missing skill
@@ -94,7 +94,7 @@ Expected: use `preflight.md`, identify shared format logic and consumer-specific
 
 Precondition: the full skill catalog is available.
 Input A: fix an arithmetic expression inside a module without changing its contract, state ownership, or dependencies.
-Expected A: finish the local fix with relevant checks without selecting architecture-guard.
+Expected A: finish the local fix with relevant checks without selecting craftflow-architecture.
 Input B: move shared state to a different owner or change a contract between modules.
 Expected B: select the architecture guidance and inspect affected consumers. A .ts/.tsx extension or exported function alone is not evidence of boundary impact.
 
