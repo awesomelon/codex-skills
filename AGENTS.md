@@ -1,6 +1,6 @@
 # Working on craftflow
 
-This repository provides engineering orchestration for Codex through independently usable skills and a skills-only plugin. Keep `skills/` as the single source for both distribution paths. The plugin packages expertise; it does not supply an agent runtime. Individual skill installation is supported on macOS through `bash scripts/install.sh`, which runs without Python. Keep its instructions specific to macOS, using Bash 3.2-compatible syntax and BSD-compatible commands. Retain Python for repository development checks and compatibility with the older copy installer.
+CraftFlow provides judgment-driven engineering for Codex: make the right change. Its [README principles](README.md#three-principles) define the product concept; independently usable skills and a skills-only plugin deliver it. Keep `skills/` as the single source for both distribution paths. The plugin packages expertise; it does not supply an agent runtime. Individual skill installation is supported on macOS through `bash scripts/install.sh`, which runs without Python. Keep its instructions specific to macOS, using Bash 3.2-compatible syntax and BSD-compatible commands. Retain Python for repository development checks and compatibility with the older copy installer.
 
 Write maintained instructions, documentation, and UI metadata in English. Preserve original wording in raw evaluation evidence and behavior-sensitive test data.
 

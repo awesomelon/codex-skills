@@ -1,4 +1,4 @@
 interface:
   display_name: "CraftFlow Orchestrator"
-  short_description: "Select priorities and coordinate verified delivery"
+  short_description: "Coordinate engineering decisions and verified changes"
   default_prompt: "Use $craftflow-orchestrator to shape the requested engineering decision or delivery, using evidence and relevant expertise."
