@@ -31,4 +31,4 @@ Inspect each handoff against its assigned outcome. Check material claims using t
 
 Reconcile overlapping findings into one supported decision. When workers disagree, inspect the contract or run the smallest observation that distinguishes their claims. Agreement and review count are not verification evidence.
 
-Verify the assembled behavior at the affected seam: for example, that a producer's emitted value is accepted by its consumer, or that a shared-state transition remains correct across both callers. Preserve useful worker evidence, but refresh checks invalidated by integration, contract changes, or later edits. Close the plan with every assigned result accepted, canceled, or explicitly blocked; account for owned processes and remaining writers before reporting completion.
+After accepting handoffs, apply [verification evidence](verification.md) to the assembled behavior and reused checks. Close assignments as accepted, canceled, or explicitly blocked; account for owned processes and remaining writers before reporting completion.

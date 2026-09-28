@@ -74,3 +74,13 @@ The following official pages were fetched during this adaptation:
 - [Subagents](https://learn.chatgpt.com/docs/agent-configuration/subagents): use available delegation capabilities and configured defaults; capabilities and tool names can vary by runtime.
 
 This source review is separate from behavioral validation. Installation and metadata checks do not establish automatic selection, better task outcomes, lower token usage, or superiority to upstream.
+
+## Plugin adaptation provenance
+
+Concepts were selectively adapted in original prose on 2026-09-28, not installed as upstream workflows:
+
+- [Dryforge ready](https://github.com/prekuter/dryforge/blob/904f25742c9e5a36b09753a7f5ea8c26801b0fa9/src/skills/ready/SKILL.md), [intent-completeness](https://github.com/prekuter/dryforge/blob/904f25742c9e5a36b09753a7f5ea8c26801b0fa9/src/skills/ready/references/intent-completeness.md), and [go](https://github.com/prekuter/dryforge/blob/904f25742c9e5a36b09753a7f5ea8c26801b0fa9/src/skills/go/SKILL.md): decision ownership, source-grounded independent scrutiny, and evaluated verification evidence. This adaptation does not adopt its three-document requirement, obligatory reviewers, immutable execution graph, risk tiers, worktree policy, or local state layout.
+- [Compound Engineering ce-compound](https://github.com/EveryInc/compound-engineering-plugin/blob/8a6e0a2ff0e0d4c71cdb0b5cc4eefb847d6c646c/skills/ce-compound/SKILL.md): preserve verified reasoning only when the implementation does not already explain it, and update existing knowledge rather than duplicate it. No fixed solutions directory, automatic publishing, or whole-pipeline dependency is introduced.
+- [Agent Skills constraint-driven development](https://github.com/addyosmani/agent-skills/blob/2686b620fc1fed2e8f60c704839c766b8594c6b6/skills/constraint-driven-development/SKILL.md): make the project's quality bar observable and resist hiding failed checks. No universal LOC, coverage, test-ratio, or per-change ceremony is adopted.
+
+These are design inputs, not comparative performance evidence. The sections above retain the earlier OpenAI and engineering-workflow provenance.

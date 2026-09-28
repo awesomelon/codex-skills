@@ -24,7 +24,7 @@ Before costly dependent implementation, a consequential or uncertain design can 
 
 Use one authoritative task record. Link each material outcome to its requirement or scenario, responsible owner, dependencies, and suitable verification evidence. Existing section names or issue references can supply that connection; no new ID scheme or duplicate backlog is required. Check both directions: each required outcome has work and evidence, and each task serves the authorized outcome or a necessary stated prerequisite. Unrequested improvements do not become in-scope merely by entering the plan.
 
-Prefer tasks that produce a checkable behavior across the necessary components. Settle a shared contract or other real prerequisite before dependent edits. The coordinator owns shared decisions and integration; specialist skills supply expertise within those tasks. Use [coordination](coordination.md) for delegation and shared-writer boundaries when needed.
+Prefer tasks that produce checkable behavior across the necessary components. Use [coordination](coordination.md) for assigning dependent work and shared-writer boundaries; keep requirement ownership in the task record.
 
 If an existing plan supplies a machine-readable dependency graph, validate its task references and cycles before scheduling. Keep it consistent with the actual task record. Do not introduce a graph format for its own sake or obey a stale dependency after evidence disproves it; reconcile a technical replan within the agreed intent and escalate changes to that intent.
 
@@ -36,8 +36,8 @@ Do not weaken a requirement or delete a scenario to make an implementation appea
 
 ## Complete with evidence
 
-Separate recorded task progress, implemented requirements, executed verification, and quality judgments. Checkboxes and a complete plan do not establish working behavior. For each material outcome, connect the changed implementation to relevant evidence and disclose unavailable checks or remaining gaps. Use [verification evidence](verification.md) when the claim requires running behavior or a command's result is ambiguous.
+For each material requirement, link its implementation and actual evidence using [verification evidence](verification.md) when needed. Mark missing or inconclusive evidence explicitly; task checkboxes are progress records, not proof of completion.
 
 When maintaining an existing specification is within scope, fold the implemented and verified behavior into it while preserving unaffected requirements. Keep proposed or unverified behavior distinguishable from accepted behavior; retain useful decision history through the project's existing convention. Do not create a specification store, archive hierarchy, or new document merely to close a task. Complete the user's requested endpoint without an extra planning approval gate; a planning-only endpoint remains planning-only.
 
-The [source record](sources.md) identifies the OpenSpec concepts informing this guidance; [plugin adaptation provenance](learning.md#provenance) identifies the later intent and evidence refinements. These concepts operate through ordinary task artifacts without requiring upstream software or generated skills.
+The [source record](sources.md) identifies the OpenSpec concepts informing this guidance; [plugin adaptation provenance](sources.md#plugin-adaptation-provenance) identifies the later intent and evidence refinements. These concepts operate through ordinary task artifacts without requiring upstream software or generated skills.

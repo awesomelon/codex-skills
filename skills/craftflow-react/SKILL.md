@@ -7,7 +7,7 @@ description: Design, implement, and review React web components, hooks, state, a
 
 Reduce state errors and unnecessary React work while preserving user behavior and data contracts. Use Vercel React Best Practices and Composition Patterns as judgment references.
 
-Planning, review, and explanation preserve the assessed material; write only explicitly requested deliverables, such as a plan or report. Implementation and improvement requests include necessary edits and verification. Start with the specified code and directly connected state/request paths; perform full audits at the requested scope.
+For planning, review, or explanation, preserve the assessed material and write only requested deliverables. Implementation and improvement requests include necessary edits and verification. Start with the specified code and directly connected state/request paths; perform full audits at the requested scope.
 
 ## Relevant context and references
 
@@ -25,7 +25,7 @@ Select only relevant references. The source document is not required reading for
 
 ## Intervention and completion
 
-Keep a component's state, handlers, and rendering close when they must be read and modified together. Components and hooks may remain in the same file; extraction does not require a new file. Prioritize readability and maintainability over LOC, and accept a cohesive file around 1,000 lines without treating that number as a target or limit. Split for independently changing behavior, actual reuse, or clearer verification, accounting for extra props, imports, and navigation.
+Keep a component's state, handlers, and rendering together when they change together. Extract components or hooks for independent behavior, reuse, or clearer verification; extraction need not create a new file. Account for added props and navigation rather than targeting file length.
 
 Prioritize correctness, data isolation, and compatibility. For performance, start with serial requests, initial transfer, and expensive rendering/subscriptions on real user paths. Do not add component splits or memoization to meet a count. If boundary review is also requested, reuse its findings without making another skill a mandatory step.
 

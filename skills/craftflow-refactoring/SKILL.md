@@ -5,7 +5,7 @@ description: Plan, perform, or review behavior-preserving refactoring using Mart
 
 # CraftFlow Refactoring
 
-Improve the ease of understanding and changing existing code while preserving observable behavior. Use small, verifiable transformations; this skill works without a general quality audit or another skill.
+Carry out or assess behavior-preserving structural transformations. Reuse an established diagnosis and chosen transformation; when none is supplied, identify the local difficulty using the criteria below. No preceding quality audit or other skill is required.
 
 ## Scope and useful changes
 
@@ -13,7 +13,7 @@ For review, explanation, or planning, preserve the assessed code and write only 
 
 Identify the actual difficulty, affected callers, and observable contract before choosing a transformation. Values, errors, public signatures, stored data, and effect order/count matter when the affected code depends on them. Keep a refactoring distinguishable from a requested feature or bug fix so each can be assessed against its own expectations.
 
-A code smell, file length, repeated syntax, or metric is a reason to investigate, not proof that code needs splitting. Prefer readability and maintainability over LOC or the smallest diff. Keep responsibilities together when they must be understood and changed together; extract a file only when independent change, reuse, or testing justifies the navigation. Similar expressions can represent policies with different reasons to change.
+Choose a transformation that resolves the identified difficulty. File length or repeated syntax alone does not justify splitting; preserve independently changing policies even when their expressions match. Balance easier local reasoning and verification against added navigation.
 
 ## Choose the relevant depth
 
