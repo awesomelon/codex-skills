@@ -1,251 +1,61 @@
+<p align="center">
+  <img src="assets/logo.png" width="180" alt="Codex Skills: an open code book supporting connected modules">
+</p>
+
 # codex-skills
 
-Engineering skills for Codex aimed at staff-level judgment: select worthwhile problems, compare designs, plan dependent work, implement with focused expertise, and distinguish verified delivery from observed impact. Use the skills independently or package the collection as the **Engineering Orchestration** plugin. Individual skill installation supports macOS.
+Engineering orchestration for Codex: choose worthwhile problems, plan dependent work, and deliver verified changes with focused technical skills.
 
-GitHub repository: [awesomelon/codex-skills](https://github.com/awesomelon/codex-skills).
-
-## Choose how to work
-
-| Task | Entry point | Responsibility |
-| --- | --- | --- |
-| Find worthwhile problems or set technical priorities | `engineering-orchestrator` | Connect workflow evidence to priorities, uncertainty, and the next useful action. |
-| Plan an uncertain or cross-team initiative | `engineering-orchestrator` | Test consequential assumptions, sequence dependencies, and define rollout and outcome evidence. |
-| Small local change | Direct task or a relevant specialist | Make and check the requested change. |
-| Standalone technical review | The relevant `*-guard` | Assess its domain within the requested read/write scope. |
-| Dependent changes across components or specialties | `engineering-orchestrator` | Establish contracts, select expertise, coordinate ownership, and verify integration. |
-| Resume interrupted multi-part work | `engineering-orchestrator` | Reconcile the checkpoint with current artifacts and continue unresolved work. |
-| Coordinate an evolving behavior change | `engineering-orchestrator` with conditional spec-driven guidance | Connect intent, changed requirements, tasks, and current verification evidence. |
-| Revisit a recurring problem or retain a verified non-obvious lesson | `engineering-orchestrator` with conditional learning guidance | Validate earlier reasoning against the current project and update only an authorized, useful durable record. |
-
-For problem discovery, try `Use $engineering-orchestrator to identify which problems in these incidents and support reports deserve investment; recommend a next step without implementing.` For strategic planning, try `Use $engineering-orchestrator to compare the credible approaches, test the assumption most likely to invalidate this initiative, and plan delivery and outcome verification.` Detailed [problem selection](skills/engineering-orchestrator/references/problem-selection.md) and [execution strategy](skills/engineering-orchestrator/references/execution-strategy.md) guidance loads only for those decisions. Staff-level judgment is the design goal, not a measured capability guarantee. See the [focused evaluation](evals/staff-judgment-2026-09-20/results.md) for evidence and limits.
-
-The coordinator owns delivery decisions; the six guards provide technical expertise. One worker may use several skills, and delegation is optional. The installed collection does not require a fixed sequence of reviews. See [expertise boundaries](skills/engineering-orchestrator/references/expertise.md) for overlapping responsibilities.
-
-For features and migrations, reuse existing requirements to connect observable acceptance conditions, shared contracts, and verification evidence. Architecture Guard has conditional [boundary-contract guidance](skills/architecture-guard/references/contracts.md) for independently consumed APIs, events, and serialized formats. Clear local edits need no specification or contract toolchain.
-
-The [spec-driven change guide](docs/spec-driven-changes.md) adapts OpenSpec's concepts: separate intent, behavior, and design; track added/modified/removed requirements; connect tasks to evidence; and reconcile changes with existing specifications. Use ordinary project artifacts without installing OpenSpec or imposing a document set. See the [concept evaluation](evals/spec-driven-concepts-2026-09-20/results.md) for executed cases and limitations.
-
-The [intent, evidence, and learning adaptation](docs/plugin-adaptation-2026-09-28.md) selectively draws on Dryforge, Compound Engineering, and Agent Skills. It distinguishes user-owned decisions from derivable facts, checks that assertions actually ran, and reuses or preserves only applicable verified project reasoning. Try `Use $engineering-orchestrator to implement the approved change, verify its actual contract, and update existing engineering notes only if a non-obvious verified lesson qualifies.` Clear local changes still need no interview, extra approval, document set, or reviewers. The [new scenarios](evals/engineering-orchestrator/cases.md) are expected behavior, not executed model evidence; the adaptation record states the validation limits.
-
-For a selected subset, use the [macOS skill installer](#install-on-a-new-mac). For the collection, see [plugin packaging and local testing](docs/plugin.md). Both use the same `skills/` contents. Choose one installation route for each skill to avoid duplicate discovery. The [orchestration package evaluation](evals/orchestration-plugin-2026-09-19/results.md) separates task behavior, package checks, and host-installation limits.
-
-## Included skills
-
-| Skill | Purpose |
-| --- | --- |
-| [engineering-orchestrator](skills/engineering-orchestrator/SKILL.md) | Select engineering priorities, shape feasible execution plans, resolve consequential intent gaps, coordinate dependent work, and distinguish verification evidence from actual impact. |
-| [architecture-guard](skills/architecture-guard/SKILL.md) | Design and review module boundaries, dependency direction, shared-state ownership, and contracts between modules. Local edits without boundary impact need no architecture review. |
-| [react-quality-guard](skills/react-quality-guard/SKILL.md) | Design and improve React components, composition, hooks, state, and performance. Choose variants and shared providers while preserving independent interaction state. |
-| [code-quality-guard](skills/code-quality-guard/SKILL.md) | Design shared business rules and bounded solutions using practical SOLID, design pattern, and YAGNI criteria; review, improve, and compare maintainability using evidence of actual change costs. |
-| [refactoring-guard](skills/refactoring-guard/SKILL.md) | Plan, perform, and review behavior-preserving refactoring. Load baseline, effect-order, and recovery guidance for substantive transformations. |
-| [tanstack-query-guard](skills/tanstack-query-guard/SKILL.md) | Design, implement, and review Query behavior using task-specific v5 guidance. Select cache, mutation, SSR, or offline guidance for the actual decision. |
-| [typescript-quality-guard](skills/typescript-quality-guard/SKILL.md) | Design, fix, and review TypeScript types and runtime input validation. Familiar local diagnostics can use the entrypoint alone. |
-
-For orchestration, use `Use $engineering-orchestrator to coordinate this migration, delegate independent work where useful, and verify the integrated result` or `Use $engineering-orchestrator to plan this multi-part change without editing implementation files`. The coordinator owns dependencies, shared contracts, worker handoffs, and integration evidence. Skills provide expertise; agents execute assigned work. Neither a fixed agent count nor invoking every guard is required. Simple work stays local, and the skill works alone with the current session's available capabilities. It does not install a persistent mode or automatically publish PRs. Install only this skill with `bash scripts/install.sh --skill engineering-orchestrator`. See its [source and adaptation record](skills/engineering-orchestrator/references/sources.md), [evaluation cases](evals/engineering-orchestrator/cases.md), and [orchestration validation](evals/engineering-orchestrator/results.md).
-
-The [pstack port review](evals/pstack-port-2026-09-19/results.md) adds conditional runtime verification and revision-aware delivery guidance to Engineering Orchestrator, plus defect-oriented regression-test assessment to Code Quality Guard. Existing drivers and configured runtime capabilities remain sufficient; no routing hook, model panel, or background service is installed.
-
-The [discovery and UI metadata audit](evals/skill-discovery-2026-09-19/results.md) compares current OpenAI, Anthropic, Vercel, pstack, ECC, and Ponytail guidance. Existing discovery descriptions remain intact; four UI task starters are shorter, and development validation catches stale skill invocations and invalid policy types. The record separates metadata-only selection, task execution, and structural checks.
-
-`engineering-orchestrator` replaces `engineering-workflow` (earlier `pstack`). Update explicit invocations and installer selections. If already installed, preserve local edits and move the old entry outside skill discovery directories before installing the new name with your existing destination/mode options. For symlinks, preserve the source contents too; moving a link alone does not back up its target. The installer does not remove old names automatically, and no compatibility alias is installed. Historical evaluation inputs, results, and hashes retain the name used for their run.
-
-Across the collection, readability and maintainability take precedence over LOC, smaller files, or the smallest diff. Keep responsibilities together when understanding and changing them requires reading the same code. A cohesive file around 1,000 lines can be appropriate; this is neither a target nor a limit. Split when independent change, reuse, or verification becomes clearer after accounting for extra navigation and coordinated edits. Each skill carries the relevant criteria for standalone use.
-
-`architecture-guard` focuses on module boundaries, `react-quality-guard` on React execution and user behavior, `code-quality-guard` on maintainability across languages and frameworks, and `tanstack-query-guard` on TanStack Query-specific cache and request behavior. Each skill works when installed alone. Reuse existing evidence when a task needs several perspectives; there is no need to invoke every skill each time. Small current-state quality reviews can use the skill body alone. Select [change-review guidance](skills/code-quality-guard/references/review.md) for PRs, full audits, maintainability improvements, or future-change analysis; select comparison, scoring, and source-metric references only for those requested decisions.
-
-For TypeScript, use `Use $typescript-quality-guard to implement and verify this parser` or `Use $typescript-quality-guard to review these types without editing files`. The skill supports automatic selection for type modeling, type diagnostics, and input validation; a .ts or .tsx extension alone is not a trigger. Its entrypoint routes to type modeling, input validation, or narrowing guidance as needed. It works independently and does not require a framework-specific review. Install it with `bash scripts/install.sh --skill typescript-quality-guard`. See [evaluation cases](evals/typescript-quality-guard/cases.md) and [historical example checks](evals/typescript-quality-guard/results.md), recorded before this rename.
-
-For TanStack Query, use `Use $tanstack-query-guard to review this mutation without editing files` or `Use $tanstack-query-guard to fix and verify this query's cache behavior`. Install it separately with `bash scripts/install.sh --skill tanstack-query-guard`. The [source record](skills/tanstack-query-guard/references/sources.md) identifies the pinned upstream, MIT notice, and corrections; [evaluation cases](evals/tanstack-query-guard/cases.md) and [results](evals/tanstack-query-guard/results.md) distinguish intended behavior from executed checks.
-
-If you installed the former `tanstack-query` name, preserve any local edits and replace that entry with `tanstack-query-guard` to avoid duplicate discovery. The installer does not automatically remove renamed skills.
-
-For review only, ask `Use $react-quality-guard to review the current changes without editing files.` For implementation, ask `Use $react-quality-guard to improve and verify the React code.`
-
-For refactoring, use `Use $refactoring-guard to simplify this calculation without changing its behavior, and verify the result.` For a plan, use `Use $refactoring-guard to propose small refactoring steps without editing the code.` This independently installable skill focuses on how to carry out and verify structural changes; `code-quality-guard` covers broader maintainability assessment and shared-rule design. Use only the guidance needed for the request. Install it with `bash scripts/install.sh --skill refactoring-guard`. See [Fowler sources and interpretation](skills/refactoring-guard/references/sources.md), [evaluation cases](evals/refactoring-guard/cases.md), and [actual validation](evals/refactoring-guard/results.md).
-
-For component variants, use [composition guidance](skills/react-quality-guard/references/composition.md) to choose children, render props, compound components, or shared providers. It preserves ordinary boolean state, simple props, and supported React versions. Try `Use $react-quality-guard to design reply and edit composers from shared elements while preserving independent drafts.`
-
-Example requests for general code quality:
-
-```text
-Use $code-quality-guard to review the current changes, separating correctness from maintainability. Provide evidence and the smallest improvements without modifying files.
-
-Use $code-quality-guard to improve and verify this module's maintainability. Use the starting state as a baseline to assess behavior preservation and the difference in change cost.
-
-Use $code-quality-guard to add this eligibility rule to the list, detail menu, and bulk action. Keep the independent pinning rule unchanged and verify the affected behavior.
-```
-
-UI selection alone does not request implementation changes. Review and planning preserve the assessed code; explicitly requested plans and review reports can still be written. Implementation requests continue through relevant verification.
-
-Shared-rule implementation uses [implementation guidance](skills/code-quality-guard/references/implementation.md). A routine local edit needs no separate quality review. For a concrete required addition, assess its edit points and compatibility; additional abstractions need evidence from the actual requirements. The [design and extension evaluation](evals/design-extension-2026-09-15/results.md) records the tested cases and their limits.
-
-Report passing tests, diagnostic signals such as complexity/duplication, and maintainability judgments separately. Leave unavailable measurements unmeasured; do not optimize for a single score or lower LOC. See [comparison and measurement](skills/code-quality-guard/references/measurement.md), [scoring](skills/code-quality-guard/references/scoring.md), [Earendil source metrics](skills/code-quality-guard/references/earendil-metrics.md), [quality evaluation cases](evals/code-quality-guard/cases.md), and [execution records](evals/code-quality-guard/results.md). The installer discovers new folders automatically; after updating, select this skill with `bash scripts/install.sh --skill code-quality-guard`.
-
-Upstream sources, pinned commits, and exceptions are in [React sources](skills/react-quality-guard/references/sources.md). Behavioral evaluation scope is in [React evaluation results](evals/react-quality-guard/results.md). The [composition validation record](evals/react-quality-guard/composition-results-2026-09-17.md) separates structural checks and author assessment from unrun behavioral evaluations.
-
-The [2026-09-12 audit](docs/skill-audit-2026-09-12.md) records duplicate-instruction cleanup, conditional reference/check selection, and behavioral results. The [2026-09-14 full audit](docs/skill-audit-2026-09-14.md) includes the new quality skill and a fix for repeated checks observed in evaluation. The [follow-up audit](docs/skill-audit-2026-09-14-followup.md) refines reference selection, task-template duplication, and guidance. Each record distinguishes verified and unrun work. See [evaluation evidence](evals/README.md) for the relationship between English translations and original runs.
-
-The [2026-09-15 audit](docs/skill-audit-2026-09-15.md) covers all five skill entrypoints, TypeScript reference routing, architecture selection, and the code-quality UI prompt. Its structural checks are separate from unrun repository and model evaluations.
-
-The [2026-09-15 follow-up audit](docs/skill-audit-2026-09-15-followup.md) covers requested-document boundaries, UI work modes, and the TypeScript rename, including installation migration and validation limits.
-
-The [2026-09-16 follow-up audit](docs/skill-audit-2026-09-16.md) records the five-entrypoint inspection, code-quality reference routing, selective-install examples, and the limits of source retrieval and validation.
-
-The [Astra refinement](docs/astra-refinement-2026-09-16.md) records the fresh article check, focused discovery and workflow updates, upstream ideas considered, and independent evaluation limits.
-
-The [2026-09-19 Astra optimization](docs/astra-optimization-2026-09-19.md) covers all seven skills and the `engineering-workflow` rename: smaller entrypoints, conditional references, relevant comparison evidence, and completion of authorized work. Its [five fresh evaluations](evals/astra-optimization-2026-09-19/results.md) separate observed task behavior from unmeasured discovery and performance effects.
-
-The [Ponytail follow-up](evals/ponytail-adoption-2026-09-20/results.md) strengthens reuse decisions, shared-cause repair, and explicit limits for deliberately simple solutions. It preserves required behavior and records the scope of fresh validation.
-
-The [upstream comparison audit](docs/skill-audit-2026-09-16-upstream.md) records selective Ponytail/ECC/pstack adoption, unchanged discovery metadata, and the calibrated simplification fixture. The existing [improvement prompt](prompts/improve-skills.md) also supports bounded parallel audits and implementation when useful.
-
-The [English translation record](docs/english-translation.md) documents the language change, preserved behavior, and its validation limits.
-
-### TypeScript skill rename
-
-`typescript-best-practices` is now `typescript-quality-guard` (display name: **TypeScript Quality Guard**), matching the collection's `*-guard` convention. Update explicit `$typescript-best-practices` invocations, selected `--skill` arguments, and any personal/project guidance to the new name.
-
-The installer discovers the new directory but does not migrate or remove old installations. After updating the clone:
-
-1. Locate the old `typescript-best-practices` entry in the destination you actually used (default: `~/.agents/skills`; also check project installations if applicable). Preserve local edits from a copy or the source checkout before replacing it.
-2. Move the old entry to a backup **outside every skill discovery directory**. For link installations, preserve the edited source files too: a moved symlink is not a backup of its target, and the old link may already be broken after the rename.
-3. Install with `bash scripts/install.sh --skill typescript-quality-guard`, retaining your previous `--dest` and `--mode copy` options when applicable. Start a new Codex session and verify that only the new name is discovered.
-
-No compatibility skill is installed under the old name; keeping both would add duplicate discovery metadata. Historical validation records retain the name used in their original run.
+Use the seven skills independently or as the **Engineering Orchestration** plugin. The orchestrator coordinates work; the guards provide expertise. Small tasks stay small, and delegation is optional.
 
 ## Install on a new Mac
 
-**Installation does not require Python.** It uses macOS `/bin/bash` and built-in commands such as `shasum`. Downloading the repository requires Git. The public HTTPS clone below needs neither GitHub CLI nor authentication. For a restricted repository, you can use `gh repo clone awesomelon/codex-skills` with an authorized, authenticated GitHub CLI account.
-
-The default destination for all skills is `~/.agents/skills`. User configuration and `AGENTS.md` are not modified automatically.
-
-With Git available, clone the repository and inspect the available skills. Run each command only after the preceding one succeeds:
+Requires Git and macOS Bash; no Python or package installation. Keep the clone in a permanent location because the installer creates symlinks by default.
 
 ```bash
 git clone https://github.com/awesomelon/codex-skills.git
 cd codex-skills
 bash scripts/install.sh --list
+bash scripts/install.sh --skill engineering-orchestrator --dry-run
+bash scripts/install.sh --skill engineering-orchestrator
 ```
 
-Choose only skills you expect to use repeatedly. For example, to install the code-quality skill alone:
+Run each command after the previous one succeeds. Skills install into `~/.agents/skills`; configuration and `AGENTS.md` are left untouched. Repeat `--skill <name>` to select more skills, or omit it to install all seven.
 
-```bash
-bash scripts/install.sh --skill code-quality-guard --dry-run
-bash scripts/install.sh --skill code-quality-guard
+[Update, copy mode, and migration](docs/installation.md) · [Plugin installation](docs/plugin.md)
+
+Choose one installation route per skill to avoid duplicate discovery.
+
+## Use
+
+Ask for the outcome and the scope you want:
+
+```text
+Use $engineering-orchestrator to plan this migration without editing code.
+
+Use $engineering-orchestrator to implement the approved change and verify integration.
+
+Use $react-quality-guard to review the current changes without editing files.
 ```
 
-Replace the example name or repeat `--skill <name>` for your chosen subset. To deliberately install the whole collection, run `bash scripts/install.sh` without `--skill`. The installer's default is unchanged. Selecting fewer skills reduces discovery metadata; it is not a measured performance claim.
+In a plugin host, use the skill names advertised by that host; they may include a plugin prefix. Reviews and plans preserve the assessed code. Implementation requests include relevant verification.
 
-`install.sh` is the installation/update entry point. It does not invoke Python, Node, jq, or package installation.
+## Included skills
 
-The default mode creates symbolic links. Clone into a durable location rather than a temporary directory such as Downloads. Moving or deleting the source folder after installation breaks those links.
+| Skill | Use it for |
+| --- | --- |
+| [engineering-orchestrator](skills/engineering-orchestrator/SKILL.md) | Priorities, planning, dependent work, and resuming interrupted tasks. |
+| [architecture-guard](skills/architecture-guard/SKILL.md) | Module boundaries, dependencies, ownership, and contracts. |
+| [code-quality-guard](skills/code-quality-guard/SKILL.md) | Shared rules, maintainability, and evidence-based quality reviews. |
+| [refactoring-guard](skills/refactoring-guard/SKILL.md) | Structural improvements that preserve behavior. |
+| [react-quality-guard](skills/react-quality-guard/SKILL.md) | Components, composition, hooks, state, and performance. |
+| [tanstack-query-guard](skills/tanstack-query-guard/SKILL.md) | Query v5 caching, mutations, pagination, SSR, and persistence. |
+| [typescript-quality-guard](skills/typescript-quality-guard/SKILL.md) | Type modeling, narrowing, diagnostics, and runtime validation. |
 
-### Inspect or select an installation
+## Documentation
 
-```bash
-bash scripts/install.sh --list
-bash scripts/install.sh --skill architecture-guard --dry-run
-bash scripts/install.sh --skill architecture-guard
-```
+- [Guides and design history](docs/README.md)
+- [Contributing and validation](CONTRIBUTING.md)
+- [Evaluation evidence](evals/README.md)
 
-In Codex CLI/IDE, inspect `/skills` or invoke `$architecture-guard`. If it is missing, check in a new session. Successful file installation is separate from verifying model execution or review accuracy.
-
-To copy skills into a team project, specify that project's path. Avoid duplicate installation of the same skill at both user and project scope.
-
-```bash
-bash scripts/install.sh --skill code-quality-guard --mode copy --dest /path/to/other-project/.agents/skills
-```
-
-Installing this collection into itself is blocked. Before changing installation modes, back up and remove or reconcile the existing installation separately.
-
-## Update
-
-Run from the cloned `codex-skills` folder. If pull fails, do not proceed to installation.
-
-```bash
-git pull --ff-only
-bash scripts/install.sh --skill code-quality-guard
-```
-
-The update command above matches the single-skill installation example. Retain your actual `--skill` selections, `--dest`, and `--mode` options. To maintain the entire collection, omit `--skill`. Selections are not saved separately; a bare installer command also installs skills you did not previously select.
-
-For links, changes to existing skills take effect in the source immediately after pull; rerunning the installer links newly added skills. For copies, rerunning updates managed copies and adds new skills. Review script and skill changes before installation.
-
-Safety behavior:
-
-- Repeated installation does not create duplicates. New skills are discovered from `skills/`, so adding a skill does not require installer changes.
-- Manual installations, links to other repositories, and name collisions are preserved and reported as errors. Back up existing folders **outside** skill discovery paths, merge needed changes, and rerun.
-- Managed copies are checked by hash for local additions, edits, and deletions of files/directories; updates stop if changes exist. Prefer editing the source in `skills/<name>/` and committing there. Do not edit a copy's management metadata.
-- Selected paths are checked for conflicts before changes, but the entire collection is not one transaction. Skills installed before an I/O failure remain installed and can be revisited by rerunning. A failed copy replacement attempts restoration; if that also fails, the backup path is reported.
-- Skills removed upstream and other installations are not automatically deleted. `multi-agent-guard` has been removed from this collection. If previously installed, remove its entry from your actual skill destination (including a broken symlink); preserve any local edits outside skill discovery directories first. Do not run multiple installers concurrently. File permission changes alone are not covered by content hashes.
-
-### Migrate from the Python installer
-
-- For an existing **link installation**, run `bash scripts/install.sh` from the same clone. Existing links are reused.
-- Copies made by **`install.py --mode copy`** are not automatically converted or overwritten. Back them up outside skill discovery paths, merge any local changes into the source repository, then run `bash scripts/install.sh --mode copy --dest <previous-installation-path>`. Keep using the Python installer if you need to update the old format immediately.
-
-Shell-managed copies use `.codex-skills-install.v2`; older Python copies use `.codex-skills-install.json`. Do not switch formats by editing management files.
-
-## Apply architecture review to relevant work
-
-Installation and invocation policy are separate. These examples apply when module boundaries, dependency direction, shared-state ownership, or contracts between modules change, or when structural review is requested. They do not require a separate review at the start and end of every coding task.
-
-Use `snippets/architecture-guard.project.md` for project guidance or `snippets/architecture-guard.global.md` for personal global guidance. **Merge only the needed block into existing instruction files; do not overwrite them.** The installer does not do this for you.
-
-Project guidance belongs in that project's `AGENTS.md`. Personal global guidance commonly lives in `~/.codex/AGENTS.md`; when using `CODEX_HOME` or `AGENTS.override.md`, first identify the file actually loaded. Check which instructions are read in a new Codex session after applying changes.
-
-`AGENTS.md` guides the agent; it is not an enforcement mechanism. Put mandatory dependency/boundary rules in the target project's lint, tests, or CI. This collection does not install a resident monitor, automatic Git synchronization, or background reviews.
-
-## Add skills incrementally
-
-Create `skills/<skill-name>/SKILL.md`, adding `references/`, `scripts/`, or `agents/openai.yaml` only when useful. Update the README catalog and `evals/<skill-name>/cases.md`. The installer discovers folders automatically.
-
-Python 3.10+ and the dependencies in `requirements-dev.txt` are required only for repository development and validation. The checks below are not part of user installation. The shell installer uses Bash 3.2-compatible syntax and BSD-compatible options; the test runner exercises the CLI directly.
-
-Prepare an isolated development environment once:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements-dev.txt
-```
-
-Use [prompts/add-skill.md](prompts/add-skill.md), filling in one concrete skill purpose. There is no need to create many skills up front or abstract a common framework.
-
-For an existing skill or collection audit, use [prompts/improve-skills.md](prompts/improve-skills.md). It anchors changes in the designated Astra article and concrete findings, and separates structural checks from independent behavioral evaluation. Keep effective instructions instead of rewriting every skill on each audit.
-
-For skill changes, check structure and local references:
-
-```bash
-python3 scripts/validate.py
-```
-
-For installer or validator changes, also check shell syntax, run the repository suite, and exercise affected CLI operations in temporary paths:
-
-```bash
-bash -n scripts/install.sh
-python3 -m unittest discover -s tests -v
-```
-
-The optional [simplification fixture calibration](tests/test_quality_simplification_fixture.py) uses an existing Node.js 18+ runtime and skips when Node is absent. It does not affect Python-free installation or establish model behavior. Run it separately with `python3 -m unittest discover -s tests -p "test_quality_simplification_fixture.py" -v`.
-
-For significant instruction changes, run the relevant behavioral cases and record actual results. Existing sufficient checks need not be repeated solely to produce another report.
-
-`validate.py` safely parses frontmatter and optional `agents/openai.yaml`, rejects duplicate YAML keys and non-string names/descriptions, and checks this repository's single-line metadata convention and portable local references. UI strings use JSON quoting and two-space indentation; supplied prompts must invoke the current skill, short descriptions use 25–64 characters, and invocation policy uses a boolean. Dependency declarations must be valid YAML, but their host-specific schema remains outside this checker. It is not an official Codex validator. Evaluate invocation, non-invocation, and execution quality separately using `evals/` scenarios.
-
-[Validate skills](.github/workflows/validate.yml) runs the structural checks, shell syntax check, and regression suite on pull requests and pushes to `main`, using Linux/Python 3.10 and macOS/Python 3.13. The shell tests invoke `/bin/bash` and install only into disposable paths. CI results establish repository checks on those runners; native Codex plugin discovery and model behavior require separate evaluation. The workflow needs no model API key and grants only read access to repository contents.
-
-The [validation and recovery evaluation](evals/orchestration-reliability-2026-09-20/results.md) records YAML regression coverage, a staged requirement-change comparison with and without the skill, and one live cooperative delayed-writer recovery. Both comparison variants passed; no comparative success-rate or cost improvement is claimed.
-
-## References
-
-Installation paths, discovery, link support, and invocation were checked against the OpenAI documentation below. This installer is a custom implementation, not an official installer. GitHub creation/authentication commands follow GitHub CLI documentation.
-
-- [Build skills](https://learn.chatgpt.com/docs/build-skills)
-- [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
-- [gh repo create](https://cli.github.com/manual/gh_repo_create)
-- [gh auth login](https://cli.github.com/manual/gh_auth_login)
-
-The user-designated skill-authoring reference is [Rethinking skills and prompts for GPT-6 Astra](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra).
-
-See [shell installer validation](docs/shell-installer-validation.md) for the shell migration's scope and limits, and [earlier validation](docs/validation.md) for previous work.
+Built around [OpenAI's skill-authoring guidance](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra): concise entrypoints, details loaded when needed, and work sized to the task. Staff-level judgment is the design goal; evaluation records describe what was actually tested.
