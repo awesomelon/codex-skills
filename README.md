@@ -134,7 +134,7 @@ bash scripts/install.sh --skill code-quality-guard --dry-run
 bash scripts/install.sh --skill code-quality-guard
 ```
 
-Replace the example name or repeat `--skill` for your chosen subset. To deliberately install the whole collection, run `bash scripts/install.sh` without `--skill`. The installer's default is unchanged. Selecting fewer skills reduces discovery metadata; it is not a measured performance claim.
+Replace the example name or repeat `--skill <name>` for your chosen subset. To deliberately install the whole collection, run `bash scripts/install.sh` without `--skill`. The installer's default is unchanged. Selecting fewer skills reduces discovery metadata; it is not a measured performance claim.
 
 `install.sh` is the installation/update entry point. It does not invoke Python, Node, jq, or package installation.
 
