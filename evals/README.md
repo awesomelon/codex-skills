@@ -22,6 +22,10 @@ Historical directory names and raw evidence remain unchanged after the CraftFlow
 | `craftflow-tanstack-query` | [Cases](tanstack-query-guard/cases.md) |
 | `craftflow-typescript` | [Cases](typescript-quality-guard/cases.md) |
 
+## Focused instruction maintenance
+
+[2026-09-28 consolidation](instruction-consolidation-2026-09-28/results.md) records two fresh standalone smoke cases, resource hashes, and text-size changes. It does not establish automatic discovery or comparative performance.
+
 ## Reproduce a historical run
 
 Use the [complete pre-translation tree](https://github.com/awesomelon/codex-skills/tree/ce11c34e3d1da77140087300218b776594bb65cf) for original Korean skill bodies, task wording, and saved responses. For example, create an independent checkout without changing the current working tree:

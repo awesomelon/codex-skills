@@ -5,7 +5,7 @@ description: Design, fix, or review TypeScript types and runtime input validatio
 
 # CraftFlow TypeScript
 
-Make types express the values callers can actually provide and the results code can actually return. Preserve repository conventions, supported TypeScript versions, generated API definitions, and existing error behavior. Planning, review, and explanation preserve the assessed material; write only explicitly requested deliverables, such as a plan or report. Implementation requests include relevant fixes and verification.
+Make types express the values callers can actually provide and the results code can actually return. Preserve repository conventions, supported TypeScript versions, generated API definitions, and existing error behavior. For planning, review, or explanation, preserve the assessed material and write only requested deliverables. Implementation requests include relevant fixes and verification.
 
 Use this skill for type modeling, diagnostics, or input validation, not merely because a file ends in .ts or .tsx. Regenerate generated definitions rather than editing them manually. This skill works independently of other skills.
 

@@ -46,8 +46,8 @@ In a plugin host, use the skill names advertised by that host; they may include 
 | --- | --- |
 | [craftflow-orchestrator](skills/craftflow-orchestrator/SKILL.md) | Priorities, planning, dependent work, and resuming interrupted tasks. |
 | [craftflow-architecture](skills/craftflow-architecture/SKILL.md) | Module boundaries, dependencies, ownership, and contracts. |
-| [craftflow-code-quality](skills/craftflow-code-quality/SKILL.md) | Shared rules, maintainability, and evidence-based quality reviews. |
-| [craftflow-refactoring](skills/craftflow-refactoring/SKILL.md) | Structural improvements that preserve behavior. |
+| [craftflow-code-quality](skills/craftflow-code-quality/SKILL.md) | Diagnosing maintainability, comparing designs, and choosing shared-rule ownership. |
+| [craftflow-refactoring](skills/craftflow-refactoring/SKILL.md) | Planning and executing chosen structural changes while preserving behavior. |
 | [craftflow-react](skills/craftflow-react/SKILL.md) | Components, composition, hooks, state, and performance. |
 | [craftflow-tanstack-query](skills/craftflow-tanstack-query/SKILL.md) | Query v5 caching, mutations, pagination, SSR, and persistence. |
 | [craftflow-typescript](skills/craftflow-typescript/SKILL.md) | Type modeling, narrowing, diagnostics, and runtime validation. |

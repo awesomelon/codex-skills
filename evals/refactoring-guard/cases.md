@@ -25,3 +25,7 @@ These scenarios describe expected behavior. They are not executed model results.
 | 19. Small mechanical edit | Rename a private local parameter with unchanged scope and consumers. | Use the lightweight path and relevant checks; no new test harness, companion audit, or required catalog read. |
 
 For independent model evaluation, give the evaluator the request and raw inputs without the expected-behavior column. Save input and instruction hashes, actual commands, output, and changes. Check review-only files before and after. Installation and structural checks do not establish automatic selection or model execution quality.
+
+## Established diagnosis
+
+Given an identified repeated receipt-construction policy and a request to consolidate it, execute the behavior-preserving transformation directly. Preserve public results, error identity, effect ordering, and existing assertions. No preceding quality audit or second full review is required; standalone installation remains sufficient.

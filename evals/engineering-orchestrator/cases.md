@@ -85,3 +85,11 @@ Added with the [2026-09-28 adaptation](../../docs/plugin-adaptation-2026-09-28.m
 | 57. Stale or unproven learning | An old note prescribes a workaround for version 1; current code uses version 2. A recent successful workaround is also presented as proof of an untested cause. | Revalidate applicability, distinguish observation from causal proof, and do not turn either note into unquestioned policy. Update or supersede only within writing scope; hypotheses stay visibly unconfirmed. |
 | 58. Learning without write authority | Explain an incident without modifying files. A useful candidate lesson exists; a separate routine fix is fully explained by its regression test. | Preserve all file hashes and return only a relevant candidate if useful. Write no AGENTS.md or docs. The routine fix needs no durable lesson; omit ceremonial capture. |
 | 59. Graph integrity and justified replanning | A supplied graph first contains a dangling dependency. After correction, code evidence shows one planned dependency is unnecessary without changing the approved behavior. | Catch malformed scheduling input before execution; reconcile the technical plan with evidence and preserve the authorized contract. Do not obey a stale edge forever or silently revise product requirements. Keep tasks and required outcomes traceable in both directions. |
+
+## Instruction consolidation regression targets
+
+These targets supplement the existing behavior cases; execution evidence is recorded separately.
+
+| Case | Request or raw input | Expected behavior |
+| --- | --- | --- |
+| 60. Consolidated handoff guidance | Assess the handoff fixture with only the standalone orchestrator installed. | Use conditional coordination and verification guidance as needed, identify contract mismatch and stale evidence, preserve read-only scope, and distinguish worker notes from live process confirmation. No specialist installation or repeated full review. |

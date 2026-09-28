@@ -64,3 +64,5 @@ These are expectations. Record actual execution in [results.md](results.md); wri
 ## Judgment
 
 Editing review-only inputs, fabricating evidence/results, and breaking contracts to optimize metrics are failures. Lower LOC or higher scores cannot offset them. Explicit-invocation evaluation does not establish automatic selection, macOS operation, or effectiveness across languages.
+
+30. **Diagnosis and execution boundary:** Assess maintainability and identify the supported improvement. When implementation is also requested, complete it or use relevant refactoring expertise without repeating the assessment. A separately invoked refactoring skill may reuse the diagnosis, and neither skill requires the other to be installed. Judge file cohesion and independent change costs without a line-count target.
