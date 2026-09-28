@@ -45,23 +45,18 @@ $craftflow-react를 사용해 이 폼의 상태와 요청 처리를 리뷰해줘
 
 플러그인을 지원하는 환경에서는 해당 환경에 표시된 스킬 이름을 사용하세요. 이름에 플러그인 접두사가 붙을 수 있습니다.
 
-## 새 Mac에 설치하기
+## Codex 플러그인으로 설치하기
 
-Git과 macOS Bash가 필요합니다. Python이나 별도 패키지를 설치할 필요는 없습니다. 기본 설치 방식은 심볼릭 링크이므로, 저장소를 계속 보관할 위치에 복제하세요.
+플러그인 기능을 지원하는 Codex CLI와 Git이 필요합니다.
 
 ```bash
-git clone https://github.com/awesomelon/craftflow.git
-cd craftflow
-bash scripts/install.sh --list
-bash scripts/install.sh --skill craftflow-orchestrator --dry-run
-bash scripts/install.sh --skill craftflow-orchestrator
+codex plugin marketplace add awesomelon/craftflow
+codex plugin add craftflow@craftflow
 ```
 
-각 명령은 앞선 명령이 성공한 뒤 실행하세요. 스킬은 `~/.agents/skills`에 설치되며, 설정과 `AGENTS.md`는 변경하지 않습니다. 여러 스킬을 선택하려면 `--skill <name>`을 반복해서 지정하고, 생략하면 7개 스킬을 모두 설치합니다.
+첫 번째 명령이 성공한 뒤 두 번째 명령을 실행하세요. 7개 스킬이 **CraftFlow** 플러그인으로 함께 설치됩니다. 저장소를 직접 복제하거나 셸 설치 스크립트를 실행할 필요는 없습니다. `codex plugin list`로 설치 여부를 확인할 수 있습니다.
 
-[업데이트·복사 설치·이전 이름에서 전환](docs/installation.md) · [플러그인 설치](docs/plugin.md)
-
-같은 스킬이 중복으로 인식되지 않도록 스킬별로 한 가지 설치 경로를 선택하세요.
+[업데이트와 개별 스킬 설치에서 전환](docs/installation.md) · [플러그인 구성](docs/plugin.md)
 
 ## 포함된 스킬
 
