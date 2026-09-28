@@ -13,6 +13,8 @@ Establish the requested endpoint, scope, starting revision/local edits, and evid
 
 For work that needs coordination, keep a compact plan of outcomes, dependencies, owners, and acceptance evidence. Use the existing task/plan mechanism; create a durable document only when useful and in scope. A small explicit invocation can be handled directly.
 
+Resolve consequential intent gaps through [spec-driven changes](references/spec-driven-changes.md): investigate derivable facts, retain settled decisions, and bring user-owned choices back with evidence and a recommendation. Do not turn a clear request into another requirements interview. Reuse relevant project decisions or lessons when they can change the current approach; [learning](references/learning.md) covers their applicability and optional upkeep.
+
 Decompose by independently checkable outcomes, not arbitrary file counts or fixed roles. Identify shared contracts, generated artifacts, state, and test resources before parallel writes. Settle blocking contracts first and assign a single owner to each shared artifact. Separate ready work from work awaiting a decision or upstream result.
 
 ## Select execution and expertise
@@ -29,9 +31,9 @@ Read [coordination](references/coordination.md) when delegating, changing owners
 
 Update the plan when a result changes a dependency, contract, or hypothesis. Unblock dependent work from inspected artifacts, not completion messages alone. Preserve unrelated edits; revise or undo only your own affected work when evidence rejects an approach.
 
-Integrate accepted results and verify the behavior where their contracts meet. Individual passing checks do not prove the combined result. Reuse evidence for unchanged artifacts and conditions; rerun only required checks and those made stale by integration or new findings. Resolve disagreements through source evidence or a discriminating check, not agent agreement.
+Integrate accepted results and verify the behavior where their contracts meet. Individual passing checks do not prove the combined result. Reuse evidence for unchanged artifacts and conditions; rerun only required checks and those made stale by integration or new findings. Resolve disagreements through source evidence or a discriminating check, not agent agreement. Use [verification evidence](references/verification.md) when a successful command could conceal an untested outcome.
 
-Complete authorized work to the requested endpoint, accounting for blocked or canceled tasks and active workers. Report the integrated outcome, actual verification, and material gaps. Stop when the outcome and relevant verification are complete; publishing, merging, deployment, and monitoring follow the user's existing authorization, not an automatic final stage.
+Complete authorized work to the requested endpoint, accounting for blocked or canceled tasks and active workers. Report the integrated outcome, actual verification, and material gaps. Preserve a verified non-obvious lesson only when it qualifies and writing it is in scope; a routine success needs no new record. Stop when the outcome and relevant verification are complete; publishing, merging, deployment, and monitoring follow the user's existing authorization, not an automatic final stage.
 
 ## Task-specific guidance
 
@@ -43,10 +45,11 @@ Read only what the current subtask needs. These references support execution and
 | Turn an uncertain or cross-team initiative into a feasible plan, rollout, and outcome check | [Execution strategy](references/execution-strategy.md) |
 | Explain behavior, diagnose a symptom, or interpret a trace without fixing | [Investigation](references/investigation.md) |
 | Reproduce and fix, implement, migrate, refactor, or compare prototypes | [Changes](references/changes.md) |
-| Keep evolving requirements, implementation tasks, and completion evidence aligned across a behavior change | [Spec-driven changes](references/spec-driven-changes.md) |
-| Verify a running UI, CLI, or service and its observable effects | [Runtime verification](references/verification.md) |
+| Resolve material intent gaps and keep requirements, tasks, and completion evidence aligned | [Spec-driven changes](references/spec-driven-changes.md) |
+| Verify a running UI, CLI, or service; distinguish a real pass from missing or stale evidence | [Verification evidence](references/verification.md) |
 | Measure and improve performance against a workload | [Performance](references/performance.md) |
 | Review a diff, inspect PR status, or perform authorized delivery | [Review and delivery](references/review-and-delivery.md) |
 | Resume, checkpoint, or pause coordinated work | [Continuity](references/continuity.md) |
+| Retrieve an applicable project lesson or preserve verified reasoning not recoverable from the implementation | [Learning](references/learning.md) |
 
-Read [sources](references/sources.md) only for provenance or maintaining this adaptation.
+Read [sources](references/sources.md) and [plugin adaptation provenance](references/learning.md#provenance) only for provenance or maintaining this adaptation.
