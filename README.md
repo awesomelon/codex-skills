@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.png" width="180" alt="CraftFlow: an open code book supporting connected modules">
+  <img src="assets/banner.png" width="100%" alt="CraftFlow — Make the right change.">
 </p>
 
 # CraftFlow

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.png" width="180" alt="CraftFlow: 서로 연결된 모듈을 받치는 펼쳐진 코드 책">
+  <img src="assets/banner.png" width="100%" alt="CraftFlow — Make the right change.">
 </p>
 
 # CraftFlow
