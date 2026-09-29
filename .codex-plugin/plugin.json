@@ -1,6 +1,6 @@
 {
   "name": "craftflow",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Judgment-driven engineering for Codex: understand the problem, choose a proportionate change, and verify the result.",
   "author": {
     "name": "awesomelon"
@@ -8,8 +8,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "CraftFlow",
-    "shortDescription": "Make the right change with engineering judgment.",
-    "longDescription": "Set clarifies the decision; Go completes the change. Two independent skills for investigation, design, planning, review, implementation, and verification, with technical references loaded only when needed.",
+    "shortDescription": "Find the cause, scope the change, and verify the result.",
+    "longDescription": "Use CraftFlow when a diagnosis needs checking, a repair could become a rewrite, or completion needs evidence. Set investigates, plans, and reviews without edits. Go implements and verifies changes. Choose either directly; Set is not a prerequisite for Go. Technical references load only when needed.",
     "developerName": "awesomelon",
     "category": "Developer Tools",
     "capabilities": [],

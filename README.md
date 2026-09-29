@@ -12,9 +12,24 @@ Judgment-driven engineering for Codex: understand the problem, choose a proporti
 
 ## Why CraftFlow
 
-Working code is one part of a successful change. The change also needs to address the actual problem, respect existing contracts, and leave the next change understandable. CraftFlow brings those decisions into planning, implementation, and review, with focused technical expertise where it helps.
+A patch can pass tests while addressing the wrong cause. A small fix can grow into an unnecessary rewrite. A completion report can leave you unsure whether the changed behavior was actually checked. CraftFlow gives Codex reusable guidance for these decisions, with focused technical references where they help.
 
-Use it when a proposed solution needs scrutiny, a change crosses responsibilities, or several plausible implementations have different maintenance costs. A clear local request can go straight to execution.
+| When you need help with… | What CraftFlow asks Codex to do |
+| --- | --- |
+| A proposed fix whose diagnosis may be wrong | Check the cause against current code before choosing the repair. |
+| A change that could spread across modules | Fix the cause at its owner and explain the necessary scope, preserving independently changing responsibilities. |
+| Work that already has a diagnosis or plan | Reuse evidence that still applies; investigate what has changed. |
+| A result you need to trust | Connect completion claims to checks that ran and state what remains unverified. |
+
+Use **Set** when you want an assessment without edits. Use **Go** when you want a change implemented and verified. Choose either directly; they are independent skills, and Set is not a prerequisite for Go.
+
+## A decision in practice
+
+In a [recorded local evaluation](evals/astra-audit-followup-2026-09-29/results.md), the task was to fix a disabled email preference becoming enabled after saving and reloading. A prior diagnosis blamed the encoder, but the current encoder was already correct.
+
+Go compared that diagnosis with the current code, traced the failure to the decoder, and changed `payload.enabled || true` to `payload.enabled ?? true` so an explicit `false` survived loading. It preserved the exported API and existing tests. All three local tests passed after the repair; production/browser behavior remained explicitly unverified because that environment was unavailable.
+
+The useful decision was to repair the current cause rather than follow a stale diagnosis. The [saved response](evals/astra-audit-followup-2026-09-29/stale-diagnosis-response.md) and [patch](evals/astra-audit-followup-2026-09-29/stale-diagnosis.patch) show what happened in that run. This is an observed example, not a comparison proving better quality or lower cost than Codex without CraftFlow.
 
 ## Three principles
 
@@ -28,20 +43,20 @@ These are decision criteria applied at the relevant depth, not required phases. 
 
 ## Use
 
-Ask for the outcome and scope you want:
+Ask for the outcome and scope you want. Choose one of these independent examples:
 
 ```text
 Use $craftflow-set to assess whether this migration solves the reported
 problem and propose a plan. Do not edit code.
 
-Use $craftflow-go to implement the approved change and verify integration.
+Use $craftflow-go to fix this save-and-reload bug and verify the repair.
 
 Use $craftflow-set to review this form's state and request behavior without edits.
 ```
 
 For example, a request to split a large module calls for examining what changes together and what changes independently. File length alone does not establish the right boundary. The useful result explains the chosen boundary, its effect on change cost, and the behavior that must remain intact.
 
-**Set clarifies the decision; Go completes the change.** Use Set for investigation, design, planning, and review; use Go for implementation, fixes, refactoring, and verification. A clear implementation request can start directly with Go. Architecture, code quality, React, TanStack Query, and TypeScript guidance remains available as selectively loaded references.
+**Set clarifies the decision; Go completes the change.** Architecture, code quality, React, TanStack Query, and TypeScript guidance remains available as selectively loaded references.
 
 In a plugin host, use the skill names advertised by that host; they may include a plugin prefix.
 
