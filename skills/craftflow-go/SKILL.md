@@ -1,6 +1,6 @@
 ---
 name: craftflow-go
-description: Implement, fix, refactor, optimize, or resume authorized code changes through verification. Coordinate dependent work when needed; Set is not a prerequisite.
+description: Implement, fix, refactor, optimize, or resume authorized code changes through verification. Coordinate dependent work when needed; Get Set is not a prerequisite.
 ---
 
 # CraftFlow Go
@@ -31,7 +31,7 @@ These are reference documents, not additional skills or mandatory stages. Review
 | Authorized PR work or delivery | [Review and delivery](references/workflow/review-and-delivery.md) |
 | Reuse or preserve verified project reasoning | [Learning](references/workflow/learning.md) |
 
-Use the current catalog to resolve any optional CraftFlow reference outside this package; do not assume sibling folders. If unavailable, continue from project evidence and these local guides. Shared-rule design can use Set's `references/quality/implementation.md`, and material intent gaps can use Set's `references/workflow/spec-driven-changes.md`; neither requires another full workflow.
+Use the current catalog to resolve any optional CraftFlow reference outside this package; do not assume sibling folders. If unavailable, continue from project evidence and these local guides. Shared-rule design can use Get Set's `references/quality/implementation.md`, and material intent gaps can use Get Set's `references/workflow/spec-driven-changes.md`; neither requires another full workflow.
 
 ## Finish with evidence
 

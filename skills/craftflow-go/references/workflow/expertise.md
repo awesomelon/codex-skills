@@ -1,6 +1,6 @@
 # Expertise boundaries
 
-Choose references for the decision that remains unresolved. Technical topics are not separate installed skills. Use the [build reference library](../../SKILL.md#load-only-the-expertise-needed) to locate domain guidance. Optional Set resources are resolved through the current catalog, never assumed sibling folders. Reading a reference does not change the task's scope.
+Choose references for the decision that remains unresolved. Technical topics are not separate installed skills. Use the [build reference library](../../SKILL.md#load-only-the-expertise-needed) to locate domain guidance. Optional Get Set resources are resolved through the current catalog, never assumed sibling folders. Reading a reference does not change the task's scope.
 
 | Decision | Relevant expertise | Boundary with adjacent work |
 | --- | --- | --- |
@@ -15,4 +15,4 @@ For example, a React screen consuming a changed API may need an agreed wire cont
 
 When recommendations overlap, state the shared decision once and retain its evidence. A local simplification that removes required compatibility is not an acceptable refactor; a passing type check does not demonstrate runtime input validity. Resolve the actual tradeoff against the user's contract and source behavior. Escalate a missing product decision only when it changes the result and cannot be settled from the available evidence.
 
-A small edit or a standalone domain review can finish with its relevant expertise alone. Set assesses and Go executes; either can be used directly.
+A small edit or a standalone domain review can finish with its relevant expertise alone. Get Set assesses and Go executes; either can be used directly.

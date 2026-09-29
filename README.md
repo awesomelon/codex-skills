@@ -21,7 +21,7 @@ A patch can pass tests while addressing the wrong cause. A small fix can grow in
 | Work that already has a diagnosis or plan | Reuse evidence that still applies; investigate what has changed. |
 | A result you need to trust | Connect completion claims to checks that ran and state what remains unverified. |
 
-Use **Set** when you want an assessment without edits. Use **Go** when you want a change implemented and verified. Choose either directly; they are independent skills, and Set is not a prerequisite for Go.
+Use **Get Set** when you want an assessment without edits. Use **Go** when you want a change implemented and verified. Choose either directly; they are independent skills, and Get Set is not a prerequisite for Go.
 
 ## Three principles
 
@@ -38,17 +38,17 @@ These are decision criteria applied at the relevant depth, not required phases. 
 Ask for the outcome and scope you want. Choose one of these independent examples:
 
 ```text
-Use $craftflow-set to assess whether this migration solves the reported
+Use $craftflow-get-set to assess whether this migration solves the reported
 problem and propose a plan. Do not edit code.
 
 Use $craftflow-go to fix this save-and-reload bug and verify the repair.
 
-Use $craftflow-set to review this form's state and request behavior without edits.
+Use $craftflow-get-set to review this form's state and request behavior without edits.
 ```
 
 For example, a request to split a large module calls for examining what changes together and what changes independently. File length alone does not establish the right boundary. The useful result explains the chosen boundary, its effect on change cost, and the behavior that must remain intact.
 
-**Set clarifies the decision; Go completes the change.** Architecture, code quality, React, TanStack Query, and TypeScript guidance remains available as selectively loaded references.
+**Get Set clarifies the decision; Go completes the change.** Architecture, code quality, React, TanStack Query, and TypeScript guidance remains available as selectively loaded references.
 
 In a plugin host, use the skill names advertised by that host; they may include a plugin prefix.
 
@@ -69,7 +69,7 @@ Run the second command after the first succeeds. This installs both skills as th
 
 | Skill | Decision it supports |
 | --- | --- |
-| [craftflow-set](skills/craftflow-set/SKILL.md) | Investigate, design, plan, and review without modifying assessed material; apply shared review criteria with optional domain references. |
+| [craftflow-get-set](skills/craftflow-get-set/SKILL.md) | Investigate, design, plan, and review without modifying assessed material; apply shared review criteria with optional domain references. |
 | [craftflow-go](skills/craftflow-go/SKILL.md) | Implement, fix, refactor, resume, and verify authorized changes; reuse valid diagnosis evidence and identify unavailable runtime checks. |
 
 ## Documentation

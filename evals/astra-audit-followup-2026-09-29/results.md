@@ -6,7 +6,7 @@ Base revision: `3838bfb49b9e327a2b1357a94b29fba8713d860c`. The [OpenAI authoring
 
 Go checks whether an existing diagnosis or reproduction still applies before repeating investigation. An unavailable original environment does not block a sufficiently supported, authorized local fix; confirmation on that target remains explicitly unverified. Stale evidence still calls for a discriminating check.
 
-Set's common comparison, evidence, severity, and reporting criteria now live in one [review reference](../../skills/craftflow-set/references/quality/review-scope.md). Its entrypoint and architecture/quality references link there, while domain-specific criteria remain in their respective files. Read-only scope remains in the entrypoint. The README and current [scenario catalog](../set-go-2026-09-29/cases.md) reflect these behaviors. The package version is 0.4.1; the marketplace identity and source path are unchanged.
+Set's common comparison, evidence, severity, and reporting criteria now live in one [review reference](../../skills/craftflow-get-set/references/quality/review-scope.md). Its entrypoint and architecture/quality references link there, while domain-specific criteria remain in their respective files. Read-only scope remains in the entrypoint. The README and current [scenario catalog](../set-go-2026-09-29/cases.md) reflect these behaviors. The package version is 0.4.1; the marketplace identity and source path are unchanged.
 
 ## Fresh execution
 

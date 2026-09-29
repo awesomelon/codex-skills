@@ -12,7 +12,7 @@ Repository instructions, Markdown documentation, UI metadata, and task descripti
 
 | Skill | Scenarios |
 | --- | --- |
-| `craftflow-set` | [Investigation, planning, and review](set-go-2026-09-29/cases.md#set) |
+| `craftflow-get-set` | [Investigation, planning, and review](set-go-2026-09-29/cases.md#get-set) |
 | `craftflow-go` | [Implementation and verification](set-go-2026-09-29/cases.md#go) |
 
 [Set/Go results](set-go-2026-09-29/results.md) record actual execution separately. The [previous three-skill results](three-skills-2026-09-28/results.md) describe their historical revision.

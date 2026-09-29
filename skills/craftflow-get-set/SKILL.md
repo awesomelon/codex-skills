@@ -1,9 +1,9 @@
 ---
-name: craftflow-set
+name: craftflow-get-set
 description: Investigate, design, plan, or review engineering work without changing the assessed material. Use for diagnosis, technical strategy, audits, and quality assessments.
 ---
 
-# CraftFlow Set
+# CraftFlow Get Set
 
 Establish what should change or assess what already exists. Follow the requested outcome: a review need not produce a plan, and a plan need not repeat a completed review. Preserve assessed code and records; write only requested deliverables. A request to implement or fix authorizes execution through Go without requiring another assessment or approval.
 
@@ -32,7 +32,7 @@ Separate correctness from maintainability and measured performance. File size, r
 | Before/after evidence or an authorized isolated experiment | [Measurement](references/quality/measurement.md) |
 | Explicitly requested scores or source metrics | [Scoring](references/quality/scoring.md), [metrics](references/quality/earendil-metrics.md) |
 
-Go owns optional React, Query, TypeScript, refactoring, and runtime-verification references. Resolve its location through the host's catalog, including any plugin prefix; use its reference table only to find relevant documents. Reading execution guidance does not authorize edits. Set works alone: use project contracts and authoritative technical documentation when optional resources are unavailable.
+Go owns optional React, Query, TypeScript, refactoring, and runtime-verification references. Resolve its location through the host's catalog, including any plugin prefix; use its reference table only to find relevant documents. Reading execution guidance does not authorize edits. Get Set works alone: use project contracts and authoritative technical documentation when optional resources are unavailable.
 
 ## Finish at the requested endpoint
 

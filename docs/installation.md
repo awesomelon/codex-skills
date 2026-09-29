@@ -57,7 +57,7 @@ codex plugin marketplace remove craftflow
 
 ## Upgrade from earlier skill catalogs
 
-Version 0.4.0 exposes exactly `craftflow-set` and `craftflow-go`. Set combines investigation, design, planning, and review; Go handles implementation through verification. `craftflow-plan` and `craftflow-review` become `craftflow-set`; `craftflow-build` becomes `craftflow-go`. Choose by the requested outcome; technical topics are reference documents rather than separate skill entries. Update saved prompts and project instructions to these names. The [legacy name mapping](standalone-installation.md#migrate-older-installations) covers prior names.
+The current catalog exposes exactly `craftflow-get-set` and `craftflow-go`. Get Set combines investigation, design, planning, and review; Go handles implementation through verification. `craftflow-set`, `craftflow-plan`, and `craftflow-review` become `craftflow-get-set`; `craftflow-build` becomes `craftflow-go`. Choose by the requested outcome; technical topics are reference documents rather than separate skill entries. Update saved prompts and project instructions to these names. The [legacy name mapping](standalone-installation.md#migrate-older-installations) covers prior names.
 
 Refresh the marketplace and check the installed version as described above. Reinstall if it still supplies the old catalog, then check the host's advertised skills in a new conversation. Remove superseded standalone entries from discovery separately; the plugin does not clean them up. No compatibility aliases are installed.
 

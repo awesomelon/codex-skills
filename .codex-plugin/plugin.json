@@ -1,6 +1,6 @@
 {
   "name": "craftflow",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "description": "Judgment-driven engineering for Codex: understand the problem, choose a proportionate change, and verify the result.",
   "author": {
     "name": "awesomelon"
@@ -11,13 +11,13 @@
     "logo": "./assets/logo.png",
     "composerIcon": "./assets/logo.png",
     "shortDescription": "Find the cause, scope the change, and verify the result.",
-    "longDescription": "Use CraftFlow when a diagnosis needs checking, a repair could become a rewrite, or completion needs evidence. Set investigates, plans, and reviews without edits. Go implements and verifies changes. Choose either directly; Set is not a prerequisite for Go. Technical references load only when needed.",
+    "longDescription": "Use CraftFlow when a diagnosis needs checking, a repair could become a rewrite, or completion needs evidence. Get Set investigates, plans, and reviews without edits. Go implements and verifies changes. Choose either directly; Get Set is not a prerequisite for Go. Technical references load only when needed.",
     "developerName": "awesomelon",
     "category": "Developer Tools",
     "capabilities": [],
     "websiteURL": "https://github.com/awesomelon/craftflow",
     "defaultPrompt": [
-      "Use $craftflow-set to investigate this problem or review this change without editing code.",
+      "Use $craftflow-get-set to investigate this problem or review this change without editing code.",
       "Use $craftflow-go to implement this change and verify the result."
     ]
   },

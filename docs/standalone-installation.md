@@ -17,14 +17,14 @@ bash scripts/install.sh --list
 The default destination is `~/.agents/skills`. Repeat `--skill` to choose a subset; omitting it installs the entire collection. Preview with `--dry-run`.
 
 ```bash
-bash scripts/install.sh --skill craftflow-set --skill craftflow-go --dry-run
-bash scripts/install.sh --skill craftflow-set --skill craftflow-go
+bash scripts/install.sh --skill craftflow-get-set --skill craftflow-go --dry-run
+bash scripts/install.sh --skill craftflow-get-set --skill craftflow-go
 ```
 
 Default **link mode** keeps skills connected to the clone. Moving or deleting that clone breaks the links. For independent managed copies in a team project:
 
 ```bash
-bash scripts/install.sh --skill craftflow-set --mode copy --dest /path/to/project/.agents/skills
+bash scripts/install.sh --skill craftflow-get-set --mode copy --dest /path/to/project/.agents/skills
 ```
 
 Installing into this collection itself is blocked. Avoid duplicate installations at user/project scope or through both a plugin and the individual installer. In Codex CLI/IDE, inspect `/skills` or invoke a selected `$skill-name`; check a new session if it is missing.
@@ -61,14 +61,14 @@ The local clone directory can keep its old name. Before pulling the skill rename
 
 | Previous names | Choose by the requested outcome |
 | --- | --- |
-| `craftflow-orchestrator`, `engineering-orchestrator`, `pstack`, `engineering-workflow` | `craftflow-set` for investigation, planning, or assessment; `craftflow-go` for execution/resumption. |
-| `craftflow-architecture`, `architecture-guard` | `craftflow-set` for design or architecture review; `craftflow-go` for boundary changes. |
-| `craftflow-code-quality`, `code-quality-guard` | `craftflow-go` for improvements; `craftflow-set` for quality assessment. |
-| `craftflow-react`, `react-quality-guard` | `craftflow-go` or `craftflow-set`; React guidance is a reference library. |
-| `craftflow-refactoring`, `refactoring-guard` | `craftflow-go` for transformations; `craftflow-set` for proposals or assessment. |
-| `craftflow-tanstack-query`, `tanstack-query-guard`, `tanstack-query` | `craftflow-go` or `craftflow-set`; Query guidance is a reference library. |
-| `craftflow-typescript`, `typescript-quality-guard`, `typescript-best-practices` | `craftflow-go` or `craftflow-set`; TypeScript guidance is a reference library. |
-| `craftflow-plan`, `craftflow-review` | `craftflow-set` for investigation, design, planning, and review. |
+| `craftflow-orchestrator`, `engineering-orchestrator`, `pstack`, `engineering-workflow` | `craftflow-get-set` for investigation, planning, or assessment; `craftflow-go` for execution/resumption. |
+| `craftflow-architecture`, `architecture-guard` | `craftflow-get-set` for design or architecture review; `craftflow-go` for boundary changes. |
+| `craftflow-code-quality`, `code-quality-guard` | `craftflow-go` for improvements; `craftflow-get-set` for quality assessment. |
+| `craftflow-react`, `react-quality-guard` | `craftflow-go` or `craftflow-get-set`; React guidance is a reference library. |
+| `craftflow-refactoring`, `refactoring-guard` | `craftflow-go` for transformations; `craftflow-get-set` for proposals or assessment. |
+| `craftflow-tanstack-query`, `tanstack-query-guard`, `tanstack-query` | `craftflow-go` or `craftflow-get-set`; Query guidance is a reference library. |
+| `craftflow-typescript`, `typescript-quality-guard`, `typescript-best-practices` | `craftflow-go` or `craftflow-get-set`; TypeScript guidance is a reference library. |
+| `craftflow-set`, `craftflow-plan`, `craftflow-review` | `craftflow-get-set` for investigation, design, planning, and review. |
 | `craftflow-build` | `craftflow-go` for implementation through verification. |
 | `multi-agent-guard` | Removed; no replacement entry to install. |
 
