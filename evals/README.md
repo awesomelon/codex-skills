@@ -19,6 +19,8 @@ The current skill names use the Rung prefix. Recorded runs retain CraftFlow name
 
 [Set/Go results](set-go-2026-09-29/results.md) record actual execution separately. The [previous three-skill results](three-skills-2026-09-28/results.md) describe their historical revision.
 
+[2026-09-30 ambiguity cases](ambiguity-2026-09-30/results.md) record explicit-invocation checks for vague performance and onboarding requests, a focused delivery plan using the changed execution-strategy reference, and a routine edit. These are unpaired smoke cases, not proof of improvement over the previous instructions.
+
 [2026-09-29 audit follow-up](astra-audit-followup-2026-09-29/results.md) records fresh local CLI cases for valid/stale diagnosis reuse and a read-only review using Go's technical references, including observed resource selection and its limits.
 
 Historical scenario catalogs and raw evidence retain the names used at their recorded revision: [orchestration](engineering-orchestrator/cases.md), [architecture](architecture-guard/cases.md), [quality](code-quality-guard/cases.md), [React](react-quality-guard/cases.md), [refactoring](refactoring-guard/cases.md), [Query](tanstack-query-guard/cases.md), and [TypeScript](typescript-quality-guard/cases.md). They are not the current install catalog.

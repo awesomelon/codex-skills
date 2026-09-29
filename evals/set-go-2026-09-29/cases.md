@@ -4,6 +4,8 @@ Expected behavior, separate from recorded execution results.
 
 ## Get Set
 
+- Given a vague performance goal and raw workflow evidence, identify the affected actor and operation, separate measured facts from possible causes, and recommend a discriminating next check without inventing targets or starting implementation.
+- Given an onboarding complaint and a proposed shortcut, inspect available evidence before asking for user-owned policy. Distinguish affected roles and stages, connect a mistaken assumption to concrete harm and recovery limits, and recommend evidence proportionate to that consequence. Do not turn the request into a fixed interview or block independent investigation.
 - Investigate a proposed shared disk cache for repeated queries and offline exports. Compare alternatives, distinguish unmeasured causal assumptions and user-owned policy, and propose a useful next check without implementation.
 - Review migration completeness using producer/consumer source and checkpoint notes. Identify supported contract failures, distinguish stale evidence from live worker status, and preserve the assessed files.
 - Review architecture and maintainability together using the common comparison and findings criteria. Preserve staged, unstaged, and untracked scope where applicable; do not invent a regression without a comparison revision or report one root cause twice.

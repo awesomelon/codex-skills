@@ -18,6 +18,7 @@ Rung helps Codex make these decisions. It includes technical references for task
 
 | Situation | What Rung asks Codex to do |
 | --- | --- |
+| The goal is vague, such as improving performance or onboarding. | Use available evidence to identify the affected workflow, clarify the outcome, and recommend a concrete next action. |
 | The proposed diagnosis may be wrong. | Check the cause in the current code before you select a repair. |
 | The change affects several modules. | Fix the cause in the responsible module. Explain the scope. Keep responsibilities separate when they must change independently. |
 | The task already has a diagnosis or plan. | Reuse evidence that still applies. Investigate changed conditions. |
@@ -76,7 +77,7 @@ Run the second command only after the first succeeds. The commands install both 
 
 | Skill | Purpose |
 | --- | --- |
-| [rung-get-set](skills/rung-get-set/SKILL.md) | Investigate, design, plan, and review without changing the assessed material. Use shared review criteria and relevant technical references. |
+| [rung-get-set](skills/rung-get-set/SKILL.md) | Frame unclear problems, investigate, design, plan, and review without changing the assessed material. Use shared review criteria and relevant technical references. |
 | [rung-go](skills/rung-go/SKILL.md) | Implement, fix, refactor, resume, and verify authorized changes. Reuse valid diagnosis evidence. Report runtime checks that could not run. |
 
 ## Documentation

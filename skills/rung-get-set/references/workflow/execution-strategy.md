@@ -6,7 +6,7 @@ Use for initiatives whose uncertainty, dependencies, or adoption make a task lis
 
 Connect the proposed intervention to its expected effect: which mechanism changes, whose workflow benefits, and what evidence would show improvement. Separate an implementation acceptance condition from the eventual product or operational outcome. A correct feature may still be unused or fail to relieve the bottleneck.
 
-For a material design choice, compare the current approach and credible alternatives against the actual constraints. Identify the hardest-to-reverse decision and the assumption most likely to defeat the plan. Prefer a bounded experiment or end-to-end slice that tests that assumption before dependent investment. Do not prototype when existing evidence is sufficient, or let a failed experiment silently become production architecture.
+For a material design choice, compare the current approach and credible alternatives against the actual constraints. Identify the hardest-to-reverse decision and the assumption most likely to defeat the plan, including who would be harmed and how if it proved false after shipping. Scale the evidence needed before dependent investment to that consequence and the practical ability to recover. Prefer a bounded experiment or end-to-end slice when it can resolve the consequential uncertainty. Do not prototype when existing evidence is sufficient, or let a failed experiment silently become production architecture.
 
 ## Make the plan executable
 

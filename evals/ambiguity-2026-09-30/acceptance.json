@@ -1,0 +1,16 @@
+{
+  "parent_file_assertions": {
+    "performance": "PASS unchanged complete task inventory",
+    "onboarding": "PASS unchanged complete task inventory",
+    "rollout": "PASS unchanged complete task inventory",
+    "routine": "PASS only README.md changed; complete bytes equal single requested replacement; task file unchanged",
+    "supplied_skills": "PASS all recorded input hashes unchanged"
+  },
+  "parent_behavior_assessment": {
+    "performance": "PASS narrows actor/workflow, calculates supplied timing correctly, separates measured phase from causal hypothesis, proposes discriminating check without implementation",
+    "onboarding": "PASS separates friction states, identifies access-policy decision and irreversible harm, proposes independent work",
+    "rollout": "PASS connects harm and recovery to evidence and investment gates, allows policy-preserving preparation, does not invent rollout permission",
+    "routine": "PASS performs exact edit without a discovery interview or plan artifact"
+  },
+  "limits": "Qualitative assessment by the author; not a blinded comparison or reliability benchmark."
+}

@@ -22,7 +22,7 @@ Separate correctness from maintainability and measured performance. File size, r
 | Question | Guidance |
 | --- | --- |
 | Behavior, symptoms, or traces | [Investigation](references/workflow/investigation.md) |
-| Priorities and problem selection | [Problem selection](references/workflow/problem-selection.md) |
+| Unclear outcomes, problem framing, or priorities | [Problem selection](references/workflow/problem-selection.md) |
 | Uncertain work, adoption, or rollout | [Execution strategy](references/workflow/execution-strategy.md) |
 | Intent gaps and requirements-to-work traceability | [Change intent](references/workflow/spec-driven-changes.md) |
 | Design boundaries and alternatives | [Architecture preflight](references/architecture/preflight.md) |
