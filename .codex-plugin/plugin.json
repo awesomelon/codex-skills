@@ -1,6 +1,6 @@
 {
   "name": "craftflow",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Judgment-driven engineering for Codex: understand the problem, choose a proportionate change, and verify the result.",
   "author": {
     "name": "awesomelon"
@@ -22,9 +22,26 @@
   "homepage": "https://github.com/awesomelon/craftflow",
   "repository": "https://github.com/awesomelon/craftflow",
   "keywords": [
+    "codex",
     "engineering",
-    "orchestration",
+    "software-development",
+    "planning",
+    "investigation",
+    "debugging",
+    "root-cause-analysis",
+    "architecture",
+    "system-design",
+    "implementation",
+    "bug-fix",
+    "refactoring",
     "code-review",
-    "codex"
+    "code-quality",
+    "testing",
+    "verification",
+    "performance",
+    "orchestration",
+    "react",
+    "typescript",
+    "tanstack-query"
   ]
 }
