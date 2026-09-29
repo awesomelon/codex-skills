@@ -72,3 +72,7 @@ Run the second command after the first succeeds. This installs both skills as th
 - [Evaluation evidence](evals/README.md)
 
 Built around [OpenAI's skill-authoring guidance](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra): concise entrypoints, details loaded when needed, and work sized to the task. Staff-level judgment is the design goal; evaluation records describe what was actually tested.
+
+## License
+
+CraftFlow is licensed under the [MIT License](LICENSE). Third-party material retains its original copyright notices and license terms in the relevant skill folders.

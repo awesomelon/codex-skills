@@ -1,6 +1,6 @@
 {
   "name": "craftflow",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Judgment-driven engineering for Codex: understand the problem, choose a proportionate change, and verify the result.",
   "author": {
     "name": "awesomelon"
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/awesomelon/craftflow",
   "repository": "https://github.com/awesomelon/craftflow",
+  "license": "MIT",
   "keywords": [
     "codex",
     "engineering",
