@@ -23,14 +23,6 @@ A patch can pass tests while addressing the wrong cause. A small fix can grow in
 
 Use **Set** when you want an assessment without edits. Use **Go** when you want a change implemented and verified. Choose either directly; they are independent skills, and Set is not a prerequisite for Go.
 
-## A decision in practice
-
-In a [recorded local evaluation](evals/astra-audit-followup-2026-09-29/results.md), the task was to fix a disabled email preference becoming enabled after saving and reloading. A prior diagnosis blamed the encoder, but the current encoder was already correct.
-
-Go compared that diagnosis with the current code, traced the failure to the decoder, and changed `payload.enabled || true` to `payload.enabled ?? true` so an explicit `false` survived loading. It preserved the exported API and existing tests. All three local tests passed after the repair; production/browser behavior remained explicitly unverified because that environment was unavailable.
-
-The useful decision was to repair the current cause rather than follow a stale diagnosis. The [saved response](evals/astra-audit-followup-2026-09-29/stale-diagnosis-response.md) and [patch](evals/astra-audit-followup-2026-09-29/stale-diagnosis.patch) show what happened in that run. This is an observed example, not a comparison proving better quality or lower cost than Codex without CraftFlow.
-
 ## Three principles
 
 | Principle | What it means in practice |
