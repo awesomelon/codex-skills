@@ -1,6 +1,6 @@
 # Documentation
 
-Start with the [README](../README.md) for installation and example requests.
+Start with the [README](../README.md) for installation and example requests. Use the guides below for detailed procedures.
 
 ## Guides
 
@@ -13,11 +13,11 @@ Start with the [README](../README.md) for installation and example requests.
 | [Specification-driven changes](spec-driven-changes.md) | Applying OpenSpec concepts through existing project artifacts. |
 | [Evaluation evidence](../evals/README.md) | Reading and reproducing behavioral results. |
 
-For skill-specific details, follow the references in each [skill entrypoint](../README.md#included-skills). The [expertise map](../skills/craftflow-go/references/workflow/expertise.md) explains overlapping responsibilities.
+For skill details, use the references in each [skill entrypoint](../README.md#included-skills). The [expertise map](../skills/rung-go/references/workflow/expertise.md) explains where technical responsibilities overlap.
 
 ## Design history
 
-These records describe particular revisions and runs, not current installation instructions or proof of current behavior. Original paths are retained so evidence links remain valid.
+These records describe specific revisions and test runs. They are not current installation instructions. They do not prove current behavior. The original paths keep evidence links valid.
 
 <details>
 <summary>Audits, adaptations, and earlier validation</summary>
@@ -38,6 +38,6 @@ These records describe particular revisions and runs, not current installation i
 | [Shell installer validation](shell-installer-validation.md) | Shell migration checks and limits. |
 | [Earlier validation](validation.md) | Initial installation and validation work. |
 
-Further executed cases and saved artifacts live under [evals/](../evals/).
+See [evals/](../evals/) for more test runs and saved evidence.
 
 </details>

@@ -8,12 +8,14 @@ For incremental maintenance, review changes to referenced resources, metadata, f
 
 Repository instructions, Markdown documentation, UI metadata, and task descriptions are now in English. Historical reports and saved Markdown responses are labeled translations with links to their original versions. Translation is not a new model run, and historical character counts, tool versions, commands, and pass totals still describe the original run.
 
+The current skill names use the Rung prefix. Recorded runs retain CraftFlow names and hashes from their original revision; the rename is not a new behavioral evaluation.
+
 ## Current skill catalogs
 
 | Skill | Scenarios |
 | --- | --- |
-| `craftflow-get-set` | [Investigation, planning, and review](set-go-2026-09-29/cases.md#get-set) |
-| `craftflow-go` | [Implementation and verification](set-go-2026-09-29/cases.md#go) |
+| `rung-get-set` | [Investigation, planning, and review](set-go-2026-09-29/cases.md#get-set) |
+| `rung-go` | [Implementation and verification](set-go-2026-09-29/cases.md#go) |
 
 [Set/Go results](set-go-2026-09-29/results.md) record actual execution separately. The [previous three-skill results](three-skills-2026-09-28/results.md) describe their historical revision.
 

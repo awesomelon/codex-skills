@@ -1,4 +1,0 @@
-interface:
-  display_name: "CraftFlow Go"
-  short_description: "Implement, refactor, and verify authorized changes"
-  default_prompt: "Use $craftflow-go to implement this change and verify the result."

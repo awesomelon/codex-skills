@@ -1,11 +1,11 @@
 {
-  "name": "craftflow",
+  "name": "rung",
   "interface": {
-    "displayName": "CraftFlow"
+    "displayName": "Rung"
   },
   "plugins": [
     {
-      "name": "craftflow",
+      "name": "rung",
       "source": {
         "source": "local",
         "path": "./"

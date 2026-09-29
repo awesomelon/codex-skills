@@ -6,7 +6,7 @@ Use this guidance when a behavior change spans dependent work, evolves during im
 
 Distinguish accepted behavior, observed implementation, and the proposed change. Existing code can diverge from the accepted behavior; neither a stale document nor a convenient implementation silently resolves that discrepancy. Use the request and authoritative product decisions to establish intent, scope, and what must remain compatible.
 
-Express the change as added, modified, or removed behavior while preserving unaffected requirements. Make removals explicit; omitting a legacy scenario from a new plan does not authorize dropping it. Use observable scenarios and acceptance conditions as described in changes guidance in `craftflow-go` (`references/workflow/changes.md`, when available), with a machine-readable boundary contract where one already governs representation.
+Express the change as added, modified, or removed behavior while preserving unaffected requirements. Make removals explicit; omitting a legacy scenario from a new plan does not authorize dropping it. Use observable scenarios and acceptance conditions as described in changes guidance in `rung-go` (`references/workflow/changes.md`, when available), with a machine-readable boundary contract where one already governs representation.
 
 Keep the rationale for a change, required behavior, and implementation design distinguishable. Record design choices only where boundaries, tradeoffs, or dependencies need explanation. These are kinds of information, not required files or a fixed sequence of phases. Resolve only decisions that block the affected work, and continue independent authorized outcomes.
 
@@ -24,7 +24,7 @@ Before costly dependent implementation, a consequential or uncertain design can 
 
 Use one authoritative task record. Link each material outcome to its requirement or scenario, responsible owner, dependencies, and suitable verification evidence. Existing section names or issue references can supply that connection; no new ID scheme or duplicate backlog is required. Check both directions: each required outcome has work and evidence, and each task serves the authorized outcome or a necessary stated prerequisite. Unrequested improvements do not become in-scope merely by entering the plan.
 
-Prefer tasks that produce checkable behavior across the necessary components. Use coordination guidance in `craftflow-go` (`references/workflow/coordination.md`, when available) for assigning dependent work and shared-writer boundaries; keep requirement ownership in the task record.
+Prefer tasks that produce checkable behavior across the necessary components. Use coordination guidance in `rung-go` (`references/workflow/coordination.md`, when available) for assigning dependent work and shared-writer boundaries; keep requirement ownership in the task record.
 
 If an existing plan supplies a machine-readable dependency graph, validate its task references and cycles before scheduling. Keep it consistent with the actual task record. Do not introduce a graph format for its own sake or obey a stale dependency after evidence disproves it; reconcile a technical replan within the agreed intent and escalate changes to that intent.
 
@@ -36,8 +36,8 @@ Do not weaken a requirement or delete a scenario to make an implementation appea
 
 ## Complete with evidence
 
-For each material requirement, link its implementation and actual evidence using verification evidence guidance in `craftflow-go` (`references/workflow/verification.md`, when available) when needed. Mark missing or inconclusive evidence explicitly; task checkboxes are progress records, not proof of completion.
+For each material requirement, link its implementation and actual evidence using verification evidence guidance in `rung-go` (`references/workflow/verification.md`, when available) when needed. Mark missing or inconclusive evidence explicitly; task checkboxes are progress records, not proof of completion.
 
 When maintaining an existing specification is within scope, fold the implemented and verified behavior into it while preserving unaffected requirements. Keep proposed or unverified behavior distinguishable from accepted behavior; retain useful decision history through the project's existing convention. Do not create a specification store, archive hierarchy, or new document merely to close a task. Complete the user's requested endpoint without an extra planning approval gate; a planning-only endpoint remains planning-only.
 
-The source record guidance in `craftflow-go` (`references/workflow/sources.md`, when available) identifies the OpenSpec concepts informing this guidance; plugin adaptation provenance guidance in `craftflow-go` (`references/workflow/sources.md#plugin-adaptation-provenance`, when available) identifies the later intent and evidence refinements. These concepts operate through ordinary task artifacts without requiring upstream software or generated skills.
+The source record guidance in `rung-go` (`references/workflow/sources.md`, when available) identifies the OpenSpec concepts informing this guidance; plugin adaptation provenance guidance in `rung-go` (`references/workflow/sources.md#plugin-adaptation-provenance`, when available) identifies the later intent and evidence refinements. These concepts operate through ordinary task artifacts without requiring upstream software or generated skills.

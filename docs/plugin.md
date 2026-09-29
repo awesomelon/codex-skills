@@ -1,38 +1,55 @@
-# CraftFlow plugin
+# Rung plugin
 
-**CraftFlow — Make the right change.** The plugin packages the [judgment-driven engineering approach](../README.md#three-principles) for Codex. Use the [installation guide](installation.md) to install from GitHub, update, or migrate from individual skills.
+**Rung — Make the right change.** The plugin gives Codex the [engineering guidance](../README.md#three-principles) in this repository.
+
+Use the [installation guide](installation.md) to install, update, or migrate from individual skills.
 
 ## Package and marketplace
 
-The repository contains one marketplace and one skills-only plugin:
+The repository contains one marketplace and one plugin. The plugin contains skills only.
 
 | File | Purpose |
 | --- | --- |
-| [`.agents/plugins/marketplace.json`](../.agents/plugins/marketplace.json) | Advertises the `craftflow` marketplace and its `craftflow` plugin. |
-| [`.codex-plugin/plugin.json`](../.codex-plugin/plugin.json) | Defines the plugin identity, version, presentation, and `./skills/` source. |
-| [`skills/`](../skills/) | Single source for both skills, also usable independently. |
+| [`.agents/plugins/marketplace.json`](../.agents/plugins/marketplace.json) | Lists the `rung` marketplace and its `rung` plugin. |
+| [`.codex-plugin/plugin.json`](../.codex-plugin/plugin.json) | Defines the plugin name, version, display fields, and `./skills/` source. |
+| [`skills/`](../skills/) | Provides both skills for plugin and standalone installation. |
 
-The catalog uses `source.path: "./"`, relative to the marketplace's repository root. This resolves to the existing root plugin; no second plugin directory or copied skill tree is required. The plugin provides guidance using the host's tools and bundles no MCP server, hooks, scheduler, or agent runtime.
+The catalog sets `source.path` to `"./"`. This path is relative to the marketplace repository root. It selects the existing root plugin. No second plugin directory or skill copy is necessary.
+
+The skills use the host's tools. The package includes no MCP server, hooks, scheduler, or agent runtime.
 
 ## Test a local checkout
 
-Contributors can register a checkout as the marketplace source:
+Register the checkout as the marketplace source. Then install the plugin.
 
 ```bash
-codex plugin marketplace add /absolute/path/to/craftflow
-codex plugin add craftflow@craftflow
+codex plugin marketplace add /absolute/path/to/rung
+codex plugin add rung@rung
 ```
 
-Use an isolated Codex test configuration so the local source does not replace an existing Git-backed marketplace with the same name. For a selected standalone subset, use the [legacy installer](standalone-installation.md).
+Use the actual checkout path. Its directory name does not have to be `rung`.
 
-In a fresh conversation, check implementation, planning, review-only work, a small README edit, and resuming a task. To assess automatic selection, omit explicit skill names. Record the host version, OS, source commit, installation route, advertised names, observed resource loads, changes, and outcome. A correct answer alone does not establish which skill was loaded.
+Use an isolated Codex test configuration. This prevents the local source from replacing an existing Git marketplace with the same name. To install selected standalone skills, use the [legacy installer](standalone-installation.md).
+
+In a new conversation, test implementation, planning, review, a small README edit, and task resumption. To test automatic skill selection, do not specify a skill name.
+
+Record the host version, OS, source commit, installation method, and skill names shown by the host. Record the resources loaded, changes made, and task result. A correct answer alone does not show which skill the host loaded.
 
 ## Maintain and validate
 
-Keep marketplace and plugin names aligned with the documented `craftflow@craftflow` identifier. Keep the source path within the marketplace root and retain required catalog policy/category fields. Update the plugin version for a package revision and validate skill metadata and references using [repository checks](../CONTRIBUTING.md).
+Keep the marketplace and plugin names consistent with `rung@rung`. Keep the source path inside the marketplace root. Retain the required policy and category fields.
 
-When the host's Plugin Creator is available, use its `validate_plugin.py` and test installation in that host. Record structural checks and actual CLI/native-host execution separately; repository validation does not prove installation or discovery. Marketplace distribution does not submit the plugin to OpenAI's public directory.
+Update the plugin version when the package changes. Use the [repository checks](../CONTRIBUTING.md) to validate skill metadata and references.
+
+If Plugin Creator is available, run its `validate_plugin.py`. Also test installation in the target host.
+
+Report structural checks separately from CLI and host tests. Repository validation does not prove successful installation or skill discovery. Marketplace distribution does not submit the plugin to OpenAI's public directory.
 
 ## Basis
 
-Checked on 2026-09-28 against [OpenAI's plugin packaging and marketplace metadata](https://developers.openai.com/plugins/build/plugins#marketplace-metadata) and [developer commands](https://learn.chatgpt.com/docs/developer-commands#codex-plugin). These document the existing compatibility manifest, repository catalog, and CLI commands. This environment had no Codex CLI, so the GitHub install flow was not executed here.
+The source review on 2026-09-28 used these documents:
+
+- [OpenAI's plugin packaging and marketplace metadata](https://developers.openai.com/plugins/build/plugins#marketplace-metadata)
+- [Developer commands](https://learn.chatgpt.com/docs/developer-commands#codex-plugin)
+
+They describe the compatibility manifest, repository catalog, and CLI commands. The environment used for that review had no Codex CLI. The review did not execute the GitHub installation procedure.

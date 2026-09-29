@@ -1,76 +1,83 @@
 <p align="center">
-  <img src="assets/banner.png" width="100%" alt="CraftFlow — Make the right change.">
+  <img src="assets/banner-rung.png" width="100%" alt="Rung — Make the right change.">
 </p>
 
-# CraftFlow
+# Rung
 
 **English** · [한국어](README_ko.md)
 
 **Make the right change.**
 
-Judgment-driven engineering for Codex: understand the problem, choose a proportionate change, and verify the result.
+Rung gives Codex guidance for engineering decisions. Understand the problem. Select the necessary change. Verify the result.
 
-## Why CraftFlow
+## Why Rung
 
-A patch can pass tests while addressing the wrong cause. A small fix can grow into an unnecessary rewrite. A completion report can leave you unsure whether the changed behavior was actually checked. CraftFlow gives Codex reusable guidance for these decisions, with focused technical references where they help.
+A fix can pass tests without correcting the cause. A small repair can become an unnecessary rewrite. A completion report can omit important checks.
 
-| When you need help with… | What CraftFlow asks Codex to do |
+Rung helps Codex make these decisions. It includes technical references for tasks that need them.
+
+| Situation | What Rung asks Codex to do |
 | --- | --- |
-| A proposed fix whose diagnosis may be wrong | Check the cause against current code before choosing the repair. |
-| A change that could spread across modules | Fix the cause at its owner and explain the necessary scope, preserving independently changing responsibilities. |
-| Work that already has a diagnosis or plan | Reuse evidence that still applies; investigate what has changed. |
-| A result you need to trust | Connect completion claims to checks that ran and state what remains unverified. |
+| The proposed diagnosis may be wrong. | Check the cause in the current code before you select a repair. |
+| The change affects several modules. | Fix the cause in the responsible module. Explain the scope. Keep responsibilities separate when they must change independently. |
+| The task already has a diagnosis or plan. | Reuse evidence that still applies. Investigate changed conditions. |
+| You need evidence that the task is complete. | Report the checks that ran. Identify what remains unverified. |
 
-Use **Get Set** when you want an assessment without edits. Use **Go** when you want a change implemented and verified. Choose either directly; they are independent skills, and Get Set is not a prerequisite for Go.
+Use **Get Set** to assess work without edits. Use **Go** to implement and verify a change. Each skill works independently. You can use Go without first using Get Set.
 
 ## Three principles
 
-| Principle | What it means in practice |
+| Principle | Application |
 | --- | --- |
-| **Understand the problem.** | Separate the symptom from its cause and connect the proposed change to the intended outcome. Reuse settled decisions; bring consequential unresolved user choices back with evidence and a recommendation. |
-| **Change what the problem requires.** | Repair a local cause locally and a shared cause at its owner. Judge scope by current requirements, affected consumers, and future change cost. Preserve useful complexity and independently changing policies. |
-| **Verify the result.** | Connect completion claims to checks that actually ran. Distinguish working behavior, maintainability judgment, measured performance, and remaining uncertainty. |
+| **Understand the problem.** | Separate the symptom from the cause. Explain how the change meets the intended outcome. Reuse settled decisions. Give evidence and a recommendation when an important decision remains with the user. |
+| **Change what the problem requires.** | Fix a local cause where it occurs. Fix a shared cause in the responsible module. Set the scope from requirements, affected users or code, and future maintenance cost. Keep necessary complexity. Keep policies separate when they must change independently. |
+| **Verify the result.** | Support completion claims with checks that ran. Separate behavior checks, maintenance judgments, measured performance, and remaining uncertainty. |
 
-These are decision criteria applied at the relevant depth, not required phases. Planning may end with a recommendation; implementation includes relevant verification; review preserves the assessed code. A small edit needs no new specification, review panel, or learning document.
+Apply these principles at the depth the task needs. They do not require a fixed sequence. A planning task can end with a recommendation. Implementation includes relevant checks. A review leaves the assessed code unchanged.
+
+A small edit does not require a new specification, review panel, or lesson record.
 
 ## Use
 
-Ask for the outcome and scope you want. Choose one of these independent examples:
+State the result and scope you want. Each example below is a separate request.
 
 ```text
-Use $craftflow-get-set to assess whether this migration solves the reported
-problem and propose a plan. Do not edit code.
+Use $rung-get-set to check whether this migration solves the reported problem.
+Propose a plan. Do not edit code.
 
-Use $craftflow-go to fix this save-and-reload bug and verify the repair.
+Use $rung-go to fix this save-and-reload bug. Verify the repair.
 
-Use $craftflow-get-set to review this form's state and request behavior without edits.
+Use $rung-get-set to review this form's state and request behavior.
+Do not edit files.
 ```
 
-For example, a request to split a large module calls for examining what changes together and what changes independently. File length alone does not establish the right boundary. The useful result explains the chosen boundary, its effect on change cost, and the behavior that must remain intact.
+For example, suppose you want to split a large module. First identify which parts change together and which parts change independently. File length alone does not determine the correct boundary. Explain the selected boundary, its effect on maintenance cost, and the behavior that must stay the same.
 
-**Get Set clarifies the decision; Go completes the change.** Architecture, code quality, React, TanStack Query, and TypeScript guidance remains available as selectively loaded references.
+**Get Set supports the decision. Go completes the change.** Read the architecture, code quality, React, TanStack Query, and TypeScript references only when needed.
 
-In a plugin host, use the skill names advertised by that host; they may include a plugin prefix.
+Use the skill names shown by your host application. They can include a plugin prefix.
 
 ## Install as a Codex plugin
 
-Use a Codex CLI with plugin support and Git available:
+Rung was previously named CraftFlow. The repository is `awesomelon/rung`. For local installation or migration, see the [installation guide](docs/installation.md).
+
+You need Git and a Codex CLI with plugin support.
 
 ```bash
-codex plugin marketplace add awesomelon/craftflow
-codex plugin add craftflow@craftflow
+codex plugin marketplace add awesomelon/rung
+codex plugin add rung@rung
 ```
 
-Run the second command after the first succeeds. This installs both skills as the **CraftFlow** plugin; no manual clone or shell installer is needed. Confirm the installation with `codex plugin list`.
+Run the second command only after the first succeeds. The commands install both skills as the **Rung** plugin. You do not need to clone the repository or run the shell installer. Use `codex plugin list` to check the installation.
 
 [Updates and migration from individual skills](docs/installation.md) · [Plugin package details](docs/plugin.md)
 
 ## Included skills
 
-| Skill | Decision it supports |
+| Skill | Purpose |
 | --- | --- |
-| [craftflow-get-set](skills/craftflow-get-set/SKILL.md) | Investigate, design, plan, and review without modifying assessed material; apply shared review criteria with optional domain references. |
-| [craftflow-go](skills/craftflow-go/SKILL.md) | Implement, fix, refactor, resume, and verify authorized changes; reuse valid diagnosis evidence and identify unavailable runtime checks. |
+| [rung-get-set](skills/rung-get-set/SKILL.md) | Investigate, design, plan, and review without changing the assessed material. Use shared review criteria and relevant technical references. |
+| [rung-go](skills/rung-go/SKILL.md) | Implement, fix, refactor, resume, and verify authorized changes. Reuse valid diagnosis evidence. Report runtime checks that could not run. |
 
 ## Documentation
 
@@ -78,8 +85,10 @@ Run the second command after the first succeeds. This installs both skills as th
 - [Contributing and validation](CONTRIBUTING.md)
 - [Evaluation evidence](evals/README.md)
 
-Built around [OpenAI's skill-authoring guidance](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra): concise entrypoints, details loaded when needed, and work sized to the task. Staff-level judgment is the design goal; evaluation records describe what was actually tested.
+Rung follows [OpenAI's skill-authoring guidance](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra). Keep skill entrypoints short. Read details when needed. Match the work to the task.
+
+The design goal is the judgment expected of a staff engineer. Evaluation records show what was actually tested.
 
 ## License
 
-CraftFlow is licensed under the [MIT License](LICENSE). Third-party material retains its original copyright notices and license terms in the relevant skill folders.
+Rung uses the [MIT License](LICENSE). Relevant skill folders retain the original copyright notices and license terms for third-party material.

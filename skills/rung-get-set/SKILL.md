@@ -1,9 +1,9 @@
 ---
-name: craftflow-get-set
+name: rung-get-set
 description: Investigate, design, plan, or review engineering work without changing the assessed material. Use for diagnosis, technical strategy, audits, and quality assessments.
 ---
 
-# CraftFlow Get Set
+# Rung Get Set
 
 Establish what should change or assess what already exists. Follow the requested outcome: a review need not produce a plan, and a plan need not repeat a completed review. Preserve assessed code and records; write only requested deliverables. A request to implement or fix authorizes execution through Go without requiring another assessment or approval.
 

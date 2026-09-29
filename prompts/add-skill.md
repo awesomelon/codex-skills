@@ -1,9 +1,9 @@
 # Request a new skill
 
-Fill in the `<...>` placeholders and submit this prompt in Codex with `awesomelon/craftflow` open. Follow [AGENTS.md](../AGENTS.md) for repository conventions and validation commands.
+Fill in the `<...>` placeholders and submit this prompt in Codex with `awesomelon/rung` open. Follow [AGENTS.md](../AGENTS.md) for repository conventions and validation commands.
 
 ```text
-Add the following Codex skill to awesomelon/craftflow, validate it, push the working branch, and open a PR.
+Add the following Codex skill to awesomelon/rung, validate it, push the working branch, and open a PR.
 
 Goal and success criteria: <recurring task and completion conditions>
 Representative request: <an actual user request>

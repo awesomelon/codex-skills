@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rung Go"
+  short_description: "Implement, refactor, and verify authorized changes"
+  default_prompt: "Use $rung-go to implement this change and verify the result."

@@ -1,27 +1,38 @@
 # Applying specification-driven change concepts
 
-CraftFlow applies OpenSpec's useful change-management concepts through ordinary engineering artifacts. It requires no OpenSpec installation, CLI, generated skills, workflow schema, or directory layout. Existing issues, product requirements, plans, and task conversations remain sufficient.
+Rung uses OpenSpec change-management concepts with existing engineering records. You can use issues, product requirements, plans, and task conversations.
 
-| Concept | Application in craftflow |
+Rung does not require OpenSpec installation, its CLI, generated skills, a workflow schema, or a specific directory structure.
+
+| Concept | Application in Rung |
 | --- | --- |
-| Proposal | Explain the reason, intended outcome, scope, and compatibility constraints when they need clarification. |
-| Behavioral specification | Describe externally observable requirements and scenarios; keep implementation choices separate. |
-| Change delta | Identify what is added, modified, or removed while preserving unaffected accepted behavior. |
-| Design | Record meaningful boundary decisions, tradeoffs, and dependencies at the scale of the change. |
-| Tasks | Connect checkable outcomes to requirements, owners, dependencies, and evidence in the existing task record. |
-| Verification | Assess requirement coverage, actual correctness, and design quality separately; do not infer success from checked tasks. |
-| Reconciliation | Update affected requirements/tasks when evidence changes the plan; incorporate verified behavior into existing specifications when in scope. |
+| Proposal | Clarify the reason, intended result, scope, and compatibility limits when needed. |
+| Behavioral specification | Describe observable requirements and scenarios. Keep implementation choices separate. |
+| Change delta | Identify added, changed, and removed behavior. Preserve accepted behavior outside the change. |
+| Design | Record important boundary decisions, tradeoffs, and dependencies. Match the detail to the change. |
+| Tasks | Connect each checkable result to requirements, owners, dependencies, and evidence in the existing task record. |
+| Verification | Check requirement coverage, correctness, and design quality separately. Completed task checkboxes do not prove success. |
+| Reconciliation | Update affected requirements and tasks when evidence changes the plan. Add verified behavior to existing specifications when requested. |
 
-These are information relationships, not mandatory stages or seven documents. The conditional [spec-driven change reference](../skills/craftflow-get-set/references/workflow/spec-driven-changes.md) supplies the decision guidance. Choose Get Set for assessment and Go for execution. Go owns execution and integration; supporting references do not change the requested scope.
+These concepts connect information. They do not require seven stages or seven documents. Use the [spec-driven change reference](../skills/rung-get-set/references/workflow/spec-driven-changes.md) when needed.
 
-For example, adding archive state to a document export changes its wire representation, adds defaulting behavior, and preserves legacy import. An existing issue can state those changes and their acceptance scenarios. Tasks then connect producer and consumer work to independent wire-format and legacy-import checks. If the specification changes during implementation, revise only affected tasks and evidence; do not treat a prior completed checklist as proof.
+Choose Get Set for assessment. Choose Go for implementation and integration. Reference documents do not change the requested scope.
+
+For example, a document export may need an archive state. This changes the serialized format and adds a default value. Legacy import must still work.
+
+An existing issue can describe these changes and their acceptance scenarios. Tasks connect producer and consumer changes to separate format and legacy-import checks. If the specification changes during implementation, update the affected tasks and evidence. An earlier completed checklist does not prove that the revised requirements are met.
 
 ```text
-Use $craftflow-go to implement this document-format change. Reuse the existing issue and specification, distinguish changed and preserved behavior, and verify the required compatibility before completing the task.
+Use $rung-go to implement this document-format change.
+Reuse the existing issue and specification.
+Separate changed behavior from behavior that must stay the same.
+Verify the required compatibility before you complete the task.
 
-Use $craftflow-get-set to review whether this change meets its requirements. Compare the current implementation and evidence with the existing plan; do not edit files.
+Use $rung-get-set to review whether this change meets its requirements.
+Compare the current implementation and evidence with the existing plan.
+Do not edit files.
 ```
 
-A clear small edit can remain a direct change with a relevant check. Complex work may justify a durable plan or specification, but its location and format follow the project and requested deliverable. Introducing a new document system is not a prerequisite.
+For a clear small edit, make the change and run a relevant check. Complex work can need a saved plan or specification. Use the project's format and the requested deliverable. A new document system is not required.
 
-Source concepts were inspected in OpenSpec's [spec-driven schema](https://github.com/Fission-AI/OpenSpec/blob/bae58cf61479986431bb798acbe5a688a591c18c/schemas/spec-driven/schema.yaml), [verification guidance](https://github.com/Fission-AI/OpenSpec/blob/bae58cf61479986431bb798acbe5a688a591c18c/src/core/templates/workflows/verify-change.ts), and [specification reconciliation guidance](https://github.com/Fission-AI/OpenSpec/blob/bae58cf61479986431bb798acbe5a688a591c18c/src/core/templates/workflows/sync-specs.ts). This is an independent conceptual adaptation, not a compatible OpenSpec adapter. See [current evaluation results](../evals/spec-driven-concepts-2026-09-20/results.md) for executed behavior and limits.
+The earlier source review inspected OpenSpec's [spec-driven schema](https://github.com/Fission-AI/OpenSpec/blob/bae58cf61479986431bb798acbe5a688a591c18c/schemas/spec-driven/schema.yaml), [verification guidance](https://github.com/Fission-AI/OpenSpec/blob/bae58cf61479986431bb798acbe5a688a591c18c/src/core/templates/workflows/verify-change.ts), and [specification reconciliation guidance](https://github.com/Fission-AI/OpenSpec/blob/bae58cf61479986431bb798acbe5a688a591c18c/src/core/templates/workflows/sync-specs.ts). Rung adapts these concepts independently. It does not provide a compatible OpenSpec adapter. See [evaluation results](../evals/spec-driven-concepts-2026-09-20/results.md) for executed behavior and limits.

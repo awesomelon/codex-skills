@@ -1,28 +1,28 @@
 {
-  "name": "craftflow",
-  "version": "0.4.7",
+  "name": "rung",
+  "version": "0.5.0",
   "description": "Judgment-driven engineering for Codex: understand the problem, choose a proportionate change, and verify the result.",
   "author": {
     "name": "awesomelon"
   },
   "skills": "./skills/",
   "interface": {
-    "displayName": "CraftFlow",
+    "displayName": "Rung",
     "logo": "./assets/logo.png",
     "composerIcon": "./assets/logo.png",
     "shortDescription": "Find the cause, scope the change, and verify the result.",
-    "longDescription": "Use CraftFlow when a diagnosis needs checking, a repair could become a rewrite, or completion needs evidence. Get Set investigates, plans, and reviews without edits. Go implements and verifies changes. Choose either directly; Get Set is not a prerequisite for Go. Technical references load only when needed.",
+    "longDescription": "Use Rung when a diagnosis needs checking, a repair could become a rewrite, or completion needs evidence. Get Set investigates, plans, and reviews without edits. Go implements and verifies changes. Choose either directly; Get Set is not a prerequisite for Go. Technical references load only when needed.",
     "developerName": "awesomelon",
     "category": "Developer Tools",
     "capabilities": [],
-    "websiteURL": "https://github.com/awesomelon/craftflow",
+    "websiteURL": "https://github.com/awesomelon/rung",
     "defaultPrompt": [
-      "Use $craftflow-get-set to investigate this problem or review this change without editing code.",
-      "Use $craftflow-go to implement this change and verify the result."
+      "Use $rung-get-set to investigate this problem or review this change without editing code.",
+      "Use $rung-go to implement this change and verify the result."
     ]
   },
-  "homepage": "https://github.com/awesomelon/craftflow",
-  "repository": "https://github.com/awesomelon/craftflow",
+  "homepage": "https://github.com/awesomelon/rung",
+  "repository": "https://github.com/awesomelon/rung",
   "license": "MIT",
   "keywords": [
     "codex",

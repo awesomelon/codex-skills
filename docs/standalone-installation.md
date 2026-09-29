@@ -1,88 +1,110 @@
 # Legacy standalone installation
 
-For new installations, use the [Codex plugin](installation.md). This guide preserves the individual-skill installer for existing macOS setups and contributors who need a selected subset.
+Use the [Codex plugin](installation.md) for new installations. Use this guide for existing macOS installations or selected standalone skills.
 
 ## Prepare a standalone clone
 
-The shell installer uses macOS Bash 3.2 and built-in utilities; Python is not required. Keep the clone in a permanent location for link-mode installations.
+The shell installer uses macOS Bash 3.2 and built-in utilities. It does not require Python. For link mode, keep the clone in a permanent location.
 
 ```bash
-git clone https://github.com/awesomelon/craftflow.git
-cd craftflow
+git clone https://github.com/awesomelon/rung.git
+cd rung
 bash scripts/install.sh --list
 ```
 
 ## Select skills and destination
 
-The default destination is `~/.agents/skills`. Repeat `--skill` to choose a subset; omitting it installs the entire collection. Preview with `--dry-run`.
+The default destination is `~/.agents/skills`. Use `--skill` for each skill you want to install. Without `--skill`, the installer selects all skills.
+
+First use `--dry-run` to inspect the plan. Then run the installation command.
 
 ```bash
-bash scripts/install.sh --skill craftflow-get-set --skill craftflow-go --dry-run
-bash scripts/install.sh --skill craftflow-get-set --skill craftflow-go
+bash scripts/install.sh --skill rung-get-set --skill rung-go --dry-run
+bash scripts/install.sh --skill rung-get-set --skill rung-go
 ```
 
-Default **link mode** keeps skills connected to the clone. Moving or deleting that clone breaks the links. For independent managed copies in a team project:
+The default **link mode** connects installed skills to the clone. Moving or deleting the clone breaks those links.
+
+To install independent managed copies in a project, use copy mode:
 
 ```bash
-bash scripts/install.sh --skill craftflow-get-set --mode copy --dest /path/to/project/.agents/skills
+bash scripts/install.sh --skill rung-get-set --mode copy --dest /path/to/project/.agents/skills
 ```
 
-Installing into this collection itself is blocked. Avoid duplicate installations at user/project scope or through both a plugin and the individual installer. In Codex CLI/IDE, inspect `/skills` or invoke a selected `$skill-name`; check a new session if it is missing.
+The installer blocks installation into this repository. Keep only one discoverable installation of each skill. Check user directories, project directories, and plugin installations for duplicates.
+
+In Codex CLI or IDE, inspect `/skills` or invoke the selected `$skill-name`. If the skill is missing, check a new session.
 
 ## Update
 
-From the clone, pull first. Continue only if the pull succeeds, then rerun the installer with your original selections, mode, and destination:
+Review source changes before you update. From the clone, pull the changes. Continue only if the pull succeeds.
+
+Run the installer with the same skill selections, mode, and destination as before. For example:
 
 ```bash
 git pull --ff-only
-bash scripts/install.sh --skill craftflow-go
+bash scripts/install.sh --skill rung-go
 ```
 
-Selections are not saved: a bare `bash scripts/install.sh` also installs skills you did not previously select. Review source changes before updating. Existing links reflect pulled changes immediately; rerunning adds links for newly selected skills. Managed copies update when the installer runs.
+The installer does not save your selections. A command without `--skill` also installs skills you did not select before.
+
+Existing links use source changes immediately after the pull. Run the installer to add links for newly selected skills. Managed copies change only when the installer runs.
 
 ## Conflicts and recovery
 
-- Foreign links, unmanaged directories, and locally changed managed copies are preserved and reported as conflicts. Back up outside all skill discovery directories, reconcile changes, then retry.
-- Copy checks cover file content, additions, and deletions, including directories; permission-only changes are not detected. Prefer editing the source skill and committing there. Do not edit management metadata.
-- The collection is not one transaction. Earlier successful installs remain after an I/O failure. A failed copy replacement attempts restoration and reports the backup path if restoration also fails.
-- Removed or renamed skills are not deleted automatically. Do not run installers concurrently. Back up and reconcile an existing installation before changing modes.
+- The installer preserves foreign links, unmanaged directories, and locally edited copies. It reports them as conflicts. Back them up outside skill discovery directories. Merge required edits before you retry.
+- Copy checks detect content changes, added files, removed files, and directory changes. They do not detect permission-only changes. Edit the source skill where possible. Do not edit management metadata.
+- Installation is not one transaction. Earlier successful installs remain after an I/O failure. If copy replacement fails, the installer tries to restore the previous copy. If restoration also fails, it reports the backup path.
+- The installer does not remove deleted or renamed skills. Do not run installers concurrently. Back up an existing installation and merge required edits before you change modes.
 
-## Repository rename
+## Product rename
 
-After the GitHub repository is renamed to `craftflow`, update the remote in your existing clone:
+CraftFlow is now Rung. The repository address is now `awesomelon/rung`. Update the remote URL in an existing clone:
 
 ```bash
-git remote set-url origin https://github.com/awesomelon/craftflow.git
+git remote set-url origin https://github.com/awesomelon/rung.git
 ```
 
-The local clone directory can keep its old name. Before pulling the skill renames, preserve locally edited copies and symlink source contents outside skill discovery directories. Old skill symlinks can break when their source folders are renamed; the installer does not remove them. Follow the name mapping below, retaining your existing destination and mode.
+You can keep the local clone directory name.
+
+Before you pull the skill renames, preserve locally edited copies and symlink source contents outside skill discovery directories. A source-folder rename can break old skill symlinks. The installer does not remove those links.
+
+Use the name mapping below. Keep your existing destination and installation mode.
 
 ## Migrate older installations
 
 | Previous names | Choose by the requested outcome |
 | --- | --- |
-| `craftflow-orchestrator`, `engineering-orchestrator`, `pstack`, `engineering-workflow` | `craftflow-get-set` for investigation, planning, or assessment; `craftflow-go` for execution/resumption. |
-| `craftflow-architecture`, `architecture-guard` | `craftflow-get-set` for design or architecture review; `craftflow-go` for boundary changes. |
-| `craftflow-code-quality`, `code-quality-guard` | `craftflow-go` for improvements; `craftflow-get-set` for quality assessment. |
-| `craftflow-react`, `react-quality-guard` | `craftflow-go` or `craftflow-get-set`; React guidance is a reference library. |
-| `craftflow-refactoring`, `refactoring-guard` | `craftflow-go` for transformations; `craftflow-get-set` for proposals or assessment. |
-| `craftflow-tanstack-query`, `tanstack-query-guard`, `tanstack-query` | `craftflow-go` or `craftflow-get-set`; Query guidance is a reference library. |
-| `craftflow-typescript`, `typescript-quality-guard`, `typescript-best-practices` | `craftflow-go` or `craftflow-get-set`; TypeScript guidance is a reference library. |
-| `craftflow-set`, `craftflow-plan`, `craftflow-review` | `craftflow-get-set` for investigation, design, planning, and review. |
-| `craftflow-build` | `craftflow-go` for implementation through verification. |
+| `craftflow-get-set` | `rung-get-set` for investigation, design, planning, and review. |
+| `craftflow-go` | `rung-go` for implementation through verification. |
+| `craftflow-orchestrator`, `engineering-orchestrator`, `pstack`, `engineering-workflow` | `rung-get-set` for investigation, planning, or assessment; `rung-go` for execution/resumption. |
+| `craftflow-architecture`, `architecture-guard` | `rung-get-set` for design or architecture review; `rung-go` for boundary changes. |
+| `craftflow-code-quality`, `code-quality-guard` | `rung-go` for improvements; `rung-get-set` for quality assessment. |
+| `craftflow-react`, `react-quality-guard` | `rung-go` or `rung-get-set`; React guidance is a reference library. |
+| `craftflow-refactoring`, `refactoring-guard` | `rung-go` for transformations; `rung-get-set` for proposals or assessment. |
+| `craftflow-tanstack-query`, `tanstack-query-guard`, `tanstack-query` | `rung-go` or `rung-get-set`; Query guidance is a reference library. |
+| `craftflow-typescript`, `typescript-quality-guard`, `typescript-best-practices` | `rung-go` or `rung-get-set`; TypeScript guidance is a reference library. |
+| `craftflow-set`, `craftflow-plan`, `craftflow-review` | `rung-get-set` for investigation, design, planning, and review. |
+| `craftflow-build` | `rung-go` for implementation through verification. |
 | `multi-agent-guard` | Removed; no replacement entry to install. |
 
-Update explicit invocations and installer selections. Locate the old entry in your actual destination, preserve local edits, and move it outside every skill discovery directory before installing the current name. For symlinks, preserve the source contents too: moving a link does not back up its target. No compatibility aliases are installed. Verify only the intended names appear in a new session.
+Update skill names in explicit requests and installer selections. Find each old entry in the actual installation destination. Preserve local edits. Move the entry outside all skill discovery directories before you install its replacement.
+
+For symlinks, also preserve the source contents. Moving a symlink does not back up its target. The installer does not create aliases for previous names. Check the skill names in a new session.
 
 For the older Python installer:
 
-- Existing link installations can use the shell installer from the same clone with the same selections.
-- Python-managed copies are not converted or overwritten automatically. Back them up, merge local edits into the source, then install shell-managed copies with the previous destination and selections. The Python installer remains available for updates to its old format.
+- Existing link installations can use the shell installer from the same clone. Use the same skill selections.
+- The shell installer does not convert or overwrite Python-managed copies. Back up those copies. Merge local edits into the source. Then install shell-managed copies with the previous destination and selections. The Python installer can still update its old format.
 
-Shell copies keep `.codex-skills-install.v2`; Python copies keep `.codex-skills-install.json`. The installer retains the `awesomelon/codex-skills` ownership identifier for compatibility; these internal names are not plugin or skill names. Do not convert formats by editing those files. Plugin migration is covered in the [plugin guide](plugin.md).
+Shell copies use `.codex-skills-install.v2`. Python copies use `.codex-skills-install.json`. Both retain the `awesomelon/codex-skills` ownership identifier for compatibility. These internal names are not plugin or skill names.
+
+Do not change copy formats by editing metadata files. See the [plugin guide](plugin.md) for plugin migration.
 
 ## Optional architecture guidance
 
-For recurring boundary work, merge the relevant [project snippet](../snippets/craftflow.project.md) into your project's `AGENTS.md`, or the [global snippet](../snippets/craftflow.global.md) into the personal instructions actually loaded by your host. Do not overwrite existing instructions. With `CODEX_HOME` or `AGENTS.override.md`, identify the active file first.
+For repeated work on module boundaries, use the [project snippet](../snippets/rung.project.md) or [global snippet](../snippets/rung.global.md). Merge relevant project guidance into the project's `AGENTS.md`. Merge global guidance into the personal instructions that your host actually loads. Preserve existing instructions.
 
-The snippets apply to boundaries, dependencies, state ownership, contracts, and requested structural reviews. They do not require an extra review for every edit. Enforce mandatory architecture rules through the target project's lint, tests, or CI.
+If you use `CODEX_HOME` or `AGENTS.override.md`, identify the active instruction file first.
+
+The snippets cover boundaries, dependencies, state ownership, contracts, and requested structural reviews. They do not require a separate review for every edit. Enforce required architecture rules with the target project's lint checks, tests, or CI.

@@ -1,4 +1,0 @@
-interface:
-  display_name: "CraftFlow Get Set"
-  short_description: "Investigate, plan, and review without changing assessed code"
-  default_prompt: "Use $craftflow-get-set to assess this engineering problem and recommend the next action without editing code."

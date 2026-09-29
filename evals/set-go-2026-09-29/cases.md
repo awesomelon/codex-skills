@@ -20,7 +20,7 @@ Expected behavior, separate from recorded execution results.
 
 ## Distribution
 
-- Plugin and standalone discovery expose exactly `craftflow-get-set` and `craftflow-go`, with no former-name aliases.
+- Plugin and standalone discovery expose exactly `rung-get-set` and `rung-go`, with no former-name aliases.
 - Preserve portable references, source attribution, and legal notices. Migration documentation covers both the former seven-skill and three-skill catalogs.
 - Automatic selection and plugin installation require separate real-host checks; explicit invocation does not prove either.
 - With no explicit skill name, distinguish a review-only request from an implementation request using the advertised catalog. Record actual skill/reference loads separately from task correctness, including Get Set's optional use of Go's technical library without edits.
