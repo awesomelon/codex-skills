@@ -4,8 +4,6 @@
 
 You need Git and a Codex CLI with `codex plugin` support.
 
-Rung was previously named CraftFlow. Version 0.5.0 changes the package and skill names. The repository address is now `awesomelon/rung`.
-
 GitHub installation requires a published Rung revision. For an unpublished revision, use the [local installation procedure](plugin.md#test-a-local-checkout).
 
 Add the repository marketplace. Then install the plugin.
@@ -70,44 +68,6 @@ To remove the marketplace, first remove the plugin. Then run:
 ```bash
 codex plugin marketplace remove rung
 ```
-
-## Migrate from the CraftFlow plugin
-
-First preserve any edits to installed files. Remove the old plugin. Then remove the old marketplace.
-
-```bash
-codex plugin remove craftflow@craftflow
-codex plugin marketplace remove craftflow
-```
-
-Add the current source and install `rung@rung`. Use the GitHub source only after publication of the renamed catalog. Before publication, use an isolated local checkout.
-
-Check the new plugin name and installed skills. A refresh of the old marketplace alone does not prove that migration succeeded.
-
-## Upgrade from earlier skill catalogs
-
-The current catalog contains two skills:
-
-| Current name | Purpose | Previous names |
-| --- | --- | --- |
-| `rung-get-set` | Investigation, design, planning, and review | `craftflow-get-set`, `craftflow-set`, `craftflow-plan`, `craftflow-review` |
-| `rung-go` | Implementation and verification | `craftflow-go`, `craftflow-build` |
-
-Choose the skill that matches the requested result. Technical topics are reference documents, not separate skills. Update saved prompts and project instructions with the current names. See the [legacy name mapping](standalone-installation.md#migrate-older-installations) for older catalogs.
-
-Refresh the marketplace and check the installed version. If the plugin still contains the old catalog, install it again. Check the skill names in a new conversation.
-
-Remove old standalone entries from skill discovery separately. The plugin does not remove them. It does not install aliases for previous names.
-
-## Migrate from individual skills
-
-Find existing Rung or CraftFlow skills in the user and project skill directories. Examples include `~/.agents/skills` and a project's `.agents/skills`.
-
-Preserve local edits. Move old entries outside all skill discovery directories before you enable the plugin. For symlinks, also preserve the source contents. Moving a symlink does not back up its target.
-
-Install the plugin. Confirm that the host finds each intended skill only once. Marketplace installation does not remove old standalone entries.
-
-The [legacy standalone guide](standalone-installation.md#migrate-older-installations) covers older names and copy formats.
 
 ## References
 

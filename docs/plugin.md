@@ -2,7 +2,7 @@
 
 **Rung — Make the right change.** The plugin gives Codex the [engineering guidance](../README.md#three-principles) in this repository.
 
-Use the [installation guide](installation.md) to install, update, or migrate from individual skills.
+Use the [installation guide](installation.md) to install, update, or remove the plugin.
 
 ## Package and marketplace
 
@@ -12,7 +12,7 @@ The repository contains one marketplace and one plugin. The plugin contains skil
 | --- | --- |
 | [`.agents/plugins/marketplace.json`](../.agents/plugins/marketplace.json) | Lists the `rung` marketplace and its `rung` plugin. |
 | [`.codex-plugin/plugin.json`](../.codex-plugin/plugin.json) | Defines the plugin name, version, display fields, and `./skills/` source. |
-| [`skills/`](../skills/) | Provides both skills for plugin and standalone installation. |
+| [`skills/`](../skills/) | Provides the two skills included in the plugin. |
 
 The catalog sets `source.path` to `"./"`. This path is relative to the marketplace repository root. It selects the existing root plugin. No second plugin directory or skill copy is necessary.
 
@@ -29,7 +29,7 @@ codex plugin add rung@rung
 
 Use the actual checkout path. Its directory name does not have to be `rung`.
 
-Use an isolated Codex test configuration. This prevents the local source from replacing an existing Git marketplace with the same name. To install selected standalone skills, use the [legacy installer](standalone-installation.md).
+Use an isolated Codex test configuration. This prevents the local source from replacing an existing Git marketplace with the same name.
 
 In a new conversation, test implementation, planning, review, a small README edit, and task resumption. To test automatic skill selection, do not specify a skill name.
 

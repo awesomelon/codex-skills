@@ -69,7 +69,7 @@ Cases 21–22 use [migration](fixtures/migration/TASK.md) and [handoffs](fixture
 
 ## Intent, evidence, and reusable-learning scenarios
 
-Added with the [2026-09-28 adaptation](../../docs/plugin-adaptation-2026-09-28.md). These are regression targets, not executed results. Use fresh sessions and withhold expected behavior. Keep existing product decisions, real command outputs, and write permissions in the raw input rather than explaining the intended answer to the agent.
+These are regression targets, not executed results. Use fresh sessions and withhold expected behavior. Keep existing product decisions, real command outputs, and write permissions in the raw input rather than explaining the intended answer to the agent.
 
 | Case | Request or raw input | Expected behavior |
 | --- | --- | --- |

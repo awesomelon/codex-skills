@@ -1,6 +1,6 @@
 # Architecture behavior evaluation cases
 
-This document defines expected behavior, not a complete pass record. The first 12 scenarios were initially written without execution. Later coverage is recorded separately in the [audit](../../docs/skill-audit-2026-09-12.md).
+This document defines expected behavior, not a complete pass record. The first 12 scenarios were initially written without execution.
 
 Run each scenario in a small fixture repository or an independent worktree matching its preconditions. Compare findings against actual files, and compare source, configuration, and documentation before and after review. Violating read-only scope, inventing evidence, or making out-of-scope edits is a core failure, not something other scores can offset.
 

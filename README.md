@@ -59,7 +59,7 @@ Use the skill names shown by your host application. They can include a plugin pr
 
 ## Install as a Codex plugin
 
-Rung was previously named CraftFlow. The repository is `awesomelon/rung`. For local installation or migration, see the [installation guide](docs/installation.md).
+For detailed setup and updates, see the [installation guide](docs/installation.md).
 
 You need Git and a Codex CLI with plugin support.
 
@@ -70,7 +70,7 @@ codex plugin add rung@rung
 
 Run the second command only after the first succeeds. The commands install both skills as the **Rung** plugin. You do not need to clone the repository or run the shell installer. Use `codex plugin list` to check the installation.
 
-[Updates and migration from individual skills](docs/installation.md) · [Plugin package details](docs/plugin.md)
+[Installation and updates](docs/installation.md) · [Plugin package details](docs/plugin.md)
 
 ## Included skills
 
@@ -81,7 +81,7 @@ Run the second command only after the first succeeds. The commands install both 
 
 ## Documentation
 
-- [Guides and design history](docs/README.md)
+- [Guides](docs/README.md)
 - [Contributing and validation](CONTRIBUTING.md)
 - [Evaluation evidence](evals/README.md)
 

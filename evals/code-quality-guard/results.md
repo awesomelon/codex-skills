@@ -35,4 +35,4 @@ Cases 4–10, combined architecture/React invocation, automatic selection, macOS
 
 After the records above, ran one independent unscored A/B comparison. It completed with `measurement.md` under the new routing and reported 7 existing tests passing for both A and B. It produced neither scores nor unmeasured complexity/clone rates. Independently verified unchanged before/after hashes for all 15 inputs.
 
-See the [response](outputs/ab-routing-review.md), [request/hashes/check record](outputs/ab-routing-manifest.json), and [follow-up audit](../../docs/skill-audit-2026-09-14-followup.md). This was one explicit-invocation run; reference use and checks are recorded from the response. Score/special-metric calculations, UI-default behavior, and automatic selection were not executed.
+See the [response](outputs/ab-routing-review.md) and [request/hashes/check record](outputs/ab-routing-manifest.json). This was one explicit-invocation run; reference use and checks are recorded from the response. Score/special-metric calculations, UI-default behavior, and automatic selection were not executed.

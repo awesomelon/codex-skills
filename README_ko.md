@@ -60,7 +60,7 @@ $rung-get-set 스킬로 이 폼의 상태와 요청 처리를 리뷰해줘.
 
 ## Codex 플러그인으로 설치하기
 
-Rung의 이전 이름은 CraftFlow입니다. 저장소 주소는 `awesomelon/rung`입니다. 로컬 설치나 이전 버전에서의 전환은 [설치 가이드](docs/installation.md)를 참조하세요.
+자세한 설치와 업데이트 방법은 [설치 가이드](docs/installation.md)를 참조하세요.
 
 Git과 플러그인 기능을 지원하는 Codex CLI가 필요합니다.
 
@@ -71,7 +71,7 @@ codex plugin add rung@rung
 
 첫 번째 명령이 성공한 뒤에 두 번째 명령을 실행하세요. 두 스킬을 **Rung** 플러그인으로 함께 설치합니다. 저장소를 복제하거나 셸 설치 스크립트를 실행할 필요는 없습니다. `codex plugin list`로 설치 상태를 확인하세요.
 
-[업데이트와 개별 스킬 설치에서 전환](docs/installation.md) · [플러그인 구성](docs/plugin.md)
+[설치와 업데이트](docs/installation.md) · [플러그인 구성](docs/plugin.md)
 
 ## 포함된 스킬
 
@@ -82,7 +82,7 @@ codex plugin add rung@rung
 
 ## 문서
 
-- [가이드와 설계 이력](docs/README.md)
+- [가이드](docs/README.md)
 - [기여 방법과 검증](CONTRIBUTING.md)
 - [평가 근거](evals/README.md)
 

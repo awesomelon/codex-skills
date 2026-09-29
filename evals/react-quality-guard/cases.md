@@ -64,4 +64,4 @@ Out-of-scope edits, unsupported APIs, changes to data/state semantics, and fabri
 
 Verify automatic metadata selection separately in desktop Codex. Providing the skill explicitly does not establish automatic invocation quality. Installation/execution on a Mac is also a separate check.
 
-Coverage of reevaluation after the 2026-09-12 body revision is recorded in the [audit](../../docs/skill-audit-2026-09-12.md).
+Scenario definitions do not establish execution coverage.
