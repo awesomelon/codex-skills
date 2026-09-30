@@ -1,6 +1,6 @@
 {
   "name": "rung",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Judgment-driven engineering for Codex: understand the problem, choose a proportionate change, and verify the result.",
   "author": {
     "name": "awesomelon"

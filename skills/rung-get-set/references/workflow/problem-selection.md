@@ -8,6 +8,10 @@ Look at the affected workflow and available issue, incident, support, or code ev
 
 For each serious candidate, identify the affected actor, observable friction, conditions, consequence, source/date, and what is still inferred. Absence of telemetry is unknown impact, not zero impact. Distinguish today's constraints from historical incidents and independent evidence from repeated reporting of the same event. Use only sources relevant to the task; missing stakeholder access does not justify inventing interviews, adoption, or agreement.
 
+When evidence includes workarounds or unintended uses, trace the outcome they enable and why available alternatives do not fit. Treat them as evidence of a need, not a design to adopt unchanged. Check whether other consumers share that need without requiring the same policy. No workaround may mean abandonment or lack of access or capacity, rather than low impact.
+
+When stalled adoption informs the decision, investigate the affected workflows before attributing it to missing features or user resistance. Distinguish capability and compatibility gaps from transition cost, permissions, guidance, timing, or limited benefit; different causes call for different interventions. Aggregate adoption can hide a blocked minority. Unexplained non-adoption remains an open question, not proof that the platform needs expansion.
+
 ## Choose what deserves investment
 
 Compare plausible candidates against the user's objective: consequence and reach, urgency or cost of delay, evidence confidence, implementation and ongoing ownership cost, and the work displaced. Use ranges or qualitative judgments when quantities are unavailable; a weighted score cannot manufacture certainty. A rare severe failure may outweigh frequent annoyance. An active incident needs containment before exploratory prioritization.
@@ -19,3 +23,5 @@ Choose the smallest next action that changes the decision: inspect an affected w
 Finish with the recommended problem, why it outranks the alternatives, confidence limits, and the next authorized action. Carry its outcome and unresolved assumption into [execution strategy](execution-strategy.md) only when delivery planning needs it. A recommendation is a valid endpoint for discovery-only work.
 
 Source inspiration: [Lalit Maganti, How I Find Problems to Solve as a Staff Engineer](https://lalitm.com/post/find-problems-staff-engineer/), read 2026-09-20. The article's experience is primarily infrastructure and developer tools with bottom-up autonomy. Prioritization, evidence handling, and execution boundaries here are this collection's adaptation, not a universal organizational model.
+
+The workaround and adoption lenses also draw on the user-supplied sujithjay.com article dated 2026-09-22 about inventing platform work, reviewed 2026-09-30. They are adapted as investigation cues; absence of a workaround and delayed adoption do not establish a cause.

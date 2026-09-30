@@ -1,0 +1,39 @@
+{
+  "checks": [
+    {
+      "command": "python3 scripts/validate.py",
+      "exit_code": 1,
+      "result": "Default Python lacked PyYAML (ModuleNotFoundError); structural assertions did not run."
+    },
+    {
+      "command": "PATH=/private/tmp/rung-ambiguity-validation-py311/bin:$PATH python3 scripts/validate.py",
+      "exit_code": 0,
+      "result": "PASS rung-get-set and rung-go: basic metadata, UI fields, portable contents, local references."
+    },
+    {
+      "command": "/private/tmp/rung-ambiguity-validation-py311/bin/python /Users/bangjaeho/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/rung-get-set",
+      "exit_code": 0,
+      "result": "Skill is valid!"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "No whitespace errors at the skill/catalog edit stage."
+    }
+  ],
+  "notes": "Reused an existing temporary Python environment; no user Python or Codex configuration changed. No validate_plugin.py was found under installed Codex plugin/skill directories. Installer and validator code are unchanged; no installation or host discovery test ran.",
+  "final_checks": {
+    "five_case_file_assertions": "pass",
+    "response_hashes": "pass",
+    "skill_copy_and_worktree_hashes": "pass",
+    "plugin_marketplace_consistency": "pass",
+    "local_markdown_link_targets": {
+      "result": "pass",
+      "count": 36
+    },
+    "git_diff_check": {
+      "exit_code": 0,
+      "output": ""
+    }
+  }
+}

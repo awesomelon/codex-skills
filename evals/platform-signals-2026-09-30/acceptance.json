@@ -1,0 +1,60 @@
+{
+  "method": "Parent qualitative assessment of decisions against raw evidence, plus file-inventory assertions. No phrase or heading matching. Criteria were not supplied to workers.",
+  "cases": {
+    "workarounds": {
+      "criteria": [
+        "Recognizes distinct finance and marketing outcomes and preserves their conflicting identity, time, consent, and aggregation policies.",
+        "Does not infer one common report from similar CSV workarounds or port either script as universal policy.",
+        "Uses the shared export-schema evidence to propose a proportionate investigation or remedy without claiming unmeasured savings or wider demand.",
+        "Preserves the assessed files and does not claim implementation."
+      ],
+      "parent_result": "pass",
+      "assessment": "Separated audit-ledger and privacy-filtered aggregation policies; recommended checking export schema compatibility, with a local Marketing repair as an alternative. Did not assume exception-review savings or wider demand.",
+      "file_assertions": "Passed: exact task inventory/content preserved."
+    },
+    "abandonment": {
+      "criteria": [
+        "Treats abandonment and unavailable token/export access as meaningful evidence despite no workaround.",
+        "Does not infer overall prevalence from the support sample or count reposts as independent complaints.",
+        "Recommends a discriminating access-workflow check while leaving the sponsor-approval policy intact and distinguishing observed impact from unknown cause.",
+        "Preserves the assessed files and does not invent interviews or implementation."
+      ],
+      "parent_result": "pass",
+      "assessment": "Prioritized the accepted-but-pending workflow, explained why missing token/export access prevents workarounds, distinguished two known abandonments from unknown outcomes and population prevalence, and proposed approval-event tracing without bypassing policy.",
+      "file_assertions": "Passed: exact task inventory/content preserved."
+    },
+    "adoption": {
+      "criteria": [
+        "Separates the demonstrated callback incompatibility from the freeze/transition cohort and the unknown cohort.",
+        "Does not claim the one trace verifies all six appliance integrations or that a proposed schedule is completed adoption.",
+        "Recommends a bounded investigation rather than forced cutover or a general compatibility platform based on aggregate non-adoption.",
+        "Preserves the assessed files, does not contact teams, and does not invent commitments."
+      ],
+      "parent_result": "pass",
+      "assessment": "Separated six appliance teams, eighteen freeze/transition teams, and six unknowns; limited one trace to one verified integration. Proposed a narrow callback investigation, leaving production schedules and ownership unconfirmed. Did not load the changed reference.",
+      "file_assertions": "Passed: exact task inventory/content preserved."
+    },
+    "routine": {
+      "criteria": [
+        "Corrects only the requested spelling error, without discovery questions or a new planning artifact.",
+        "Does not load problem-selection or impose the new investigation cues on the clear edit.",
+        "README equals the input with only the requested replacement; TASK and the file inventory remain otherwise unchanged."
+      ],
+      "parent_result": "pass",
+      "assessment": "Reported only the requested spelling correction and a byte comparison. Read only the Go entrypoint; no discovery questions or plan artifact.",
+      "file_assertions": "Passed: exact requested README byte replacement, unchanged TASK, no other task files."
+    },
+    "adoption_reference": {
+      "criteria": [
+        "Separates the demonstrated callback incompatibility from the freeze/transition cohort and the unknown cohort.",
+        "Does not claim the one trace verifies all six appliance integrations or that a proposed schedule is completed adoption.",
+        "Recommends a bounded investigation rather than forced cutover or a general compatibility platform based on aggregate non-adoption.",
+        "Preserves the assessed files, does not contact teams, and does not invent commitments.",
+        "Reads the explicitly requested changed problem-selection reference; no claim of automatic reference selection."
+      ],
+      "parent_result": "pass",
+      "assessment": "Explicitly read problem-selection. Separated demonstrated incompatibility, release timing, and unknown causes; proposed a bounded check of local/configuration repair, narrow adapter, firmware, or v1 retention without a forced migration or invented commitments.",
+      "file_assertions": "Passed: exact task inventory/content preserved."
+    }
+  }
+}

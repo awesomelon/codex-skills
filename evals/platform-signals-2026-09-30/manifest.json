@@ -1,0 +1,180 @@
+{
+  "base_commit": "bcf5e0465450f366ed3697c59179e6a00b32a99b",
+  "workspace": "/var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3",
+  "method": "Five fresh subagents, no conversation fork, explicit skill invocation; raw fixtures and supplied skills only. No expected answers supplied. Inherited model settings, no override. Unpaired smoke evaluation.",
+  "skill_sha256": {
+    "rung-get-set/LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+    "rung-get-set/SKILL.md": "1eb4f3f2e3b020a62f6a8c95c5f9d7c1c37bab532bbfd341e914dc09dd1d4ea8",
+    "rung-get-set/THIRD_PARTY_NOTICES.md": "30a5039f327e01385a78e442126399e504ec72cca4f60ca526c3cc456783bf24",
+    "rung-get-set/agents/openai.yaml": "4703974c9f5de48d953e4afb2f0c74c3564131ea7ea0737da9c9710a23d766c5",
+    "rung-get-set/references/architecture/THIRD_PARTY_NOTICES.md": "b3a95153343e3e4368fcb1a10461e8c8cf25da1f51e1c9c1d56de6295e50f17a",
+    "rung-get-set/references/architecture/preflight.md": "92dc06e2d0443eed3b4c2adbc644dcf4d0537500be64235748848bad36cd935a",
+    "rung-get-set/references/architecture/review.md": "35613fa92052996d5a9860c97e7f72e40a61e036e3c72a405b6d134dca0fd693",
+    "rung-get-set/references/quality/earendil-metrics.md": "fecfdaee836b60cffd54bd95fd7a28fea75ab68441d4ad99252c51a5b5686f82",
+    "rung-get-set/references/quality/implementation.md": "37e750f0f476a607fcd716552869be116c355137889947cc170be097277ccec5",
+    "rung-get-set/references/quality/measurement.md": "2c70dc6b5b4d76b97935deb6ff6c39c733ded6e582f8a521ccb7d0dbe3e1ecc7",
+    "rung-get-set/references/quality/ponytail-LICENSE": "fb1bc6909ac3ef82d5c22106e32ef682b0cff66788fa915fb9b53b15c9d2f3ab",
+    "rung-get-set/references/quality/pstack-LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+    "rung-get-set/references/quality/review-scope.md": "7530a2658256d242f3c75a718865cc772bf8672cd4b8fcc918f6e310448a856f",
+    "rung-get-set/references/quality/review.md": "3fed49bbe86dd5f8eaa83ff9e9510c292fecf715438d6da325cd20207f7a88c2",
+    "rung-get-set/references/quality/scoring.md": "bd5717e1bc9c87b22f91fc94acd773ec090bc19f4f7cef0f6b5df94f3e31ee05",
+    "rung-get-set/references/sources.md": "9e8dbcace48b712afbb81bf21f9ff45285156efeb81a0f355454c9552fcf2b24",
+    "rung-get-set/references/workflow/execution-strategy.md": "299d4a38852f55e16bbdacc1f0fc3e7ccbc1dc52b578ce0317d27576b0a06ea5",
+    "rung-get-set/references/workflow/investigation.md": "70dcfbd832d055e40a0b64d3f84fd5d0a9000d0b2a43d993fb22de4778c3aa16",
+    "rung-get-set/references/workflow/problem-selection.md": "dc84a32500218f948b7c42f819db7fb6f477fc111b25573244b19dd58c0d9546",
+    "rung-get-set/references/workflow/spec-driven-changes.md": "1443c7a163953a866a554934dcf15ea3a420bdf864c1ef843ca2f89063507642",
+    "rung-go/SKILL.md": "7b7fef2cc82acbbbb7eb4dc4cf6be826b1800420a9f0ee008755bdb83ca09e99",
+    "rung-go/agents/openai.yaml": "4afea3d7b38c444433db929625b357b0867bfd4482fe6597734868ef0326d399",
+    "rung-go/references/architecture/THIRD_PARTY_NOTICES.md": "b3a95153343e3e4368fcb1a10461e8c8cf25da1f51e1c9c1d56de6295e50f17a",
+    "rung-go/references/architecture/contracts.md": "8f965a3b4de7150562f7e58f6a56510e8d4ada9e66b86a6236d55c116ee26e11",
+    "rung-go/references/architecture/overview.md": "4af32997d01d6c1a7709f59f75798c4f25092d3a6265d17740665e1f11f4dc8e",
+    "rung-go/references/react/composition.md": "156120fec3f2fe9bb3df9ddbac2ee609a81684fb70a85167b3b466bde5e05a6f",
+    "rung-go/references/react/overview.md": "7f54bbec2a290a08a366a087040282c0236c87c3d284191b09b4935b3d86a80c",
+    "rung-go/references/react/performance.md": "a2ac07be758394f59c8c37012c37ac04f5356366836b2435c0a929651b2f9e33",
+    "rung-go/references/react/react-correctness.md": "2c1097df229aafb3e3dde0eecd06c4b63aba8998c6640963c7bd610b653326c8",
+    "rung-go/references/react/server-react.md": "c0ca19b18fa53c7a52c09f7932604f654aa18c85300bec88968053f0e4dd5d44",
+    "rung-go/references/react/sources.md": "d420ed55174cb442a0c506e6641c8f61d97e2dfaa0a797d546497bad64857bd3",
+    "rung-go/references/refactoring/overview.md": "7f5686cbc556afb0fe1e5c78fa4430ca399928a6bcf2d141df9ceed524959e5c",
+    "rung-go/references/refactoring/sources.md": "b336ea67d33537e7191e442fa0879d025056517c4dfb4154cabfb6dfb2781723",
+    "rung-go/references/refactoring/transformations.md": "7e31b7a3a71fe823b3cf5b1d3ce01915b124b17837a9fa767d773dc8760b5a08",
+    "rung-go/references/tanstack-query/LICENSE": "4ef8d6c636d938b332dc7311b18f06fd22c855b496bc678d5fd8608ed8301214",
+    "rung-go/references/tanstack-query/cache-and-keys.md": "4ed4209aaa524415a2c6c98bbc47a68ca806e3fede1ec6ea38d013009538a169",
+    "rung-go/references/tanstack-query/mutations.md": "336000388435e6a2de4b46d997ebefc37ba7bd658bae196fa74192486b16c34b",
+    "rung-go/references/tanstack-query/offline-and-persistence.md": "1e1b3991e27a2c59066cbeac64d960b48153a3f0a4a66ed55ae2dd4258977a85",
+    "rung-go/references/tanstack-query/overview.md": "3ec6bd97c1d7be04285fabf2d7fad6d1bb96e106f4adf242477852087ba80f5b",
+    "rung-go/references/tanstack-query/pagination-and-prefetch.md": "0d0be0d773ea0afaaa04e3ceea92093eee86b282f12ebdcd864361d4676e75ac",
+    "rung-go/references/tanstack-query/requests-and-rendering.md": "4545d403a3e04c43e0fc44a35d337f1935d7d7edb37a786cc1ae0411b3502a85",
+    "rung-go/references/tanstack-query/server-rendering.md": "2973520449ee89e40f351dab91aa070164f32c082734f9dc48b5ff7559f10d14",
+    "rung-go/references/tanstack-query/sources.md": "5d009828e060c4337bd80cd1662175f1cb403913af1794d37e96376b3cef917f",
+    "rung-go/references/typescript/input-validation.md": "0d4508c728fa57e7d4e5096c16ba96f38b7ecbafa7665236d3672fc3af665948",
+    "rung-go/references/typescript/narrowing.md": "3f871b360addb3c7b154effeea1218d4a1d8fa2504b8544ebdf060a7d6c09319",
+    "rung-go/references/typescript/overview.md": "4d9ae48005453567ac73133937ecc66f348d3cd4dbebb7f9360055e75ba86158",
+    "rung-go/references/typescript/patterns.md": "d64ffb6f6bc50e337be70b6f505c6424530769276af907b4c84711aac0dba9bf",
+    "rung-go/references/typescript/type-modeling.md": "fa41a3efa35b09a266aead774b22a57195d9664c5e1d7c06033002d155e93835",
+    "rung-go/references/workflow/LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+    "rung-go/references/workflow/THIRD_PARTY_NOTICES.md": "30a5039f327e01385a78e442126399e504ec72cca4f60ca526c3cc456783bf24",
+    "rung-go/references/workflow/changes.md": "4cb8edc4ebd0439d5d4849a9cfd5210fd4d5f70ca3310cae005b632a5f18526a",
+    "rung-go/references/workflow/continuity.md": "f86642e3206c6a8c56f9239f06212f33955b15a01f7172ac3775c66d61e25d27",
+    "rung-go/references/workflow/coordination.md": "f409329e3be210bec0d2a8b68fd0bac908e273ed8e7f30b16e3386d2f8ec9ad2",
+    "rung-go/references/workflow/expertise.md": "df815b799de35be6b9a2d614eb81b99fc1273525f8500142466ae91555fe6018",
+    "rung-go/references/workflow/learning.md": "c684b0405736e24665d95b2f43f429670c2f97b5088a89e3d609982ac42fa06e",
+    "rung-go/references/workflow/performance.md": "8dcb2a26330dc13f40003bf159685a91e737c78cfcd7f2f2a1904337628f3b25",
+    "rung-go/references/workflow/review-and-delivery.md": "e15de0fac2587645dd6070cb1ec4f3315155e76fb17d30eaf5342d520e7cb967",
+    "rung-go/references/workflow/sources.md": "06f707745ba0d6ae9fb1f70ad8b5c2279260b9950903dd099970a5c47d5188c6",
+    "rung-go/references/workflow/verification.md": "7b3f2c40bff6aad4a6341eaec92c35f7fd2c443a7ab3a6248f303c041dadbde5"
+  },
+  "cases": {
+    "workarounds": {
+      "input_sha256": {
+        "TASK.md": "61a94b46b371fa8e1f6961d94755c3f7e523f46e7e30c5106861fd804ba00d57",
+        "evidence.md": "4858a81e759d7f86a64762ebd867afcfc51302aa37734f123d2de22d9202482e"
+      },
+      "fixture_source": "evals/platform-signals-2026-09-30/fixtures/workarounds",
+      "prompt": "Independent skill evaluation. Use $rung-get-set from /var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3/skills/rung-get-set/SKILL.md to carry out TASK.md in /var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3/workarounds. Limit reading to that task directory and the supplied /var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3/skills resources. Do not inspect the repository or sibling tasks. Do not use other agents or external services. Follow the task mutation scope. Return your answer with the skill/reference files actually read and checks actually run. Also save the same final answer to /var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3/workarounds-response.md, outside the assessed directory, for the evaluation record.",
+      "post_run_sha256": {
+        "TASK.md": "61a94b46b371fa8e1f6961d94755c3f7e523f46e7e30c5106861fd804ba00d57",
+        "evidence.md": "4858a81e759d7f86a64762ebd867afcfc51302aa37734f123d2de22d9202482e"
+      },
+      "changed_files": [],
+      "response_sha256": "88dabd89bfb53befbebe86c1cca8717d79667a5c3b565550f43e4439d92626f7",
+      "reported_resource_reads": [
+        "rung-get-set/SKILL.md",
+        "rung-get-set/references/workflow/problem-selection.md"
+      ],
+      "agent_task": "/root/eval_workarounds"
+    },
+    "abandonment": {
+      "input_sha256": {
+        "TASK.md": "f10aeed6efccd68a45748eda581ea601e5ea393286788bebe18e0033c75cebf0",
+        "evidence.md": "4389c88c41e3d076e090380a30aa739947ab9cdfe67c23ac9ee94eb12b5ee47a"
+      },
+      "fixture_source": "evals/platform-signals-2026-09-30/fixtures/abandonment",
+      "prompt": "Independent skill evaluation. Use $rung-get-set from /var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3/skills/rung-get-set/SKILL.md to carry out TASK.md in /var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3/abandonment. Limit reading to that task directory and the supplied /var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3/skills resources. Do not inspect the repository or sibling tasks. Do not use other agents or external services. Follow the task mutation scope. Return your answer with the skill/reference files actually read and checks actually run. Also save the same final answer to /var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3/abandonment-response.md, outside the assessed directory, for the evaluation record.",
+      "post_run_sha256": {
+        "TASK.md": "f10aeed6efccd68a45748eda581ea601e5ea393286788bebe18e0033c75cebf0",
+        "evidence.md": "4389c88c41e3d076e090380a30aa739947ab9cdfe67c23ac9ee94eb12b5ee47a"
+      },
+      "changed_files": [],
+      "response_sha256": "30ec106ccca5fec390acf5608ddac390c364a2d457eba2c787bbe9d19e14d4b1",
+      "reported_resource_reads": [
+        "rung-get-set/SKILL.md",
+        "rung-get-set/references/workflow/problem-selection.md"
+      ],
+      "agent_task": "/root/eval_abandonment"
+    },
+    "adoption": {
+      "input_sha256": {
+        "TASK.md": "7f3a7f174dd297f04803b7a6866d94a64fa432e34e85e66ab518d04e5110dbb8",
+        "evidence.md": "c5b22e4f61055a17269fdd70386ba5e224a5e04b73614a40fef8bab8cd26077a"
+      },
+      "fixture_source": "evals/platform-signals-2026-09-30/fixtures/adoption",
+      "prompt": "Independent skill evaluation. Use $rung-get-set from /var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3/skills/rung-get-set/SKILL.md to carry out TASK.md in /var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3/adoption. Limit reading to that task directory and the supplied /var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3/skills resources. Do not inspect the repository or sibling tasks. Do not use other agents or external services. Follow the task mutation scope. Return your answer with the skill/reference files actually read and checks actually run. Also save the same final answer to /var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3/adoption-response.md, outside the assessed directory, for the evaluation record.",
+      "post_run_sha256": {
+        "TASK.md": "7f3a7f174dd297f04803b7a6866d94a64fa432e34e85e66ab518d04e5110dbb8",
+        "evidence.md": "c5b22e4f61055a17269fdd70386ba5e224a5e04b73614a40fef8bab8cd26077a"
+      },
+      "changed_files": [],
+      "response_sha256": "b96f8239b021bee69327d348843ccf21edf259dd4f9f5d4f942a3f7516697f7d",
+      "reported_resource_reads": [
+        "rung-get-set/SKILL.md",
+        "rung-get-set/references/workflow/execution-strategy.md",
+        "rung-get-set/references/quality/review-scope.md"
+      ],
+      "agent_task": "/root/eval_adoption"
+    },
+    "routine": {
+      "input_sha256": {
+        "README.md": "62e2d61071e44cb857bffe073e7b6c1c994e86f16f6ee4ce5d475f089b168961",
+        "TASK.md": "8ee20acaa25c066c7d73412a237d3cce1d1f62690ac5c1cbf9e329ae5fa57246"
+      },
+      "fixture_source": "evals/ambiguity-2026-09-30/fixtures/routine",
+      "prompt": "Independent skill evaluation. Use $rung-go from /var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3/skills/rung-go/SKILL.md to carry out TASK.md in /var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3/routine. Limit reading to that task directory and the supplied /var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3/skills resources. Do not inspect the repository or sibling tasks. Do not use other agents or external services. Follow the task mutation scope. Return your answer with the skill/reference files actually read and checks actually run. Also save the same final answer to /var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3/routine-response.md, outside the assessed directory, for the evaluation record.",
+      "post_run_sha256": {
+        "README.md": "ef1dfa886156d2b1882b478d0b715b8bcad070f25b6fe31f3f4c4c0664af55b7",
+        "TASK.md": "8ee20acaa25c066c7d73412a237d3cce1d1f62690ac5c1cbf9e329ae5fa57246"
+      },
+      "changed_files": [
+        "README.md"
+      ],
+      "response_sha256": "98b4116374959469443a92f4b1f3588d788407fef7c4343f713f003972ce641d",
+      "reported_resource_reads": [
+        "rung-go/SKILL.md"
+      ],
+      "agent_task": "/root/eval_routine"
+    },
+    "adoption_reference": {
+      "input_sha256": {
+        "TASK.md": "7f3a7f174dd297f04803b7a6866d94a64fa432e34e85e66ab518d04e5110dbb8",
+        "evidence.md": "c5b22e4f61055a17269fdd70386ba5e224a5e04b73614a40fef8bab8cd26077a"
+      },
+      "fixture_source": "evals/platform-signals-2026-09-30/fixtures/adoption",
+      "prompt": "Independent skill evaluation. Use $rung-get-set from /var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3/skills/rung-get-set/SKILL.md and its references/workflow/problem-selection.md to carry out TASK.md in /var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3/adoption_reference. Limit reading to that task directory and the supplied /var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3/skills resources. Do not inspect the repository or sibling tasks. Do not use other agents or external services. Follow the task mutation scope. Return your answer with the skill/reference files actually read and checks actually run. Also save the same final answer to /var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/rung-platform-signals-y03i8xh3/adoption_reference-response.md, outside the assessed directory, for the evaluation record.",
+      "reason": "Natural migration assessment selected execution-strategy and review-scope, not problem-selection. A fresh forced-reference case exercises the changed adoption paragraph; it does not test routing.",
+      "agent_task": "/root/eval_adoption_reference",
+      "post_run_sha256": {
+        "TASK.md": "7f3a7f174dd297f04803b7a6866d94a64fa432e34e85e66ab518d04e5110dbb8",
+        "evidence.md": "c5b22e4f61055a17269fdd70386ba5e224a5e04b73614a40fef8bab8cd26077a"
+      },
+      "changed_files": [],
+      "response_sha256": "9b8304f330696bcb674671e967c2b1cc65757a52d9b39800f30b71751ec608e7",
+      "reported_resource_reads": [
+        "rung-get-set/SKILL.md",
+        "rung-get-set/references/workflow/problem-selection.md"
+      ],
+      "response_note": "Saved worker response is fuller than the chat final; the preserved file is the evaluated response artifact."
+    }
+  },
+  "source": {
+    "article": "User-supplied sujithjay.com article dated 2026-09-22 about inventing platform work; no article permalink supplied.",
+    "article_sha256": "93f0a7b490656d408d306cc84a9de65b9a4118440c6f993ef9ba2d5a4cdc2534",
+    "authoring_guidance": "https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra",
+    "verification": "Official article fetched and read in the preceding review in this conversation on 2026-09-30 Asia/Seoul."
+  },
+  "host": {
+    "platform": "macOS-27.0-arm64-arm-64bit",
+    "model": "Inherited parent model/reasoning settings; no override or independent model measurement.",
+    "tool_access": "Local command/file tools; wrapper restricts reading to the task and supplied skill copies, with no external services or delegation. Restrictions are instructions, not an OS-isolated sandbox.",
+    "permissions": "Assessment cases preserve task files; routine permits only its requested edit; all may save a response outside the assessed directory."
+  },
+  "limits": "Unpaired explicit-invocation smoke evaluations. Host instructions/resources may be inherited or advertised. No before/after improvement, reliability, automatic skill discovery, or installation demonstrated. Resource reads are worker-reported; file assertions establish final content/inventory, not all intermediate actions."
+}
