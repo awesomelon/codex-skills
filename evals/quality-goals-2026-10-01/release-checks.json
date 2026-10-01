@@ -1,0 +1,42 @@
+{
+  "version": "0.5.3",
+  "cli_version": "codex-cli 0.158.0",
+  "platform": "macOS arm64",
+  "isolation": "Temporary CODEX_HOME; existing user configuration and installed plugins unchanged.",
+  "registration": {
+    "code": 0,
+    "stdout": "{\n  \"marketplaceName\": \"rung\",\n  \"installedRoot\": \"/Users/j-ho/Projects/rung\",\n  \"alreadyAdded\": false\n}\n",
+    "stderr": ""
+  },
+  "installation_checks": [
+    {
+      "command": [
+        "codex",
+        "plugin",
+        "add",
+        "rung@rung",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"pluginId\": \"rung@rung\",\n  \"name\": \"rung\",\n  \"marketplaceName\": \"rung\",\n  \"version\": \"0.5.3\",\n  \"installedPath\": \"/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-053-host-hh11_jbv/plugins/cache/rung/rung/0.5.3\",\n  \"authPolicy\": \"ON_INSTALL\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "codex",
+        "plugin",
+        "list",
+        "--marketplace",
+        "rung",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"installed\": [\n    {\n      \"pluginId\": \"rung@rung\",\n      \"name\": \"rung\",\n      \"marketplaceName\": \"rung\",\n      \"version\": \"0.5.3\",\n      \"installed\": true,\n      \"enabled\": true,\n      \"source\": {\n        \"source\": \"local\",\n        \"path\": \"/Users/j-ho/Projects/rung\"\n      },\n      \"marketplaceSource\": {\n        \"sourceType\": \"local\",\n        \"source\": \"/Users/j-ho/Projects/rung\"\n      },\n      \"installPolicy\": \"AVAILABLE\",\n      \"authPolicy\": \"ON_INSTALL\"\n    }\n  ],\n  \"available\": []\n}\n",
+      "stderr": ""
+    }
+  ],
+  "installed_skill_files_match_source": true,
+  "matched_skill_files": 59,
+  "plugin_creator_validator": "Not available in installed skills or plugin cache.",
+  "scope": "Local-path marketplace installation only. No automatic skill selection or existing installation upgrade tested."
+}

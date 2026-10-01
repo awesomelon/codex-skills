@@ -1,0 +1,31 @@
+{
+  "automated": {
+    "assessment_files_unchanged": true,
+    "routine_exact_bytes": true,
+    "baseline_resources_unchanged": true,
+    "revised_assessment_files_unchanged": true,
+    "only_verification_resource_changed": true
+  },
+  "manual": {
+    "performance": {
+      "pass": true,
+      "evidence": "Response distinguishes the mean from an agreed percentile, requests workload and window, preserves read-your-writes, and rejects unsupported cache/replica selection."
+    },
+    "security": {
+      "pass": true,
+      "evidence": "Response derives allow/deny tests from existing team/admin policy, covers alternate routes, preserves legitimate access, and excludes retention/certification scope."
+    },
+    "evidence": {
+      "pass": true,
+      "evidence": "A unverified; B failed with 0.8% versus 0.1%; C unverified; D narrowly passed audit observation, overall security unverified."
+    },
+    "routine": {
+      "pass": true,
+      "evidence": "Exact requested substitution only; response reports no reference reads and no interview or specification."
+    },
+    "revised-evidence": {
+      "pass": true,
+      "evidence": "Same four dispositions as baseline. Correctly uses request counts over the calendar month, not uptime or startup success. No comparative gain demonstrated."
+    }
+  }
+}

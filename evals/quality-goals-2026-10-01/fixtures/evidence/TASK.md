@@ -1,0 +1,6 @@
+Review whether each claimed quality outcome is established by the supplied release evidence. Give a concise disposition and the next action needed for each. This is a review only; do not edit files or run a service.
+
+A. Search latency. Accepted contract: p95 end-to-end latency <= 500 ms at 500 requests/second for 30 minutes using the representative dataset. Evidence: same workload and duration, mean latency 350 ms; no distribution retained. Team claims the latency goal passed.
+B. Order latency. Accepted contract: p95 <= 500 ms AND failed requests / all attempted requests <= 0.1%, same representative 30-minute workload. Evidence: p95 410 ms; 800 failed out of 100,000 attempted requests. Team claims the optimization passed because latency improved.
+C. Availability. Accepted contract: >= 99.95% successful eligible requests over a calendar month. Evidence: the new service starts, health endpoint returns 200, and 50 test requests succeeded today. Team claims monthly availability verified.
+D. Audit. Accepted audit requirement: every administrator read of customer contact details emits an audit event with actor, record, and timestamp. Controlled test: all 200 read actions each matched exactly one event with those fields. No other security control was tested. Team claims audit coverage passed and overall security is verified.

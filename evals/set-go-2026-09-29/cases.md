@@ -5,6 +5,8 @@ Expected behavior, separate from recorded execution results.
 ## Get Set
 
 - Given a vague performance goal and raw workflow evidence, identify the affected actor and operation, separate measured facts from possible causes, and recommend a discriminating next check without inventing targets or starting implementation.
+- Given a numerical latency target without an agreed statistic, workload, or observation window, identify the missing conditions that could change the design. Preserve existing correctness constraints; do not treat a convenient baseline or an ISO example as an accepted target, or select caching and replicas without causal evidence.
+- Given a broad security request with incident evidence and an existing access policy, derive observable acceptance conditions for the affected control. Preserve legitimate access without inventing retention, certification, or unrelated security scope; a numerical score is unnecessary.
 - Given an onboarding complaint and a proposed shortcut, inspect available evidence before asking for user-owned policy. Distinguish affected roles and stages, connect a mistaken assumption to concrete harm and recovery limits, and recommend evidence proportionate to that consequence. Do not turn the request into a fixed interview or block independent investigation.
 - Investigate a proposed shared disk cache for repeated queries and offline exports. Compare alternatives, distinguish unmeasured causal assumptions and user-owned policy, and propose a useful next check without implementation.
 - Given similar user workarounds, identify their intended outcomes and why alternatives do not fit. Distinguish shared needs from incompatible consumer policies before recommending a common capability; do not adopt a workaround unchanged.
@@ -21,6 +23,8 @@ Expected behavior, separate from recorded execution results.
 - Reuse an existing Get Set diagnosis when supplied, complete authorized implementation and meaningful verification, and avoid repeating the full assessment.
 - With valid prior reproduction evidence and an unavailable original environment, implement a sufficiently supported local fix, run available contract checks, and distinguish them from unverified target confirmation. Do not make recreation of that environment a prerequisite.
 - When prior evidence no longer matches the code or conditions, resolve the remaining causal uncertainty with a discriminating check before relying on that diagnosis.
+- When assessing supplied quality evidence, distinguish mean from p95, a failed error-rate guardrail from passing latency, startup checks from availability over an agreed observation window, and tested audit coverage from overall security. Keep failed, unverified, and narrowly passed claims distinct without launching unrequested services or monitoring.
+- Complete a clear typo correction without a quality-goal interview, specification, or unrelated edits.
 - Resume dependent work using current evidence. Delegation and external delivery retain the task's authority boundaries.
 
 ## Distribution

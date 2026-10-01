@@ -18,7 +18,7 @@ Keep the quality bar anchored to the agreed contract. Do not skip tests, suppres
 
 Repeat the relevant checks after integration or a fix changes their inputs. Evidence is reusable only while the exercised code, local edits, build, dependencies, configuration, and material runtime/data conditions remain applicable. The same commit SHA alone is insufficient if those conditions changed. Conversely, do not rerun an unchanged check merely because another phase or reviewer requests its result.
 
-Finish against the verification scope required by the changed contract and the project's mandatory gates. Focused intermediate checks do not substitute for required integration evidence. A runnable service's availability claim needs an actual start/request observation; a producer-consumer change needs evidence at that boundary, not only separately passing mocks. Do not impose a universal test suite, fixed coverage threshold, or test-first ceremony on every change.
+Finish against the verification scope required by the changed contract and the project's mandatory gates. Focused intermediate checks do not substitute for required integration evidence. A claim that a service starts and responds needs an actual start/request observation; an operational availability target needs evidence over its agreed population and observation window. A producer-consumer change needs evidence at that boundary, not only separately passing mocks. Do not impose a universal test suite, fixed coverage threshold, or test-first ceremony on every change.
 
 ## Work safely and retain useful proof
 
