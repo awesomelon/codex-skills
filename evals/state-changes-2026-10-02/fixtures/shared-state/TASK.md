@@ -1,0 +1,1 @@
+Use $rung-get-set to review the two proposed fixes in design.md against the code and requirements. Recommend the appropriate design for each and explain what would establish that it works. Do not edit or create files in this project. No implementation is requested.

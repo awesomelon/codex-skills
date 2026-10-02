@@ -77,8 +77,8 @@ Run the second command only after the first succeeds. The commands install both 
 
 | Skill | Purpose |
 | --- | --- |
-| [rung-get-set](skills/rung-get-set/SKILL.md) | Frame unclear problems, investigate, design, plan, and review without changing the assessed material. Clarify quality acceptance conditions without inventing targets. Assess user workarounds and adoption barriers when selecting problems. Use shared review criteria and relevant technical references. |
-| [rung-go](skills/rung-go/SKILL.md) | Implement, fix, refactor, resume, and verify authorized changes. Reuse valid diagnosis evidence. Evaluate quality claims within the measured scope and report runtime checks that could not run. |
+| [rung-get-set](skills/rung-get-set/SKILL.md) | Frame unclear problems, investigate, design, plan, and review without changing the assessed material. Clarify quality acceptance conditions without inventing targets. Assess user workarounds and adoption barriers when selecting problems. Use shared review criteria and technical references for recovery and concurrent state ownership. |
+| [rung-go](skills/rung-go/SKILL.md) | Implement, fix, refactor, resume, and verify authorized changes. Reuse valid diagnosis evidence. Check retry and concurrency behavior when relevant; distinguish documentation, verification-driver, and product defects. Evaluate quality claims within the measured scope and report runtime checks that could not run. |
 
 ## Documentation
 

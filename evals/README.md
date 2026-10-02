@@ -19,6 +19,8 @@ The current skill names use the Rung prefix. Recorded runs retain CraftFlow name
 
 [Set/Go results](set-go-2026-09-29/results.md) record actual execution separately. The [previous three-skill results](three-skills-2026-09-28/results.md) describe their historical revision.
 
+[2026-10-02 state-change cases](state-changes-2026-10-02/results.md) record a read-only shared-state assessment, an interrupted-operation repair, verification-tool maintenance that exposes a product regression, and a routine edit. These are unpaired explicit-invocation smoke cases; parent checks cover edit boundaries and replay behavior, not comparative improvement or live concurrency correctness.
+
 [2026-10-01 quality-goal cases](quality-goals-2026-10-01/results.md) record four baseline smoke cases and one follow-up after clarifying operational availability evidence. Existing instructions already handled missing latency conditions, policy-based security acceptance, and mismatched quality claims in these samples. The results explain why broader instruction additions were not retained; they do not establish a comparative quality gain.
 
 [2026-09-30 ambiguity cases](ambiguity-2026-09-30/results.md) record explicit-invocation checks for vague performance and onboarding requests, a focused delivery plan using the changed execution-strategy reference, and a routine edit. These are unpaired smoke cases, not proof of improvement over the previous instructions.

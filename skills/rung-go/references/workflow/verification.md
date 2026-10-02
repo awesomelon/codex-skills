@@ -14,6 +14,8 @@ Distinguish a successful evaluated check, a failed assertion, a check not run, a
 
 Keep the quality bar anchored to the agreed contract. Do not skip tests, suppress diagnostics, loosen assertions, or disable gates merely to obtain green output. A genuinely obsolete test or unsuitable gate may change only with a reason grounded in the current contract; retain or replace the protection that is still required. An unrelated pre-existing failure is reported separately, not hidden and not automatically added to the task scope.
 
+When a verification recipe and the observed behavior disagree, compare them with the authoritative contract before choosing a repair. Outdated instructions are documentation drift; a driver that cannot exercise otherwise working behavior is a harness defect; behavior that violates the contract is a product defect. These can coexist. Repair only the authorized layer, and report an out-of-scope defect rather than rewriting the documented expectation to match it. After a driver repair, rerun the affected public path and its assertion; successful driver execution alone does not prove product correctness.
+
 ## Reuse evidence without reusing stale claims
 
 Repeat the relevant checks after integration or a fix changes their inputs. Evidence is reusable only while the exercised code, local edits, build, dependencies, configuration, and material runtime/data conditions remain applicable. The same commit SHA alone is insufficient if those conditions changed. Conversely, do not rerun an unchanged check merely because another phase or reviewer requests its result.

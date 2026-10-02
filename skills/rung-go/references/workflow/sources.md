@@ -86,3 +86,11 @@ Concepts were selectively adapted in original prose on 2026-09-28, not installed
 - [Agent Skills constraint-driven development](https://github.com/addyosmani/agent-skills/blob/2686b620fc1fed2e8f60c704839c766b8594c6b6/skills/constraint-driven-development/SKILL.md): make the project's quality bar observable and resist hiding failed checks. No universal LOC, coverage, test-ratio, or per-change ceremony is adopted.
 
 These are design inputs, not comparative performance evidence. The sections above retain the earlier OpenAI and engineering-workflow provenance.
+
+## State-change and verification refinement
+
+On 2026-10-02, the user-supplied local pstack snapshot was inspected, including `principle-make-operations-idempotent/SKILL.md`, `principle-separate-before-serializing-shared-state/SKILL.md`, and `maintain-verification-skill/SKILL.md`. Its upstream revision was not verified; this is separate from the pinned reviews above. The repository evaluation manifest at `evals/state-changes-2026-10-02/manifest.json` records the source file hashes.
+
+[State changes](../architecture/state-changes.md) selectively adapts replay and partial-completion questions and the choice between separating independent writes and coordinating a real shared invariant. [Verification](verification.md) distinguishes stale documentation, defective drivers, and product regressions. These are conditional decision criteria, not a requirement to make every operation idempotent, reject locks, test every interruption, generate verification skills, or run a fixed agent panel. The existing [pstack MIT notice](LICENSE) remains bundled.
+
+The designated OpenAI article was freshly read in this conversation. The refinement retains two task endpoints and puts detailed criteria behind optional references. Behavioral results are recorded separately from this source review.

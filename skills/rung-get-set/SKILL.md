@@ -25,14 +25,14 @@ Separate correctness from maintainability and measured performance. File size, r
 | Unclear outcomes, problem framing, or priorities | [Problem selection](references/workflow/problem-selection.md) |
 | Uncertain work, adoption, or rollout | [Execution strategy](references/workflow/execution-strategy.md) |
 | Intent gaps and requirements-to-work traceability | [Change intent](references/workflow/spec-driven-changes.md) |
-| Design boundaries and alternatives | [Architecture preflight](references/architecture/preflight.md) |
+| Design boundaries, recovery, concurrency, or alternatives | [Architecture preflight](references/architecture/preflight.md) |
 | Existing architecture and dependency direction | [Architecture review](references/architecture/review.md) |
 | Maintainability or regression coverage | [Review criteria](references/quality/review.md) |
 | Shared-rule ownership | [Shared rules](references/quality/implementation.md) |
 | Before/after evidence or an authorized isolated experiment | [Measurement](references/quality/measurement.md) |
 | Explicitly requested scores or source metrics | [Scoring](references/quality/scoring.md), [metrics](references/quality/earendil-metrics.md) |
 
-Go owns optional React, Query, TypeScript, refactoring, and runtime-verification references. Resolve its location through the host's catalog, including any plugin prefix; use its reference table only to find relevant documents. Reading execution guidance does not authorize edits. Get Set works alone: use project contracts and authoritative technical documentation when optional resources are unavailable.
+Go owns optional state-change, React, Query, TypeScript, refactoring, and runtime-verification references. Resolve its location through the host's catalog, including any plugin prefix; use its reference table only to find relevant documents. Reading execution guidance does not authorize edits. Get Set works alone: use project contracts and authoritative technical documentation when optional resources are unavailable.
 
 ## Finish at the requested endpoint
 

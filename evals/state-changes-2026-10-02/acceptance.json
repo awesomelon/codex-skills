@@ -1,0 +1,42 @@
+{
+  "shared-state": {
+    "changed_files": [],
+    "edit_scope_passed": true,
+    "skill_resources_unchanged": true,
+    "parent_source_review": "Recommendations preserve independent dashboard freshness while retaining one shared stock invariant; per-process mutex and separated stock proposal correctly rejected. No repair or real filesystem concurrency validation claimed.",
+    "behavior_passed": true,
+    "resource_reads": "Worker reported Get Set entrypoint, review scope and preflight, Go entrypoint and state-changes reference."
+  },
+  "replay": {
+    "changed_files": [
+      "job.mjs",
+      "job.test.mjs"
+    ],
+    "edit_scope_passed": true,
+    "skill_resources_unchanged": true,
+    "parent_check": "checks/replay.mjs: original fixture exited 1 at duplicate effect assertion (2 != 1); repaired job exited 0. Separate processes check failure before effect, interruption after effect, restart, repeated request, and distinct request. Worker test suite rerun: 3 passed.",
+    "behavior_passed": true,
+    "resource_reads": "Worker reported Go entrypoint, state-changes, changes, and verification."
+  },
+  "verification": {
+    "changed_files": [
+      "docs/verify.md",
+      "verify.mjs"
+    ],
+    "edit_scope_passed": true,
+    "skill_resources_unchanged": true,
+    "parent_check": "Repaired driver exited 1 at remove must delete all saved notes after create, persistence and removal acknowledgement assertions passed. Product and contract hashes unchanged; docs and driver retain deletion requirement.",
+    "behavior_passed": true,
+    "resource_reads": "Worker reported Go entrypoint and verification."
+  },
+  "routine": {
+    "changed_files": [
+      "README.md"
+    ],
+    "edit_scope_passed": true,
+    "skill_resources_unchanged": true,
+    "exact_replacement_passed": true,
+    "behavior_passed": true,
+    "resource_reads": "Worker reported Go entrypoint only."
+  }
+}

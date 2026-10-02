@@ -21,6 +21,7 @@ These are reference documents, not additional skills or mandatory stages. Review
 | --- | --- |
 | Bug fix, feature, migration, or prototype | [Change execution](references/workflow/changes.md) |
 | Boundaries, ownership, or wire contracts | [Architecture](references/architecture/overview.md) |
+| Retries, partial completion, or concurrent writes | [State changes](references/architecture/state-changes.md) |
 | Component composition, hooks, state, rendering, or SSR | [React](references/react/overview.md) |
 | Query keys, mutations, caching, pagination, or persistence | [TanStack Query](references/tanstack-query/overview.md) |
 | Types, inference, diagnostics, or runtime input validation | [TypeScript](references/typescript/overview.md) |

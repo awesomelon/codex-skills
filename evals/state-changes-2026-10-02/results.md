@@ -1,0 +1,39 @@
+# State-change guidance and verification maintenance — 2026-10-02
+
+Base revision: `2d2a13bb4a4ed67e8470bfea1dc19e04da83dc94`. The user requested improvements to the existing Get Set and Go skills following a review of a local pstack snapshot. No third skill was added.
+
+## Changes and source scope
+
+Go owns one optional [state-change reference](../../skills/rung-go/references/architecture/state-changes.md) covering repeated operations, interruption between effects and completion recording, and independent versus shared writer state. Get Set can consult it for read-only design and assessment through the existing optional-library mechanism. Go's [verification reference](../../skills/rung-go/references/workflow/verification.md) distinguishes documentation drift, driver defects, and product defects, preserving the authorized repair boundary.
+
+The three selected pstack source files were read from the user-supplied local snapshot; the [manifest](manifest.json) records their hashes. No current upstream revision was verified. The existing Lauren Tan MIT notice remains bundled. The [OpenAI authoring article](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra) was freshly retrieved in this conversation, including its guidance on precise selection, conditional references, and avoiding unnecessary procedures. The Markdown endpoint failed; the HTML article was available. This is fresh source verification, separate from earlier repository audit interpretations.
+
+The README catalog and current [scenario catalog](../set-go-2026-09-29/cases.md) reflect these behaviors. The local preparation initially assigned version 0.5.3 from the recorded base; release preparation below updates this to 0.5.4 after reconciling the already-published 0.5.3. The marketplace still selects the same root plugin; names and source paths did not change. Existing metadata descriptions and invocation policies remain unchanged. Lower-priority proposals concerning structural lessons and blast-radius review were not added.
+
+## Fresh behavioral execution
+
+Four fresh subagents received no conversation fork. Each received a realistic task, raw fixture files, and copies of the two modified skill packages in its own temporary macOS project. Expected answers, parent acceptance checks, original repository contents, and sibling cases were excluded from their assigned scope. The tasks explicitly invoked a skill. No model override was requested; the resolved model and reasoning effort were not independently recorded. Resource reads below are worker-reported, not transcript-audited discovery evidence.
+
+| Case | Observed behavior | Parent acceptance |
+| --- | --- | --- |
+| [Shared state](responses/shared-state.md) | Read Get Set's review/preflight guidance and Go's state-change reference. Rejected both a process-local mutex around stale progress snapshots and splitting a shared stock limit into independent copies. Recommended separate progress ownership but coordinated stock updates. | Reviewed the recommendations against the raw source and requirements. All supplied file hashes and inventory unchanged. The worker reported three in-memory mock assertions; no repaired filesystem concurrency implementation was exercised. |
+| [Interrupted credit](responses/replay.md) | Read Go's state-change, change-execution, and verification references. Reused the provider's durable operation key. Added checks for process interruption/restart and distinct requests. | The independent [replay check](checks/replay.mjs) failed on the original fixture at the duplicate-effect assertion, then passed against the repair. It exercises pre-effect failure, post-effect interruption, fresh processes, repetition, and distinct requests. All three worker tests also passed when rerun. Only the job and its tests changed. |
+| [Verification maintenance](responses/verification.md) | Read Go's verification reference. Corrected the obsolete command in the documentation and the driver's response expectations, then reported the product's deletion defect without repairing it. | Reran the driver: exit 1 at the retained deletion assertion after creation, saved listing, and removal acknowledgement passed. Product, contract, task, and skill hashes unchanged. The failing product assertion is the expected outcome of this scope test, not a successful product check. |
+| [Routine edit](responses/routine.md) | Read only Go's entrypoint and made the requested spelling correction. | Exact replacement confirmed; every other file and the inventory remained unchanged. No state-change reference or new driver was needed. |
+
+[Acceptance](acceptance.json) records scope checks and parent judgments. [Execution output](execution.json) preserves parent command results and inspected diffs. The manifest records starting and final file hashes. Raw worker replies, changed output files, and patches are retained separately from the scenario catalog. For replaying an output, copy its fixture and overlay the corresponding files from `outputs/`; output directories contain only changed files, not complete projects. Temporary absolute paths in raw replies identify the original execution environment.
+
+## Structural checks and limits
+
+- Both skills passed `scripts/validate.py` and Skill Creator's `quick_validate.py` using Python 3.14.8 and pinned PyYAML 6.0.3 in a temporary virtual environment. The default Python lacked PyYAML, and the first package download failed under restricted network access; installation into the temporary environment then succeeded with reviewed network access. No installed skill, user Python environment, or Codex configuration was changed.
+- Parent replay checks and test reruns used Node.js 24.21.0. The captured verification-driver shell invocation reported Node.js 26.10.0. These are different command environments, not a cross-version compatibility evaluation.
+- Final package/marketplace consistency, documentation links outside raw evidence, and whitespace checks are recorded in `structural-checks.json`.
+- Installer and validator implementation were unchanged; their regression suites were not rerun. No `validate_plugin.py` was present in the installed Plugin Creator package. No host installation, implicit discovery, publication, commit, or push was performed.
+
+All four smoke cases met their scoped behavioral criteria. They do not establish improvement over the previous instructions, model-wide reliability, automatic selection, or token/cost savings. The concurrency case establishes a supported design judgment, not a tested locking implementation. Crash recovery uses a local synthetic provider with durable deduplication and sequential attempts; it does not prove production delivery guarantees, power-loss durability, or concurrent retry safety. Get Set operating without Go remains an expected scenario rather than a newly executed case.
+
+## Release preparation
+
+After the user requested commit and deployment, a fresh remote check found that `awesomelon/rung` had already published v0.5.3 at `7198b18d7f2c79e9ad2e359973fc5be337bae691`. The local branch was fast-forwarded to that revision while preserving the pending changes. README catalog and evaluation-index conflicts were resolved by retaining both updates. The upstream clarification distinguishing service startup from operational availability was preserved in `verification.md`.
+
+The release package is v0.5.4. The original manifest and structural records retain their pre-integration hashes and version; they are historical execution evidence, not fresh model runs against the integrated package. [Release checks](release-checks.json) record the integrated skill hashes and structural checks. The new state-change criteria and verification-defect paragraph are unchanged from the evaluated content; no comparative or post-integration model evaluation is claimed.

@@ -10,4 +10,6 @@ For a consequential design, connect the proposed boundary to the mechanism it im
 
 If an experiment is needed, target the riskiest boundary or failure transition and define what would cause a split, reversal, or simpler design. A successful happy-path sketch does not establish recovery or migration feasibility. Planning-only work can specify that experiment without executing it.
 
+For retryable operations or concurrent writers, Go's optional state-change reference supplies focused design and verification criteria; resolve it through the catalog as described in the skill entrypoint.
+
 Complete a planning request with the design judgment and any requested plan artifact. If implementation is also requested, proceed within the authorized scope. When an unresolved decision determines an external contract, authorization, or data integrity, explain why that part needs resolution and continue work that can proceed independently.

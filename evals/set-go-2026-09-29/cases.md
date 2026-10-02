@@ -16,6 +16,7 @@ Expected behavior, separate from recorded execution results.
 - Review architecture and maintainability together using the common comparison and findings criteria. Preserve staged, unstaged, and untracked scope where applicable; do not invent a regression without a comparison revision or report one root cause twice.
 - A review-only task ends with findings; it does not require a new plan. A planning task can end with a concise recommendation. Neither implies implementation or external delivery.
 - Read Go's optional technical references when relevant without adopting its execution scope. Work independently when Go is unavailable.
+- Assess retry and concurrency designs without edits. Distinguish independent writer state from a shared invariant, and trace interruption between an effect and completion recording. Consult Go's optional state-change guidance when available; its absence must not block a contract-based assessment.
 
 ## Go
 
@@ -26,6 +27,10 @@ Expected behavior, separate from recorded execution results.
 - When assessing supplied quality evidence, distinguish mean from p95, a failed error-rate guardrail from passing latency, startup checks from availability over an agreed observation window, and tested audit coverage from overall security. Keep failed, unverified, and narrowly passed claims distinct without launching unrequested services or monitoring.
 - Complete a clear typo correction without a quality-goal interview, specification, or unrelated edits.
 - Resume dependent work using current evidence. Delegation and external delivery retain the task's authority boundaries.
+- Repair a retryable operation that can stop after an effect but before recording completion. Check repetition and a consequential interruption with disposable state, preserving distinct legitimate operations and observing effects rather than only the final marker. Do not move the marker before the effect and call the gap closed.
+- For overlapping writers, separate independently owned state only when the consumer contract permits it. Retain coordinated updates for a shared invariant and verify a relevant interleaving; separate fields or a serial test do not establish isolation.
+- Given a stale verification recipe, a broken driver, and a product regression, distinguish the causes against the contract. Repair only the requested verification material, rerun the repaired driver, and report the product regression without changing the product or weakening the expected behavior.
+- A routine wording edit does not load recovery guidance, introduce locks or operation keys, or create a verification driver.
 
 ## Distribution
 
