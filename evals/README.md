@@ -6,6 +6,8 @@ For a before/after comparison, hold the task input, starting fixture revision, m
 
 For incremental maintenance, review changes to referenced resources, metadata, fixtures, and checks along with SKILL.md. Use Git/content changes rather than file modification time. Keep a reason for retaining, improving, merging, or removing a skill, and leave task success, automatic discovery, elapsed time, token usage, and cost as separate measures. Do not infer unmeasured usage or savings from shorter prompts.
 
+Use [comparative evaluations](comparison.md) to record matched runs, actual model settings, usage, and success criteria. Missing measurements remain unknown; structural validation and a model process exiting successfully are not task-success evidence.
+
 Repository instructions, Markdown documentation, UI metadata, and task descriptions are now in English. Historical reports and saved Markdown responses are labeled translations with links to their original versions. Translation is not a new model run, and historical character counts, tool versions, commands, and pass totals still describe the original run.
 
 The current skill names use the Rung prefix. Recorded runs retain CraftFlow names and hashes from their original revision; the rename is not a new behavioral evaluation.
@@ -18,6 +20,8 @@ The current skill names use the Rung prefix. Recorded runs retain CraftFlow name
 | `rung-go` | [Implementation and verification](set-go-2026-09-29/cases.md#go) |
 
 [Set/Go results](set-go-2026-09-29/results.md) record actual execution separately. The [previous three-skill results](three-skills-2026-09-28/results.md) describe their historical revision.
+
+[2026-10-03 long-running work](long-running-2026-10-03/results.md) provides matched-case fixtures for changed instructions, stale asynchronous results, and a routine edit. The local CLI failed before model execution, including a bounded configuration retry. Eight author-created fixture/checker controls behaved as expected; they are not model runs or evidence of comparative improvement.
 
 [2026-10-02 state-change cases](state-changes-2026-10-02/results.md) record a read-only shared-state assessment, an interrupted-operation repair, verification-tool maintenance that exposes a product regression, and a routine edit. These are unpaired explicit-invocation smoke cases; parent checks cover edit boundaries and replay behavior, not comparative improvement or live concurrency correctness.
 

@@ -94,3 +94,9 @@ On 2026-10-02, the user-supplied local pstack snapshot was inspected, including 
 [State changes](../architecture/state-changes.md) selectively adapts replay and partial-completion questions and the choice between separating independent writes and coordinating a real shared invariant. [Verification](verification.md) distinguishes stale documentation, defective drivers, and product regressions. These are conditional decision criteria, not a requirement to make every operation idempotent, reject locks, test every interruption, generate verification skills, or run a fixed agent panel. The existing [pstack MIT notice](LICENSE) remains bundled.
 
 The designated OpenAI article was freshly read in this conversation. The refinement retains two task endpoints and puts detailed criteria behind optional references. Behavioral results are recorded separately from this source review.
+
+## Long-running work refinement
+
+On 2026-10-03, the [GPT-6 practical guide](https://openai.com/ko-KR/index/practical-guide-building-gpt-6/) and the [Astra authoring article](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra) were fetched and read during the preceding review in this conversation. This is a fresh source check, not a reinterpretation of an unavailable page.
+
+[Continuity](continuity.md) applies the guide's steering distinction: new instructions change the task but do not automatically cancel running tools or undo completed effects. [Coordination](coordination.md) applies its dependency rule for asynchronous results. Operational handles, stale-input checks, and scoped recovery are this package's adaptation. Runtime features remain host-owned, and neither reference requires delegation, a particular model, or an asynchronous API. Evaluation records distinguish these design choices from demonstrated behavioral improvement.

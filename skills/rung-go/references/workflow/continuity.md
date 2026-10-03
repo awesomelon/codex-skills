@@ -6,9 +6,15 @@ Express the task as observable outcomes, dependencies, and a completion conditio
 
 A useful checkpoint records the objective and constraints, branch/worktree and revision, current local changes, completed results with evidence, unresolved hypotheses, active workers/processes, and the next concrete action. Record material decisions and why an alternative failed, not a transcript of every tool call. Keep secrets and unrelated conversation content out of the record.
 
-Continue authorized work through verification. A user status question does not cancel the active task. Compaction is not a pause request. Repeatedly failing the same step calls for a new discriminating observation; a missing credential or product decision should block only dependent work. Respect actual time, token, or spending limits without inventing an unlimited background run.
+Continue authorized work through verification. Compaction is not a pause request. Repeatedly failing the same step calls for a new discriminating observation; a missing credential or product decision should block only dependent work. Respect actual time, token, or spending limits without inventing an unlimited background run.
 
 If the user requests later or recurring work, use the available scheduler with the real completion condition and notification intent. A skill file cannot keep a session alive, and a foreground wait is not a scheduled monitor. If no scheduling capability is available, state that limitation and provide the current handoff state.
+
+## Changed instructions during work
+
+Reconcile a new user instruction with the active objective, constraints, and completion condition. Update only affected work and tell its owners; retain completed results and decisions that still apply. A clarification or status question does not replace the task unless the user changes or cancels it. If a consequential choice remains unanswered, keep dependent work blocked and continue independent work; silence does not settle the choice.
+
+Steering does not itself cancel an in-flight operation or undo its effects. Inspect affected workers and tools, stop or redirect owned work when supported and safe, and report any cancellation that cannot be confirmed. Judge late results against the updated scope before accepting them. Use [coordination](coordination.md) for pending results and [pause](#pause) when the user explicitly stops work.
 
 ## Resume
 

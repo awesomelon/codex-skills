@@ -1,0 +1,34 @@
+{
+  "platform": "linux",
+  "python": "3.12.14",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "scripts/validate.py"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS rung-get-set: basic metadata, UI fields, portable contents, local references\nPASS rung-go: basic metadata, UI fields, portable contents, local references\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "check": "Changed Markdown relative file links, JSON parsing, Python syntax, whitespace, manifest/marketplace alignment, exactly two skills, baseline/candidate/input/evidence hashes, unchanged Get Set and installer/validator code",
+      "result": "passed",
+      "relative_links_checked": 82,
+      "changed_files_checked": 27,
+      "anchor_validation": "Not performed by this supplemental file-link check; skill references are also checked by scripts/validate.py"
+    }
+  ],
+  "behavioral_model_verification": "blocked; see results.md",
+  "fixture_controls": "8 expected outcomes; see fixture-checks.json"
+}

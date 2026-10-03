@@ -1,0 +1,119 @@
+{
+  "purpose": "Author-created checker sanity controls, not model evaluation",
+  "python": "3.12.14",
+  "os": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "checks": [
+    {
+      "case": "steering",
+      "variant": "original",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/rung/evals/long-running-2026-10-03/check_outputs.py",
+        "steering",
+        "/tmp/rung-guide-review/controls/steering-original"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout": "",
+      "stderr": "test_empty (test_export_csv.DownloadTest.test_empty) ... FAIL\ntest_escaping (test_export_csv.DownloadTest.test_escaping) ... FAIL\ntest_header (test_export_csv.DownloadTest.test_header) ... FAIL\n\n======================================================================\nFAIL: test_empty (test_export_csv.DownloadTest.test_empty)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/rung-guide-review/controls/steering-original/test_export_csv.py\", line 17, in test_empty\n    self.assertEqual(list(csv.reader(io.StringIO(download([])))), [[\"Name\"]])\nAssertionError: Lists differ: [] != [['Name']]\n\nSecond list contains 1 additional elements.\nFirst extra element 0:\n['Name']\n\n- []\n+ [['Name']]\n\n======================================================================\nFAIL: test_escaping (test_export_csv.DownloadTest.test_escaping)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/rung-guide-review/controls/steering-original/test_export_csv.py\", line 14, in test_escaping\n    self.assertEqual(list(csv.reader(io.StringIO(download(names))))[1:], [[name] for name in names])\nAssertionError: Lists differ: [['Grace \"Amazing\" Hopper'], ['Two\\nLines']] != [['Ada, Countess'], ['Grace \"Amazing\" Hopper'], ['Two\\nLines']]\n\nFirst differing element 0:\n['Grace \"Amazing\" Hopper']\n['Ada, Countess']\n\nSecond list contains 1 additional elements.\nFirst extra element 2:\n['Two\\nLines']\n\n- [['Grace \"Amazing\" Hopper'], ['Two\\nLines']]\n+ [['Ada, Countess'], ['Grace \"Amazing\" Hopper'], ['Two\\nLines']]\n?  +++++++++++++++++++\n\n\n======================================================================\nFAIL: test_header (test_export_csv.DownloadTest.test_header)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/rung-guide-review/controls/steering-original/test_export_csv.py\", line 10, in test_header\n    self.assertEqual(list(csv.reader(io.StringIO(download([\"Ada\"])))), [[\"Name\"], [\"Ada\"]])\nAssertionError: Lists differ: [['Ada']] != [['Name'], ['Ada']]\n\nFirst differing element 0:\n['Ada']\n['Name']\n\nSecond list contains 1 additional elements.\nFirst extra element 1:\n['Ada']\n\n- [['Ada']]\n+ [['Name'], ['Ada']]\n\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nFAILED (failures=3)\nTraceback (most recent call last):\n  File \"/workspace/rung/evals/long-running-2026-10-03/check_outputs.py\", line 75, in <module>\n    check(case_name, output_dir)\n  File \"/workspace/rung/evals/long-running-2026-10-03/check_outputs.py\", line 58, in check\n    subprocess.run(\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3', '-B', '-m', 'unittest', 'discover', '-v']' returned non-zero exit status 1.\n"
+    },
+    {
+      "case": "steering",
+      "variant": "author-control",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/rung/evals/long-running-2026-10-03/check_outputs.py",
+        "steering",
+        "/tmp/rung-guide-review/controls/steering-author-control"
+      ],
+      "exit_code": 0,
+      "expected_acceptance": true,
+      "stdout": "PASS steering: artifacts and local behavior; assess response claims separately\n",
+      "stderr": "test_empty (test_export_csv.DownloadTest.test_empty) ... ok\ntest_escaping (test_export_csv.DownloadTest.test_escaping) ... ok\ntest_header (test_export_csv.DownloadTest.test_header) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "case": "async-result",
+      "variant": "original",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/rung/evals/long-running-2026-10-03/check_outputs.py",
+        "async-result",
+        "/tmp/rung-guide-review/controls/async-result-original"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout": "",
+      "stderr": "test_empty (test_slugs.SlugTest.test_empty) ... FAIL\ntest_whitespace (test_slugs.SlugTest.test_whitespace) ... FAIL\ntest_words (test_slugs.SlugTest.test_words) ... ok\n\n======================================================================\nFAIL: test_empty (test_slugs.SlugTest.test_empty)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/rung-guide-review/controls/async-result-original/test_slugs.py\", line 14, in test_empty\n    self.assertEqual(slug(\" \\t\\n\"), \"\")\nAssertionError: '-\\t\\n' != ''\n- -\t\n\n\n======================================================================\nFAIL: test_whitespace (test_slugs.SlugTest.test_whitespace)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/rung-guide-review/controls/async-result-original/test_slugs.py\", line 11, in test_whitespace\n    self.assertEqual(slug(\"  Hello\\t  World\\n\"), \"hello-world\")\nAssertionError: '--hello\\t--world\\n' != 'hello-world'\n- --hello\t--world\n? --     --\n+ hello-world\n- \n\n\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nFAILED (failures=2)\nTraceback (most recent call last):\n  File \"/workspace/rung/evals/long-running-2026-10-03/check_outputs.py\", line 75, in <module>\n    check(case_name, output_dir)\n  File \"/workspace/rung/evals/long-running-2026-10-03/check_outputs.py\", line 58, in check\n    subprocess.run(\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3', '-B', '-m', 'unittest', 'discover', '-v']' returned non-zero exit status 1.\n"
+    },
+    {
+      "case": "async-result",
+      "variant": "author-control",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/rung/evals/long-running-2026-10-03/check_outputs.py",
+        "async-result",
+        "/tmp/rung-guide-review/controls/async-result-author-control"
+      ],
+      "exit_code": 0,
+      "expected_acceptance": true,
+      "stdout": "PASS async-result: artifacts and local behavior; assess response claims separately\n",
+      "stderr": "test_empty (test_slugs.SlugTest.test_empty) ... ok\ntest_whitespace (test_slugs.SlugTest.test_whitespace) ... ok\ntest_words (test_slugs.SlugTest.test_words) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "case": "routine",
+      "variant": "original",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/rung/evals/long-running-2026-10-03/check_outputs.py",
+        "routine",
+        "/tmp/rung-guide-review/controls/routine-original"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/rung/evals/long-running-2026-10-03/check_outputs.py\", line 75, in <module>\n    check(case_name, output_dir)\n  File \"/workspace/rung/evals/long-running-2026-10-03/check_outputs.py\", line 56, in check\n    assert after[\"README.md\"] == before[\"README.md\"].replace(b\"proceses\", b\"processes\")\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "case": "routine",
+      "variant": "author-control",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/rung/evals/long-running-2026-10-03/check_outputs.py",
+        "routine",
+        "/tmp/rung-guide-review/controls/routine-author-control"
+      ],
+      "exit_code": 0,
+      "expected_acceptance": true,
+      "stdout": "PASS routine: artifacts and local behavior; assess response claims separately\n",
+      "stderr": ""
+    },
+    {
+      "case": "steering",
+      "variant": "protected-record",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/rung/evals/long-running-2026-10-03/check_outputs.py",
+        "steering",
+        "/tmp/rung-guide-review/controls/steering-scope-negative"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/rung/evals/long-running-2026-10-03/check_outputs.py\", line 75, in <module>\n    check(case_name, output_dir)\n  File \"/workspace/rung/evals/long-running-2026-10-03/check_outputs.py\", line 54, in check\n    assert after[path] == contents, f\"Changed protected input: {path}\"\n           ^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Changed protected input: handoff.json\n"
+    },
+    {
+      "case": "routine",
+      "variant": "extra-file",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/rung/evals/long-running-2026-10-03/check_outputs.py",
+        "routine",
+        "/tmp/rung-guide-review/controls/routine-scope-negative"
+      ],
+      "exit_code": 1,
+      "expected_acceptance": false,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/workspace/rung/evals/long-running-2026-10-03/check_outputs.py\", line 75, in <module>\n    check(case_name, output_dir)\n  File \"/workspace/rung/evals/long-running-2026-10-03/check_outputs.py\", line 51, in check\n    assert after.keys() == before.keys(), \"Unexpected output file inventory\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Unexpected output file inventory\n"
+    }
+  ]
+}

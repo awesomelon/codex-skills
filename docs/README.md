@@ -11,5 +11,6 @@ Start with the [README](../README.md) for installation and example requests. Use
 | [Contributing](../CONTRIBUTING.md) | Skill changes, development setup, and validation. |
 | [Specification-driven changes](spec-driven-changes.md) | Applying OpenSpec concepts through existing project artifacts. |
 | [Evaluation evidence](../evals/README.md) | Reading and reproducing behavioral results. |
+| [Model and reasoning choices](model-selection.md) | Choosing host settings and comparing task quality, time, and cost. |
 
 For skill details, use the references in each [skill entrypoint](../README.md#included-skills). The [expertise map](../skills/rung-go/references/workflow/expertise.md) explains where technical responsibilities overlap.

@@ -28,7 +28,8 @@ These are reference documents, not additional skills or mandatory stages. Review
 | Behavior-preserving structural changes | [Refactoring](references/refactoring/overview.md) |
 | Measured optimization | [Performance](references/workflow/performance.md) |
 | Runtime assertions, evidence validity, or integration | [Verification](references/workflow/verification.md) |
-| Resume, checkpoint, or pause | [Continuity](references/workflow/continuity.md) |
+| Pending tool results or worker handoffs | [Coordination](references/workflow/coordination.md) |
+| Changed instructions, resume, checkpoint, or pause | [Continuity](references/workflow/continuity.md) |
 | Authorized PR work or delivery | [Review and delivery](references/workflow/review-and-delivery.md) |
 | Reuse or preserve verified project reasoning | [Learning](references/workflow/learning.md) |
 

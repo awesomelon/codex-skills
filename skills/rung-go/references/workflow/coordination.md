@@ -1,4 +1,4 @@
-# Agent coordination
+# Work coordination
 
 ## Dispatch ready work
 
@@ -24,6 +24,12 @@ Different paths can still depend on the same schema, generated output, lockfile,
 Track assigned work with its owner, dependency, and current state such as ready, running, blocked, or accepted. Use the existing plan or a concise note; no orchestration database or mandatory file format is needed. When a blocker appears, continue unaffected work and change the plan only where the new evidence requires it.
 
 If work stalls, inspect its status or partial artifacts and narrow the unresolved problem before retrying. Avoid blind restarts and repeated identical delegation. A timeout does not prove a worker stopped: confirm it cannot keep writing, or isolate the replacement, before transferring ownership. State when an old worker's shutdown is unconfirmed and keep its output out of the accepted result.
+
+## Pending tool results
+
+When the host supports asynchronous execution, continue work independent of a running tool and wait before decisions or actions that require its result. Use the returned operation handle to collect completion; a queued request or timeout is not a completed check. Prefer the host's completion notification or bounded wait over repeated status polling. Without asynchronous support, use the ordinary synchronous path.
+
+Associate a result with the inputs it actually exercised: the relevant revision and local edits, build or snapshot, and material runtime conditions. Work performed while a check runs can make its result stale. If input identity is uncertain, resolve it before accepting the result; a passing run started before later edits does not establish their correctness. Apply [verification evidence](verification.md) to decide which affected checks must run again, and account for pending owned operations before the final report.
 
 ## Accept and integrate
 
