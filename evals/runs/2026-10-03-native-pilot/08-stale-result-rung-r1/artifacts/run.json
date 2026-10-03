@@ -1,0 +1,9 @@
+{
+  "operation_id": "test-41",
+  "status": "completed",
+  "exit_code": 0,
+  "tested_snapshot": "snapshot-before-local-edits",
+  "stdout": "Ran 3 tests. OK",
+  "input_identity": "This captured result exercised an isolated snapshot, not the current slugs.py or current supplied tests.",
+  "live_operation": false
+}

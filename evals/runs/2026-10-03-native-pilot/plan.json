@@ -1,0 +1,164 @@
+{
+  "purpose": "Feasibility and informative comparison pilot; not release qualification",
+  "requested_model": "gpt-6-astra",
+  "requested_effort": "high",
+  "binary": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+  "model_invocation_ceiling": 24,
+  "automatic_retries": 0,
+  "timeout_per_attempt_seconds": 180,
+  "order": [
+    {
+      "case": "routine",
+      "variant": "control",
+      "repetition": 1
+    },
+    {
+      "case": "routine",
+      "variant": "rung",
+      "repetition": 1
+    },
+    {
+      "case": "wrong-diagnosis",
+      "variant": "control",
+      "repetition": 1
+    },
+    {
+      "case": "wrong-diagnosis",
+      "variant": "rung",
+      "repetition": 1
+    },
+    {
+      "case": "review-scope",
+      "variant": "control",
+      "repetition": 1
+    },
+    {
+      "case": "review-scope",
+      "variant": "rung",
+      "repetition": 1
+    },
+    {
+      "case": "stale-result",
+      "variant": "control",
+      "repetition": 1
+    },
+    {
+      "case": "stale-result",
+      "variant": "rung",
+      "repetition": 1
+    },
+    {
+      "case": "routine",
+      "variant": "rung",
+      "repetition": 2
+    },
+    {
+      "case": "routine",
+      "variant": "control",
+      "repetition": 2
+    },
+    {
+      "case": "wrong-diagnosis",
+      "variant": "rung",
+      "repetition": 2
+    },
+    {
+      "case": "wrong-diagnosis",
+      "variant": "control",
+      "repetition": 2
+    },
+    {
+      "case": "review-scope",
+      "variant": "rung",
+      "repetition": 2
+    },
+    {
+      "case": "review-scope",
+      "variant": "control",
+      "repetition": 2
+    },
+    {
+      "case": "stale-result",
+      "variant": "rung",
+      "repetition": 2
+    },
+    {
+      "case": "stale-result",
+      "variant": "control",
+      "repetition": 2
+    },
+    {
+      "case": "routine",
+      "variant": "control",
+      "repetition": 3
+    },
+    {
+      "case": "routine",
+      "variant": "rung",
+      "repetition": 3
+    },
+    {
+      "case": "wrong-diagnosis",
+      "variant": "control",
+      "repetition": 3
+    },
+    {
+      "case": "wrong-diagnosis",
+      "variant": "rung",
+      "repetition": 3
+    },
+    {
+      "case": "review-scope",
+      "variant": "control",
+      "repetition": 3
+    },
+    {
+      "case": "review-scope",
+      "variant": "rung",
+      "repetition": 3
+    },
+    {
+      "case": "stale-result",
+      "variant": "control",
+      "repetition": 3
+    },
+    {
+      "case": "stale-result",
+      "variant": "rung",
+      "repetition": 3
+    }
+  ],
+  "frozen_code": {
+    "scripts/evaluate.py": "0f6c15e7c8cc84885c7564101c9b5a5cfa142eb161fc35a50253a833cf9b0829",
+    "evals/release-1.0/checks.py": "d1dc06e7f6ab0ce231a4af39c9c8374ef4c3bd9feaa88bbd77694a4b5974076b",
+    "evals/release-1.0/manifest.json": "f9eb19d5f4baedc043fbfd244f427d72c3c6f65751624b3689e9be0077efb7b1"
+  },
+  "suite_files": {
+    "README.md": "7e6bd57a940c41ea6cb551d2af9fe4a5f1feb70de48b1481f2b2ae503dad69cb",
+    "checks.py": "d1dc06e7f6ab0ce231a4af39c9c8374ef4c3bd9feaa88bbd77694a4b5974076b",
+    "fixtures/": "directory",
+    "fixtures/review-scope/": "directory",
+    "fixtures/review-scope/TASK.md": "d4c79c05b38ad55d1823e2b761c6bb7371bc2b846fe4692c52bef5a322e429e3",
+    "fixtures/review-scope/cache.py": "1f1773ea382406b55fd17fed23fc829dfb6a1ce69c051f451ac581c82e1b03a2",
+    "fixtures/review-scope/notes.txt": "2b5573a990acfafb21ece714924ac0b6ab0d8ba93ec2671af9c92d04ebdb3b66",
+    "fixtures/review-scope/scratch.txt": "fac83387f649bb432b21863d911b9842188d827418c1156b0694394e006f42f9",
+    "fixtures/routine/": "directory",
+    "fixtures/routine/README.md": "ac2a82f0caf1b7a9c25e9d0fa412e60feb8657f7c8427b4f8372bdb1c3b0f36d",
+    "fixtures/routine/TASK.md": "c2a68c55e7a9ff080786f30ad9398c5f4c20fabc7569b1f2da4113a097a9b0f8",
+    "fixtures/stale-result/": "directory",
+    "fixtures/stale-result/TASK.md": "5ff53da2fca0d6d7a390ebec9006629af87a6dbe3b2a119fb073727718814cb2",
+    "fixtures/stale-result/run.json": "6ed752ba0ff0271bbaa4d69a3fec2cead4285b539744d7e02792171b311096cb",
+    "fixtures/stale-result/slugs.py": "be1453a086d2e96c1c1f9b0ad8985fbe3e5f702bb2334c0701cc5c055155fbcf",
+    "fixtures/stale-result/test_slugs.py": "c7ff02aec836a50d5a641e4a0d41bbbac380d52e094806fc012747ceac9bdc6c",
+    "fixtures/wrong-diagnosis/": "directory",
+    "fixtures/wrong-diagnosis/TASK.md": "7f2a195366636c5067d223ab7094b4ad2d179ae6750cd5fbb6dc89456b8dd328",
+    "fixtures/wrong-diagnosis/diagnosis.json": "d3708c6a54e6ab08819daa594995b70a30a78d51feb6929471226e48a41ec66f",
+    "fixtures/wrong-diagnosis/preferences.mjs": "f4512e3b98c121e61aa6109d782c6f3aa95d4f6331236b3c0b80ee755eadd634",
+    "fixtures/wrong-diagnosis/preferences.test.mjs": "0b40951ae11d2e574fe9ffe9e3db0baf11b0f014d4985230b7744a48c792d8ba",
+    "manifest.json": "f9eb19d5f4baedc043fbfd244f427d72c3c6f65751624b3689e9be0077efb7b1",
+    "review-base/": "directory",
+    "review-base/cache.py": "de3c51e50aacc5f023438dc0d98d6000f22615de6d18f45b75d49e4acaeb7c0b",
+    "review-base/notes.txt": "d7ca10d683c137b09f7ab5dc390b1f2284647942ea172b0f0f2d3ec488405588"
+  },
+  "prior_diagnostics": "../2026-10-03-pilot/results.md"
+}

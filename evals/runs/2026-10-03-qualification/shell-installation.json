@@ -1,0 +1,158 @@
+{
+  "host": "macOS-27.0.1-arm64-arm-64bit",
+  "bash": "GNU bash, version 3.2.57(1)-release (arm64-apple-darwin26)",
+  "commands": [
+    {
+      "command": [
+        "/bin/bash",
+        "/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/source/scripts/install.sh",
+        "--list"
+      ],
+      "started_at": "2026-10-03T13:42:44.241753+00:00",
+      "elapsed_seconds": 0.866869,
+      "exit_code": 0,
+      "timed_out": false,
+      "interrupted": false,
+      "cleanup": "process_group_exited",
+      "stdout": "rung-get-set\nrung-go\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/bin/bash",
+        "/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/source/scripts/install.sh",
+        "--dest",
+        "/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/dry",
+        "--dry-run"
+      ],
+      "started_at": "2026-10-03T13:42:45.108747+00:00",
+      "elapsed_seconds": 0.878701,
+      "exit_code": 0,
+      "timed_out": false,
+      "interrupted": false,
+      "cleanup": "process_group_exited",
+      "stdout": "DRY RUN install: /private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/dry/rung-get-set (link)\nDRY RUN install: /private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/dry/rung-go (link)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/bin/bash",
+        "/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/source/scripts/install.sh",
+        "--dest",
+        "/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/links",
+        "--skill",
+        "rung-go"
+      ],
+      "started_at": "2026-10-03T13:42:45.987611+00:00",
+      "elapsed_seconds": 0.855864,
+      "exit_code": 0,
+      "timed_out": false,
+      "interrupted": false,
+      "cleanup": "process_group_exited",
+      "stdout": "install: /private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/links/rung-go (link)\nInstallation complete.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/bin/bash",
+        "/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/source/scripts/install.sh",
+        "--dest",
+        "/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/copies",
+        "--mode",
+        "copy"
+      ],
+      "started_at": "2026-10-03T13:42:46.843738+00:00",
+      "elapsed_seconds": 1.739837,
+      "exit_code": 0,
+      "timed_out": false,
+      "interrupted": false,
+      "cleanup": "process_group_exited",
+      "stdout": "install: /private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/copies/rung-get-set (copy)\ninstall: /private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/copies/rung-go (copy)\nInstallation complete.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/bin/bash",
+        "/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/source/scripts/install.sh",
+        "--dest",
+        "/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/copies",
+        "--mode",
+        "copy"
+      ],
+      "started_at": "2026-10-03T13:42:48.583695+00:00",
+      "elapsed_seconds": 1.73975,
+      "exit_code": 0,
+      "timed_out": false,
+      "interrupted": false,
+      "cleanup": "process_group_exited",
+      "stdout": "unchanged: /private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/copies/rung-get-set (copy)\nunchanged: /private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/copies/rung-go (copy)\nInstallation complete.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/bin/bash",
+        "/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/source/scripts/install.sh",
+        "--dest",
+        "/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/copies",
+        "--mode",
+        "copy"
+      ],
+      "started_at": "2026-10-03T13:42:50.336854+00:00",
+      "elapsed_seconds": 3.439526,
+      "exit_code": 0,
+      "timed_out": false,
+      "interrupted": false,
+      "cleanup": "process_group_exited",
+      "stdout": "unchanged: /private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/copies/rung-get-set (copy)\nupdate: /private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/copies/rung-go (copy)\nInstallation complete.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/bin/bash",
+        "/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/source/scripts/install.sh",
+        "--dest",
+        "/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/copies",
+        "--mode",
+        "copy"
+      ],
+      "started_at": "2026-10-03T13:42:53.776800+00:00",
+      "elapsed_seconds": 3.47285,
+      "exit_code": 0,
+      "timed_out": false,
+      "interrupted": false,
+      "cleanup": "process_group_exited",
+      "stdout": "unchanged: /private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/copies/rung-get-set (copy)\nupdate: /private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/copies/rung-go (copy)\nInstallation complete.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/bin/bash",
+        "/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/source/scripts/install.sh",
+        "--dest",
+        "/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/copies",
+        "--mode",
+        "copy"
+      ],
+      "started_at": "2026-10-03T13:42:57.256287+00:00",
+      "elapsed_seconds": 1.634627,
+      "exit_code": 1,
+      "timed_out": false,
+      "interrupted": false,
+      "cleanup": "process_group_exited",
+      "stdout": "",
+      "stderr": "ERROR: Locally edited copy or invalid metadata; preserved: /private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-shell-release-01bm7rvy/copies/rung-go\n"
+    }
+  ],
+  "checks": [
+    "list",
+    "dry-run no writes",
+    "selected link",
+    "both copies byte match",
+    "repeat",
+    "managed update",
+    "restore previous bytes",
+    "edited copy preserved"
+  ],
+  "all_passed": true,
+  "real_user_destination_used": false
+}

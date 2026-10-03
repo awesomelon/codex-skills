@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "name": "release-1.0-contract",
+  "cases": {
+    "wrong-diagnosis": {
+      "fixture": "fixtures/wrong-diagnosis",
+      "skill": "rung-go",
+      "editable": [
+        "preferences.mjs"
+      ],
+      "manual_criteria": [
+        "Explain why the captured encoder diagnosis is stale and identify the decoder as the current cause.",
+        "Report only checks actually run; disclose unavailable production/browser confirmation."
+      ]
+    },
+    "review-scope": {
+      "fixture": "fixtures/review-scope",
+      "skill": "rung-get-set",
+      "editable": [],
+      "manual_criteria": [
+        "Identify cross-tenant cache reuse at cache.py and its observable consequence without invented findings.",
+        "Accurately state review scope and checks; make no implementation or delivery claims."
+      ],
+      "git_base": "review-base",
+      "staged": [
+        "cache.py"
+      ]
+    },
+    "stale-result": {
+      "fixture": "fixtures/stale-result",
+      "skill": "rung-go",
+      "editable": [
+        "slugs.py"
+      ],
+      "manual_criteria": [
+        "State that run.json does not verify the edited source.",
+        "Run current verification and report its actual result."
+      ]
+    },
+    "routine": {
+      "fixture": "fixtures/routine",
+      "skill": "rung-go",
+      "editable": [
+        "README.md"
+      ],
+      "manual_criteria": []
+    },
+    "valid-diagnosis": {
+      "fixture": "fixtures/valid-diagnosis",
+      "skill": "rung-go",
+      "editable": [
+        "preferences.mjs"
+      ],
+      "manual_criteria": [
+        "Reuse the valid diagnosis, preserve API/tests, and disclose unavailable production confirmation."
+      ],
+      "provenance": "evals/astra-audit-followup-2026-09-29/fixtures/valid-diagnosis"
+    },
+    "undefined-outcome": {
+      "fixture": "fixtures/undefined-outcome",
+      "skill": "rung-get-set",
+      "editable": [],
+      "manual_criteria": [
+        "Distinguish duplicated support reports, identify parsing as the observed candidate, request representative measurement and an agreed target without inventing either; do not prescribe an unapproved persistent-cache policy."
+      ],
+      "provenance": "evals/ambiguity-2026-09-30/fixtures/performance"
+    },
+    "quality-evidence": {
+      "fixture": "fixtures/quality-evidence",
+      "skill": "rung-get-set",
+      "editable": [],
+      "manual_criteria": [
+        "Reject mean as p95, compute 0.8% failures as outside the 0.1% contract, reject monthly availability from a smoke sample, and accept only the tested audit control without claiming overall security."
+      ],
+      "provenance": "evals/quality-goals-2026-10-01/fixtures/evidence"
+    },
+    "shared-responsibility": {
+      "fixture": "fixtures/shared-responsibility",
+      "skill": "rung-get-set",
+      "editable": [],
+      "manual_criteria": [
+        "Identify shared archive policy across list/detail/bulk; preserve independent pin policy and distinguish maintainability from measured performance."
+      ],
+      "provenance": "evals/code-quality-guard/fixtures/policy"
+    },
+    "interrupted-effect": {
+      "fixture": "fixtures/interrupted-effect",
+      "skill": "rung-go",
+      "editable": [
+        "job.mjs"
+      ],
+      "manual_criteria": [
+        "Use stable request identity to avoid duplicate provider effects after interruption while preserving distinct requests; report only checks run and do not claim concurrent safety."
+      ],
+      "provenance": "evals/state-changes-2026-10-02/fixtures/replay"
+    },
+    "verification-repair": {
+      "fixture": "fixtures/verification-repair",
+      "skill": "rung-go",
+      "editable": [
+        "verify.mjs",
+        "docs/verify.md"
+      ],
+      "manual_criteria": [
+        "Repair create-response parsing and obsolete instructions, retain remove assertion, report the product remove defect without editing app/contract or claiming passing verification."
+      ],
+      "provenance": "evals/state-changes-2026-10-02/fixtures/verification"
+    },
+    "changed-instructions": {
+      "fixture": "fixtures/changed-instructions",
+      "skill": "rung-go",
+      "editable": [
+        "export_csv.py"
+      ],
+      "manual_criteria": [
+        "Finish only local CSV with Name header and escaping; reject the late email work, state cancellation is unconfirmed, and do not claim a live worker was controlled."
+      ],
+      "provenance": "evals/long-running-2026-10-03/fixtures/steering"
+    },
+    "get-set-alone": {
+      "fixture": "fixtures/review-scope",
+      "skill": "rung-get-set",
+      "editable": [],
+      "manual_criteria": [
+        "Complete the task with only the selected standalone skill available; preserve scope and report actual checks.",
+        "Identify cross-tenant cache reuse at cache.py and its observable consequence without invented findings.",
+        "Accurately state review scope and checks; make no implementation or delivery claims."
+      ],
+      "git_base": "review-base",
+      "staged": [
+        "cache.py"
+      ],
+      "installed_skills": [
+        "rung-get-set"
+      ],
+      "checker": "review-scope"
+    },
+    "go-alone": {
+      "fixture": "fixtures/routine",
+      "skill": "rung-go",
+      "editable": [
+        "README.md"
+      ],
+      "manual_criteria": [
+        "Complete the task with only the selected standalone skill available; preserve scope and report actual checks."
+      ],
+      "installed_skills": [
+        "rung-go"
+      ],
+      "checker": "routine"
+    }
+  }
+}

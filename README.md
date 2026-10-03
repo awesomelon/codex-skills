@@ -10,6 +10,8 @@
 
 Rung gives Codex guidance for engineering decisions. Understand the problem. Select the necessary change. Verify the result.
 
+Version 1.0 establishes a stable two-skill contract and verified distribution. It does not claim an advantage over baseline Codex: the release pilot produced correct artifacts in both arms. See [release evidence and limits](docs/releases/1.0.0.md) and [compatibility](docs/compatibility.md).
+
 ## Why Rung
 
 A fix can pass tests without correcting the cause. A small repair can become an unnecessary rewrite. A completion report can omit important checks.

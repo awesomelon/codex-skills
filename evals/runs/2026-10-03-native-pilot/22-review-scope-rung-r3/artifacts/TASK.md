@@ -1,0 +1,1 @@
+Review staged, unstaged, and untracked changes for correctness. Do not edit files. The cache must keep tenant records separate. Report actionable findings with file references, their consequences, actual checks, and any limits.

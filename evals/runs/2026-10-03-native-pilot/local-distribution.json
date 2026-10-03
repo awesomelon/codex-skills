@@ -1,0 +1,242 @@
+{
+  "kind": "isolated local marketplace lifecycle",
+  "cli_version": "0.160.0",
+  "commands": [
+    {
+      "command": [
+        "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+        "--no-daemon",
+        "plugin",
+        "marketplace",
+        "add",
+        "/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-distribution-un5ya0m1/source"
+      ],
+      "started_at": "2026-10-03T05:27:28.096851+00:00",
+      "elapsed_seconds": 0.0192,
+      "exit_code": 0,
+      "timed_out": false,
+      "interrupted": false,
+      "cleanup": "process_group_exited",
+      "stdout": "Added marketplace `rung` from /private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-distribution-un5ya0m1/source.\nInstalled marketplace root: /private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-distribution-un5ya0m1/source\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+        "--no-daemon",
+        "plugin",
+        "add",
+        "rung@rung",
+        "--json"
+      ],
+      "started_at": "2026-10-03T05:27:28.116125+00:00",
+      "elapsed_seconds": 0.032497,
+      "exit_code": 0,
+      "timed_out": false,
+      "interrupted": false,
+      "cleanup": "process_group_exited",
+      "stdout": "{\n  \"pluginId\": \"rung@rung\",\n  \"name\": \"rung\",\n  \"marketplaceName\": \"rung\",\n  \"version\": \"0.5.5\",\n  \"installedPath\": \"/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-distribution-un5ya0m1/state/codex/plugins/cache/rung/rung/0.5.5\",\n  \"authPolicy\": \"ON_INSTALL\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+        "--no-daemon",
+        "plugin",
+        "list",
+        "--marketplace",
+        "rung",
+        "--json"
+      ],
+      "started_at": "2026-10-03T05:27:28.148698+00:00",
+      "elapsed_seconds": 0.020046,
+      "exit_code": 0,
+      "timed_out": false,
+      "interrupted": false,
+      "cleanup": "process_group_exited",
+      "stdout": "{\n  \"installed\": [\n    {\n      \"pluginId\": \"rung@rung\",\n      \"name\": \"rung\",\n      \"marketplaceName\": \"rung\",\n      \"version\": \"0.5.5\",\n      \"installed\": true,\n      \"enabled\": true,\n      \"source\": {\n        \"source\": \"local\",\n        \"path\": \"/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-distribution-un5ya0m1/source\"\n      },\n      \"marketplaceSource\": {\n        \"sourceType\": \"local\",\n        \"source\": \"/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-distribution-un5ya0m1/source\"\n      },\n      \"installPolicy\": \"AVAILABLE\",\n      \"authPolicy\": \"ON_INSTALL\"\n    }\n  ],\n  \"available\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+        "--no-daemon",
+        "plugin",
+        "remove",
+        "rung@rung"
+      ],
+      "started_at": "2026-10-03T05:29:30.870816+00:00",
+      "elapsed_seconds": 0.0278,
+      "exit_code": 0,
+      "timed_out": false,
+      "interrupted": false,
+      "cleanup": "process_group_exited",
+      "stdout": "Removed plugin `rung` from marketplace `rung`.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+        "--no-daemon",
+        "plugin",
+        "add",
+        "rung@rung",
+        "--json"
+      ],
+      "started_at": "2026-10-03T05:29:30.899061+00:00",
+      "elapsed_seconds": 0.034821,
+      "exit_code": 0,
+      "timed_out": false,
+      "interrupted": false,
+      "cleanup": "process_group_exited",
+      "stdout": "{\n  \"pluginId\": \"rung@rung\",\n  \"name\": \"rung\",\n  \"marketplaceName\": \"rung\",\n  \"version\": \"1.0.0-rc.1\",\n  \"installedPath\": \"/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-distribution-un5ya0m1/state/codex/plugins/cache/rung/rung/1.0.0-rc.1\",\n  \"authPolicy\": \"ON_INSTALL\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+        "--no-daemon",
+        "plugin",
+        "list",
+        "--marketplace",
+        "rung",
+        "--json"
+      ],
+      "started_at": "2026-10-03T05:29:30.933997+00:00",
+      "elapsed_seconds": 0.021468,
+      "exit_code": 0,
+      "timed_out": false,
+      "interrupted": false,
+      "cleanup": "process_group_exited",
+      "stdout": "{\n  \"installed\": [\n    {\n      \"pluginId\": \"rung@rung\",\n      \"name\": \"rung\",\n      \"marketplaceName\": \"rung\",\n      \"version\": \"1.0.0-rc.1\",\n      \"installed\": true,\n      \"enabled\": true,\n      \"source\": {\n        \"source\": \"local\",\n        \"path\": \"/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-distribution-un5ya0m1/source\"\n      },\n      \"marketplaceSource\": {\n        \"sourceType\": \"local\",\n        \"source\": \"/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-distribution-un5ya0m1/source\"\n      },\n      \"installPolicy\": \"AVAILABLE\",\n      \"authPolicy\": \"ON_INSTALL\"\n    }\n  ],\n  \"available\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+        "--no-daemon",
+        "plugin",
+        "remove",
+        "rung@rung"
+      ],
+      "started_at": "2026-10-03T05:29:30.976344+00:00",
+      "elapsed_seconds": 0.025672,
+      "exit_code": 0,
+      "timed_out": false,
+      "interrupted": false,
+      "cleanup": "process_group_exited",
+      "stdout": "Removed plugin `rung` from marketplace `rung`.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+        "--no-daemon",
+        "plugin",
+        "add",
+        "rung@rung",
+        "--json"
+      ],
+      "started_at": "2026-10-03T05:29:31.002459+00:00",
+      "elapsed_seconds": 0.034072,
+      "exit_code": 0,
+      "timed_out": false,
+      "interrupted": false,
+      "cleanup": "process_group_exited",
+      "stdout": "{\n  \"pluginId\": \"rung@rung\",\n  \"name\": \"rung\",\n  \"marketplaceName\": \"rung\",\n  \"version\": \"0.5.5\",\n  \"installedPath\": \"/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-distribution-un5ya0m1/state/codex/plugins/cache/rung/rung/0.5.5\",\n  \"authPolicy\": \"ON_INSTALL\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+        "--no-daemon",
+        "plugin",
+        "list",
+        "--marketplace",
+        "rung",
+        "--json"
+      ],
+      "started_at": "2026-10-03T05:29:31.036664+00:00",
+      "elapsed_seconds": 0.019208,
+      "exit_code": 0,
+      "timed_out": false,
+      "interrupted": false,
+      "cleanup": "process_group_exited",
+      "stdout": "{\n  \"installed\": [\n    {\n      \"pluginId\": \"rung@rung\",\n      \"name\": \"rung\",\n      \"marketplaceName\": \"rung\",\n      \"version\": \"0.5.5\",\n      \"installed\": true,\n      \"enabled\": true,\n      \"source\": {\n        \"source\": \"local\",\n        \"path\": \"/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-distribution-un5ya0m1/source\"\n      },\n      \"marketplaceSource\": {\n        \"sourceType\": \"local\",\n        \"source\": \"/private/var/folders/xb/89cqgd_n0g746ly4h0gkjlr80000gn/T/rung-distribution-un5ya0m1/source\"\n      },\n      \"installPolicy\": \"AVAILABLE\",\n      \"authPolicy\": \"ON_INSTALL\"\n    }\n  ],\n  \"available\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+        "--no-daemon",
+        "plugin",
+        "remove",
+        "rung@rung"
+      ],
+      "started_at": "2026-10-03T05:29:31.075968+00:00",
+      "elapsed_seconds": 0.025041,
+      "exit_code": 0,
+      "timed_out": false,
+      "interrupted": false,
+      "cleanup": "process_group_exited",
+      "stdout": "Removed plugin `rung` from marketplace `rung`.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+        "--no-daemon",
+        "plugin",
+        "list",
+        "--marketplace",
+        "rung",
+        "--json"
+      ],
+      "started_at": "2026-10-03T05:29:31.101110+00:00",
+      "elapsed_seconds": 0.019329,
+      "exit_code": 0,
+      "timed_out": false,
+      "interrupted": false,
+      "cleanup": "process_group_exited",
+      "stdout": "{\n  \"installed\": [],\n  \"available\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+        "--no-daemon",
+        "plugin",
+        "marketplace",
+        "remove",
+        "rung"
+      ],
+      "started_at": "2026-10-03T05:29:31.120537+00:00",
+      "elapsed_seconds": 0.020049,
+      "exit_code": 0,
+      "timed_out": false,
+      "interrupted": false,
+      "cleanup": "process_group_exited",
+      "stdout": "Removed marketplace `rung`.\n",
+      "stderr": ""
+    }
+  ],
+  "checks": [
+    {
+      "version": "0.5.5",
+      "installed_skills_match_source": true
+    },
+    {
+      "version": "1.0.0-rc.1",
+      "installed_skills_match_source": true,
+      "unrelated_preference_and_file_preserved": true
+    },
+    {
+      "version": "0.5.5",
+      "installed_skills_match_source": true,
+      "unrelated_preference_and_file_preserved": true
+    }
+  ],
+  "removed_plugin_and_marketplace": true,
+  "unrelated_preference_and_file_preserved": true,
+  "limit": "RC version is a temporary manifest fixture with unchanged 0.5.5 skill bytes; no real release or desktop installation is claimed."
+}

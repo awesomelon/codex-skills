@@ -1,0 +1,3 @@
+# Assigned skill copies are byte-identical to the recorded source revision.
+# Keep their inventories in record.json; maintain package contents only in skills/.
+**/artifacts/.agents/

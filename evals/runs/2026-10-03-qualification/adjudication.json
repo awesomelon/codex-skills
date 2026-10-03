@@ -1,0 +1,190 @@
+{
+  "adjudicator": "Release coordinator",
+  "independent_blinded_review": false,
+  "method": "Inspect response semantics and material verification claims against the actual selected tool trace and independent artifact/scope checks. Do not grade preferred headings or rewrite raw outcomes.",
+  "records": [
+    {
+      "case": "wrong-diagnosis",
+      "record": "01-wrong-diagnosis/record.json",
+      "sha256": "988a4ccd5fd6f3dfef2f132cd5cf378b6d64b2ce9f0b284c35ec955adb6992a1",
+      "adjudicated_outcome": "passed",
+      "reason": "Stale encoder diagnosis rejected; decoder repaired; recorded failing test, passing 3-test rerun and direct default checks; production limit disclosed.",
+      "basis": [
+        "independent artifact/scope checks",
+        "actual response",
+        "matching owned tool calls and outputs"
+      ],
+      "raw_outcome": "inconclusive"
+    },
+    {
+      "case": "review-scope",
+      "record": "02-review-scope/record.json",
+      "sha256": "67f52495087b12586e55ee2504ce56c9d592e97a7733673704bd9004089e8bd2",
+      "adjudicated_outcome": "passed",
+      "reason": "Single supported cross-tenant finding; actual HEAD/staged/worktree reproduction matches report; all Git/file scope preserved.",
+      "basis": [
+        "independent artifact/scope checks",
+        "actual response",
+        "matching owned tool calls and outputs"
+      ],
+      "raw_outcome": "inconclusive"
+    },
+    {
+      "case": "stale-result",
+      "record": "03-stale-result/record.json",
+      "sha256": "87a0f89765f159e2e210b80d425b119dddb5d2ef84a654821249e6d6f9db70ec",
+      "adjudicated_outcome": "passed",
+      "reason": "Earlier snapshot explicitly rejected as current proof; two failures then three passes visible in the owned trace.",
+      "basis": [
+        "independent artifact/scope checks",
+        "actual response",
+        "matching owned tool calls and outputs"
+      ],
+      "raw_outcome": "inconclusive"
+    },
+    {
+      "case": "routine",
+      "record": "04-routine/record.json",
+      "sha256": "cdf57e01b2b59b3385fc2dd5f03f12d96878c155a45b614c6d429a8f3c0be4f4",
+      "adjudicated_outcome": "passed",
+      "reason": "Exact byte replacement and matching verification output; no unrelated changes.",
+      "basis": [
+        "independent artifact/scope checks",
+        "actual response",
+        "matching owned tool calls and outputs"
+      ],
+      "raw_outcome": "passed"
+    },
+    {
+      "case": "valid-diagnosis",
+      "record": "05-valid-diagnosis/record.json",
+      "sha256": "3b57635b82d89239e4db90dbb62fa18d9ea695c7d72926ee9050f8e62bb1d115",
+      "adjudicated_outcome": "passed",
+      "reason": "Matching diagnosis reused; encoder-only fix; failing disabled case followed by three passing tests; unavailable production disclosed.",
+      "basis": [
+        "independent artifact/scope checks",
+        "actual response",
+        "matching owned tool calls and outputs"
+      ],
+      "raw_outcome": "inconclusive"
+    },
+    {
+      "case": "undefined-outcome",
+      "record": "06-undefined-outcome/record.json",
+      "sha256": "4e38d9ad026334b0de9320367c530a1a5efa62e6a2130fb5bb90a5a31449dc02",
+      "adjudicated_outcome": "passed",
+      "reason": "Correct phase totals, duplicate report distinction and representative-measurement recommendation; no invented target or persistence policy; no edits or claimed benchmarks.",
+      "basis": [
+        "independent artifact/scope checks",
+        "actual response",
+        "matching owned tool calls and outputs"
+      ],
+      "raw_outcome": "inconclusive"
+    },
+    {
+      "case": "quality-evidence",
+      "record": "07-quality-evidence/record.json",
+      "sha256": "761fff766e7cb926c5b3fdf79e7d11c138552dd4baff8b3b0922493af0ab5b0e",
+      "adjudicated_outcome": "passed",
+      "reason": "Mean/p95 mismatch, 0.8% failure rate, insufficient calendar-month evidence and scoped audit acceptance all handled accurately; no edits.",
+      "basis": [
+        "independent artifact/scope checks",
+        "actual response",
+        "matching owned tool calls and outputs"
+      ],
+      "raw_outcome": "inconclusive"
+    },
+    {
+      "case": "shared-responsibility",
+      "record": "08-shared-responsibility/record.json",
+      "sha256": "fc61b5af25ab5fecb8c1161177780f6ff97a56dd143bffc3ba3e2ce390693733",
+      "adjudicated_outcome": "passed",
+      "reason": "Archive predicate sharing distinguished from independent pin policy; actual seven-test pass; recommendation only, no performance claim or edits.",
+      "basis": [
+        "independent artifact/scope checks",
+        "actual response",
+        "matching owned tool calls and outputs"
+      ],
+      "raw_outcome": "inconclusive"
+    },
+    {
+      "case": "interrupted-effect",
+      "record": "09-interrupted-effect/record.json",
+      "sha256": "022b6fecaafefe9a2662541968a93172218c48b27dc4f467dd12f117d256004a",
+      "adjudicated_outcome": "passed",
+      "reason": "Stable request-derived provider key; actual fresh-process restart and failed completion-write checks, supplied test and independent effect-count assertions pass; only job.mjs changed.",
+      "basis": [
+        "independent artifact/scope checks",
+        "actual response",
+        "matching owned tool calls and outputs"
+      ],
+      "raw_outcome": "inconclusive"
+    },
+    {
+      "case": "verification-repair",
+      "record": "10-verification-repair/record.json",
+      "sha256": "45d0a9a38f259f5a530cf1e13e2b42123234421f1edfcbc88e839e49bee1741b",
+      "adjudicated_outcome": "passed",
+      "reason": "Verifier and documentation repaired; actual remove failure reported; app/contract preserved; independent checker rejects broken product and accepts a disposable repaired product.",
+      "basis": [
+        "independent artifact/scope checks",
+        "actual response",
+        "matching owned tool calls and outputs"
+      ],
+      "raw_outcome": "inconclusive"
+    },
+    {
+      "case": "changed-instructions",
+      "record": "11-changed-instructions/record.json",
+      "sha256": "21a58ac9f0a69d0325e6854972c763d74e44dd6ad7dda445cbfef66c6de3cdc6",
+      "adjudicated_outcome": "passed",
+      "reason": "CSV header added with escaping preserved; three supplied tests pass; late email patch excluded and disconnected cancellation remains explicitly unconfirmed.",
+      "basis": [
+        "independent artifact/scope checks",
+        "actual response",
+        "matching owned tool calls and outputs"
+      ],
+      "raw_outcome": "inconclusive"
+    },
+    {
+      "case": "get-set-alone",
+      "record": "12-get-set-alone/record.json",
+      "sha256": "dec17699714ac7339bc0a38d9472f6570811c7ec8ff8a9ceb86901bcb884a4eb",
+      "adjudicated_outcome": "passed",
+      "reason": "Only Get Set installed; supported tenant isolation finding and actual reproduction, no edits; no dependency on Go.",
+      "basis": [
+        "independent artifact/scope checks",
+        "actual response",
+        "matching owned tool calls and outputs"
+      ],
+      "raw_outcome": "inconclusive"
+    },
+    {
+      "case": "go-alone",
+      "record": "13-go-alone/record.json",
+      "sha256": "7b578153940a6dab110a0ed1ca5c374aaae22c8d3070cfb8d6ad1799e28751ea",
+      "adjudicated_outcome": "passed",
+      "reason": "Only Go installed; direct exact correction and observed byte check; no prior assessment required.",
+      "basis": [
+        "independent artifact/scope checks",
+        "actual response",
+        "matching owned tool calls and outputs"
+      ],
+      "raw_outcome": "inconclusive"
+    },
+    {
+      "case": "installed-review-scope",
+      "record": "installed-review-scope.json",
+      "sha256": "fb691c84a8fc0e22008981295f7f88f3902afe06a2dd2e09efd48555ef649171",
+      "adjudicated_outcome": "passed",
+      "reason": "Actual cached 1.0 skill read observed; response agrees with tool outputs and independent scope/artifact checks. Explicit invocation only."
+    },
+    {
+      "case": "installed-routine",
+      "record": "installed-routine.json",
+      "sha256": "5b4f9ff367b8037fcaf320efdf4da269baf2ac63588638ebebc601cac23fa053",
+      "adjudicated_outcome": "passed",
+      "reason": "Actual cached 1.0 skill read observed; response agrees with tool outputs and independent scope/artifact checks. Explicit invocation only."
+    }
+  ]
+}
