@@ -14,8 +14,6 @@ The current skill names use the Rung prefix. Recorded runs retain CraftFlow name
 
 ## Current skill catalogs
 
-The [1.0 contract suite](release-1.0/README.md) provides 13 cases and a bounded evaluation runner. Its [qualification record](runs/2026-10-03-qualification/results.md) separates contract behavior, installed tasks, distribution, and author adjudication. The earlier [native pilot](runs/2026-10-03-native-pilot/results.md) records 24 comparison attempts with correct artifacts in both arms and no demonstrated comparative gain. The [startup failures](runs/2026-10-03-pilot/results.md) are retained.
-
 | Skill | Scenarios |
 | --- | --- |
 | `rung-get-set` | [Investigation, planning, and review](set-go-2026-09-29/cases.md#get-set) |
