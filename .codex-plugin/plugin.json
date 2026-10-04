@@ -1,0 +1,38 @@
+{
+  "name": "tact",
+  "version": "0.0.1",
+  "description": "Deliberate engineering for Codex: understand the task, keep changes simple and focused, and verify the result.",
+  "author": {
+    "name": "awesomelon"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Tact",
+    "logo": "./assets/logo-tact.png",
+    "composerIcon": "./assets/logo-tact.png",
+    "shortDescription": "Make the right change.",
+    "longDescription": "One skill for implementation, debugging, refactoring, planning, and code review. Tact helps Codex expose assumptions, avoid unnecessary complexity, preserve unrelated work, verify its claims, and report the result clearly. Planning and review preserve assessed files. No prerequisite workflow or runtime is installed.",
+    "developerName": "awesomelon",
+    "category": "Developer Tools",
+    "capabilities": [],
+    "websiteURL": "https://github.com/awesomelon/tact",
+    "defaultPrompt": [
+      "Use $tact to implement this change and verify the result.",
+      "Use $tact to review this change without editing files."
+    ]
+  },
+  "homepage": "https://github.com/awesomelon/tact",
+  "repository": "https://github.com/awesomelon/tact",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "engineering",
+    "implementation",
+    "debugging",
+    "refactoring",
+    "planning",
+    "code-review",
+    "code-quality",
+    "verification"
+  ]
+}

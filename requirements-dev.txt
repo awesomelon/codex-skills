@@ -1,0 +1,2 @@
+# Repository validation only; install.sh remains dependency-free.
+PyYAML==6.0.3

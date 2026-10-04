@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tact"
+  short_description: "Make focused changes and support the result with evidence"
+  default_prompt: "Use $tact to implement this change and verify the result."

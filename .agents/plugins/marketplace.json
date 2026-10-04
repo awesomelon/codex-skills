@@ -1,0 +1,20 @@
+{
+  "name": "tact",
+  "interface": {
+    "displayName": "Tact"
+  },
+  "plugins": [
+    {
+      "name": "tact",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}
