@@ -1,0 +1,6 @@
+{
+  "newWorkspaceDays": 14,
+  "newWorkspaceTimeoutSeconds": 30,
+  "establishedWorkspaceTimeoutSeconds": 600,
+  "rollback": "restore the previous timeout values through the existing configuration"
+}

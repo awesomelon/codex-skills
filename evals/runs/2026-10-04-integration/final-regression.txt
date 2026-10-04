@@ -1,0 +1,12 @@
+✔ selects active rows (0.711625ms)
+✔ retains zero timeout and omits an undefined timeout (0.093833ms)
+✔ preserves active order, compact indexes, value references, and inputs (0.115333ms)
+✔ skips sparse slots and preserves active truthiness (0.071042ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 45.561167

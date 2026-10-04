@@ -1,0 +1,39 @@
+Working directory for all commands: /private/tmp/tact-integration-kify091l/review
+1. cat .agents/skills/tact/SKILL.md
+   Exit 0. Read tact instructions.
+2. rg --files -g '!node_modules' -g '!\.git'
+   Exit 0. Files: boundary.ts, client.test.ts, client.ts, README.md.
+3. cat .agents/skills/tact/references/code-evidence.md .agents/skills/tact/references/verification.md .agents/skills/tact/references/communication.md
+   Exit 0. Read code evidence, verification, communication guidance.
+4. nl -ba client.ts; nl -ba boundary.ts; nl -ba client.test.ts; cat README.md
+   Exit 0. Read complete assessed sources and README. README says extracted sample with no package manifest or installed test dependencies.
+5. node --version
+   Exit 0. v24.21.0
+6. node --input-type=module <<'NODE'
+import { decode, route, profileId, loadProfile } from './client.ts';
+import { parseName } from './boundary.ts';
+for (const text of ['{"id":"demo","role":"reader"}', '{}', 'null', '{"id":42,"role":"reader"}', '{"id":"demo","role":"admin"}']) {
+  const profile = decode(text);
+  try { console.log(JSON.stringify({ text, decoded: profile, route: route(profile) })); }
+  catch (error) { console.log(JSON.stringify({ text, decoded: profile, error: error.message })); }
+}
+console.log('profileId({}):', profileId({}));
+console.log('loadProfile:', JSON.stringify(loadProfile('{"id":"demo","role":"editor"}')));
+for (const value of ['  Alice  ', '', 42]) {
+  try { console.log('parseName:', JSON.stringify(value), JSON.stringify(parseName(value))); }
+  catch (error) { console.log('parseName:', JSON.stringify(value), error.message); }
+}
+NODE
+   Exit 0.
+   Valid profile => Read DEMO
+   {} => decode returned {}; route: Function.prototype.apply was called on undefined, which is a undefined and not a function
+   null => decode returned null; route: Cannot read properties of null (reading 'role')
+   numeric id => decode returned profile; route: p.id.toUpperCase is not a function
+   admin role => decode returned profile; route: Function.prototype.apply was called on undefined, which is a undefined and not a function
+   profileId({}): undefined
+   loadProfile: {"id":"demo","role":"editor"}
+   parseName: "  Alice  " "Alice"
+   parseName: "" Expected a nonempty name
+   parseName: 42 Expected a nonempty name
+7. python3 stdin script wrote only review-evidence/response.md and commands.txt.
+   No assessed files changed. No dependency installs. No external services. No Vitest or type-check execution.

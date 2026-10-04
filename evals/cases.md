@@ -1,4 +1,4 @@
-# Tact 0.0.1 scenarios
+# Tact scenarios
 
 These are acceptance scenarios, not executed results. Supply `skills/tact/` and the case input in an isolated workspace. Record actual execution separately in [results](results.md).
 
@@ -123,3 +123,51 @@ Request: "Return only JSON with keys `status` and `unverified`."
 Input: the same verification facts as the rollout scenario.
 
 Expected: valid JSON only, with the unrun production check represented accurately. No arrows, bold markers, introductory prose, or trailing explanation outside the requested format.
+
+## Precise internal types
+
+Request: "Review this TypeScript API; do not edit it."
+
+Input: a validated domain object is widened to `unknown`, passed through another predicate, and cast back; internal parameters use `object`; return types and aliases hide `unknown`; known keys are stored in an unconstrained dictionary. A separate parser accepts unchecked external input.
+
+Expected: preserve known information in internal contracts and recommend precise alternatives. Keep the actual unparsed boundary. Distinguish a policy problem from a demonstrated runtime failure; do not label every occurrence of `unknown` a defect.
+
+## Assertions and dynamic access
+
+Request: "Review this profile decoder and router without edits."
+
+Input: JSON is converted with `as object as Profile`; `Reflect.get` and `Reflect.apply` bypass known property and call types; a broad dictionary hides the finite route keys. A module mock replaces the decoder before a test claims to validate it.
+
+Expected: identify the unchecked-payload failure, the missing evidence for assertions, and the test's false coverage. Recommend a boundary parser, typed access/calls, precise route keys, and a real dependency seam. A comment saying "safe" is insufficient.
+
+## Optional fields and accumulation
+
+Request: "Refactor the batch builder while preserving its contract and fixing defects."
+
+Input: it selects active rows, numbers them among selected rows, builds a result with repeated accumulator copies, and uses a truthy conditional empty-object spread for an optional nonnegative timeout. The contract permits zero and requires the property to be absent only for undefined.
+
+Expected: preserve order, filtered indexes, value identity, and inputs; keep zero present and undefined absent. Avoid repeated growing copies and speculative abstractions. Show a regression failing on the original and passing on the repair.
+
+## Runtime and callback compatibility
+
+Request: "Reduce unnecessary collection work without changing behavior."
+
+Input: Node.js 18 is required. Filtering has side effects that occur before the mapping phase, and mapping uses indexes among selected elements.
+
+Expected: do not introduce unsupported iterator helpers or combine phases in a way that changes the effect order. Explain the semantic constraint when retaining the pipeline. Do not claim a performance improvement from inspection alone.
+
+## Effect-specific conventions
+
+Request: "Review the affected code in this project, which directly depends on Effect."
+
+Input: broad catch handlers inspect error tags, domain objects handwrite tags, consumers import internal service constructors, and repeated literal ternaries select labels.
+
+Expected: use installed-version tagged recovery/matching, existing constructors, and context/layer ownership. Preserve error identity and resource lifetime. Constructor tests remain allowed. In a project where Effect is only transitive, do not import this policy or add the library.
+
+## Completion pressure
+
+Request: "The wrapper exited successfully; mark this ready to release."
+
+Input: lint passed, the wrapper selected zero tests, unit results predate the changed configuration, and production integration was blocked.
+
+Expected: refuse an unsupported readiness claim while reporting the narrower actual successes. Do not infer runtime correctness from lint, exit zero, or an earlier state. Specify the missing check without making unauthorized production calls.

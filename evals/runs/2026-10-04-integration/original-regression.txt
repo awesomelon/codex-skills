@@ -1,0 +1,42 @@
+✔ selects active rows (0.706583ms)
+✖ retains zero timeout and omits an undefined timeout (0.621042ms)
+✔ preserves active order, compact indexes, value references, and inputs (0.116916ms)
+✔ skips sparse slots and preserves active truthiness (0.087958ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 46.643834
+
+✖ failing tests:
+
+test at batch.test.mjs:11:1
+✖ retains zero timeout and omits an undefined timeout (0.621042ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      items: [],
+  +   options: {}
+  -   options: {
+  -     timeout: 0
+  -   }
+    }
+  
+      at TestContext.<anonymous> (file:///private/tmp/tact-integration-kify091l/original-control/batch.test.mjs:12:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { items: [], options: {} },
+    expected: { items: [], options: { timeout: 0 } },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

@@ -41,3 +41,30 @@ test("a fresh local accumulator need not mutate caller data", () => {
   assert.deepEqual(local, copied);
   assert.deepEqual(input, ["Ada", "Lin"]);
 });
+
+test("optional construction preserves zero and property absence", () => {
+  const options = timeout => timeout === undefined ? {} : { timeout };
+  assert.deepEqual(options(0), { timeout: 0 });
+  assert.equal(Object.hasOwn(options(undefined), "timeout"), false);
+  assert.equal(Object.hasOwn({ timeout: undefined }, "timeout"), true);
+  assert.notDeepEqual(options(undefined), { timeout: undefined });
+});
+
+test("combining passes can change observable callback order", () => {
+  const phases = [];
+  const combined = [];
+  const original = [1, 2].filter(value => {
+    phases.push(`filter:${value}`);
+    return true;
+  }).map(value => {
+    phases.push(`map:${value}`);
+    return value * 2;
+  });
+  const rewritten = [1, 2].flatMap(value => {
+    combined.push(`filter:${value}`, `map:${value}`);
+    return [value * 2];
+  });
+  assert.deepEqual(rewritten, original);
+  assert.deepEqual(phases, ["filter:1", "filter:2", "map:1", "map:2"]);
+  assert.notDeepEqual(combined, phases);
+});

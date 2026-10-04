@@ -1,0 +1,18 @@
+Working directory: /private/tmp/tact-integration-kify091l/routine
+
+Command: cat .agents/skills/tact/SKILL.md
+Result: Exit 0; read the supplied Tact skill.
+
+Command: cat README.md
+Result: Exit 0; original contents: The worker proceses each item once.
+
+Command: cat .agents/skills/tact/references/verification.md
+Result: Exit 0; read the verification requirements.
+
+Tool: apply_patch
+Result: Replaced the single README line with: The worker processes each item once.
+
+Command: cat README.md
+Result: Exit 0; final contents: The worker processes each item once.
+
+Verification: Final content matches the original with only proceses changed to processes. No tests were needed for this one-word documentation edit.

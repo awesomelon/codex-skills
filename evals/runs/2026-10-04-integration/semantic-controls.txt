@@ -1,0 +1,14 @@
+✔ unchecked JSON can violate the consumer contract (0.564083ms)
+✔ a focused external-input guard handles its stated contract (0.110333ms)
+✔ filter then map uses indexes from the filtered collection (0.378792ms)
+✔ a fresh local accumulator need not mutate caller data (0.086583ms)
+✔ optional construction preserves zero and property absence (0.453792ms)
+✔ combining passes can change observable callback order (0.088792ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 48.428708

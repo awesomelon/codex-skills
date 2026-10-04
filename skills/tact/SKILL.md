@@ -17,23 +17,21 @@ Challenge a proposed solution when evidence points to a simpler or more effectiv
 
 ## Prefer the simplest sufficient solution
 
-Solve the present requirement with the project's existing capabilities. Add an abstraction, dependency, configuration option, or fallback only when it serves a concrete need. Fewer lines alone do not establish a better design.
+Solve the present requirement with the project's existing capabilities. Do not add speculative features, extension points, configurable policy, or a reusable framework for a single use. An abstraction, dependency, or fallback needs a concrete requirement. Handle real failure modes; do not invent impossible cases or silently turn failures into success-shaped defaults. If a direct implementation meets the same constraints as an elaborate first attempt, simplify before delivery. Fewer lines alone do not establish a better design.
 
-Keep information and failures visible. Preserve useful types and validated facts rather than discarding them and reconstructing them through assertions or defensive branches. Validate external input where it enters trusted code; retain real error handling and compatibility requirements. For TypeScript or JavaScript type and collection changes, consult [code evidence](references/code-evidence.md) when those decisions arise.
+Keep information and failures visible. For TypeScript or JavaScript implementation, refactoring, or review, apply [code evidence](references/code-evidence.md) to the affected code. It defines concrete defaults for types, input boundaries, assertions, collections, dependency seams, and readability. Exceptions need a specific contract or runtime constraint, not a preference for familiar syntax.
 
 ## Keep changes tied to the request
 
 Trace each changed responsibility to the requested outcome. Fix a shared cause where it belongs, including affected consumers when necessary; a small diff that leaves the defect is insufficient. Preserve unrelated edits, established conventions, and independently changing policies.
 
-Remove leftovers made unused by your change. Leave unrelated cleanup for a separate request. In a review, explain the failure condition and consequence at the relevant location; distinguish a supported defect from a preference. A review can conclude that no change is justified.
+Match the surrounding style even when you would choose differently in new code. Do not rewrite neighboring comments, formatting, or working abstractions to satisfy a personal preference. Remove imports, variables, and helpers made unused by your change; mention relevant pre-existing dead code without deleting it unless cleanup is requested. In a review, explain the failure condition and consequence at the relevant location; distinguish a supported defect from a policy preference. A review can conclude that no change is justified.
 
 ## Work toward an observable result
 
 Define what would demonstrate success. For a bug, exercise the reported failure and the corrected behavior; for a refactor, check the behavior that must remain; for a review, ground findings in the actual code path. Use a compact plan when dependencies make it useful, with a check for each meaningful outcome. A routine edit does not need a plan document or a new test suite.
 
-Run the checks needed for the changed contract and required project gates. Inspect the actual output and exit status. An empty test selection, skipped assertion, or success message without the relevant observation does not establish a pass. A lint result does not prove a build or runtime behavior, and a type assertion does not validate data. Do not weaken checks to manufacture success.
-
-Base completion claims on the final relevant state. Reuse evidence only while the exercised code, local changes, dependencies, and material runtime conditions still apply; rerun affected checks after changes invalidate it. Inspect delegated artifacts if delegation is used. Fix in-scope failures and continue to the requested endpoint. If verification is blocked, report what ran, what it established, and the remaining gap without claiming full completion. Stop once the requested outcome has sufficient evidence; extra checks need a reason.
+Before reporting a fix, a passing check, completion, or delivery readiness, apply [verification](references/verification.md). Tie each claim to an actual observation of the relevant final state. Fix in-scope failures and continue to the requested endpoint; a blocked check must not become a completion claim. Stop once the requested outcome has sufficient evidence; extra checks need a reason.
 
 ## Communicate the result
 

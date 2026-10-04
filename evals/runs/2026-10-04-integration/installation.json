@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "version": "0.0.2",
+  "skill_files": {
+    "SKILL.md": "239b57cd0cf8efffa7c2614a7a34f91a8c2e83025212e47c7bc4969665c8ee15",
+    "references/communication.md": "d82665f74949fdd1f7468e93dc3726d04262f387fcd289a13030fd18780e0e70",
+    "references/code-evidence.md": "2fed35be1a9a49c5c7319416369fcfe01e80be84def39963ded3e84f492b7a81",
+    "references/effect-code.md": "9d98acc412eb941a835800a10ef205f130d018b4597832d7a3791377be8cdd3a",
+    "references/verification.md": "631d99ba91d4db3c04db5fbaebcf973a148c9ef6e537c9490e6f8b49cdea820d",
+    "agents/openai.yaml": "c5ccde1dbd4fa5b1d117559fb5a401542e2476349167818c3f0f3406e392b982"
+  },
+  "commands": [
+    {
+      "command": [
+        "/bin/bash",
+        "scripts/install.sh",
+        "--skill",
+        "tact",
+        "--mode",
+        "copy",
+        "--dest",
+        "/private/tmp/tact-integration-kify091l/standalone"
+      ],
+      "exit_code": 0,
+      "stdout": "install: /private/tmp/tact-integration-kify091l/standalone/tact (copy)\nInstallation complete.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "codex",
+        "plugin",
+        "marketplace",
+        "add",
+        "/private/tmp/tact-integration-kify091l/package",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"marketplaceName\": \"tact\",\n  \"installedRoot\": \"/private/tmp/tact-integration-kify091l/package\",\n  \"alreadyAdded\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "codex",
+        "plugin",
+        "add",
+        "tact@tact",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"pluginId\": \"tact@tact\",\n  \"name\": \"tact\",\n  \"marketplaceName\": \"tact\",\n  \"version\": \"0.0.2\",\n  \"installedPath\": \"/private/tmp/tact-integration-kify091l/test-codex/plugins/cache/tact/tact/0.0.2\",\n  \"authPolicy\": \"ON_INSTALL\"\n}\n",
+      "stderr": ""
+    }
+  ]
+}

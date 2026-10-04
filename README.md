@@ -8,7 +8,7 @@
 
 Tact is one Codex skill for deliberate engineering: understand the task, choose a simple solution, keep edits focused, and verify the result.
 
-**Version 0.0.1.** Use `$tact` for implementation, debugging, refactoring, planning, and review.
+**Version 0.0.2.** Use `$tact` for implementation, debugging, refactoring, planning, and review.
 
 ## Four principles
 
@@ -59,9 +59,9 @@ For installation and updates, see [the installation guide](docs/installation.md)
 
 | Skill | Purpose |
 | --- | --- |
-| [tact](skills/tact/SKILL.md) | Implement, debug, refactor, plan, and review code with explicit assumptions, focused scope, and evidence for the result. Preserve assessed files during planning and review. |
+| [tact](skills/tact/SKILL.md) | Implement, debug, refactor, plan, and review code with explicit assumptions, focused changes, concrete code-quality defaults, and claim-specific verification. Preserve assessed files during planning and review. |
 
-The skill links to [code evidence](skills/tact/references/code-evidence.md) for TypeScript or JavaScript decisions and [communication](skills/tact/references/communication.md) for reports and detailed explanations. Both are self-contained internal guides.
+Use [code evidence](skills/tact/references/code-evidence.md) for TypeScript or JavaScript contracts, assertions, collections, and testing seams; it routes Effect projects to a dedicated reference. [Verification](skills/tact/references/verification.md) covers regression evidence and completion claims. [Communication](skills/tact/references/communication.md) covers concise reports, requested depth, and exact output formats. These are self-contained internal guides, not a bundled linter or a required sequence of stages.
 
 ## Documentation
 

@@ -1,0 +1,16 @@
+{
+  "commands": [
+    {
+      "case": "original-regression",
+      "command": "node --test batch.test.mjs",
+      "exit_code": 1
+    },
+    {
+      "case": "final-regression",
+      "command": "node --test batch.test.mjs",
+      "exit_code": 0
+    }
+  ],
+  "protected_inputs": "unchanged",
+  "json_only": "valid with exact keys and scoped values"
+}
