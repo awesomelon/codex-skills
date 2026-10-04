@@ -1,0 +1,4 @@
+{
+  "before": [{"status":200,"rows":100,"elapsed_ms":100},{"status":200,"rows":100,"elapsed_ms":102},{"status":200,"rows":100,"elapsed_ms":98},{"status":200,"rows":100,"elapsed_ms":100}],
+  "after": [{"status":429,"rows":0,"elapsed_ms":1},{"status":429,"rows":0,"elapsed_ms":1},{"status":429,"rows":0,"elapsed_ms":1},{"status":200,"rows":100,"elapsed_ms":101}]
+}

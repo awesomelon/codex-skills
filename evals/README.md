@@ -14,6 +14,8 @@ The current skill names use the Rung prefix. Recorded runs retain CraftFlow name
 
 ## Current skill catalogs
 
+[0.6.0 candidate](v0.6.0/results.md) adds completed-work measurement and recurring-error prevention guidance, with an opt-in [comparison runner](v0.6.0/README.md). Model preflight is blocked by CLI authentication; fixture controls and local installation checks are recorded separately. This is not a completed behavioral comparison or a released 0.6.0 package.
+
 | Skill | Scenarios |
 | --- | --- |
 | `rung-get-set` | [Investigation, planning, and review](set-go-2026-09-29/cases.md#get-set) |

@@ -1,5 +1,13 @@
 # Sources and adaptation
 
+## Measurement and recurring-error candidate — 2026-10-04
+
+Inspected upstream [pstack at e43c7ee26e0038c6c1fa8380dd34ce86ff94cb2a](https://github.com/cursor/plugins/tree/e43c7ee26e0038c6c1fa8380dd34ce86ff94cb2a/pstack): `skills/benchmark-checklist/SKILL.md`, `skills/principle-explain-the-number/SKILL.md`, and `skills/correct/SKILL.md`. These paths were added after the earlier pinned revision below.
+
+[Performance](performance.md) selectively adapts completed-work measurement, configuration and load-generator confounds, and plausible causal explanations. It does not require a fixed repetition count, a fresh benchmark for supplied-evidence reviews, or a known limiter before reporting any scoped observation. [Learning](learning.md) adapts executable prevention of demonstrated recurring errors and rejection of the original mistake. It preserves independent policies and does not import automatic instruction edits, mandatory commits, or a standing hardening sweep. The existing [MIT notice](LICENSE) remains bundled.
+
+The designated Astra authoring article was fetched and read on 2026-10-04 during design. These changes retain short discovery descriptions and conditional references. They are a candidate implementation based on identified decision boundaries; source review and fixture controls do not establish behavioral improvement. Repository evaluation records describe actual execution and blockers separately.
+
 On 2026-09-28, the former Orchestrator guidance was split between the plan, build, and review task endpoints. On 2026-09-29, these became Set (assessment) and Go (execution). Set was later renamed Get Set. The records below describe their original source reviews; this reorganization is not a fresh upstream audit.
 
 Checked: 2026-09-20. CraftFlow Orchestrator (formerly Engineering Orchestrator, Engineering Workflow, and pstack) is an independent adaptation of the sources below. It is not a complete mirror or an official package from the upstream authors or platform providers.

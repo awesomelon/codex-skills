@@ -1,0 +1,14 @@
+{
+  "cases": [
+    {"id":"fast-failures","skill":"rung-get-set","fixture":"fixtures/fast-failures","prompt":"Assess whether the export change is faster using the supplied script and recorded run. Recommend the next action. Do not edit any files."},
+    {"id":"unfinished-work","skill":"rung-go","fixture":"fixtures/unfinished-work","prompt":"Repair the export timing script so its result represents completed exports. Preserve export behavior. Verify the repair and explain what the new evidence does and does not establish."},
+    {"id":"configuration-noise","skill":"rung-get-set","fixture":"fixtures/configuration-noise","prompt":"We are choosing an implementation for production. Do these runs justify adopting B? Explain your recommendation using the recorded conditions and results. Do not edit files or invent measurements."},
+    {"id":"valid-measurement","skill":"rung-get-set","fixture":"fixtures/valid-measurement","prompt":"Review this performance claim for the stated deployment and workload. Tell us whether the evidence supports it and any material limit. Do not edit files or launch new measurements."},
+    {"id":"shared-rule","skill":"rung-go","fixture":"fixtures/shared-rule","prompt":"The Team plan is again billed and displayed incorrectly. Fix the defect and prevent this repeated catalog drift. Keep the public functions and plan values. Add a focused behavioral regression test, prove it rejects the original defect, and run it. Preserve existing tests and history. You may edit billing.py and display.py and add test_catalog.py; do not add other files."},
+    {"id":"independent-policy","skill":"rung-go","fixture":"fixtures/independent-policy","prompt":"Raise the domestic free-shipping threshold to 75. Reward eligibility must stay unchanged. Prior changes accidentally coupled these policies; preserve their independence and verify both. Edit policies.py only; do not change the existing tests or history."},
+    {"id":"review-recurrence","skill":"rung-get-set","fixture":"fixtures/shared-rule","prompt":"Review the recurring Team-plan mismatch and recommend the smallest effective prevention, with a check that could reject your proposal. This is a read-only assessment; do not edit any file."},
+    {"id":"routine","skill":"rung-go","fixture":"../long-running-2026-10-03/fixtures/routine","prompt":"Carry out TASK.md. Do not add files or make unrelated changes."},
+    {"id":"steering","skill":"rung-go","fixture":"../long-running-2026-10-03/fixtures/steering","prompt":"Carry out TASK.md using the supplied state records. Do not modify the records or add files."},
+    {"id":"async-result","skill":"rung-go","fixture":"../long-running-2026-10-03/fixtures/async-result","prompt":"Carry out TASK.md using the supplied state records. Do not modify the records or add files."}
+  ]
+}

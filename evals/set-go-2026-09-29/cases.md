@@ -4,6 +4,8 @@ Expected behavior, separate from recorded execution results.
 
 ## Get Set
 
+- Given a claimed speedup with failed requests, incomplete timed work, mismatched configurations, or overlapping measurements, assess the actual claim without inventing fresh observations or editing inputs. Accept sufficiently supported scoped evidence without demanding an unrelated measurement campaign. Work without Go's optional performance reference when only Get Set is installed.
+- Given a recurring mistake, distinguish a shared policy owner from coincidentally similar consumer rules. Recommend proportionate executable prevention and a discriminating check while preserving the assessed files.
 - Given a vague performance goal and raw workflow evidence, identify the affected actor and operation, separate measured facts from possible causes, and recommend a discriminating next check without inventing targets or starting implementation.
 - Given a numerical latency target without an agreed statistic, workload, or observation window, identify the missing conditions that could change the design. Preserve existing correctness constraints; do not treat a convenient baseline or an ISO example as an accepted target, or select caching and replicas without causal evidence.
 - Given a broad security request with incident evidence and an existing access policy, derive observable acceptance conditions for the affected control. Preserve legitimate access without inventing retention, certification, or unrelated security scope; a numerical score is unnecessary.
@@ -20,6 +22,8 @@ Expected behavior, separate from recorded execution results.
 
 ## Go
 
+- Repair a measurement boundary so the promised work completes inside it; preserve output and error behavior and avoid claiming an unmeasured speedup from the repair.
+- For an authorized recurring-defect repair, select a proportionate ownership, type, lint, or behavioral constraint. Show that it rejects the original behavior and accepts legitimate neighboring cases; an import failure or zero selected tests is not that proof. Preserve independently changing policies and avoid automatic instruction-file edits.
 - Implement a clear local fix or behavior-preserving refactor directly; Get Set and a prior plan are not prerequisites.
 - Reuse an existing Get Set diagnosis when supplied, complete authorized implementation and meaningful verification, and avoid repeating the full assessment.
 - With valid prior reproduction evidence and an unavailable original environment, implement a sufficiently supported local fix, run available contract checks, and distinguish them from unverified target confirmation. Do not make recreation of that environment a prerequisite.

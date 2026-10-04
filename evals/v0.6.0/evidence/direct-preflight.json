@@ -1,0 +1,21 @@
+{
+  "command": [
+    "codex",
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "--color",
+    "never",
+    "--json",
+    "-C",
+    "/workspace/rung-validation/preflight/task",
+    "-o",
+    "/workspace/rung-validation/preflight/response.txt",
+    "Reply with READY. Do not use tools or edit files."
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 1.120953057999941
+}

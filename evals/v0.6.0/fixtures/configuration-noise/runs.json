@@ -1,0 +1,9 @@
+{
+  "unit": "milliseconds per complete batch",
+  "A": {"mode":"debug","cache":"cold","order":[1,2,3,4,5],"samples":[108,98,112,103,109],"errors":0},
+  "B": {"mode":"release","cache":"warm","order":[6,7,8,9,10],"samples":[104,110,96,107,102],"errors":0},
+  "outputs_equal":true,
+  "production":{"mode":"release","cache":"mixed warm and cold","batch_rows":10000},
+  "profile":null,
+  "concurrent_machine_load":"not recorded"
+}

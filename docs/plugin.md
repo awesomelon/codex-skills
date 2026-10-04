@@ -31,6 +31,8 @@ Use the actual checkout path. Its directory name does not have to be `rung`.
 
 Use an isolated Codex test configuration. This prevents the local source from replacing an existing Git marketplace with the same name.
 
+`codex plugin marketplace upgrade` refreshes Git marketplaces; it does not upgrade a local-path marketplace. After changing a local source, use the remove/reinstall procedure in the isolated test configuration and verify the installed version and file contents separately. Local-path tests do not establish the Git marketplace upgrade behavior.
+
 In a new conversation, test implementation, planning, review, a small README edit, and task resumption. To test automatic skill selection, do not specify a skill name.
 
 Record the host version, OS, source commit, installation method, and skill names shown by the host. Record the resources loaded, changes made, and task result. A correct answer alone does not show which skill the host loaded.

@@ -31,7 +31,7 @@ These are reference documents, not additional skills or mandatory stages. Review
 | Pending tool results or worker handoffs | [Coordination](references/workflow/coordination.md) |
 | Changed instructions, resume, checkpoint, or pause | [Continuity](references/workflow/continuity.md) |
 | Authorized PR work or delivery | [Review and delivery](references/workflow/review-and-delivery.md) |
-| Reuse or preserve verified project reasoning | [Learning](references/workflow/learning.md) |
+| Prevent recurring mistakes or preserve verified project reasoning | [Learning](references/workflow/learning.md) |
 
 Use the current catalog to resolve any optional Rung reference outside this package; do not assume sibling folders. If unavailable, continue from project evidence and these local guides. Shared-rule design can use Get Set's `references/quality/implementation.md`, and material intent gaps can use Get Set's `references/workflow/spec-driven-changes.md`; neither requires another full workflow.
 

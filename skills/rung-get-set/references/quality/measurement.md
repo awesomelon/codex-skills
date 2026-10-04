@@ -22,6 +22,8 @@ Compare two implementations against the same requirements, tests, and scope. All
 
 Attach units, denominators, and raw output or a reproducible command to numbers. Prioritize changed and directly affected areas; use whole-project aggregates as context. Do not present arbitrary weighted sums of signals with different units as objective quality.
 
+For performance claims, inspect what completed within the measured boundary, successful-work and error counts, comparable configurations, and run-to-run variation. Fast failures or work outside the timer do not prove a speedup. Distinguish a supported scoped observation from an unverified causal explanation or a general implementation winner. Go's optional `references/workflow/performance.md` supplies execution detail when available through the host catalog; this assessment works without it and does not authorize edits or new measurements outside the requested scope.
+
 ## Judgment criteria
 
 Explain the cost, risk, and evidence for relevant issues. These perspectives help select what matters; they are neither a fixed report template nor instrumented measurements.
