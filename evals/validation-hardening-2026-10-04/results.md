@@ -34,6 +34,12 @@ Host: Linux, Python 3.12.14, Node.js 24.19.0, Codex CLI 0.159.2.
 
 The [source manifest](evidence/source-manifest.json) identifies the skill and evaluation sources for this run. No macOS local execution, host installation, automatic discovery, or live steering/cancellation test was performed for this change. Remote CI is reported separately on the pull request for its exact head commit.
 
+### CI follow-up
+
+The [first pull-request CI run](https://github.com/awesomelon/rung/actions/runs/37201736690) passed Linux/Python 3.10 but exposed a macOS path-alias bug in the new test helper. macOS temporary paths under `/var` resolve through `/private/var`; the helper mixed that resolved fixture path with an unresolved mock repository root. The correction canonicalizes temporary roots in the tests and adds a simulated alias regression. Evaluation-input symlinks remain rejected, and the production runner and skill bytes are unchanged by this correction. Final local output and source identity are recorded separately rather than replacing the initial evidence.
+
+The final local suite passed **102 tests with no skips**, including 17 runner tests and 20 fixture controls. [Final test output](evidence/unit-tests-final.txt) and [final source hashes](evidence/final-source-manifest.json) identify that check. The alias regression passes a complete fake pair through a symlinked temporary parent while still rejecting a symlink inside a fixture. It is a Linux simulation of the path condition; the real macOS result is the pull request's subsequent CI run.
+
 ## Actual model attempt
 
 A bounded direct initialization probe and the completed runner's preflight both exited 1 with:

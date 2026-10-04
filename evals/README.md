@@ -14,7 +14,7 @@ The current skill names use the Rung prefix. Recorded runs retain CraftFlow name
 
 ## Current skill catalogs
 
-[2026-10-04 validation hardening](validation-hardening-2026-10-04/results.md) freezes evaluation dependencies, checks input identity, and adds three post-release challenge cases without changing skill instructions. All 101 deterministic tests passed on Linux. Model initialization was blocked by a read-only filesystem; the 26 newly planned case attempts did not run.
+[2026-10-04 validation hardening](validation-hardening-2026-10-04/results.md) freezes evaluation dependencies, checks input identity, and adds three post-release challenge cases without changing skill instructions. All 102 deterministic tests passed on Linux, including a temporary-path alias regression added after macOS CI exposed a test-helper portability issue. Model initialization was blocked by a read-only filesystem; the 26 newly planned case attempts did not run.
 
 [0.6.0 evaluation](v0.6.0/results.md) covers completed-work measurement and recurring-error prevention guidance, with an opt-in [comparison runner](v0.6.0/README.md). Model preflight was blocked by CLI authentication; fixture controls and local installation checks are recorded separately. The user subsequently authorized release with that gap disclosed; publication is not a completed behavioral comparison.
 

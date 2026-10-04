@@ -22,34 +22,34 @@ spec.loader.exec_module(runner)
 class RunnerTests(unittest.TestCase):
     def test_nonzero_exit_is_retained(self):
         with tempfile.TemporaryDirectory() as temp:
-            root = Path(temp)
+            root = Path(temp).resolve()
             result = runner.execute([sys.executable, "-c", "raise SystemExit(7)"], root, root / "logs", 2)
             self.assertEqual(result["exit_code"], 7)
             self.assertEqual(result["execution_status"], "completed")
 
     def test_timeout_is_not_success(self):
         with tempfile.TemporaryDirectory() as temp:
-            root = Path(temp)
+            root = Path(temp).resolve()
             result = runner.execute([sys.executable, "-c", "import time; time.sleep(30)"], root, root / "logs", .1)
             self.assertEqual(result["execution_status"], "timed_out")
             self.assertIsNone(result["exit_code"])
 
     def test_missing_cli_is_launch_failure(self):
         with tempfile.TemporaryDirectory() as temp:
-            root = Path(temp)
+            root = Path(temp).resolve()
             result = runner.execute([str(root / "missing")], root, root / "logs", 1)
             self.assertEqual(result["execution_status"], "launch_failed")
 
     def test_symlink_input_rejected(self):
         with tempfile.TemporaryDirectory() as temp:
-            root = Path(temp)
+            root = Path(temp).resolve()
             (root / "alias").symlink_to(ROOT / "README.md")
             with self.assertRaises(ValueError):
                 runner.inventory(root)
 
     def test_usage_only_from_completion(self):
         with tempfile.TemporaryDirectory() as temp:
-            root = Path(temp)
+            root = Path(temp).resolve()
             (root / "stdout.jsonl").write_text('not json\n{"type":"turn.failed"}\n')
             info = runner.metadata(root)
             self.assertIsNone(info["usage"])
@@ -58,7 +58,7 @@ class RunnerTests(unittest.TestCase):
 
     def test_blocked_preflight_preserves_all_unstarted_attempts(self):
         with tempfile.TemporaryDirectory() as temp:
-            output = Path(temp) / "evidence"
+            output = Path(temp).resolve() / "evidence"
             args = mock.Mock(baseline=str(ROOT), candidate=str(ROOT), output=str(output),
                              case=["routine"], repeat=2, timeout=1, codex="codex")
 
@@ -80,7 +80,7 @@ class RunnerTests(unittest.TestCase):
 
     def test_artifact_pass_still_needs_response_review(self):
         with tempfile.TemporaryDirectory() as temp:
-            output = Path(temp) / "evidence"
+            output = Path(temp).resolve() / "evidence"
             args = mock.Mock(baseline=str(ROOT), candidate=str(ROOT), output=str(output),
                              case=["routine"], repeat=1, timeout=3, codex="codex")
             real_execute = runner.execute
@@ -107,6 +107,8 @@ class RunnerTests(unittest.TestCase):
 
     def make_sources(self, root, case_id="routine"):
         """A disposable repository, so mutation controls never touch real inputs."""
+        # Match production REPO normalization, including macOS /var -> /private/var.
+        root = root.resolve()
         repo = root / "repository"
         catalog = repo / "evals/v0.6.0/cases.json"
         catalog.parent.mkdir(parents=True)
@@ -131,6 +133,7 @@ class RunnerTests(unittest.TestCase):
 
     def fake_cli(self, root, preflight="pass", attempt="pass"):
         """Use a real child process for the adapter; it never calls a model."""
+        root = root.resolve()
         executable = root / "fake-codex"
         executable.write_text(
             f"#!{sys.executable}\n" + textwrap.dedent("""\
@@ -151,10 +154,49 @@ class RunnerTests(unittest.TestCase):
             "print(json.dumps({'type': 'turn.completed', 'usage': {'input_tokens': 1}}))\n")
         executable.chmod(0o755)
 
+    def test_temporary_parent_alias_is_normalized_without_allowing_input_symlinks(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp).resolve()
+            canonical = root / "private/folders"
+            canonical.mkdir(parents=True)
+            alias = root / "var"
+            alias.symlink_to(canonical.parent, target_is_directory=True)
+            aliased_root = alias / "folders"
+            repo, catalog, fixture, args = self.make_sources(aliased_root)
+            self.assertEqual(repo, canonical / "repository")
+            self.assertEqual(catalog, repo / "evals/v0.6.0/cases.json")
+            self.assertEqual(fixture.relative_to(repo),
+                             Path("evals/long-running-2026-10-03/fixtures/routine"))
+            self.assertEqual(Path(args.output), canonical / "evidence")
+            # Real CLI arguments may also arrive through the OS-level parent alias.
+            args.baseline = str(aliased_root / "baseline")
+            args.candidate = str(aliased_root / "candidate")
+            args.output = str(aliased_root / "evidence")
+            args.repeat = 1
+            self.fake_cli(aliased_root, attempt="readme = workspace / 'README.md'\n"
+                          "readme.write_bytes(readme.read_bytes().replace(b'proceses', b'processes'))")
+            with mock.patch.object(runner, "REPO", repo), mock.patch.object(runner, "CATALOG", catalog):
+                self.assertEqual(runner.run(args), 1)
+            report = json.loads((canonical / "evidence/summary.json").read_text())
+            self.assertEqual(report["source_paths"]["baseline"], str(canonical / "baseline"))
+            self.assertTrue(all(item["artifact_outcome"] == "passed" for item in report["attempts"]))
+
+            readme = fixture / "README.md"
+            moved = fixture / "original.md"
+            readme.rename(moved)
+            readme.symlink_to(moved)
+            args.output = str(aliased_root / "rejected-evidence")
+            with mock.patch.object(runner, "REPO", repo), mock.patch.object(runner, "CATALOG", catalog), \
+                    mock.patch.object(runner, "execute") as execute:
+                with self.assertRaisesRegex(ValueError, "Symlink"):
+                    runner.run(args)
+                execute.assert_not_called()
+            self.assertFalse(Path(args.output).exists())
+
     def test_original_mutations_after_freeze_do_not_change_cases_or_checks(self):
         for case_id in ("routine", "valid-measurement"):
             with self.subTest(case=case_id), tempfile.TemporaryDirectory() as temp:
-                root = Path(temp)
+                root = Path(temp).resolve()
                 repo, catalog, fixture, args = self.make_sources(root, case_id)
                 original_fixture = runner.inventory(fixture)
                 original_skills = runner.inventory(root / "baseline/skills")
@@ -220,7 +262,7 @@ for variant in ('baseline', 'candidate'):
     def test_frozen_bundle_mutation_blocks_before_case_invocation(self):
         for target in ("fixture", "checker", "catalog", "legacy-checker", "skill", "symlink"):
             with self.subTest(target=target), tempfile.TemporaryDirectory() as temp:
-                root = Path(temp)
+                root = Path(temp).resolve()
                 repo, catalog, fixture, args = self.make_sources(root)
                 output = Path(args.output)
                 paths = {
@@ -248,7 +290,7 @@ for variant in ('baseline', 'candidate'):
 
     def test_checker_mutation_during_model_call_blocks_before_check(self):
         with tempfile.TemporaryDirectory() as temp:
-            root = Path(temp)
+            root = Path(temp).resolve()
             repo, catalog, fixture, args = self.make_sources(root)
             frozen_checker = Path(args.output) / "bundle/evals/v0.6.0/check_outputs.py"
             self.fake_cli(root, attempt=f"Path({str(frozen_checker)!r}).write_text('raise SystemExit(0)')")
@@ -262,7 +304,7 @@ for variant in ('baseline', 'candidate'):
 
     def test_checker_mutation_after_final_check_is_not_reported_as_verified(self):
         with tempfile.TemporaryDirectory() as temp:
-            root = Path(temp)
+            root = Path(temp).resolve()
             repo, catalog, fixture, args = self.make_sources(root)
             args.repeat = 1
             checker = catalog.parent / "check_outputs.py"
@@ -285,7 +327,7 @@ for variant in ('baseline', 'candidate'):
 
     def test_pairing_drift_in_second_workspace_blocks_before_second_model_call(self):
         with tempfile.TemporaryDirectory() as temp:
-            root = Path(temp)
+            root = Path(temp).resolve()
             repo, catalog, fixture, args = self.make_sources(root)
             self.fake_cli(root, attempt="readme = workspace / 'README.md'\n"
                           "readme.write_bytes(readme.read_bytes().replace(b'proceses', b'processes'))")
@@ -312,7 +354,7 @@ for variant in ('baseline', 'candidate'):
 
     def test_wrong_variant_skill_copy_is_rejected_before_model_call(self):
         with tempfile.TemporaryDirectory() as temp:
-            root = Path(temp)
+            root = Path(temp).resolve()
             repo, catalog, fixture, args = self.make_sources(root)
             self.fake_cli(root, attempt="readme = workspace / 'README.md'\n"
                           "readme.write_bytes(readme.read_bytes().replace(b'proceses', b'processes'))")
@@ -333,7 +375,7 @@ for variant in ('baseline', 'candidate'):
 
     def test_source_change_while_freezing_fails_before_any_cli_call(self):
         with tempfile.TemporaryDirectory() as temp:
-            root = Path(temp)
+            root = Path(temp).resolve()
             repo, catalog, fixture, args = self.make_sources(root)
             copytree = shutil.copytree
 
@@ -355,7 +397,7 @@ for variant in ('baseline', 'candidate'):
     def test_symlink_sources_rejected_before_any_cli_call(self):
         for target in ("skill-root", "fixture-root", "fixture-file", "checker", "legacy-checker"):
             with self.subTest(target=target), tempfile.TemporaryDirectory() as temp:
-                root = Path(temp)
+                root = Path(temp).resolve()
                 repo, catalog, fixture, args = self.make_sources(root)
                 paths = {"skill-root": root / "baseline/skills", "fixture-root": fixture,
                          "fixture-file": fixture / "README.md",
