@@ -13,8 +13,10 @@ ROOT = Path(__file__).resolve().parent
 CASES = {case["id"]: case for case in json.loads((ROOT / "cases.json").read_text())["cases"]}
 EDITABLE = {
     "unfinished-work": {"benchmark.py"},
+    "lazy-materialization": {"benchmark.py"},
     "shared-rule": {"billing.py", "display.py", "test_catalog.py"},
     "independent-policy": {"policies.py"},
+    "renamed-registry": {"estimates.py", "labels.py", "test_services.py"},
 }
 LEGACY = {"routine", "steering", "async-result"}
 
@@ -56,7 +58,8 @@ def check(case, output):
         return
     before, after = files(fixture), files(output)
     allowed = EDITABLE.get(case, set())
-    required = set(before) | ({"test_catalog.py"} if case == "shared-rule" else set())
+    added_test = {"shared-rule": "test_catalog.py", "renamed-registry": "test_services.py"}.get(case)
+    required = set(before) | ({added_test} if added_test else set())
     assert set(after) == required, "Unexpected or missing output files"
     for name, content in before.items():
         if name not in allowed:
@@ -92,6 +95,33 @@ async def verify():
         raise AssertionError('Failed export reported as success')
 asyncio.run(verify())
 """)
+    elif case == "lazy-materialization":
+        run(output, """
+import benchmark
+
+clock = [0.0]
+benchmark.perf_counter = lambda: clock[0]
+def render_lines(rows):
+    for row in rows:
+        clock[0] += 3.0
+        yield f'item:{row}'
+benchmark.render_lines = render_lines
+for rows in ([4, 1, 4], []):
+    result = benchmark.measure(rows)
+    assert result['report'] == '\\n'.join(f'item:{row}' for row in rows), 'Changed report contents'
+    assert result['rows'] == len(rows), 'Changed row count'
+    assert result['elapsed_seconds'] == 3.0 * len(rows), 'Lazy work outside timer or consumed twice'
+def broken(rows):
+    yield 'partial'
+    raise ValueError('render failed')
+benchmark.render_lines = broken
+try:
+    benchmark.measure([1, 2])
+except ValueError as error:
+    assert str(error) == 'render failed'
+else:
+    raise AssertionError('Partial report treated as a successful measurement')
+""")
     elif case == "shared-rule":
         run(output, TEST_SUITE)
         run(output, """
@@ -125,6 +155,35 @@ assert result.failures and not result.errors and not result.skipped, 'Must rejec
                     "assert shipping_threshold('international') == 100\n"
                     "assert reward_threshold('domestic') == 50\n"
                     "assert reward_threshold('international') == 50")
+    elif case == "renamed-registry":
+        run(output, TEST_SUITE)
+        run(output, """
+from estimates import days_for
+from labels import label_for
+assert [days_for(x) for x in ('ground', 'pickup', 'next_day', 'missing')] == [5, 0, 1, None]
+assert [label_for(x) for x in ('ground', 'pickup', 'next_day', 'missing')] == ['Ground', 'Pickup', 'Next day', 'Unavailable']
+""")
+        # Rename/extend the policy domain and vary both values; a one-entry copied repair is insufficient.
+        with tempfile.TemporaryDirectory() as temp:
+            future = Path(temp) / "future"
+            shutil.copytree(output, future)
+            with (future / "registry.py").open("a") as stream:
+                stream.write("\nSERVICES['weekend'] = {'label': 'Weekend collection', 'days': 2}\n"
+                             "SERVICES['freight'] = {'label': 'Scheduled freight', 'days': 14}\n"
+                             "SERVICES['ground'] = {'label': 'Standard ground', 'days': 6}\n")
+            run(future, "from estimates import days_for\nfrom labels import label_for\n"
+                        "assert [days_for(x) for x in ('weekend','freight','ground')] == [2,14,6]\n"
+                        "assert [label_for(x) for x in ('weekend','freight','ground')] == ['Weekend collection','Scheduled freight','Standard ground']")
+            original = Path(temp) / "original"
+            shutil.copytree(fixture, original)
+            shutil.copy2(output / "test_services.py", original / "test_services.py")
+            run(original, """
+import unittest
+suite = unittest.defaultTestLoader.discover('.', pattern='test_services.py')
+assert suite.countTestCases() > 0
+result = unittest.TextTestRunner().run(suite)
+assert result.failures and not result.errors and not result.skipped, 'Must reject the original behavior, not fail imports'
+""")
     assert files(output) == after, "Checks altered task artifacts"
 
 

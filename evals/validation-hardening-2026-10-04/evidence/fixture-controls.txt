@@ -1,0 +1,25 @@
+test_changed_export_contract_rejected (test_v060_fixtures.FixtureControls.test_changed_export_contract_rejected) ... ok
+test_completed_export_accepted (test_v060_fixtures.FixtureControls.test_completed_export_accepted) ... ok
+test_copied_team_patch_does_not_prevent_drift (test_v060_fixtures.FixtureControls.test_copied_team_patch_does_not_prevent_drift) ... ok
+test_coupled_policy_rejected (test_v060_fixtures.FixtureControls.test_coupled_policy_rejected) ... ok
+test_import_failure_does_not_prove_original_defect (test_v060_fixtures.FixtureControls.test_import_failure_does_not_prove_original_defect) ... ok
+test_independent_policy_accepted (test_v060_fixtures.FixtureControls.test_independent_policy_accepted) ... ok
+test_review_preserves_files_but_does_not_grade_response (test_v060_fixtures.FixtureControls.test_review_preserves_files_but_does_not_grade_response) ... ok
+test_shared_rule_repair_accepted (test_v060_fixtures.FixtureControls.test_shared_rule_repair_accepted) ... ok
+test_test_without_assertion_does_not_prove_prevention (test_v060_fixtures.FixtureControls.test_test_without_assertion_does_not_prove_prevention) ... ok
+test_unexpected_file_rejected (test_v060_fixtures.FixtureControls.test_unexpected_file_rejected) ... ok
+test_unfinished_export_rejected (test_v060_fixtures.FixtureControls.test_unfinished_export_rejected) ... ok
+test_cached_control_preserves_source_without_grading_answer (test_v060_holdouts.HoldoutControls.test_cached_control_preserves_source_without_grading_answer) ... ok
+test_lazy_completed_work_accepted (test_v060_holdouts.HoldoutControls.test_lazy_completed_work_accepted) ... ok
+test_lazy_swallowed_error_rejected (test_v060_holdouts.HoldoutControls.test_lazy_swallowed_error_rejected) ... ok
+test_lazy_work_outside_timer_rejected (test_v060_holdouts.HoldoutControls.test_lazy_work_outside_timer_rejected) ... ok
+test_lazy_wrong_report_rejected (test_v060_holdouts.HoldoutControls.test_lazy_wrong_report_rejected) ... ok
+test_renamed_assertion_free_regression_rejected (test_v060_holdouts.HoldoutControls.test_renamed_assertion_free_regression_rejected) ... ok
+test_renamed_copied_patch_rejected (test_v060_holdouts.HoldoutControls.test_renamed_copied_patch_rejected) ... ok
+test_renamed_registry_accepted (test_v060_holdouts.HoldoutControls.test_renamed_registry_accepted) ... ok
+test_renamed_zero_value_fallback_rejected (test_v060_holdouts.HoldoutControls.test_renamed_zero_value_fallback_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 1.255s
+
+OK

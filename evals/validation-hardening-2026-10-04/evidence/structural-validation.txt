@@ -1,0 +1,2 @@
+PASS rung-get-set: basic metadata, UI fields, portable contents, local references
+PASS rung-go: basic metadata, UI fields, portable contents, local references

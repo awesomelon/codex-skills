@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-04",
+  "cli_version": "codex-cli 0.159.2",
+  "execution_status": "completed",
+  "exit_code": 1,
+  "outcome": "blocked",
+  "model_response_received": false,
+  "stdout_bytes": 0,
+  "model_case_attempts": 0,
+  "error": "failed to initialize in-process app-server client: Read-only file system (os error 30)",
+  "authentication_or_permissions_changed": false,
+  "elapsed_seconds": null,
+  "note": "This direct initialization probe is not a model evaluation. See the completed runner summary for frozen input provenance and planned-case accounting."
+}

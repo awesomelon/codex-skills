@@ -19,6 +19,10 @@ from datetime import datetime, timezone
 
 REPO = Path(__file__).resolve().parents[1]
 CATALOG = REPO / "evals/v0.6.0/cases.json"
+# The v0.6.0 checker delegates these cases to this repository-local checker.
+# Keep the closure explicit rather than trying to infer Python dependencies.
+LEGACY_CASES = {"routine", "steering", "async-result"}
+LEGACY_CHECKER = Path("evals/long-running-2026-10-03/check_outputs.py")
 
 
 def write_json(path, value):
@@ -29,6 +33,10 @@ def write_json(path, value):
 
 def inventory(root):
     """Hash every source file, refusing links rather than following them."""
+    if root.is_symlink():
+        raise ValueError(f"Symlink is not a supported evaluation input: {root}")
+    if not root.is_dir():
+        raise ValueError(f"Evaluation input must be a directory: {root}")
     result = {}
     for path in sorted(root.rglob("*")):
         if path.is_symlink():
@@ -107,26 +115,136 @@ def command(binary, workspace, response, prompt):
             "--json", "-C", str(workspace), "-o", str(response), prompt]
 
 
-def load_cases(path, selected):
-    cases = json.loads(path.read_text())["cases"]
+def eval_path(path):
+    """Resolve an eval input only after rejecting links in its original path."""
+    root = REPO / "evals"
+    if not path.resolve().is_relative_to(root.resolve()):
+        raise ValueError("Evaluation inputs must stay within repository evals")
+    current = REPO
+    for part in path.relative_to(REPO).parts:
+        current = current / part
+        if current.is_symlink():
+            raise ValueError(f"Symlink is not a supported evaluation input: {current}")
+    return path.resolve()
+
+
+def load_cases(path, selected, content=None):
+    cases = json.loads(path.read_bytes() if content is None else content)["cases"]
     ids = [case["id"] for case in cases]
     if len(ids) != len(set(ids)):
         raise ValueError("Duplicate case IDs")
     if set(selected) - set(ids):
         raise ValueError("Unknown case selection")
     for case in cases:
-        fixture = (path.parent / case["fixture"]).resolve()
-        if not fixture.is_relative_to(REPO / "evals") or not fixture.is_dir():
+        fixture = eval_path(path.parent / case["fixture"])
+        if not fixture.is_dir():
             raise ValueError("Fixture must be a directory within repository evals")
         if case["skill"] not in ("rung-go", "rung-get-set"):
             raise ValueError("Unknown skill endpoint")
     return [case for case in cases if not selected or case["id"] in selected]
 
 
+def freeze_inputs(output, roots, cases, catalog_content):
+    """Copy the small, explicit evaluation closure and verify the copied bytes."""
+    skills = {name: inventory(root / "skills") for name, root in roots.items()}
+    for name, files in skills.items():
+        if any(f"{skill}/SKILL.md" not in files for skill in ("rung-go", "rung-get-set")):
+            raise ValueError(f"{name} must contain both skill sources")
+    fixtures = {case["id"]: eval_path(CATALOG.parent / case["fixture"]) for case in cases}
+    trees = {path: inventory(path) for path in set(fixtures.values())}
+    checker = eval_path(CATALOG.parent / "check_outputs.py")
+    files = {CATALOG: hashlib.sha256(catalog_content).hexdigest(),
+             checker: hashlib.sha256(checker.read_bytes()).hexdigest()}
+    review = CATALOG.parent / "review.md"
+    if review.exists() or review.is_symlink():
+        review = eval_path(review)
+        files[review] = hashlib.sha256(review.read_bytes()).hexdigest()
+    else:
+        review = None
+    if LEGACY_CASES.intersection(fixtures):
+        legacy = eval_path(REPO / LEGACY_CHECKER)
+        files[legacy] = hashlib.sha256(legacy.read_bytes()).hexdigest()
+    expected_bundle = {path.relative_to(REPO).as_posix(): digest for path, digest in files.items()}
+    for root, hashes in trees.items():
+        expected_bundle.update({(root.relative_to(REPO) / name).as_posix(): digest
+                                for name, digest in hashes.items()})
+
+    output.mkdir(parents=True)
+    bundle = output / "bundle"
+    for name, root in roots.items():
+        shutil.copytree(root / "skills", output / "sources" / name / "skills", symlinks=True)
+    for source in files:
+        destination = bundle / source.relative_to(REPO)
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, destination, follow_symlinks=False)
+    for source in trees:
+        shutil.copytree(source, bundle / source.relative_to(REPO), symlinks=True)
+
+    # Hash the frozen copies, not just the live originals. The second source read
+    # also catches edits made while the bundle was being copied.
+    frozen_skills = {name: inventory(output / "sources" / name / "skills") for name in roots}
+    frozen_bundle = inventory(bundle)
+    if frozen_skills != skills or frozen_bundle != expected_bundle:
+        raise ValueError("Evaluation inputs changed while freezing; use a new output directory")
+    for name, root in roots.items():
+        if inventory(root / "skills") != frozen_skills[name]:
+            raise ValueError("Skill source changed while freezing; use a new output directory")
+    for source, hashes in trees.items():
+        if inventory(source) != hashes:
+            raise ValueError("Fixture source changed while freezing; use a new output directory")
+    for source, digest in files.items():
+        if eval_path(source) != source or hashlib.sha256(source.read_bytes()).hexdigest() != digest:
+            raise ValueError("Evaluation source changed while freezing; use a new output directory")
+    return {
+        "skill_hashes": frozen_skills,
+        "fixture_hashes": {case: trees[path] for case, path in fixtures.items()},
+        "fixture_source_paths": {case: str(path) for case, path in fixtures.items()},
+        "catalog_source_path": str(CATALOG), "checker_source_path": str(checker),
+        "review_source_path": str(review) if review is not None else None,
+        "review_hash": frozen_bundle[review.relative_to(REPO).as_posix()] if review is not None else None,
+        "evaluation_bundle": {
+            "path": "bundle", "catalog": CATALOG.relative_to(REPO).as_posix(),
+            "checker": checker.relative_to(REPO).as_posix(),
+            "review": review.relative_to(REPO).as_posix() if review is not None else None,
+            "fixtures": {case: path.relative_to(REPO).as_posix() for case, path in fixtures.items()},
+            "file_hashes": frozen_bundle,
+        },
+        "catalog_hash": frozen_bundle[CATALOG.relative_to(REPO).as_posix()],
+        "checker_hash": frozen_bundle[checker.relative_to(REPO).as_posix()],
+    }
+
+
+def verify_frozen(output, report):
+    bundle = report["evaluation_bundle"]
+    if inventory(output / bundle["path"]) != bundle["file_hashes"]:
+        raise ValueError("Frozen evaluation bundle changed")
+    expected_sources = {f"{variant}/skills/{name}": digest
+                        for variant, hashes in report["skill_hashes"].items()
+                        for name, digest in hashes.items()}
+    if inventory(output / "sources") != expected_sources:
+        raise ValueError("Frozen skill sources changed")
+
+
+def save_report(summary, report):
+    report["counts"] = dict(Counter(item["outcome"] for item in report["attempts"]))
+    write_json(summary, report)
+
+
+def blocked_inputs(summary, report, error, attempt=None):
+    report["input_integrity"] = {"status": "blocked", "reason": str(error)}
+    if attempt is not None:
+        attempt["outcome"] = "blocked"
+        attempt["input_error"] = str(error)
+    save_report(summary, report)
+    print(f"BLOCKED: input integrity; see {summary}")
+    return 2
+
+
 def run(args):
     if os.name != "posix":
         raise ValueError("This adapter currently supports POSIX process-group cleanup only")
-    cases = load_cases(CATALOG, args.case)
+    catalog_content = eval_path(CATALOG).read_bytes()
+    cases = load_cases(CATALOG, args.case, catalog_content)
     output = Path(args.output).resolve()
     roots = {name: Path(getattr(args, name)).resolve() for name in ("baseline", "candidate")}
     for root in [REPO, *roots.values()]:
@@ -136,14 +254,7 @@ def run(args):
         raise ValueError("Output must be a new directory; previous evidence is never overwritten")
     if args.repeat < 1 or args.timeout <= 0:
         raise ValueError("Repeat and timeout must be positive")
-    # Validate all sources before making any workspaces.
-    hashes = {name: inventory(root / "skills") for name, root in roots.items()}
-    for name, files in hashes.items():
-        if any(f"{skill}/SKILL.md" not in files for skill in ("rung-go", "rung-get-set")):
-            raise ValueError(f"{name} must contain both skill sources")
-    output.mkdir(parents=True)
-    for name, root in roots.items():
-        shutil.copytree(root / "skills", output / "sources" / name / "skills")
+    frozen = freeze_inputs(output, roots, cases, catalog_content)
     attempts = []
     for repetition in range(1, args.repeat + 1):
         for index, case in enumerate(cases):
@@ -152,19 +263,19 @@ def run(args):
                 attempts.append({"id": uuid.uuid4().hex, "case": case["id"], "variant": variant,
                                  "repetition": repetition, "execution_status": "not_run", "outcome": "not_run"})
     report = {
-        "schema_version": 1, "source_paths": {k: str(v) for k, v in roots.items()},
-        "skill_hashes": hashes, "catalog_hash": hashlib.sha256(CATALOG.read_bytes()).hexdigest(),
-        "checker_hash": hashlib.sha256((CATALOG.parent / "check_outputs.py").read_bytes()).hexdigest(),
+        "schema_version": 2, "source_paths": {k: str(v) for k, v in roots.items()},
+        **frozen,
+        "input_integrity": {"status": "verified"},
         "host": {"os": platform.platform(), "python": platform.python_version(), "cli_version": None},
         "requested_model": "host default", "requested_effort": "host default",
         "invocation_mode": "explicit", "attempts": attempts,
         "isolation": "Separate workspaces/sessions, workspace-write sandbox; cross-workspace read isolation is NOT established.",
         "limits": ["Not a fully blinded experiment: this CLI sandbox may read paths outside its workspace.",
                    "No automatic discovery or live steering claim.",
-                   "Final-response claims require independent review using review.md."],
+                   "Final-response claims require independent review using the frozen rubric when available."],
     }
     summary = output / "summary.json"
-    write_json(summary, report)
+    save_report(summary, report)
     try:
         version = subprocess.run([args.codex, "--version"], stdin=subprocess.DEVNULL,
                                  capture_output=True, text=True, timeout=10)
@@ -172,6 +283,10 @@ def run(args):
             report["host"]["cli_version"] = version.stdout.strip()
     except (OSError, subprocess.TimeoutExpired):
         pass
+    try:
+        verify_frozen(output, report)
+    except (ValueError, OSError) as error:
+        return blocked_inputs(summary, report, error)
     probe = output / "work" / uuid.uuid4().hex
     probe.mkdir(parents=True)
     logs = output / "preflight"
@@ -184,34 +299,54 @@ def run(args):
         and response.exists() and response.read_text().strip() == "READY"
     ) else "blocked"
     report["preflight"] = result
-    write_json(summary, report)
+    save_report(summary, report)
     if result["outcome"] != "passed":
         print(f"BLOCKED: model preflight; all {len(attempts)} case attempts are not_run. See {summary}")
         return 2
     by_id = {case["id"]: case for case in cases}
-    checker = CATALOG.parent / "check_outputs.py"
+    bundle = output / report["evaluation_bundle"]["path"]
+    checker = bundle / report["evaluation_bundle"]["checker"]
     for attempt in attempts:
         case = by_id[attempt["case"]]
         workspace = output / "work" / attempt["id"]
-        fixture = (CATALOG.parent / case["fixture"]).resolve()
-        inventory(fixture)
-        shutil.copytree(fixture, workspace)
-        # Explicit endpoint evaluation supplies only that independently installable skill.
         skill = case["skill"]
-        supplied = workspace / ".agents/skills" / skill
-        shutil.copytree(output / "sources" / attempt["variant"] / "skills" / skill, supplied)
-        before_skills = inventory(workspace / ".agents")
-        attempt["input_hashes"] = inventory(workspace)
+        try:
+            verify_frozen(output, report)
+            fixture = bundle / report["evaluation_bundle"]["fixtures"][case["id"]]
+            shutil.copytree(fixture, workspace, symlinks=True)
+            attempt["fixture_hashes"] = inventory(workspace)
+            if attempt["fixture_hashes"] != report["fixture_hashes"][case["id"]]:
+                raise ValueError("Fixture input pairing drift")
+            # Explicit endpoint evaluation supplies only that independently installable skill.
+            supplied = workspace / ".agents/skills" / skill
+            shutil.copytree(output / "sources" / attempt["variant"] / "skills" / skill,
+                            supplied, symlinks=True)
+            before_skills = inventory(workspace / ".agents")
+            attempt["input_hashes"] = inventory(workspace)
+            expected = dict(report["fixture_hashes"][case["id"]])
+            expected.update({f".agents/skills/{name}": digest
+                             for name, digest in report["skill_hashes"][attempt["variant"]].items()
+                             if name.startswith(skill + "/")})
+            if attempt["input_hashes"] != expected:
+                raise ValueError("Skill or fixture input pairing drift")
+            attempt["input_pairing"] = "verified"
+        except (ValueError, OSError) as error:
+            return blocked_inputs(summary, report, error, attempt)
         logs = output / "attempts" / attempt["id"]
         response = logs / "response.txt"
         prompt = f"Use ${skill} from .agents/skills/{skill}/SKILL.md. {case['prompt']}"
         attempt["prompt"] = prompt
+        save_report(summary, report)
         attempt.update(execute(command(args.codex, workspace, response, prompt), workspace, logs, args.timeout))
         attempt.update(metadata(logs))
         attempt["outcome"] = "inconclusive"
+        try:
+            verify_frozen(output, report)
+        except (ValueError, OSError) as error:
+            return blocked_inputs(summary, report, error, attempt)
         if prerequisite_failure(logs):
             attempt["outcome"] = "blocked"
-            write_json(summary, report)
+            save_report(summary, report)
             break
         if attempt["execution_status"] == "completed" and attempt["turn_completed"] and not attempt["turn_failed"]:
             try:
@@ -219,10 +354,17 @@ def run(args):
                 skills_preserved = inventory(workspace / ".agents") == before_skills
                 # Check a separate snapshot: checks cannot modify the candidate's artifact evidence.
                 checked = output / "checks" / attempt["id"]
-                shutil.copytree(workspace, checked)
-                check = execute([sys.executable, str(checker), case["id"], str(checked)],
-                                REPO, logs / "checker", min(args.timeout, 60))
+                shutil.copytree(workspace, checked, symlinks=True)
+                attempt["checked_output_hashes"] = inventory(checked)
+                if attempt["checked_output_hashes"] != attempt["output_hashes"]:
+                    raise ValueError("Artifact copy changed before independent checking")
+                check = execute([sys.executable, "-B", str(checker), case["id"], str(checked)],
+                                bundle, logs / "checker", min(args.timeout, 60))
                 attempt["checker"] = check
+                try:
+                    verify_frozen(output, report)
+                except (ValueError, OSError) as error:
+                    return blocked_inputs(summary, report, error, attempt)
                 if check["execution_status"] != "completed":
                     attempt["artifact_outcome"] = "inconclusive"
                 elif check["exit_code"] == 0 and skills_preserved:
@@ -237,9 +379,8 @@ def run(args):
             except (ValueError, OSError) as error:
                 attempt["outcome"] = "inconclusive"
                 attempt["check_error"] = str(error)
-        write_json(summary, report)
-    report["counts"] = dict(Counter(item["outcome"] for item in attempts))
-    write_json(summary, report)
+        save_report(summary, report)
+    save_report(summary, report)
     print(json.dumps({"summary": str(summary), "counts": report["counts"]}))
     return 1 if any(a["outcome"] != "passed" for a in attempts) else 0
 
