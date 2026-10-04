@@ -1,6 +1,6 @@
 # 0.6.0 candidate — 2026-10-04
 
-Status: implementation and local checks completed; behavioral release acceptance blocked. The repository manifest remains `0.5.5`. No 0.6.0 release was created. After reviewing the implementation results, the user authorized committing and pushing the candidate source; source publication does not satisfy the behavioral release gate.
+Status: implementation and local checks completed; behavioral evaluation remains blocked. The package stayed at `0.5.5` during evaluation. After the candidate source was committed and pushed, the user explicitly requested release. Release preparation sets the manifest to `0.6.0` and discloses the missing model evidence; publication does not satisfy the original behavioral acceptance gate.
 
 ## Implemented scope
 
@@ -54,8 +54,10 @@ Only temporary configurations and destinations were used. The staged installatio
 
 Saved [installation results](evidence/installation.json) include command outputs and candidate hashes. The existing CI workflow was not changed or triggered remotely; the local tests do not establish a fresh macOS CI result.
 
+During release preparation, implementation commit `f30b4fae42b7fd83b912dfb8595f110d6fa4140f` was confirmed to have passed [GitHub CI on Linux and macOS](https://github.com/awesomelon/rung/actions/runs/37189118342). A fresh Linux local-marketplace installation of the final `0.6.0` package succeeded, with all 60 skill files matching the source; see [release installation evidence](evidence/release-installation.json). This final packaging check does not add model or macOS host-installation evidence.
+
 ## Release disposition and next action
 
-Keep this as an unvalidated 0.6.0 candidate. The design's behavioral release gate is not met, so the final version bump and publication are deferred. The two endpoints, invocation metadata, and skill-only packaging remain intact.
+The design's behavioral release gate is not met. The user subsequently authorized publishing 0.6.0 with that limitation disclosed, so the version bump and release proceed without a claim of demonstrated behavioral improvement. The two endpoints, invocation metadata, and skill-only packaging remain intact. Historical evidence files retain their original versions and results.
 
 With host authentication restored, run [the comparison procedure](README.md) in a new output directory, inspect actual responses and traces against [the independent rubric](review.md), and record both failures and successes. Reduce guidance already handled by baseline behavior. Fix and reevaluate any regression. Then perform real-host standalone/discovery checks and the declared installation/support matrix, refresh evidence for changed bytes, and decide whether a 0.6.0 release claim is justified.

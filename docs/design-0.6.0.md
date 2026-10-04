@@ -2,7 +2,7 @@
 
 Status: proposed implementation design, 2026-10-04. This document does not record implementation or evaluation success.
 
-Implementation follow-up: [candidate results](../evals/v0.6.0/results.md) record the local implementation, checks, and blocked model evaluation. The behavioral release gate remains unmet; this design is not a release approval.
+Implementation follow-up: [evaluation results](../evals/v0.6.0/results.md) record the implementation, checks, and blocked model evaluation. The behavioral release gate remains unmet. The user subsequently requested publication with that known gap; this changes the release decision, not the evaluation evidence.
 
 ## Outcome
 
