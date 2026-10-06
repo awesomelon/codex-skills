@@ -1,0 +1,171 @@
+{
+  "scope_checks": {
+    "implementation": {
+      "changed": [
+        "README.md",
+        "config.py"
+      ],
+      "added": [
+        "docs/decisions/0001-timeout-key-compatibility.md"
+      ],
+      "removed": [],
+      "final_hashes": {
+        "README.md": "355606cedbe6d614433edd55fe8bf78a97094a210d5972530010c2ed00e339b0",
+        "config.py": "4db4e91c9cee2bf8ee7f298c23f5eb6344b23d730c315f070334d69e0f079520",
+        "docs/decisions/0001-timeout-key-compatibility.md": "a760ac8d9a431a4bc37f2106932e6294f5063a4d024c94898630c8f10c5e2d8f",
+        "notes.txt": "0d0862640dec4b73f17496a5d69f7cb9d4aedbeebbd0fb69c76a579cb97e6366"
+      }
+    },
+    "convention": {
+      "changed": [
+        "Documentation/Decisions/ADR-007-nightly-snapshots.rst"
+      ],
+      "added": [
+        "Documentation/Decisions/ADR-008-point-in-time-recovery.rst"
+      ],
+      "removed": [],
+      "final_hashes": {
+        ".adr-dir": "315a8c91b4407e52b7f1d28231c55f56dade234bafe33c0ddb64f585195cf3ab",
+        "Documentation/Decisions/ADR-006-backup-owner.rst": "4b0cc116daa7cb436d36850bb0f7c3760739c9cff6bce372c958184409ad3222",
+        "Documentation/Decisions/ADR-007-nightly-snapshots.rst": "f1270ad3e67d92619cc6d1feefb9754d3f24da79bc8481f8436612e159617909",
+        "Documentation/Decisions/ADR-008-point-in-time-recovery.rst": "23ea4bf9b43dd47c8bedb72ac4e96412ac74663c4ca9b3a87e9a97397fd861ac",
+        "backup.json": "d59aba85b796478a6e726069621a160a57c6e5c51df8003691854fd4f61b1eaa"
+      }
+    },
+    "review": {
+      "changed": [],
+      "added": [],
+      "removed": [],
+      "final_hashes": {
+        "design.md": "5723a036ecb96f4b2b20730edf38097be3232cfc1b4eb84cf02af7541368ec54"
+      }
+    },
+    "proposal": {
+      "changed": [],
+      "added": [
+        "docs/decisions/0001-migrate-sessions-to-redis.md"
+      ],
+      "removed": [],
+      "final_hashes": {
+        "context.md": "6be9969883d3f7d34b9f702482e99535cd431a07712bd6345dca00d2445b7365",
+        "docs/decisions/0001-migrate-sessions-to-redis.md": "5440edb49ee88cb29aaca518b2765f66cabdedf2858ce0883218f951e5a9e669",
+        "sessions.py": "c707939dbbc58fa677ab9183af86ccdba2cd72ddd19a025928875cf757a583d7"
+      }
+    },
+    "routine": {
+      "changed": [
+        "README.md"
+      ],
+      "added": [],
+      "removed": [],
+      "final_hashes": {
+        "README.md": "1f3a89d45e845232384b033dcdd2ce47c2d625547866e5ce514db81a28e56c64",
+        "notes.txt": "0d0862640dec4b73f17496a5d69f7cb9d4aedbeebbd0fb69c76a579cb97e6366"
+      }
+    }
+  },
+  "compatibility_behavior": {
+    "original": [
+      {
+        "input": {},
+        "expected": 30,
+        "actual": 30,
+        "passed": true
+      },
+      {
+        "input": {
+          "timeout": 18
+        },
+        "expected": 18,
+        "actual": 18,
+        "passed": true
+      },
+      {
+        "input": {
+          "timeout_seconds": 12
+        },
+        "expected": 12,
+        "actual": 30,
+        "passed": false
+      },
+      {
+        "input": {
+          "timeout_seconds": 12,
+          "timeout": 18
+        },
+        "expected": 12,
+        "actual": 18,
+        "passed": false
+      },
+      {
+        "input": {
+          "timeout_seconds": 0,
+          "timeout": 18
+        },
+        "expected": 0,
+        "actual": 18,
+        "passed": false
+      },
+      {
+        "input": {
+          "timeout": 0
+        },
+        "expected": 0,
+        "actual": 0,
+        "passed": true
+      }
+    ],
+    "final": [
+      {
+        "input": {},
+        "expected": 30,
+        "actual": 30,
+        "passed": true
+      },
+      {
+        "input": {
+          "timeout": 18
+        },
+        "expected": 18,
+        "actual": 18,
+        "passed": true
+      },
+      {
+        "input": {
+          "timeout_seconds": 12
+        },
+        "expected": 12,
+        "actual": 12,
+        "passed": true
+      },
+      {
+        "input": {
+          "timeout_seconds": 12,
+          "timeout": 18
+        },
+        "expected": 12,
+        "actual": 12,
+        "passed": true
+      },
+      {
+        "input": {
+          "timeout_seconds": 0,
+          "timeout": 18
+        },
+        "expected": 0,
+        "actual": 0,
+        "passed": true
+      },
+      {
+        "input": {
+          "timeout": 0
+        },
+        "expected": 0,
+        "actual": 0,
+        "passed": true
+      }
+    ]
+  },
+  "prior_adr_rationale_preserved": true,
+  "final_skill_matches_evaluated_skill": true
+}

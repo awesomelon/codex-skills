@@ -8,7 +8,7 @@
 
 Tact is one Codex skill for deliberate engineering: understand the task, choose a simple solution, keep edits focused, and verify the result.
 
-**Version 0.0.3.** Use `$tact` for implementation, debugging, refactoring, planning, and review.
+**Version 0.0.4.** Use `$tact` for implementation, debugging, refactoring, planning, review, and engineering decision records.
 
 ## Four principles
 
@@ -34,9 +34,16 @@ Do not edit files.
 Use $tact to plan this migration. Explain the tradeoffs before implementation.
 
 Use $tact to refactor this parser while preserving its public behavior.
+
+Use $tact to implement this storage change and preserve the decision rationale.
+
+Use $tact to record our agreed API compatibility policy as an ADR.
+Do not change the implementation.
 ```
 
 The requested outcome sets the scope. Planning and review preserve the assessed material. Implementation carries through the authorized change and relevant checks. There is no required assessment stage before coding.
+
+During implementation, Tact keeps affected documentation current and preserves missing context that would prevent a mistaken change or repeated investigation later. It reuses existing documentation and creates an ADR only when the rationale needs an independent record. No new document is needed when the available context is sufficient. Documentation-only requests produce the requested artifact without implementing the decision.
 
 Use the skill name displayed by your host; a plugin prefix may be present.
 
@@ -59,9 +66,9 @@ For installation and updates, see [the installation guide](docs/installation.md)
 
 | Skill | Purpose |
 | --- | --- |
-| [tact](skills/tact/SKILL.md) | Implement, debug, refactor, plan, and review code with explicit assumptions, focused changes, concrete code-quality defaults, and claim-specific verification. Report specific outcomes with consistent project terms and formatting suited to the content. Preserve assessed files during planning and review. |
+| [tact](skills/tact/SKILL.md) | Implement, debug, refactor, plan, and review code with explicit assumptions, focused changes, concrete code-quality defaults, and claim-specific verification. Maintain affected documentation and preserve otherwise missing context needed for future decisions. Report specific outcomes with consistent project terms and formatting suited to the content. Preserve assessed files during planning and review. |
 
-Use [code evidence](skills/tact/references/code-evidence.md) for TypeScript or JavaScript contracts, assertions, collections, and testing seams; it routes Effect projects to a dedicated reference. [Verification](skills/tact/references/verification.md) covers regression evidence and completion claims. [Communication](skills/tact/references/communication.md) covers concise reports, requested depth, and exact output formats. These are self-contained internal guides, not a bundled linter or a required sequence of stages.
+Use [code evidence](skills/tact/references/code-evidence.md) for TypeScript or JavaScript contracts, assertions, collections, and testing seams; it routes Effect projects to a dedicated reference. [Decision documentation](skills/tact/references/decision-documentation.md) covers record selection, existing conventions, and ADR history. [Verification](skills/tact/references/verification.md) covers regression evidence and completion claims. [Communication](skills/tact/references/communication.md) covers concise reports, requested depth, and exact output formats. These are self-contained internal guides, not a bundled linter or a required sequence of stages.
 
 ## Documentation
 

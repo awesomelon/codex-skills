@@ -1,5 +1,9 @@
 # Tact validation results
 
+## Tact 0.0.4 decision documentation revision
+
+Date: 2026-10-07. The [focused evaluation](runs/2026-10-07-decisions-focus/report.md) covers the current source: two fresh contexts produced a useful proposal without an implementation checklist and reused adequate existing rationale without creating a new record. Structural checks passed. The [initial five-case evaluation and installation evidence](runs/2026-10-07-decisions/report.md) cover the earlier candidate; they do not validate the revised bytes. Neither run establishes general reliability or a measured improvement rate.
+
 ## Tact 0.0.3 communication revision
 
 Date: 2026-10-06. [Report and raw evidence](runs/2026-10-06-communication/report.md) cover flexible presentation, specific engineering claims, stable terminology, and requested formats. One fresh evaluator context and three behavioral follow-ups met the reviewed expectations. Structural checks and temporary macOS standalone/plugin installation passed. These observations are not a baseline comparison or a general reliability measurement.

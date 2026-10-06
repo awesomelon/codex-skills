@@ -1,0 +1,90 @@
+{
+  "scope": {
+    "proposal": {
+      "changed": [],
+      "added": [
+        "docs/decisions/0001-migrate-sessions-to-redis.md"
+      ],
+      "removed": [],
+      "final_hashes": {
+        "context.md": "6be9969883d3f7d34b9f702482e99535cd431a07712bd6345dca00d2445b7365",
+        "docs/decisions/0001-migrate-sessions-to-redis.md": "95b891213839de49d5108e7b1c43333ce9693fde1a1fc1891cd1150d60b2679a",
+        "sessions.py": "c707939dbbc58fa677ab9183af86ccdba2cd72ddd19a025928875cf757a583d7"
+      }
+    },
+    "existing": {
+      "changed": [
+        "README.md",
+        "config.py"
+      ],
+      "added": [],
+      "removed": [],
+      "final_hashes": {
+        "README.md": "b49b83022c2c1921994de8899d854e8351e337a338de77af57cbc8d977978b32",
+        "config.py": "4db4e91c9cee2bf8ee7f298c23f5eb6344b23d730c315f070334d69e0f079520",
+        "docs/decisions/0001-timeout-compatibility.md": "016ab725575851fc15bfc56799c0c9c147270866c6e8145ce846af72288e16a2"
+      }
+    }
+  },
+  "existing_behavior": [
+    {
+      "input": {},
+      "expected": 30,
+      "actual": 30
+    },
+    {
+      "input": {
+        "timeout": 8
+      },
+      "expected": 8,
+      "actual": 8
+    },
+    {
+      "input": {
+        "timeout_seconds": 12
+      },
+      "expected": 12,
+      "actual": 12
+    },
+    {
+      "input": {
+        "timeout_seconds": 12,
+        "timeout": 8
+      },
+      "expected": 12,
+      "actual": 12
+    },
+    {
+      "input": {
+        "timeout_seconds": 0,
+        "timeout": 8
+      },
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "input": {
+        "timeout_seconds": null,
+        "timeout": 8
+      },
+      "expected": null,
+      "actual": null
+    },
+    {
+      "input": {
+        "timeout": 0
+      },
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "input": {
+        "timeout": null
+      },
+      "expected": null,
+      "actual": null
+    }
+  ],
+  "markdown_links_resolve": true,
+  "final_skill_matches_evaluated_skill": true
+}

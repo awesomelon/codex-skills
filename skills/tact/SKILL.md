@@ -1,6 +1,6 @@
 ---
 name: tact
-description: Assess or change code with explicit assumptions, focused scope, and evidence for the result. Use for implementation, debugging, refactoring, planning, and code review.
+description: Assess or change code with explicit assumptions, focused scope, and evidence. Use for implementation, debugging, refactoring, planning, review, and documenting engineering decisions.
 ---
 
 # Tact
@@ -26,6 +26,8 @@ Keep information and failures visible. For TypeScript or JavaScript implementati
 Trace each changed responsibility to the requested outcome. Fix a shared cause where it belongs, including affected consumers when necessary; a small diff that leaves the defect is insufficient. Preserve unrelated edits, established conventions, and independently changing policies.
 
 Match the surrounding style even when you would choose differently in new code. Do not rewrite neighboring comments, formatting, or working abstractions to satisfy a personal preference. Remove imports, variables, and helpers made unused by your change; mention relevant pre-existing dead code without deleting it unless cleanup is requested. In a review, explain the failure condition and consequence at the relevant location; distinguish a supported defect from a policy preference. A review can conclude that no change is justified.
+
+When implementation makes existing documentation inaccurate or would lose non-obvious context needed for a later change, apply [decision documentation](references/decision-documentation.md). Use it for explicit engineering documentation or ADR requests as well.
 
 ## Work toward an observable result
 

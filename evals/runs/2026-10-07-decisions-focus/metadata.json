@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-07",
+  "candidate_version": "0.0.4",
+  "requests": {
+    "proposal": "Write a proposed ADR for migrating sessions to Redis. Keep implementation unchanged; approval and rollout are still pending.",
+    "existing": "Add `timeout_seconds` support, prefer it over `timeout`, and keep the existing default and compatibility policy. Verify the behavior."
+  },
+  "skill_hashes": {
+    "SKILL.md": "905c57f278e54d2fad2a075be91c2ccf7fe48d9a468a99645b02c5e357fba872",
+    "agents/openai.yaml": "c5ccde1dbd4fa5b1d117559fb5a401542e2476349167818c3f0f3406e392b982",
+    "references/code-evidence.md": "2fed35be1a9a49c5c7319416369fcfe01e80be84def39963ded3e84f492b7a81",
+    "references/communication.md": "c400cff29fee44f6a5d61cdbf0a664eb3bfce485b0961e36a335ccfaf09218a0",
+    "references/decision-documentation.md": "b232b4302e783d77b45d91358e3f25be3b6bc1f4768df53248b03d3ff8b0f8f7",
+    "references/effect-code.md": "9d98acc412eb941a835800a10ef205f130d018b4597832d7a3791377be8cdd3a",
+    "references/verification.md": "631d99ba91d4db3c04db5fbaebcf973a148c9ef6e537c9490e6f8b49cdea820d"
+  },
+  "input_hashes": {
+    "existing/README.md": "3fe7f64beea764f6d9838932b81d39858e9fe30dcbdcac4df1d2511e4fab0ea2",
+    "existing/config.py": "fdb329c20792e17a6a034f172813013bc7db39dfd959d6c8a3f144e82e403570",
+    "existing/docs/decisions/0001-timeout-compatibility.md": "016ab725575851fc15bfc56799c0c9c147270866c6e8145ce846af72288e16a2",
+    "proposal/context.md": "6be9969883d3f7d34b9f702482e99535cd431a07712bd6345dca00d2445b7365",
+    "proposal/sessions.py": "c707939dbbc58fa677ab9183af86ccdba2cd72ddd19a025928875cf757a583d7"
+  },
+  "independent_contexts": 2,
+  "behavior_followups": 0,
+  "model": "Inherited session configuration; exact model identifier, reasoning effort, token usage, and cost not captured.",
+  "method": "Fresh contexts received only the skill, raw fixtures, and task; expected outcomes and parent discussion were withheld. Host tools were available, with workspace isolation instructed but not enforced.",
+  "final_skill_matches_evaluated_skill": true,
+  "proposal_inputs_match_initial_run": true
+}

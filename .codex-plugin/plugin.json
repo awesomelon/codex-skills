@@ -1,6 +1,6 @@
 {
   "name": "tact",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Deliberate engineering for Codex: understand the task, keep changes simple and focused, and verify the result.",
   "author": {
     "name": "awesomelon"
@@ -11,7 +11,7 @@
     "logo": "./assets/logo-tact.png",
     "composerIcon": "./assets/logo-tact.png",
     "shortDescription": "Make the right change.",
-    "longDescription": "One skill for implementation, debugging, refactoring, planning, and code review. Tact helps Codex expose assumptions, avoid unnecessary complexity, preserve unrelated work, verify its claims, and report the result clearly. Planning and review preserve assessed files. No prerequisite workflow or runtime is installed.",
+    "longDescription": "One skill for implementation, debugging, refactoring, planning, code review, and engineering decision records. Tact helps Codex expose assumptions, avoid unnecessary complexity, preserve unrelated work, maintain affected documentation, verify its claims, and report the result clearly. Planning and review preserve assessed files. No prerequisite workflow or runtime is installed.",
     "developerName": "awesomelon",
     "category": "Developer Tools",
     "capabilities": [],

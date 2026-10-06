@@ -1,0 +1,22 @@
+[
+  {
+    "command": "python3 scripts/validate.py",
+    "exit_code": 1,
+    "stderr": "ModuleNotFoundError: No module named 'yaml'",
+    "note": "Initial default Python 3.9.6 environment lacked PyYAML; validation did not run."
+  },
+  {
+    "command": "scripts/validate.py",
+    "python": "/Users/bangjaeho/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "dependencies": "PyYAML 6.0.3 in temporary PYTHONPATH directory",
+    "exit_code": 0,
+    "stdout": "PASS tact: basic metadata, UI fields, portable contents, local references\n"
+  },
+  {
+    "command": "/Users/bangjaeho/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/tact",
+    "python": "/Users/bangjaeho/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "dependencies": "PyYAML 6.0.3 in temporary PYTHONPATH directory",
+    "exit_code": 0,
+    "stdout": "Skill is valid!\n"
+  }
+]

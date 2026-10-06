@@ -1,0 +1,67 @@
+[
+  {
+    "command": [
+      "bash",
+      "scripts/install.sh",
+      "--dest",
+      "/var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/tact-decisions-p5yv7ib4/standalone",
+      "--mode",
+      "copy",
+      "--skill",
+      "tact"
+    ],
+    "exit_code": 0,
+    "stdout": "install: /private/var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/tact-decisions-p5yv7ib4/standalone/tact (copy)\nInstallation complete.\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "codex",
+      "plugin",
+      "marketplace",
+      "add",
+      "/Users/bangjaeho/Self/tact"
+    ],
+    "exit_code": 0,
+    "stdout": "Added marketplace `tact` from /Users/bangjaeho/Self/tact.\nInstalled marketplace root: /Users/bangjaeho/Self/tact\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "codex",
+      "plugin",
+      "add",
+      "tact@tact",
+      "--json"
+    ],
+    "exit_code": 0,
+    "stdout": "{\n  \"pluginId\": \"tact@tact\",\n  \"name\": \"tact\",\n  \"marketplaceName\": \"tact\",\n  \"version\": \"0.0.4\",\n  \"installedPath\": \"/private/var/folders/wv/426zj9m13q34bhblrxtylth80000gn/T/tact-decisions-p5yv7ib4/codex-test/plugins/cache/tact/tact/0.0.4\",\n  \"authPolicy\": \"ON_INSTALL\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "check": "standalone installed skill matches source",
+    "files": 7,
+    "hashes": {
+      "SKILL.md": "6974f932eea99a9a5e40f44d99d2b383347cec3cabf18c3acd74d09dead1352e",
+      "references/communication.md": "c400cff29fee44f6a5d61cdbf0a664eb3bfce485b0961e36a335ccfaf09218a0",
+      "references/code-evidence.md": "2fed35be1a9a49c5c7319416369fcfe01e80be84def39963ded3e84f492b7a81",
+      "references/effect-code.md": "9d98acc412eb941a835800a10ef205f130d018b4597832d7a3791377be8cdd3a",
+      "references/decision-documentation.md": "cc86fcac4fd6c2def3574757825e8a13953522c616d073e203b4a564595e1d24",
+      "references/verification.md": "631d99ba91d4db3c04db5fbaebcf973a148c9ef6e537c9490e6f8b49cdea820d",
+      "agents/openai.yaml": "c5ccde1dbd4fa5b1d117559fb5a401542e2476349167818c3f0f3406e392b982"
+    }
+  },
+  {
+    "check": "plugin installed skill matches source",
+    "files": 7,
+    "hashes": {
+      "SKILL.md": "6974f932eea99a9a5e40f44d99d2b383347cec3cabf18c3acd74d09dead1352e",
+      "references/communication.md": "c400cff29fee44f6a5d61cdbf0a664eb3bfce485b0961e36a335ccfaf09218a0",
+      "references/code-evidence.md": "2fed35be1a9a49c5c7319416369fcfe01e80be84def39963ded3e84f492b7a81",
+      "references/effect-code.md": "9d98acc412eb941a835800a10ef205f130d018b4597832d7a3791377be8cdd3a",
+      "references/decision-documentation.md": "cc86fcac4fd6c2def3574757825e8a13953522c616d073e203b4a564595e1d24",
+      "references/verification.md": "631d99ba91d4db3c04db5fbaebcf973a148c9ef6e537c9490e6f8b49cdea820d",
+      "agents/openai.yaml": "c5ccde1dbd4fa5b1d117559fb5a401542e2476349167818c3f0f3406e392b982"
+    }
+  }
+]

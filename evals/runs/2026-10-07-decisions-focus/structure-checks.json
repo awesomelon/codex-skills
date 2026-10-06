@@ -1,0 +1,14 @@
+[
+  {
+    "command": "scripts/validate.py",
+    "python": "bundled Python with temporary PyYAML 6.0.3",
+    "exit_code": 0,
+    "stdout": "PASS tact: basic metadata, UI fields, portable contents, local references\n"
+  },
+  {
+    "command": "skill-creator/scripts/quick_validate.py skills/tact",
+    "python": "bundled Python with temporary PyYAML 6.0.3",
+    "exit_code": 0,
+    "stdout": "Skill is valid!\n"
+  }
+]

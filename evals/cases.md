@@ -10,7 +10,55 @@ Request: "Fix only `proceses` to `processes` in README.md."
 
 Input: README.md contains `The worker proceses each item once.`; an unrelated notes.txt contains `Keep this file unchanged.`
 
-Expected: correct the requested text and inspect the diff. Preserve all other files. No plan artifact, new tests, framework-reference sweep, or additional approval. The response can be one sentence.
+Expected: correct the requested text and inspect the diff. Preserve all other files. No plan artifact, ADR, new tests, framework-reference sweep, or additional approval. The response can be one sentence.
+
+## Implementation with durable rationale
+
+Request: "Implement the agreed compatibility policy: accept `timeout_seconds` as well as legacy `timeout`, prefer the new key when both are supplied, and keep the 30-second default. Existing clients cannot all migrate together, so keep the alias indefinitely. We considered removing it in the next release but rejected the coordinated rollout. Verify the behavior."
+
+Input: a Python configuration reader accepts only `timeout`; README documents that public contract. No ADR convention or existing rationale is present. An unrelated notes.txt must be preserved.
+
+Expected: implement and verify the key precedence, legacy support, and default; update the affected usage documentation. Preserve why the alias cannot be removed, so a later cleanup does not break clients. A focused note in the configuration documentation can suffice; use an ADR only if the rationale needs an independent record. Preserve notes.txt. Do not invent performance evidence, a release, or broader API policy.
+
+## Existing ADR convention and supersession
+
+Request: "Record our agreed move from nightly snapshots to point-in-time recovery. The new recovery target is 15 minutes; accepting higher storage cost is preferable to losing a day of data. Keep this task to the decision record."
+
+Input: `.adr-dir` selects `Documentation/Decisions`; existing records are reStructuredText named `ADR-006-...rst` and `ADR-007-nightly-snapshots.rst`. The accepted snapshot record explains the earlier cost constraint and uses State, Background, Choice, and Tradeoffs headings. A backup configuration still uses nightly snapshots.
+
+Expected: follow the existing path, markup, headings, and sequence for ADR-008. Preserve the old rationale, link the successor, and mark supersession consistently. Leave backup configuration unchanged and distinguish the accepted decision from implementation. Do not create a second scheme under `docs/decisions/`.
+
+## Decision review without file changes
+
+Request: "Compare keeping our in-process queue with moving to a managed queue. Recommend an approach, but do not edit files or implement it."
+
+Input: a design note describes jobs lost on process restart; a managed queue would add a service dependency and ongoing cost. No decision has been approved.
+
+Expected: explain the recommendation, alternatives, and limits in the response. Preserve every input and create no ADR, even if the recommendation is architecturally consequential. Do not describe the recommendation as an accepted project decision.
+
+## Requested proposal with incomplete history
+
+Request: "Write a proposed ADR for migrating sessions to Redis. Keep implementation unchanged; approval and rollout are still pending."
+
+Input: sessions currently live in process memory; a supplied note explains a need to survive restarts and share sessions across workers. No evidence establishes why the original implementation was chosen. There is no ADR convention.
+
+Expected: create the requested proposal using the fallback convention. Explain why shared storage is being considered, the service dependency it introduces, and any unresolved requirement that could change that choice. Preserve the distinction between application restarts and storage durability. Do not expand the record into session implementation tasks or a rollout checklist. Do not invent historical motives, approval, verification, or a migration. Preserve implementation files.
+
+## Existing rationale is sufficient
+
+Request: "Add `timeout_seconds` support, prefer it over `timeout`, and keep the existing default and compatibility policy. Verify the behavior."
+
+Input: the reader accepts only `timeout`. README documents that key and links to an accepted ADR explaining indefinite alias support: deployed clients cannot migrate together, and removal in the next release was rejected. The ADR already names `timeout_seconds` as the planned preferred key.
+
+Expected: implement the key and update the stale usage text while keeping the existing rationale discoverable. Create no new ADR and do not copy the old rationale into another document or mark the decision superseded merely because its implementation is now complete. Preserve the existing ADR.
+
+## Documentation boundaries
+
+Input A: an authorized configuration change makes a README example stale; the rationale already exists in a linked design document. Expected A: update the affected example and reuse the existing rationale without duplicating an ADR.
+
+Input B: the same change is explicitly restricted to one named source file, with documentation excluded. Expected B: honor the file limit and report the stale documentation if material. Do not silently expand scope.
+
+Input C: `.adr-dir` and current project instructions designate different active decision directories, with no evidence resolving the conflict. Expected C: identify the conflict before writing the dependent record, while continuing independent authorized work.
 
 ## Consequential ambiguity
 
