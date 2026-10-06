@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-06",
+  "candidate_version": "0.0.3",
+  "base_commit": "db5bb397a9457ee1e3c0a70a4481307eba2bda3c",
+  "skill_hashes": {
+    "SKILL.md": "239b57cd0cf8efffa7c2614a7a34f91a8c2e83025212e47c7bc4969665c8ee15",
+    "references/communication.md": "c400cff29fee44f6a5d61cdbf0a664eb3bfce485b0961e36a335ccfaf09218a0",
+    "references/code-evidence.md": "2fed35be1a9a49c5c7319416369fcfe01e80be84def39963ded3e84f492b7a81",
+    "references/effect-code.md": "9d98acc412eb941a835800a10ef205f130d018b4597832d7a3791377be8cdd3a",
+    "references/verification.md": "631d99ba91d4db3c04db5fbaebcf973a148c9ef6e537c9490e6f8b49cdea820d",
+    "agents/openai.yaml": "c5ccde1dbd4fa5b1d117559fb5a401542e2476349167818c3f0f3406e392b982"
+  },
+  "input_hashes": {
+    "inputs/settings.md": "ea61731d9f99fefb02b87d2a34b73f7d40b51299d9f260b07b35315ced421abe",
+    "inputs/retry.md": "4d7889d5f0070d9eb9704e1b29f760da153bdebf209d1b192b2b204a773976c2"
+  },
+  "request_hash": "dce26acc40c2561873d2b75c3c4ff2ce5dac0dd2fe1a51e8205cc64190f3616d",
+  "independent_contexts": 1,
+  "behavior_followup_turns": 3,
+  "execution_record_followup_turns": 1,
+  "model": "Inherited session configuration; exact resolved model identifier, reasoning effort, token usage, and cost not captured.",
+  "method": "Explicit skill invocation in a fresh evaluator context, followed by three requests in the same context. Only raw inputs and the candidate skill were supplied; expected outcomes and review conclusions were withheld.",
+  "tool_access": "Host tools available; evaluator instructed to use only temporary inputs and skill, preserve them, and write the requested response files. Cross-workspace read isolation was not enforced.",
+  "acceptance_review": {
+    "retry": "Passed parent review: explains the retry limit, delay, final error and failed-attempt history; consistently distinguishes Delivery and Attempt; qualifies local evidence and omits unsupported performance/reliability praise.",
+    "settings": "Passed parent review: one compact paragraph retains label change, same handler, observed save, and unverified keyboard behavior.",
+    "table": "Passed parent review: requested comparison table preserves facts and verification limit.",
+    "json": "Passed parent review and JSON parsing: exact requested key set; supplied local successes distinguished from unverified production and performance claims."
+  },
+  "protected_inputs_unchanged": true,
+  "installed_0_0_2_skill_matches_base_commit": true,
+  "limits": [
+    "No baseline comparison or repeated sampling; these responses do not establish a measured improvement or general reliability.",
+    "Host instructions also guide communication, so outcomes cannot be attributed solely to this skill.",
+    "No automatic-selection or desktop reload test.",
+    "The retry and browser observations were synthetic input records; no webhook runtime or browser was exercised by the evaluator."
+  ]
+}

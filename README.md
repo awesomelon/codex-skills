@@ -8,7 +8,7 @@
 
 Tact is one Codex skill for deliberate engineering: understand the task, choose a simple solution, keep edits focused, and verify the result.
 
-**Version 0.0.2.** Use `$tact` for implementation, debugging, refactoring, planning, and review.
+**Version 0.0.3.** Use `$tact` for implementation, debugging, refactoring, planning, and review.
 
 ## Four principles
 
@@ -19,7 +19,7 @@ Tact is one Codex skill for deliberate engineering: understand the task, choose 
 | **Keep changes tied to the request.** | Repair the responsible code and necessary consumers while preserving unrelated work and behavior. |
 | **Work toward an observable result.** | Define success, check the relevant final state, and limit completion claims to the evidence. |
 
-Tact keeps its reports easy to use: answer first, short paragraphs with bold arrow lead-ins when useful, important conditions intact, and enough depth for the request. Short reporting does not mean incomplete work. Requested output formats take precedence.
+Tact keeps its reports easy to use: answer first, choose formatting to fit the content, describe concrete changes and evidence, and keep project terms consistent. Preserve important conditions and enough depth for the request. Short reporting does not mean incomplete work. Requested output formats take precedence.
 
 ## Use
 
@@ -59,7 +59,7 @@ For installation and updates, see [the installation guide](docs/installation.md)
 
 | Skill | Purpose |
 | --- | --- |
-| [tact](skills/tact/SKILL.md) | Implement, debug, refactor, plan, and review code with explicit assumptions, focused changes, concrete code-quality defaults, and claim-specific verification. Preserve assessed files during planning and review. |
+| [tact](skills/tact/SKILL.md) | Implement, debug, refactor, plan, and review code with explicit assumptions, focused changes, concrete code-quality defaults, and claim-specific verification. Report specific outcomes with consistent project terms and formatting suited to the content. Preserve assessed files during planning and review. |
 
 Use [code evidence](skills/tact/references/code-evidence.md) for TypeScript or JavaScript contracts, assertions, collections, and testing seams; it routes Effect projects to a dedicated reference. [Verification](skills/tact/references/verification.md) covers regression evidence and completion claims. [Communication](skills/tact/references/communication.md) covers concise reports, requested depth, and exact output formats. These are self-contained internal guides, not a bundled linter or a required sequence of stages.
 

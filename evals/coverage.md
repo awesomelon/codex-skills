@@ -1,6 +1,6 @@
 # Instruction coverage
 
-The four user-supplied references and the designated authoring article were retrieved and read on 2026-10-04. This map records the decisions represented in Tact 0.0.2. It is an instruction audit, not a model-success score. The installed skill contains original integrated wording and internal links only.
+The four user-supplied references and the designated authoring article were retrieved and read on 2026-10-04 for Tact 0.0.2. On 2026-10-06, the current [no-ai-slop skill](https://github.com/petergyang/no-ai-slop/blob/main/skills/no-ai-slop/SKILL.md), its [evaluation guide](https://github.com/petergyang/no-ai-slop/blob/main/skills/no-ai-slop/eval.md), and the [authoring article](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra) were read directly for the 0.0.3 communication revision. This map covers the current source. It is an instruction audit, not a model-success score. The skill contains original integrated wording and internal links only.
 
 | Area | Concrete coverage | Owner |
 | --- | --- | --- |
@@ -16,7 +16,7 @@ The four user-supplied references and the designated authoring article were retr
 | Effect | Tagged recovery, tagged matching, constructors, service ownership, and repeated-branch matching; conditional on direct project use. | [Effect conventions](../skills/tact/references/effect-code.md) |
 | Evidence | Explicit claim-to-check mapping, actual output and exit status, test selection, original-failure/fixed-success regression evidence, artifact inspection and requirement coverage. | [Verification](../skills/tact/references/verification.md) |
 | Final state | Changed-input invalidation, limited reuse of applicable observations, worker-artifact inspection, no diagnostic suppression, distinct failed/blocked/unrun outcomes. | Verification |
-| Reporting | Answer first, readable emphasis, complete scoped values and risks, no silent omission, requested depth, plain language, no filler or repeated conclusions. | [Communication](../skills/tact/references/communication.md) |
+| Reporting | Answer first, formatting chosen for the content, specific changes and evidence instead of inflated claims, consistent project terms, complete scoped values and risks, requested depth, no filler or repeated conclusions. | [Communication](../skills/tact/references/communication.md) |
 | Interaction | Focused questions, blocking decision visible, progress orientation, executable work retained, requested artifact formats preserved. | Communication |
 
 ## Explicit adaptations
@@ -26,5 +26,7 @@ These are default engineering decisions rather than an imported AST ruleset. Ext
 Names and spacing are maintenance policies, not proof of runtime bugs. Existing project contracts and read-only requests still govern scope. Effect guidance is conditional and does not authorize installing a library. Tact does not bundle or install lint enforcement.
 
 Completion evidence must cover the relevant final state. Repeating every unchanged check in every message is not required; an earlier success cannot establish a subsequently changed result. Communication style does not override JSON-only output or requested depth, and makes no assumptions about a user's health.
+
+The communication revision selectively adapts flexible presentation, subject-specific wording, and stable terminology for engineering reports. Emphasis remains available when useful; distinct domain concepts stay distinct. It adds no global vocabulary blacklist, personal-voice editing workflow, or mandatory prose checklist. Specific wording must preserve uncertainty and cannot supply missing evidence.
 
 Use [scenarios](cases.md) for expected behavior and [results](results.md) for actual execution and its limits.

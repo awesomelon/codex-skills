@@ -1,0 +1,7 @@
+{
+  "status": "제공된 기록에 따르면 로컬 테스트 timeout then success와 timeout then failure retains final error가 통과했습니다.",
+  "unverified": [
+    "운영 환경에서의 동작 및 신뢰성 개선",
+    "지연 시간 및 성능 개선"
+  ]
+}

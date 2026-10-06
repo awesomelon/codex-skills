@@ -1,0 +1,6 @@
+{
+  "retry": "Use $tact from the supplied skill folder. retry.md를 바탕으로 개발팀에 재시도 변경과 동작 흐름을 설명해줘.",
+  "settings": "Use $tact from the supplied skill folder. settings.md의 설정 변경을 짧게 설명해줘.",
+  "table": "같은 설정 변경의 변경 전후를 표로 비교해줘.",
+  "json": "재시도 변경의 검증 상태를 status와 unverified 두 키만 가진 JSON으로 답해줘."
+}

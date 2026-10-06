@@ -1,8 +1,14 @@
-# Tact 0.0.2 validation
+# Tact validation results
+
+## Tact 0.0.3 communication revision
+
+Date: 2026-10-06. [Report and raw evidence](runs/2026-10-06-communication/report.md) cover flexible presentation, specific engineering claims, stable terminology, and requested formats. One fresh evaluator context and three behavioral follow-ups met the reviewed expectations. Structural checks and temporary macOS standalone/plugin installation passed. These observations are not a baseline comparison or a general reliability measurement.
+
+## Tact 0.0.2 release
 
 Date: 2026-10-04. This report covers the 0.0.2 release inputs. Evaluation used isolated copies and did not modify the previously installed 0.0.1 package.
 
-## Executed behavior
+### Executed behavior
 
 Four evaluators received fresh contexts with the task, raw inputs, and a copy of the candidate skill. Expected findings and parent acceptance checks were not supplied. The readiness evaluator then received two follow-up requests. All work used disposable paths; the parent inspected outputs and checked protected input hashes.
 
@@ -17,14 +23,14 @@ Four evaluators received fresh contexts with the task, raw inputs, and a copy of
 
 [Run metadata and hashes](runs/2026-10-04-integration/summary.json) identify the exact instruction and input bytes. Raw responses retain their original Korean wording and temporary-path references. [Starting inputs](runs/2026-10-04-integration/inputs/) and the implementation artifacts are retained separately.
 
-## Other checks
+### Other checks
 
 - `python3 scripts/validate.py` passed for the six-file skill package and all internal references, using `/opt/anaconda3/bin/python3` with PyYAML 6.0.3.
 - `node --test evals/semantic-controls.mjs` passed all six controls on Node.js 24.21.0. [Raw output](runs/2026-10-04-integration/semantic-controls.txt). These are semantic examples, not model evaluations.
 - Temporary standalone and Codex plugin installation passed for 0.0.2 with Codex CLI 0.158.0. Installed skill bytes matched the candidate. [Installation evidence](runs/2026-10-04-integration/installation.json).
 - Maintained-file whitespace and document links were checked. The raw original-regression failure log retains Node's whitespace unchanged. The installer and validator implementations were unchanged; their 62-test regression suite was not repeated for this instruction-only change.
 
-## Limits
+### Limits
 
 These are four explicit-invocation smoke cases plus two follow-ups, not six independent trials or a measured improvement over 0.0.1. There was no baseline comparison, repeated sampling, automatic-selection measurement, or enforced cross-workspace read isolation. Evaluators inherited the session configuration; the exact resolved model identifier, token usage, and cost were not captured.
 

@@ -6,11 +6,15 @@ Make the result usable at a glance, while retaining what the reader needs to dec
 
 Open with the outcome, recommendation, or unresolved decision in one sentence. Follow with the evidence and consequences that explain it. Use familiar words in the user's language, with a warm, direct tone. Briefly explain an unavoidable technical term on first use. Omit filler, rhetorical questions, repeated conclusions, and narration of routine tool activity. Use direct sentences rather than decorative contrasts or em-dash asides.
 
-For multiple points, use short paragraphs separated by blank lines. Begin each with a bold `→` lead-in that states its main point; the emphasized text should make the result understandable when skimmed. Use a table when comparison is clearer that way. A single-point answer does not need a report template.
+Choose short paragraphs, lists, or a table according to the content. Bold lead-ins, including `→`, are optional when they help scanning; do not give every paragraph the same shape merely for consistency. A short explanation can be plain prose.
 
 ## Keep consequential detail
 
 Put exact values, thresholds, scope, preconditions, and material risks next to the claims they qualify. A change for one cohort is not a change for everyone. A passed local test is not an observed production result. Do not round away the distinction that determines the user's next action.
+
+Describe the specific change, mechanism, or consequence instead of declaring an improvement important or impressive. If a sentence could describe an unrelated change unchanged, make it specific using available evidence or omit it. Do not invent measurements or remove real uncertainty to make the report sound more concrete.
+
+Use the project's established term for each concept throughout a report. Explain aliases once when needed; do not rotate synonyms for variety or collapse distinct concepts into one label.
 
 Deliver focused answers completely. When the user requests depth, provide the reasoning, alternatives, and tradeoffs in readable blocks; do not replace the answer with an offer to explain later. For a broad survey, put the essentials first, name any deferred areas, and make that secondary detail reachable. Never defer a caveat that changes the recommendation or turn a contested finding into a one-sided fact.
 

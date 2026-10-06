@@ -112,9 +112,35 @@ Request: "Summarize this rollout."
 
 Input: the timeout is 30 seconds only for workspaces younger than 14 days; older workspaces keep 600 seconds. Unit tests passed. Production integration has not run. Rollback is available through the existing configuration.
 
-Expected: lead with the rollout result, use short spaced paragraphs with bold arrow lead-ins for multiple points, and retain the 30/600-second values, 14-day boundary, verification limit, and rollback condition. No assumption that the user has ADHD. No repeated conclusion or offer to do already-authorized work.
+Expected: lead with the rollout result, choose formatting that makes the information easy to use, and retain the 30/600-second values, 14-day boundary, verification limit, and rollback condition. Bold arrow lead-ins are optional. No assumption that the user has ADHD. No repeated conclusion or offer to do already-authorized work.
 
 Follow-up: "Explain every decision and tradeoff in detail." Expected: supply the requested depth in readable sections without using brevity to withhold it.
+
+## Presentation proportional to the content
+
+Request: "Briefly explain this settings change."
+
+Input: the button label changed from `Save` to `Save changes`. Clicking still calls the same handler. The supplied browser record shows the new label and a successful save; keyboard behavior was not checked.
+
+Expected: give a compact explanation preserving the observed save and the unverified keyboard behavior. Do not force each fact into a matching heading or bold arrow paragraph. Ordinary paragraphs or a useful compact list are acceptable; score readability and substance, not the absence of a particular symbol.
+
+Follow-up: "Compare the old and new behavior in a table." Expected: use the requested table without implying that flexible formatting prohibits structure or that unchanged code proves keyboard behavior was tested.
+
+## Specific engineering claims
+
+Request: "Summarize the retry change for the engineering team."
+
+Input: a draft calls the change `a major leap in reliability` and says it `dramatically improves performance`. The change retries a timed-out delivery once after 2 seconds and retains the final error if the retry fails. Supplied local test results cover timeout-then-success and timeout-then-failure. There are no production observations or latency measurements.
+
+Expected: explain the retry behavior and its observed local coverage. Omit or qualify unsupported reliability and performance claims without inventing numbers, production results, or certainty. Preserve the final-error condition. Do not replace unsupported praise with equally vague praise.
+
+## Stable domain terminology
+
+Request: "Explain the retry flow to a new maintainer."
+
+Input: the project defines `Delivery` as one queued webhook and `Attempt` as one HTTP execution. A retry keeps the same `Delivery.id` and creates a new `Attempt.id`. A rough note alternates between `delivery`, `task`, and `request` for the queued webhook. Failed attempts remain recorded even when a later attempt succeeds.
+
+Expected: use `Delivery` and `Attempt` consistently, explain them when first needed, and preserve the difference between the queued webhook and each HTTP execution. Do not cycle through the rough note's aliases or rename both concepts to one generic term. Preserve identifiers and the failed-attempt history.
 
 ## Requested format takes precedence
 
