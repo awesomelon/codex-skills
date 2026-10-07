@@ -10,6 +10,8 @@ Structural validation, deterministic example checks, installation, automatic ski
 
 For comparisons, keep task inputs, starting files, model settings, and permissions constant. Report the number of runs and variation; a single run does not establish reliability or improvement.
 
+Give candidates ordinary task prompts and neutral workspace names; keep evaluation hints and expected findings out of their supplied context without removing authentic project terminology. When using a judge to compare instruction variants, label outputs neutrally, withhold model and variant identities, and apply one rubric to both in the same pass. Record any limits to blinding or isolation. Inspect actual artifacts and tool records rather than treating a candidate's claim to have followed instructions as evidence. Model judging supplements checks of behavior and scope; it does not replace them.
+
 The code-example controls can be run with:
 
 ```bash

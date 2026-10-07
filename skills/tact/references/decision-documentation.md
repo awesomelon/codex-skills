@@ -2,6 +2,10 @@
 
 Preserve context that a future maintainer will need to change or operate the system correctly. A useful record answers a concrete question, such as why a compatibility alias must remain or which constraint rules out an otherwise attractive approach.
 
+## Establish the rationale
+
+Current code establishes behavior, not its author's historical intent. When a past decision or instruction determines the next action, trace it to attributable source evidence and retain its original scope. Distinguish that evidence from later summaries and your interpretation; copies of one summary are one evidence chain, not independent confirmation. Surface material contradictions or missing originals instead of turning a plausible explanation into a settled decision, permanent restriction, or permission. Search relevant sources, not every available system.
+
 ## Choose the smallest useful record
 
 Before adding a record, identify the future question it answers and the material context that code, tests, or existing documentation do not already supply. Save that context when losing it would invite a mistaken change, repeated investigation, or redoing a settled decision. The size or architectural importance of a change alone is insufficient. Leaving no new document is a valid outcome.

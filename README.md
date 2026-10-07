@@ -10,7 +10,7 @@ Tact is an engineering skill for making the right change: understand the task, c
 
 Use it for implementation, debugging, refactoring, planning, code review, and engineering decision records.
 
-**Version 0.0.5.** [Installation](#installation) · [Usage](#use) · [Documentation](#documentation)
+**Version 0.0.6.** [Installation](#installation) · [Usage](#use) · [Documentation](#documentation)
 
 ## Installation
 
@@ -52,6 +52,7 @@ Invoke Tact using the syntax in the [installation instructions](#installation), 
 | Code review | Review this change for correctness and unnecessary complexity. Do not edit files. |
 | Planning | Plan this migration and explain the tradeoffs before implementation. |
 | Refactoring | Refactor this parser while preserving its public behavior. |
+| Performance review | Assess this measured speedup before we choose an implementation. |
 | Implementation with documentation | Implement this storage change and preserve the decision rationale. |
 | Decision records | Record our agreed API compatibility policy as an ADR. Do not change the implementation. |
 
@@ -74,15 +75,15 @@ Tact leads with the result, describes concrete changes and evidence, and keeps p
 
 | Skill | Purpose |
 | --- | --- |
-| [tact](skills/tact/SKILL.md) | Engineering work with explicit assumptions, focused changes, code-quality guidance, verification, and documentation that preserves decision context. |
+| [tact](skills/tact/SKILL.md) | Engineering work with explicit assumptions, focused changes, code-quality guidance, verification, and documentation that preserves decision context. Trace indirect contract consumers, discard provisional fixes for rejected causes, and assess performance evidence. |
 
 The skill loads supporting guidance when relevant:
 
 | Guide | Covers |
 | --- | --- |
 | [Code evidence](skills/tact/references/code-evidence.md) | TypeScript and JavaScript contracts, assertions, collections, testing seams, and a dedicated reference for Effect projects. |
-| [Decision documentation](skills/tact/references/decision-documentation.md) | Record selection, existing documentation conventions, and ADR history. |
-| [Verification](skills/tact/references/verification.md) | Regression evidence and completion claims. |
+| [Decision documentation](skills/tact/references/decision-documentation.md) | Historical evidence, record selection, existing documentation conventions, and ADR history. |
+| [Verification](skills/tact/references/verification.md) | Regression evidence, performance comparisons, and completion claims. |
 | [Communication](skills/tact/references/communication.md) | Concise reports, requested depth, and exact output formats. |
 
 ## Documentation

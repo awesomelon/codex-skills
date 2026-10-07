@@ -1,0 +1,150 @@
+{
+  "source_mode": "local",
+  "source": "/Users/bangjaeho/Self/tact",
+  "version": "0.0.6",
+  "os": "macOS-27.0.1-arm64-arm-64bit",
+  "commands": [
+    {
+      "command": [
+        "codex",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "codex-cli 0.160.1\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "codex",
+        "plugin",
+        "marketplace",
+        "add",
+        "/Users/bangjaeho/Self/tact"
+      ],
+      "exit_code": 0,
+      "stdout": "Added marketplace `tact` from /Users/bangjaeho/Self/tact.\nInstalled marketplace root: /Users/bangjaeho/Self/tact\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "codex",
+        "plugin",
+        "add",
+        "tact@tact"
+      ],
+      "exit_code": 0,
+      "stdout": "Added plugin `tact` from marketplace `tact`.\nInstalled plugin root: /private/tmp/tact-release-j6e5kqgu/local-codex-config/plugins/cache/tact/tact/0.0.6\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "codex",
+        "plugin",
+        "list",
+        "--marketplace",
+        "tact",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"installed\": [\n    {\n      \"pluginId\": \"tact@tact\",\n      \"name\": \"tact\",\n      \"marketplaceName\": \"tact\",\n      \"version\": \"0.0.6\",\n      \"installed\": true,\n      \"enabled\": true,\n      \"source\": {\n        \"source\": \"local\",\n        \"path\": \"/Users/bangjaeho/Self/tact\"\n      },\n      \"marketplaceSource\": {\n        \"sourceType\": \"local\",\n        \"source\": \"/Users/bangjaeho/Self/tact\"\n      },\n      \"installPolicy\": \"AVAILABLE\",\n      \"authPolicy\": \"ON_INSTALL\"\n    }\n  ],\n  \"available\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "claude",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "2.1.293 (Claude Code)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "claude",
+        "plugin",
+        "validate",
+        ".claude-plugin/plugin.json",
+        "--strict"
+      ],
+      "exit_code": 0,
+      "stdout": "Validating plugin manifest: /Users/bangjaeho/Self/tact/.claude-plugin/plugin.json\n\n\u2714 Validation passed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "claude",
+        "plugin",
+        "validate",
+        ".claude-plugin/marketplace.json",
+        "--strict"
+      ],
+      "exit_code": 0,
+      "stdout": "Validating marketplace manifest: /Users/bangjaeho/Self/tact/.claude-plugin/marketplace.json\n\n\u2714 Validation passed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "claude",
+        "plugin",
+        "marketplace",
+        "add",
+        "/Users/bangjaeho/Self/tact"
+      ],
+      "exit_code": 0,
+      "stdout": "Adding marketplace\u2026\u2714 Successfully added marketplace: tact (declared in user settings)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "claude",
+        "plugin",
+        "install",
+        "tact@tact"
+      ],
+      "exit_code": 0,
+      "stdout": "Installing plugin \"tact@tact\"...\u2714 Successfully installed plugin: tact@tact (scope: user)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "claude",
+        "plugin",
+        "list",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "[\n  {\n    \"id\": \"tact@tact\",\n    \"version\": \"0.0.6\",\n    \"scope\": \"user\",\n    \"enabled\": true,\n    \"installPath\": \"/private/tmp/tact-release-j6e5kqgu/local-claude-config/plugins/cache/tact/tact/0.0.6\",\n    \"readFromFolder\": \"/Users/bangjaeho/Self/tact\",\n    \"folderVersion\": \"0.0.6\",\n    \"installedAt\": \"2026-10-07T23:10:45.026Z\",\n    \"lastUpdated\": \"2026-10-07T23:10:45.026Z\",\n    \"projectEnabled\": false\n  }\n]\n",
+      "stderr": ""
+    }
+  ],
+  "hosts": {
+    "codex": {
+      "installed_cache": "/private/tmp/tact-release-j6e5kqgu/local-codex-config/plugins/cache/tact/tact/0.0.6",
+      "file_count": 7,
+      "skill_hashes": {
+        "SKILL.md": "fed7f11af864276397630463bd07b68046619b010e73d46298e8fe0e22590182",
+        "references/communication.md": "c400cff29fee44f6a5d61cdbf0a664eb3bfce485b0961e36a335ccfaf09218a0",
+        "references/code-evidence.md": "2fed35be1a9a49c5c7319416369fcfe01e80be84def39963ded3e84f492b7a81",
+        "references/effect-code.md": "9d98acc412eb941a835800a10ef205f130d018b4597832d7a3791377be8cdd3a",
+        "references/decision-documentation.md": "dc67f366e7383a792ab03214d7b7dc05c621cef4d9264bb68cb1e7590afee6d3",
+        "references/verification.md": "a7b1e939e9c7bf3c4d3a7b30d419e20145200111304cd850fe72f5a6e6683dd9",
+        "agents/openai.yaml": "c5ccde1dbd4fa5b1d117559fb5a401542e2476349167818c3f0f3406e392b982"
+      },
+      "matches_source": true
+    },
+    "claude": {
+      "installed_cache": "/private/tmp/tact-release-j6e5kqgu/local-claude-config/plugins/cache/tact/tact/0.0.6",
+      "file_count": 7,
+      "skill_hashes": {
+        "SKILL.md": "fed7f11af864276397630463bd07b68046619b010e73d46298e8fe0e22590182",
+        "references/communication.md": "c400cff29fee44f6a5d61cdbf0a664eb3bfce485b0961e36a335ccfaf09218a0",
+        "references/code-evidence.md": "2fed35be1a9a49c5c7319416369fcfe01e80be84def39963ded3e84f492b7a81",
+        "references/effect-code.md": "9d98acc412eb941a835800a10ef205f130d018b4597832d7a3791377be8cdd3a",
+        "references/decision-documentation.md": "dc67f366e7383a792ab03214d7b7dc05c621cef4d9264bb68cb1e7590afee6d3",
+        "references/verification.md": "a7b1e939e9c7bf3c4d3a7b30d419e20145200111304cd850fe72f5a6e6683dd9",
+        "agents/openai.yaml": "c5ccde1dbd4fa5b1d117559fb5a401542e2476349167818c3f0f3406e392b982"
+      },
+      "matches_source": true
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "river-jobs": "Use $tact from .agents/skills/tact/SKILL.md. Review removing `_ack` from emitted jobs. It looks internal and the producer checks do not use it. Do not edit any files.\n",
+  "invoice-books": "Use $tact from .agents/skills/tact/SKILL.md. Finish fixing missing invoice totals. The provisional change recorded in handoff.md was yours; preserve the user's existing changes. Verify the repair.\n",
+  "harbor-cache": "Use $tact from .agents/skills/tact/SKILL.md. Explain why we avoid cache B and whether the agreed policy rules it out for export jobs. Do not change files.\n",
+  "batch-export": "Use $tact from .agents/skills/tact/SKILL.md. Can we use these benchmark results to choose the faster implementation? Review the claim without changing files.\n",
+  "worker-guide": "Use $tact from .agents/skills/tact/SKILL.md. Fix only `proceses` to `processes` in README.md.\n",
+  "profile-api": "Use $tact from .agents/skills/tact/SKILL.md. Review whether this external-input boundary needs simplifying; leave every file unchanged.\n"
+}

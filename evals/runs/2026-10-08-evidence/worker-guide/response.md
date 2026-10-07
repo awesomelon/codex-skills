@@ -1,0 +1,1 @@
+Changed only `proceses` to `processes` in README.md and verified the final text.

@@ -1,0 +1,97 @@
+{
+  "river-jobs": {
+    "changed_or_added_files": [],
+    "scope_check": "passed",
+    "supplied_skill_unchanged": true,
+    "turn_completed": true,
+    "usage": {
+      "input_tokens": 97487,
+      "cached_input_tokens": 80000,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 869,
+      "reasoning_output_tokens": 0
+    }
+  },
+  "invoice-books": {
+    "changed_or_added_files": [
+      "invoice.py",
+      "test_invoice.py"
+    ],
+    "scope_check": "passed",
+    "supplied_skill_unchanged": true,
+    "turn_completed": true,
+    "usage": {
+      "input_tokens": 120928,
+      "cached_input_tokens": 109440,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1440,
+      "reasoning_output_tokens": 69
+    }
+  },
+  "harbor-cache": {
+    "changed_or_added_files": [],
+    "scope_check": "passed",
+    "supplied_skill_unchanged": true,
+    "turn_completed": true,
+    "usage": {
+      "input_tokens": 94796,
+      "cached_input_tokens": 81408,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 525,
+      "reasoning_output_tokens": 0
+    }
+  },
+  "batch-export": {
+    "changed_or_added_files": [],
+    "scope_check": "passed",
+    "supplied_skill_unchanged": true,
+    "turn_completed": true,
+    "usage": {
+      "input_tokens": 97305,
+      "cached_input_tokens": 79872,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 960,
+      "reasoning_output_tokens": 33
+    }
+  },
+  "worker-guide": {
+    "changed_or_added_files": [
+      "README.md"
+    ],
+    "scope_check": "passed",
+    "supplied_skill_unchanged": true,
+    "turn_completed": true,
+    "usage": {
+      "input_tokens": 65992,
+      "cached_input_tokens": 55040,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 246,
+      "reasoning_output_tokens": 0
+    }
+  },
+  "profile-api": {
+    "changed_or_added_files": [],
+    "scope_check": "passed",
+    "supplied_skill_unchanged": true,
+    "turn_completed": true,
+    "usage": {
+      "input_tokens": 96498,
+      "cached_input_tokens": 87424,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 849,
+      "reasoning_output_tokens": 75
+    }
+  },
+  "invoice_original_regressions": {
+    "exit_code": 1,
+    "test_count": 5,
+    "failures": 4
+  },
+  "invoice_repaired_regressions": {
+    "exit_code": 0,
+    "test_count": 5,
+    "failures": 0
+  },
+  "final_skill_matches_evaluated_skill": true,
+  "preserved_user_function": "parse_price"
+}

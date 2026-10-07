@@ -1,0 +1,1 @@
+2026-09-14, Mina, migration owner: During the tenant migration, do not use cache B for tenant imports because it lacks the import namespace isolation we need. Export jobs may continue using cache B. Reassess imports when the migration ends.

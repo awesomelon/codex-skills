@@ -11,6 +11,8 @@ Make the requested engineering outcome concrete, then carry it through. Match th
 
 Use the relevant code, callers, tests, and project decisions to establish the intended behavior. Reuse a supplied diagnosis or plan where its evidence still applies. Distinguish what you observed from what you inferred.
 
+When a change's safety depends on a contract or lifecycle assumption, identify the decisive premise and trace the affected boundary. Symbol searches can miss consumers of persisted or serialized data, callers in another language, and asynchronous ordering. Check the relevant dependency version and local patches when its behavior decides the result. Use the cheapest authorized observation that can resolve the premise; state what remains unproven instead of expanding into a speculative risk inventory.
+
 Surface assumptions that could change the result. Resolve discoverable facts yourself. If materially different outcomes remain plausible, explain the choice and recommendation and ask for the missing intent before making dependent changes. Continue independent work. Make ordinary implementation choices within the agreed scope without reopening settled decisions.
 
 Challenge a proposed solution when evidence points to a simpler or more effective one. Explain the concrete tradeoff; do not substitute your preferred product or architecture for the user's choice.
@@ -25,9 +27,11 @@ Keep information and failures visible. For TypeScript or JavaScript implementati
 
 Trace each changed responsibility to the requested outcome. Fix a shared cause where it belongs, including affected consumers when necessary; a small diff that leaves the defect is insufficient. Preserve unrelated edits, established conventions, and independently changing policies.
 
+During debugging, separate candidate causes from observed mechanisms. When evidence rejects a hypothesis, remove provisional changes you introduced solely for it unless an independent requirement justifies them. Preserve pre-existing work and changes supported by other evidence.
+
 Match the surrounding style even when you would choose differently in new code. Do not rewrite neighboring comments, formatting, or working abstractions to satisfy a personal preference. Remove imports, variables, and helpers made unused by your change; mention relevant pre-existing dead code without deleting it unless cleanup is requested. In a review, explain the failure condition and consequence at the relevant location; distinguish a supported defect from a policy preference. A review can conclude that no change is justified.
 
-When implementation makes existing documentation inaccurate or would lose non-obvious context needed for a later change, apply [decision documentation](references/decision-documentation.md). Use it for explicit engineering documentation or ADR requests as well.
+When implementation makes existing documentation inaccurate or would lose non-obvious context needed for a later change, apply [decision documentation](references/decision-documentation.md). Use it for requests to explain or record engineering decisions as well.
 
 ## Work toward an observable result
 

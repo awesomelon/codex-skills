@@ -1,6 +1,6 @@
 {
   "name": "tact",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Deliberate engineering for Claude Code: understand the task, keep changes simple and focused, and verify the result.",
   "author": {
     "name": "awesomelon"

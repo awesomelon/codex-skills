@@ -1,8 +1,12 @@
 # Tact validation results
 
+## Tact 0.0.6 evidence and scope revision
+
+Date: 2026-10-08. [Report and raw evidence](runs/2026-10-08-evidence/report.md) cover six fresh CLI contexts: indirect consumers, rejected debugging hypotheses, original decision scope, incomplete performance measurements, a routine typo, and an unchanged external-input boundary. Parent artifact checks confirmed scope and final skill hashes; the debugging regressions fail on the original and pass on the repair. Structure checks passed on Python 3.12. These are single-run observations, not a baseline comparison or measured improvement rate. Subsequent [package verification](runs/2026-10-08-release/report.md) confirmed temporary macOS installation in Codex and Claude Code with matching skill files. User installations were preserved.
+
 ## Tact 0.0.4 decision documentation revision
 
-Date: 2026-10-07. The [focused evaluation](runs/2026-10-07-decisions-focus/report.md) covers the current source: two fresh contexts produced a useful proposal without an implementation checklist and reused adequate existing rationale without creating a new record. Structural checks passed. The [initial five-case evaluation and installation evidence](runs/2026-10-07-decisions/report.md) cover the earlier candidate; they do not validate the revised bytes. Neither run establishes general reliability or a measured improvement rate.
+Date: 2026-10-07. The [focused evaluation](runs/2026-10-07-decisions-focus/report.md) covers the 0.0.4 decision-documentation source: two fresh contexts produced a useful proposal without an implementation checklist and reused adequate existing rationale without creating a new record. Structural checks passed. The [initial five-case evaluation and installation evidence](runs/2026-10-07-decisions/report.md) cover the earlier candidate; they do not validate the revised bytes. Neither run establishes general reliability or a measured improvement rate.
 
 ## Tact 0.0.3 communication revision
 

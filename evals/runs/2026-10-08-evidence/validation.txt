@@ -1,0 +1,22 @@
+Parent-recorded check results, 2026-10-08.
+
+Runtime: Python 3.12.14, PyYAML 6.0.3, macOS.
+The Python environment was created under /private/tmp/tact-evidence-n3clanvr/validation-env312.
+
+python3 scripts/validate.py
+Exit: 0
+PASS tact: basic metadata, UI fields, portable contents, local references
+
+python3 /Users/bangjaeho/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/tact
+Exit: 0
+Skill is valid!
+
+node --test evals/semantic-controls.mjs
+Exit: 0
+Tests: 6; passed: 6; failed: 0; skipped: 0; cancelled: 0.
+
+git diff --check
+Exit: 0; no diagnostics.
+
+The installer and validator were not modified, so installer syntax, installation,
+and the installer regression suite were not repeated.

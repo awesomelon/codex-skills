@@ -1,0 +1,42 @@
+test_empty_input_totals_zero (test_invoice.InvoiceTests.test_empty_input_totals_zero) ... ok
+test_fixture_includes_last_row (test_invoice.InvoiceTests.test_fixture_includes_last_row) ... FAIL
+test_formatted_prices (test_invoice.InvoiceTests.test_formatted_prices) ... FAIL
+test_repeated_codes_are_separate_purchases (test_invoice.InvoiceTests.test_repeated_codes_are_separate_purchases) ... FAIL
+test_single_row_is_billable (test_invoice.InvoiceTests.test_single_row_is_billable) ... FAIL
+
+======================================================================
+FAIL: test_fixture_includes_last_row (test_invoice.InvoiceTests.test_fixture_includes_last_row)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/invoice-check-r_u2uik3/original/test_invoice.py", line 12, in test_fixture_includes_last_row
+    self.assertEqual(total(rows), Decimal("20.00"))
+AssertionError: Decimal('12.50') != Decimal('20.00')
+
+======================================================================
+FAIL: test_formatted_prices (test_invoice.InvoiceTests.test_formatted_prices)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/invoice-check-r_u2uik3/original/test_invoice.py", line 34, in test_formatted_prices
+    self.assertEqual(total(rows), Decimal("1235.00"))
+AssertionError: Decimal('1234.50') != Decimal('1235.00')
+
+======================================================================
+FAIL: test_repeated_codes_are_separate_purchases (test_invoice.InvoiceTests.test_repeated_codes_are_separate_purchases)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/invoice-check-r_u2uik3/original/test_invoice.py", line 23, in test_repeated_codes_are_separate_purchases
+    self.assertEqual(total(rows), Decimal("23.00"))
+AssertionError: Decimal('12.50') != Decimal('23.00')
+
+======================================================================
+FAIL: test_single_row_is_billable (test_invoice.InvoiceTests.test_single_row_is_billable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/invoice-check-r_u2uik3/original/test_invoice.py", line 15, in test_single_row_is_billable
+    self.assertEqual(total([{"code": "A", "price": "12.50"}]), Decimal("12.50"))
+AssertionError: Decimal('0') != Decimal('12.50')
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+FAILED (failures=4)

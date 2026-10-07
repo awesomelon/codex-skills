@@ -1,0 +1,10 @@
+test_empty_input_totals_zero (test_invoice.InvoiceTests.test_empty_input_totals_zero) ... ok
+test_fixture_includes_last_row (test_invoice.InvoiceTests.test_fixture_includes_last_row) ... ok
+test_formatted_prices (test_invoice.InvoiceTests.test_formatted_prices) ... ok
+test_repeated_codes_are_separate_purchases (test_invoice.InvoiceTests.test_repeated_codes_are_separate_purchases) ... ok
+test_single_row_is_billable (test_invoice.InvoiceTests.test_single_row_is_billable) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.000s
+
+OK

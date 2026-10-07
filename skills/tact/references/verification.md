@@ -10,11 +10,16 @@ A completion statement is a claim about an artifact or behavior. Before making i
 | Build succeeded | The build command completed successfully for the relevant configuration. Lint alone is insufficient. |
 | The bug is fixed | Exercise the reported failure condition and observe the corrected behavior. |
 | A regression test protects the fix | Demonstrate failure against the original behavior and success against the corrected behavior. |
+| Performance improved | Correct, completed work under comparable conditions, with the measured path, units, run count, and observed variation. |
 | The task is complete | Inspect the final artifact against the requested outcomes, including relevant integration boundaries and required project gates. |
 
 For a regression check, use a disposable copy of the original behavior when a comparison is needed. Do not revert user changes or disturb a shared checkout to obtain a failing result. For a refactor, compare the affected behavior and checks before and after; keep existing valid baseline evidence when available.
 
 Inspect the full relevant result, not just a green summary. Zero selected tests, every relevant case skipped, a wrapper hiding a failing child, or a mocked answer without an exercised integration leaves that behavior unverified. Do not loosen assertions, suppress diagnostics, or redefine the expected result just to pass.
+
+## Assess performance evidence when relevant
+
+Before reporting or using a measured speedup, inspect what the timed region executes and what it counts as success. Confirm that asynchronous or lazy work completed there and that outputs are correct; fast failures and skipped work are not improvements. Compare equivalent workloads and relevant build, configuration, cache, and concurrency conditions. For an adoption decision, resolve material configuration differences or leave the comparison inconclusive. Repeat or interleave runs when warmup, noise, or drift could decide the result; a gap within observed variation does not establish a win. Relate a microbenchmark to the user-visible path before generalizing. A requested rough estimate can use one labeled run, but still needs correct completed work. Do not impose a fixed run count or infer a bottleneck without evidence.
 
 ## Verify the relevant final state
 
