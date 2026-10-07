@@ -1,0 +1,23 @@
+{
+  "name": "tact",
+  "version": "0.0.5",
+  "description": "Deliberate engineering for Claude Code: understand the task, keep changes simple and focused, and verify the result.",
+  "author": {
+    "name": "awesomelon"
+  },
+  "skills": "./skills/",
+  "homepage": "https://github.com/awesomelon/tact",
+  "repository": "https://github.com/awesomelon/tact",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "engineering",
+    "implementation",
+    "debugging",
+    "refactoring",
+    "planning",
+    "code-review",
+    "code-quality",
+    "verification"
+  ]
+}
