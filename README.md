@@ -6,13 +6,15 @@
 
 **Make the right change.**
 
-Tact is an engineering skill for **Codex and Claude Code**, delivered as a plugin for each host. It guides implementation, debugging, refactoring, planning, code review, and engineering decision records: understand the task, choose a simple solution, keep changes focused, and verify the result.
+Tact is an engineering skill for making the right change: understand the task, choose a simple solution, keep changes focused, and verify the result.
 
-Both plugins use the same [tact skill](skills/tact/SKILL.md). Invoke it with `$tact` in Codex or `/tact:tact` in Claude Code.
+Use it for implementation, debugging, refactoring, planning, code review, and engineering decision records.
 
-**Version 0.0.5.** [Install for Codex](#install-as-a-codex-plugin) · [Install for Claude Code](#install-as-a-claude-code-plugin) · [Usage](#use) · [Documentation](#documentation)
+**Version 0.0.5.** [Installation](#installation) · [Usage](#use) · [Documentation](#documentation)
 
-## Install as a Codex plugin
+## Installation
+
+### Install as a Codex plugin
 
 With Git and a Codex CLI that supports plugins:
 
@@ -23,7 +25,7 @@ codex plugin add tact@tact
 
 Start a new conversation and use `$tact`. Use the skill name displayed by Codex if it includes a plugin prefix.
 
-## Install as a Claude Code plugin
+### Install as a Claude Code plugin
 
 With Git and a Claude Code CLI that supports plugins:
 
@@ -42,28 +44,12 @@ See [installation and updates](docs/installation.md) for verification, updates, 
 
 ## Use
 
-Each example is an independent request. Choose your host's invocation syntax and describe the outcome you need.
-
-### Codex
-
-```text
-Use $tact to fix this save-and-reload bug and verify the repair.
-
-Use $tact to review this change for correctness and unnecessary complexity. Do not edit files.
-```
-
-### Claude Code
-
-```text
-/tact:tact Fix this save-and-reload bug and verify the repair.
-
-/tact:tact Review this change for correctness and unnecessary complexity. Do not edit files.
-```
-
-Use the same invocation for other engineering tasks:
+Invoke Tact using the syntax in the [installation instructions](#installation), then describe the outcome you need. Each example is an independent request:
 
 | Task | Example request |
 | --- | --- |
+| Debugging | Fix this save-and-reload bug and verify the repair. |
+| Code review | Review this change for correctness and unnecessary complexity. Do not edit files. |
 | Planning | Plan this migration and explain the tradeoffs before implementation. |
 | Refactoring | Refactor this parser while preserving its public behavior. |
 | Implementation with documentation | Implement this storage change and preserve the decision rationale. |
