@@ -1,0 +1,15 @@
+{
+  "name": "tact",
+  "owner": {
+    "name": "awesomelon"
+  },
+  "metadata": {
+    "description": "Tact: deliberate engineering for Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "tact",
+      "source": "./"
+    }
+  ]
+}

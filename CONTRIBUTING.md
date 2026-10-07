@@ -1,6 +1,6 @@
 # Contributing
 
-Keep `skills/` as the source for both the Tact plugin and standalone installation. Follow [AGENTS.md](AGENTS.md).
+Keep `skills/` as the source for the Codex plugin, Claude Code plugin, and standalone installation. Follow [AGENTS.md](AGENTS.md).
 
 ## Change the skill
 
@@ -28,7 +28,7 @@ bash -n scripts/install.sh
 python3 -m unittest discover -s tests -v
 ```
 
-Run relevant regression tests for other tooling changes. Exercise affected CLI operations in temporary paths. Never test installation against a real home directory or Codex configuration. The code-example semantic controls require Node.js 18 or later.
+Run relevant regression tests for other tooling changes. Exercise affected CLI operations in temporary paths. Never test installation against a real home directory or Codex/Claude Code configuration. The code-example semantic controls require Node.js 18 or later.
 
 `validate.py` checks repository metadata conventions and standalone reference portability. It is not an official plugin schema validator. [CI](.github/workflows/validate.yml) checks structure, installer syntax, and deterministic tests on Linux and macOS without model credentials. Platform-specific claims require an actual run on that platform.
 

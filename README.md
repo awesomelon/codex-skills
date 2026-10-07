@@ -6,9 +6,9 @@
 
 **Make the right change.**
 
-Tact is one Codex skill for deliberate engineering: understand the task, choose a simple solution, keep edits focused, and verify the result.
+Tact is one skill for deliberate engineering in Codex and Claude Code: understand the task, choose a simple solution, keep edits focused, and verify the result.
 
-**Version 0.0.4.** Use `$tact` for implementation, debugging, refactoring, planning, review, and engineering decision records.
+**Version 0.0.5.** Use `$tact` in Codex or `/tact:tact` in Claude Code for implementation, debugging, refactoring, planning, review, and engineering decision records.
 
 ## Four principles
 
@@ -23,7 +23,7 @@ Tact keeps its reports easy to use: answer first, choose formatting to fit the c
 
 ## Use
 
-Each example is an independent request:
+Each Codex example is an independent request:
 
 ```text
 Use $tact to fix this save-and-reload bug and verify the repair.
@@ -45,7 +45,13 @@ The requested outcome sets the scope. Planning and review preserve the assessed 
 
 During implementation, Tact keeps affected documentation current and preserves missing context that would prevent a mistaken change or repeated investigation later. It reuses existing documentation and creates an ADR only when the rationale needs an independent record. No new document is needed when the available context is sufficient. Documentation-only requests produce the requested artifact without implementing the decision.
 
-Use the skill name displayed by your host; a plugin prefix may be present.
+Use the skill name displayed by your host; a plugin prefix may be present. In Claude Code, invoke the same skill with its plugin namespace:
+
+```text
+/tact:tact Fix this save-and-reload bug and verify the repair.
+
+/tact:tact Review this change for correctness and unnecessary complexity. Do not edit files.
+```
 
 ## Install as a Codex plugin
 
@@ -58,7 +64,18 @@ codex plugin add tact@tact
 
 Run the second command after the first succeeds. This installs the **published** repository version. An unpublished local version requires the [local checkout procedure](docs/plugin.md#test-a-local-checkout).
 
-The plugin packages the same `skills/` source as the standalone installer. It supplies no agent runtime, hooks, MCP server, model settings, or lint dependency.
+## Install as a Claude Code plugin
+
+With Git and a Claude Code CLI that supports plugins, run these commands in order:
+
+```bash
+claude plugin marketplace add awesomelon/tact
+claude plugin install tact@tact
+```
+
+Run the second command after the first succeeds. This installs the **published** repository version. Restart Claude Code and invoke `/tact:tact`. For an unpublished revision, use the [local checkout procedure](docs/plugin.md#test-a-local-checkout).
+
+Both plugins package the same `skills/` source as the standalone installer. They supply no agent runtime, hooks, MCP server, model settings, or lint dependency.
 
 For installation and updates, see [the installation guide](docs/installation.md). The [macOS standalone installer](docs/installation.md#standalone-installation-on-macos) requires no Python.
 
