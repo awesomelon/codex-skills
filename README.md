@@ -10,7 +10,7 @@ Tact is an engineering skill for making the right change: understand the task, c
 
 Use it for implementation, debugging, refactoring, planning, code review, and engineering decision records.
 
-**Version 0.0.7.** [Installation](#installation) · [Usage](#use) · [Documentation](#documentation)
+**Version 0.0.8.** [Installation](#installation) · [Usage](#use) · [Documentation](#documentation)
 
 ## Installation
 
@@ -49,6 +49,7 @@ Invoke Tact using the syntax in the [installation instructions](#installation), 
 | Task | Example request |
 | --- | --- |
 | Debugging | Fix this save-and-reload bug and verify the repair. |
+| Debugging with test authoring | Fix this save-and-reload bug and add a regression test for the reported failure. |
 | Code review | Review this change for correctness and unnecessary complexity. Do not edit files. |
 | Planning | Plan this migration and explain the tradeoffs before implementation. |
 | Refactoring | Refactor this parser while preserving its public behavior. |
@@ -58,6 +59,8 @@ Invoke Tact using the syntax in the [installation instructions](#installation), 
 | Documentation cleanup | Consolidate these overlapping guides and remove obsolete notes while preserving useful rationale. |
 
 The requested outcome sets the scope. Planning and review preserve the assessed material. Implementation carries through the authorized change and relevant checks; there is no required assessment stage before coding.
+
+Tact creates or modifies test code only at the user's explicit request. Asking to fix or verify a change does not authorize test authoring. Without that instruction, it uses relevant existing tests, other applicable checks, and direct observation. This boundary also covers E2E tests and temporary test code; it does not prevent running existing tests or inspecting behavior directly.
 
 Tact keeps affected documentation current, consolidates overlapping accounts, and removes obsolete material while preserving useful context and decision history. It creates an ADR only when missing rationale needs an independent record. Documentation-only requests stay within the requested documentation changes.
 
@@ -76,7 +79,7 @@ Tact leads with the result, describes concrete changes and evidence, and keeps p
 
 | Skill | Purpose |
 | --- | --- |
-| [tact](skills/tact/SKILL.md) | Engineering work with explicit assumptions, focused changes, code-quality guidance, verification, and documentation that preserves decision context. Trace indirect contract consumers, discard provisional fixes for rejected causes, and assess performance evidence. |
+| [tact](skills/tact/SKILL.md) | Engineering work with explicit assumptions, focused changes, code-quality guidance, verification, and documentation that preserves decision context. Trace indirect contract consumers, discard provisional fixes for rejected causes, assess performance evidence, and author tests only when explicitly requested. |
 
 The skill loads supporting guidance when relevant:
 
@@ -84,7 +87,7 @@ The skill loads supporting guidance when relevant:
 | --- | --- |
 | [Code evidence](skills/tact/references/code-evidence.md) | TypeScript and JavaScript contracts, assertions, collections, testing seams, and a dedicated reference for Effect projects. |
 | [Decision documentation](skills/tact/references/decision-documentation.md) | Historical evidence, record selection and cleanup, existing documentation conventions, and ADR history. |
-| [Verification](skills/tact/references/verification.md) | Regression evidence, performance comparisons, and completion claims. |
+| [Verification](skills/tact/references/verification.md) | Test-authoring boundaries, existing checks and direct observation, regression evidence, performance comparisons, and completion claims. |
 | [Communication](skills/tact/references/communication.md) | Concise reports, requested depth, and exact output formats. |
 
 ## Documentation

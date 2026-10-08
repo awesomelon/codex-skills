@@ -2,6 +2,16 @@
 
 A completion statement is a claim about an artifact or behavior. Before making it, identify the observation that would establish it, run the relevant check when needed, inspect its actual output and exit status, and state only what that evidence supports. Confidence, an intended test command, or a worker's success report cannot substitute for the observation.
 
+## Test authoring and execution
+
+The [test-authoring boundary](../SKILL.md#work-toward-an-observable-result) covers unit, integration, and E2E test code, including test fixtures, mocks, snapshots, and test-only runners. Temporary, inline, uncommitted, or subsequently deleted test code is still authored code; its location and retention do not create an exception.
+
+Directly invoking existing functions, commands, APIs, or UI flows and inspecting their outputs remains available. Keep these probes to observing the relevant behavior rather than building new assertion suites or scripted test cases. Running existing tests, builds, linters, and type checks does not authorize changing test inputs or expected outputs.
+
+If the requested behavior makes an existing expectation obsolete, or required verification needs new test code, preserve the tests and identify the specific conflict or missing observation. Complete independent work before asking for the test change needed to proceed. Do not weaken checks, skip a required project gate, or change the requested behavior merely to obtain a passing result.
+
+When test authoring is requested, derive expected behavior from user examples, established contracts, or reproduced failures rather than copying the implementation's decisions.
+
 ## Match the check to the claim
 
 | Claim | Evidence needed |
@@ -9,7 +19,7 @@ A completion statement is a claim about an artifact or behavior. Before making i
 | Tests passed | The relevant tests actually executed with no failing assertions; identify skipped or unselected coverage. |
 | Build succeeded | The build command completed successfully for the relevant configuration. Lint alone is insufficient. |
 | The bug is fixed | Exercise the reported failure condition and observe the corrected behavior. |
-| A regression test protects the fix | Demonstrate failure against the original behavior and success against the corrected behavior. |
+| An existing or requested regression test protects the fix | Demonstrate failure against the original behavior and success against the corrected behavior. |
 | Performance improved | Correct, completed work under comparable conditions, with the measured path, units, run count, and observed variation. |
 | The task is complete | Inspect the final artifact against the requested outcomes, including relevant integration boundaries and required project gates. |
 

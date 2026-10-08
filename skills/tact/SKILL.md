@@ -35,9 +35,11 @@ When implementation makes existing documentation inaccurate or would lose non-ob
 
 ## Work toward an observable result
 
-Define what would demonstrate success. For a bug, exercise the reported failure and the corrected behavior; for a refactor, check the behavior that must remain; for a review, ground findings in the actual code path. Use a compact plan when dependencies make it useful, with a check for each meaningful outcome. A routine edit does not need a plan document or a new test suite.
+Define what would demonstrate success. For a bug, exercise the reported failure and the corrected behavior; for a refactor, check the behavior that must remain; for a review, ground findings in the actual code path. Use a compact plan when dependencies make it useful, with a check for each meaningful outcome. A routine edit does not need a plan document.
 
-Before reporting a fix, a passing check, completion, or delivery readiness, apply [verification](references/verification.md). Tie each claim to an actual observation of the relevant final state. Fix in-scope failures and continue to the requested endpoint; a blocked check must not become a completion claim. Stop once the requested outcome has sufficient evidence; extra checks need a reason.
+Create or modify test code only when the user explicitly requests it; earlier explicit instructions remain valid within their scope. Requests to implement, fix, refactor, or verify, and a perceived need for coverage or regression protection, do not grant that permission. Otherwise, use relevant existing tests, other applicable checks, and direct observation without routinely asking to add tests.
+
+Apply [verification](references/verification.md) when choosing checks within these boundaries and before reporting a fix, a passing check, completion, or delivery readiness. Tie each claim to an actual observation of the relevant final state. Fix in-scope failures and continue to the requested endpoint; a blocked check must not become a completion claim. Stop once the requested outcome has sufficient evidence; extra checks need a reason.
 
 ## Communicate the result
 

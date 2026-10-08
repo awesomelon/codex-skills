@@ -31,7 +31,7 @@ For each necessary non-const assertion, put a nearby explanation of the specific
 
 ## Keep dependencies and layout understandable
 
-Test through real dependency seams rather than replacing entire modules with Jest/Vitest module mocks. Use a small injected dependency, an existing adapter, or an isolated integration fixture when appropriate. Do not build a dependency-injection framework just for a test. Keep unavoidable legacy mocking localized and state what integration remains untested.
+When reviewing existing tests or authoring tests at the user's request, prefer real dependency seams over replacing entire modules with Jest/Vitest module mocks. Use a small injected dependency, an existing adapter, or an isolated integration fixture when appropriate. Do not build a dependency-injection framework just for a test. Keep unavoidable legacy mocking localized and state what integration remains untested.
 
 Separate top-level declarations and meaningful multiline/control-flow blocks with readable spacing. Keep compact related bindings, import groups, documentation attachment, and overload groups intact. Use the established formatter and avoid unrelated whitespace churn.
 
