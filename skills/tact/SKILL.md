@@ -31,7 +31,7 @@ During debugging, separate candidate causes from observed mechanisms. When evide
 
 Match the surrounding style even when you would choose differently in new code. Do not rewrite neighboring comments, formatting, or working abstractions to satisfy a personal preference. Remove imports, variables, and helpers made unused by your change; mention relevant pre-existing dead code without deleting it unless cleanup is requested. In a review, explain the failure condition and consequence at the relevant location; distinguish a supported defect from a policy preference. A review can conclude that no change is justified.
 
-When implementation makes existing documentation inaccurate or would lose non-obvious context needed for a later change, apply [decision documentation](references/decision-documentation.md). Use it for requests to explain or record engineering decisions as well.
+When implementation makes existing documentation inaccurate or would lose non-obvious context needed for a later change, apply [decision documentation](references/decision-documentation.md). Use it for decision explanations and documentation requests, including cleanup.
 
 ## Work toward an observable result
 

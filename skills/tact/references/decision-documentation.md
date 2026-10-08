@@ -6,11 +6,13 @@ Preserve context that a future maintainer will need to change or operate the sys
 
 Current code establishes behavior, not its author's historical intent. When a past decision or instruction determines the next action, trace it to attributable source evidence and retain its original scope. Distinguish that evidence from later summaries and your interpretation; copies of one summary are one evidence chain, not independent confirmation. Surface material contradictions or missing originals instead of turning a plausible explanation into a settled decision, permanent restriction, or permission. Search relevant sources, not every available system.
 
-## Choose the smallest useful record
+## Keep the smallest useful record
 
 Before adding a record, identify the future question it answers and the material context that code, tests, or existing documentation do not already supply. Save that context when losing it would invite a mistaken change, repeated investigation, or redoing a settled decision. The size or architectural importance of a change alone is insufficient. Leaving no new document is a valid outcome.
 
 Update affected documentation when implementation makes it inaccurate. Put a local constraint beside the code or in the existing contract; use an architecture decision record (ADR) when the rationale needs to be found independently across future changes. Prefer the place a maintainer would already look. Reuse or link adequate existing context instead of creating another account of it. An explicit documentation request still warrants the requested artifact.
+
+Within the affected scope, consolidate overlapping documents and remove material that no longer serves a current or historical purpose. Before removing a file, retain any unique, useful context in the maintained source and update affected links and indexes. Delete obsolete drafts and completed work logs that add no lasting value; do not replace them with a cleanup report merely to record their removal. Age, implementation completion, or supersession alone does not make a decision record disposable.
 
 Planning, review, and explanation keep rationale in the requested response or deliverable. They do not authorize extra documentation files or code changes. If the user requests an ADR or documentation only, write that artifact without implementing the decision. Honor explicit file limits and no-documentation requests; report a material documentation gap if those limits leave one.
 

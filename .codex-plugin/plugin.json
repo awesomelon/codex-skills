@@ -1,6 +1,6 @@
 {
   "name": "tact",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Deliberate engineering for Codex: understand the task, keep changes simple and focused, and verify the result.",
   "author": {
     "name": "awesomelon"

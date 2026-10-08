@@ -1,5 +1,13 @@
 # Tact validation results
 
+## Tact 0.0.7 documentation cleanup revision
+
+Date: 2026-10-08. [Requests, inputs, raw tool events, responses, and parent checks](runs/2026-10-08-documentation-cleanup.json) cover two fresh CLI contexts using the revised skill. The cleanup case moved the unique retry-budget constraint into the maintained guide, deleted the redundant draft and completed work log, and repaired the README links without adding a document. Both decision records, the useful recovery guide, implementation, and unrelated notes remained unchanged. The read-only variant recommended consolidation without changing any file. Parent checks confirmed the exact changed file set, all local documentation links, and matching final skill hashes.
+
+Repository structure and Skill Creator validation passed with Python 3.12 and PyYAML 6.0.3 on macOS; the initial default Python attempt lacked PyYAML. These are one-run observations per case, without a baseline comparison or reliability measurement. Filesystem read isolation was not enforced, and the cleanup evaluator used an extra temporary hash snapshot. Automatic selection, installation, and publication were not tested during the behavioral evaluation.
+
+Subsequent package checks in the same evidence record installed 0.0.7 into empty temporary Codex and Claude Code configurations on macOS, with all seven skill files matching the evaluated source. Claude manifests passed strict validation; both host manifests, marketplace paths, and the README version were aligned. These local-source checks do not establish published marketplace updates or model behavior.
+
 ## Tact 0.0.6 evidence and scope revision
 
 Date: 2026-10-08. [Report and raw evidence](runs/2026-10-08-evidence/report.md) cover six fresh CLI contexts: indirect consumers, rejected debugging hypotheses, original decision scope, incomplete performance measurements, a routine typo, and an unchanged external-input boundary. Parent artifact checks confirmed scope and final skill hashes; the debugging regressions fail on the original and pass on the repair. Structure checks passed on Python 3.12. These are single-run observations, not a baseline comparison or measured improvement rate. Subsequent [package verification](runs/2026-10-08-release/report.md) confirmed temporary macOS installation in Codex and Claude Code with matching skill files. User installations were preserved.

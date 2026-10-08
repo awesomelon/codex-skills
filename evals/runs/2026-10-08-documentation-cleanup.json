@@ -1,0 +1,534 @@
+{
+  "date": "2026-10-08",
+  "source_state": "Unreleased documentation cleanup changes based on 087e6864cfa7779f24b02eb46bd388653701e16e",
+  "authoring_source": {
+    "url": "https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra",
+    "verified_date": "2026-10-08",
+    "application": "Keep conditional cleanup criteria in the existing reference, with a narrow entrypoint trigger and no global cleanup procedure."
+  },
+  "method": "Two fresh explicit-invocation CLI contexts, one run per case, same synthetic starting project and revised skill. Expected findings and parent discussion withheld. Parent checked actual artifacts, local links, protected files, tool events, and skill hashes.",
+  "cli_version": "codex-cli 0.161.0",
+  "host": "Darwin 27.0.0",
+  "execution": {
+    "command": [
+      "/opt/homebrew/bin/codex",
+      "exec",
+      "--ignore-user-config",
+      "--ephemeral",
+      "--skip-git-repo-check",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=\"medium\"",
+      "-s",
+      "workspace-write",
+      "--json"
+    ],
+    "results": [
+      {
+        "case": "cedar",
+        "exit_code": 0,
+        "elapsed_seconds": 35.09
+      },
+      {
+        "case": "birch",
+        "exit_code": 0,
+        "elapsed_seconds": 30.54
+      }
+    ]
+  },
+  "skill_hashes": {
+    "SKILL.md": "fdd6b66706389b1f2d2d722fff6f000f0fa4e5d307fb6a7013fe44c86c8d750d",
+    "agents/openai.yaml": "c5ccde1dbd4fa5b1d117559fb5a401542e2476349167818c3f0f3406e392b982",
+    "references/code-evidence.md": "2fed35be1a9a49c5c7319416369fcfe01e80be84def39963ded3e84f492b7a81",
+    "references/communication.md": "c400cff29fee44f6a5d61cdbf0a664eb3bfce485b0961e36a335ccfaf09218a0",
+    "references/decision-documentation.md": "b5ce42abc0d5391b64810b186f8b2de8f8be96852dc289ca0e260f65e4db0cae",
+    "references/effect-code.md": "9d98acc412eb941a835800a10ef205f130d018b4597832d7a3791377be8cdd3a",
+    "references/verification.md": "a7b1e939e9c7bf3c4d3a7b30d419e20145200111304cd850fe72f5a6e6683dd9"
+  },
+  "inputs": {
+    "README.md": "# Cedar client\n\nConfiguration: [guide](docs/configuration.md).\nMigration: [draft](docs/timeout-draft.md).\nProgress: [work log](docs/timeout-work.md).\nDecision: [compatibility](docs/decisions/0002-timeout-compatibility.md).\n",
+    "config.py": "def timeout(config):\n    return config.get(\"timeout_seconds\", config.get(\"timeout\", 30))\n",
+    "notes.txt": "Personal note: revisit the dashboard colors next month.\n",
+    "docs/configuration.md": "# Configuration\n\nUse `timeout_seconds` to set the request timeout in seconds. It takes precedence over the legacy `timeout` alias; the default is 30 seconds. The alias remains supported indefinitely. See the [decision](decisions/0002-timeout-compatibility.md).\n",
+    "docs/timeout-draft.md": "# Timeout migration draft\n\nUse `timeout_seconds`, prefer it over `timeout`, and retain the 30-second default. The alias remains supported indefinitely. These settings are implemented and documented in configuration.md.\n\nThe timeout is one total budget spanning all retry attempts, not a fresh budget per attempt; otherwise retrying would multiply the maximum request duration.\n",
+    "docs/timeout-work.md": "# Timeout implementation work log\n\nThe migration is complete. Added the new key, kept the default, and updated the guide. Four local tests passed. No open work remains.\n",
+    "docs/decisions/0001-timeout-key.md": "# Timeout key\n\nStatus: Superseded by [0002](0002-timeout-compatibility.md)\nDate: 2026-09-01\n\nUse `timeout` as the sole key because the first embedded client has limited configuration space. Revisit the name when more clients are supported.\n",
+    "docs/decisions/0002-timeout-compatibility.md": "# Timeout compatibility\n\nStatus: Accepted\nDate: 2026-10-01\nSupersedes: [0001](0001-timeout-key.md)\n\nUse `timeout_seconds` while retaining `timeout` indefinitely. Deployed clients cannot migrate together. Removing the alias in the next release was rejected because coordinated deployment is unavailable.\n",
+    "docs/recovery.md": "# Recovery\n\nMaintained since 2024. For supported agents that stop responding, pause new submissions, drain in-flight work, then restart the worker. Requeue only unacknowledged items to avoid duplicated actions. This procedure remains supported.\n"
+  },
+  "cases": {
+    "cedar": {
+      "request": "Clean up the timeout documentation. Keep the maintained guide useful and remove unnecessary documents. Leave implementation and unrelated notes alone.",
+      "response": "Updated [the maintained guide](/private/tmp/tact-check-6_f2k6c8/cedar/docs/configuration.md) with the total timeout budget across retries. Removed the redundant migration draft, completed work log, and their README links.\n\nPreserved both decision records, implementation, recovery documentation, and unrelated notes. Verified all remaining documentation links.",
+      "events": [
+        {
+          "type": "thread.started",
+          "thread_id": "01a119e2-a7dc-7242-8a42-81085ca1e04b"
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_1",
+            "type": "command_execution",
+            "command": "/bin/zsh -lc \"pwd; rg --files -g 'AGENTS.md' -g '*timeout*' -g '*TIMEOUT*' -g 'SKILL.md' -g '*.md'\"",
+            "aggregated_output": "/private/tmp/tact-check-6_f2k6c8/cedar\nskills/tact/SKILL.md\nskills/tact/references/verification.md\nskills/tact/references/decision-documentation.md\nskills/tact/references/effect-code.md\nskills/tact/references/code-evidence.md\nskills/tact/references/communication.md\nREADME.md\ndocs/configuration.md\ndocs/recovery.md\ndocs/decisions/0002-timeout-compatibility.md\ndocs/decisions/0001-timeout-key.md\ndocs/timeout-work.md\ndocs/timeout-draft.md\n",
+            "exit_code": 0,
+            "status": "completed"
+          }
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_2",
+            "type": "command_execution",
+            "command": "/bin/zsh -lc 'cat skills/tact/SKILL.md'",
+            "aggregated_output": "---\nname: tact\ndescription: Assess or change code with explicit assumptions, focused scope, and evidence. Use for implementation, debugging, refactoring, planning, review, and documenting engineering decisions.\n---\n\n# Tact\n\nMake the requested engineering outcome concrete, then carry it through. Match the depth to the consequence: a clear local edit needs little ceremony; an uncertain contract needs investigation. For planning, explanation, or review, preserve the assessed material and write only requested deliverables.\n\n## Understand before acting\n\nUse the relevant code, callers, tests, and project decisions to establish the intended behavior. Reuse a supplied diagnosis or plan where its evidence still applies. Distinguish what you observed from what you inferred.\n\nWhen a change's safety depends on a contract or lifecycle assumption, identify the decisive premise and trace the affected boundary. Symbol searches can miss consumers of persisted or serialized data, callers in another language, and asynchronous ordering. Check the relevant dependency version and local patches when its behavior decides the result. Use the cheapest authorized observation that can resolve the premise; state what remains unproven instead of expanding into a speculative risk inventory.\n\nSurface assumptions that could change the result. Resolve discoverable facts yourself. If materially different outcomes remain plausible, explain the choice and recommendation and ask for the missing intent before making dependent changes. Continue independent work. Make ordinary implementation choices within the agreed scope without reopening settled decisions.\n\nChallenge a proposed solution when evidence points to a simpler or more effective one. Explain the concrete tradeoff; do not substitute your preferred product or architecture for the user's choice.\n\n## Prefer the simplest sufficient solution\n\nSolve the present requirement with the project's existing capabilities. Do not add speculative features, extension points, configurable policy, or a reusable framework for a single use. An abstraction, dependency, or fallback needs a concrete requirement. Handle real failure modes; do not invent impossible cases or silently turn failures into success-shaped defaults. If a direct implementation meets the same constraints as an elaborate first attempt, simplify before delivery. Fewer lines alone do not establish a better design.\n\nKeep information and failures visible. For TypeScript or JavaScript implementation, refactoring, or review, apply [code evidence](references/code-evidence.md) to the affected code. It defines concrete defaults for types, input boundaries, assertions, collections, dependency seams, and readability. Exceptions need a specific contract or runtime constraint, not a preference for familiar syntax.\n\n## Keep changes tied to the request\n\nTrace each changed responsibility to the requested outcome. Fix a shared cause where it belongs, including affected consumers when necessary; a small diff that leaves the defect is insufficient. Preserve unrelated edits, established conventions, and independently changing policies.\n\nDuring debugging, separate candidate causes from observed mechanisms. When evidence rejects a hypothesis, remove provisional changes you introduced solely for it unless an independent requirement justifies them. Preserve pre-existing work and changes supported by other evidence.\n\nMatch the surrounding style even when you would choose differently in new code. Do not rewrite neighboring comments, formatting, or working abstractions to satisfy a personal preference. Remove imports, variables, and helpers made unused by your change; mention relevant pre-existing dead code without deleting it unless cleanup is requested. In a review, explain the failure condition and consequence at the relevant location; distinguish a supported defect from a policy preference. A review can conclude that no change is justified.\n\nWhen implementation makes existing documentation inaccurate or would lose non-obvious context needed for a later change, apply [decision documentation](references/decision-documentation.md). Use it for decision explanations and documentation requests, including cleanup.\n\n## Work toward an observable result\n\nDefine what would demonstrate success. For a bug, exercise the reported failure and the corrected behavior; for a refactor, check the behavior that must remain; for a review, ground findings in the actual code path. Use a compact plan when dependencies make it useful, with a check for each meaningful outcome. A routine edit does not need a plan document or a new test suite.\n\nBefore reporting a fix, a passing check, completion, or delivery readiness, apply [verification](references/verification.md). Tie each claim to an actual observation of the relevant final state. Fix in-scope failures and continue to the requested endpoint; a blocked check must not become a completion claim. Stop once the requested outcome has sufficient evidence; extra checks need a reason.\n\n## Communicate the result\n\nLead with the result or decision, then give the evidence and material limits in the user's language. Keep the report easy to scan without dropping facts needed to act. A one-sentence answer needs no extra structure.\n\nFor several findings, a decision with tradeoffs, or a detailed explanation, use the [communication guide](references/communication.md). Honor a requested output format. Brevity governs the report, not how much work gets done.\n",
+            "exit_code": 0,
+            "status": "completed"
+          }
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_3",
+            "type": "command_execution",
+            "command": "/bin/zsh -lc \"git status --short; rg --files -g '\"'!skills/**'\"'; cat skills/tact/references/decision-documentation.md skills/tact/references/verification.md; for f in README.md docs/configuration.md docs/recovery.md docs/decisions/*.md docs/timeout*.md; do echo \\\"\"'$f\"; cat \"$f\"; done'",
+            "aggregated_output": "fatal: not a git repository (or any of the parent directories): .git\nREADME.md\ndocs/configuration.md\ndocs/recovery.md\ndocs/decisions/0002-timeout-compatibility.md\ndocs/decisions/0001-timeout-key.md\ndocs/timeout-work.md\ndocs/timeout-draft.md\nnotes.txt\nconfig.py\n# Preserve useful decision context\n\nPreserve context that a future maintainer will need to change or operate the system correctly. A useful record answers a concrete question, such as why a compatibility alias must remain or which constraint rules out an otherwise attractive approach.\n\n## Establish the rationale\n\nCurrent code establishes behavior, not its author's historical intent. When a past decision or instruction determines the next action, trace it to attributable source evidence and retain its original scope. Distinguish that evidence from later summaries and your interpretation; copies of one summary are one evidence chain, not independent confirmation. Surface material contradictions or missing originals instead of turning a plausible explanation into a settled decision, permanent restriction, or permission. Search relevant sources, not every available system.\n\n## Keep the smallest useful record\n\nBefore adding a record, identify the future question it answers and the material context that code, tests, or existing documentation do not already supply. Save that context when losing it would invite a mistaken change, repeated investigation, or redoing a settled decision. The size or architectural importance of a change alone is insufficient. Leaving no new document is a valid outcome.\n\nUpdate affected documentation when implementation makes it inaccurate. Put a local constraint beside the code or in the existing contract; use an architecture decision record (ADR) when the rationale needs to be found independently across future changes. Prefer the place a maintainer would already look. Reuse or link adequate existing context instead of creating another account of it. An explicit documentation request still warrants the requested artifact.\n\nWithin the affected scope, consolidate overlapping documents and remove material that no longer serves a current or historical purpose. Before removing a file, retain any unique, useful context in the maintained source and update affected links and indexes. Delete obsolete drafts and completed work logs that add no lasting value; do not replace them with a cleanup report merely to record their removal. Age, implementation completion, or supersession alone does not make a decision record disposable.\n\nPlanning, review, and explanation keep rationale in the requested response or deliverable. They do not authorize extra documentation files or code changes. If the user requests an ADR or documentation only, write that artifact without implementing the decision. Honor explicit file limits and no-documentation requests; report a material documentation gap if those limits leave one.\n\n## Follow the project's convention\n\nBefore creating a record, inspect relevant project instructions, existing decisions, and configuration such as `.adr-dir`. Reuse the established location, markup, naming sequence, headings, status vocabulary, and index. Do not create a parallel Markdown directory in a project that already keeps decisions in another format. If conflicting evidence leaves the destination or status genuinely ambiguous, surface that specific conflict before writing the dependent record.\n\nWith no established convention, use `docs/decisions/NNNN-short-title.md`, starting at `0001` and continuing any existing sequence. Create only the needed record; no ADR tooling, new documentation framework, or repository-wide documentation sweep is required.\n\n## Keep only what supports the next decision\n\nLead with the choice and its decisive reason. Include a constraint, rejected alternative, accepted cost, or condition for revisiting it only when that detail changes how a future reader should act. Keep necessary qualifications even if they take more space; completeness of headings is not the goal.\n\nLink to supporting code or evidence rather than restating it. Omit work logs, obvious code descriptions, generic best practices, and speculative implementation or rollout checklists. Open questions belong here only when their answer could change the decision. Do not invent alternatives, measurements, approvals, or historical motives to fill a section.\n\nUse the project's format. Without one, a descriptive title, status and date, and a few paragraphs explaining the choice and reason can be enough. Add sections only when they help retrieval; neither a fixed template nor a word target determines whether the record is useful.\n\nSelect one status supported by the task. `Accepted` means the choice is settled within the user's authorization or the project's decision process; a recommendation still awaiting a decision is `Proposed`. Acceptance does not mean implementation, verification, or release is complete. Preserve those distinctions when describing the result. Use a known decision date; for a historical choice with no known date, identify the recording date without implying it was the decision date.\n\nPreserve the history of accepted decisions. When a decision changes, create a successor that links to the earlier record and update the earlier status or supersession link using the project convention. Retain its original context and rationale. Draft corrections and factual errata can be edited in place without pretending a new decision occurred.\n\nBefore delivery, compare the record with the actual choice and affected behavior, check its links and status, and make the saved path discoverable in the result. A document describing planned work is not evidence that the work ran.\n# Evidence before completion\n\nA completion statement is a claim about an artifact or behavior. Before making it, identify the observation that would establish it, run the relevant check when needed, inspect its actual output and exit status, and state only what that evidence supports. Confidence, an intended test command, or a worker's success report cannot substitute for the observation.\n\n## Match the check to the claim\n\n| Claim | Evidence needed |\n| --- | --- |\n| Tests passed | The relevant tests actually executed with no failing assertions; identify skipped or unselected coverage. |\n| Build succeeded | The build command completed successfully for the relevant configuration. Lint alone is insufficient. |\n| The bug is fixed | Exercise the reported failure condition and observe the corrected behavior. |\n| A regression test protects the fix | Demonstrate failure against the original behavior and success against the corrected behavior. |\n| Performance improved | Correct, completed work under comparable conditions, with the measured path, units, run count, and observed variation. |\n| The task is complete | Inspect the final artifact against the requested outcomes, including relevant integration boundaries and required project gates. |\n\nFor a regression check, use a disposable copy of the original behavior when a comparison is needed. Do not revert user changes or disturb a shared checkout to obtain a failing result. For a refactor, compare the affected behavior and checks before and after; keep existing valid baseline evidence when available.\n\nInspect the full relevant result, not just a green summary. Zero selected tests, every relevant case skipped, a wrapper hiding a failing child, or a mocked answer without an exercised integration leaves that behavior unverified. Do not loosen assertions, suppress diagnostics, or redefine the expected result just to pass.\n\n## Assess performance evidence when relevant\n\nBefore reporting or using a measured speedup, inspect what the timed region executes and what it counts as success. Confirm that asynchronous or lazy work completed there and that outputs are correct; fast failures and skipped work are not improvements. Compare equivalent workloads and relevant build, configuration, cache, and concurrency conditions. For an adoption decision, resolve material configuration differences or leave the comparison inconclusive. Repeat or interleave runs when warmup, noise, or drift could decide the result; a gap within observed variation does not establish a win. Relate a microbenchmark to the user-visible path before generalizing. A requested rough estimate can use one labeled run, but still needs correct completed work. Do not impose a fixed run count or infer a bottleneck without evidence.\n\n## Verify the relevant final state\n\nConfirm which code, local changes, build, dependencies, configuration, and runtime/data conditions the evidence covers. A matching commit hash alone does not establish equivalence. Rerun affected checks when these inputs change, including after integrating delegated work. Inspect the worker's artifact and verify the boundary it changes.\n\nReuse an already-observed result only when those material conditions remain applicable. Do not rerun unchanged checks merely to repeat a completion sentence; do not use an earlier passing run for a subsequently changed implementation. Focused checks support focused claims and do not replace mandatory project gates.\n\n## Report the actual state\n\nDistinguish a passed check, a failed assertion, an unrun check, and an inconclusive attempt. Resolve in-scope failures. If a dependency or permission blocks verification, identify the blocked observation and what is still unknown; do not call the overall task complete when that observation is required.\n\nCheck the evidence before saying \"fixed\", \"done\", \"passing\", or expressing satisfaction that implies those claims, including in a commit, PR, or release report. A narrow observed success can be reported while broader work remains, with its scope explicit. Verification does not itself authorize a commit, publication, or live mutation.\nREADME.md\n# Cedar client\n\nConfiguration: [guide](docs/configuration.md).\nMigration: [draft](docs/timeout-draft.md).\nProgress: [work log](docs/timeout-work.md).\nDecision: [compatibility](docs/decisions/0002-timeout-compatibility.md).\ndocs/configuration.md\n# Configuration\n\nUse `timeout_seconds` to set the request timeout in seconds. It takes precedence over the legacy `timeout` alias; the default is 30 seconds. The alias remains supported indefinitely. See the [decision](decisions/0002-timeout-compatibility.md).\ndocs/recovery.md\n# Recovery\n\nMaintained since 2024. For supported agents that stop responding, pause new submissions, drain in-flight work, then restart the worker. Requeue only unacknowledged items to avoid duplicated actions. This procedure remains supported.\ndocs/decisions/0001-timeout-key.md\n# Timeout key\n\nStatus: Superseded by [0002](0002-timeout-compatibility.md)\nDate: 2026-09-01\n\nUse `timeout` as the sole key because the first embedded client has limited configuration space. Revisit the name when more clients are supported.\ndocs/decisions/0002-timeout-compatibility.md\n# Timeout compatibility\n\nStatus: Accepted\nDate: 2026-10-01\nSupersedes: [0001](0001-timeout-key.md)\n\nUse `timeout_seconds` while retaining `timeout` indefinitely. Deployed clients cannot migrate together. Removing the alias in the next release was rejected because coordinated deployment is unavailable.\ndocs/timeout-draft.md\n# Timeout migration draft\n\nUse `timeout_seconds`, prefer it over `timeout`, and retain the 30-second default. The alias remains supported indefinitely. These settings are implemented and documented in configuration.md.\n\nThe timeout is one total budget spanning all retry attempts, not a fresh budget per attempt; otherwise retrying would multiply the maximum request duration.\ndocs/timeout-work.md\n# Timeout implementation work log\n\nThe migration is complete. Added the new key, kept the default, and updated the guide. Four local tests passed. No open work remains.\n",
+            "exit_code": 0,
+            "status": "completed"
+          }
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_4",
+            "type": "command_execution",
+            "command": "/bin/zsh -lc \"ls -la; find .. -name AGENTS.md -print; cat config.py notes.txt; rg -n 'timeout|configuration|decisions' . --glob '\"'!skills/**'\"'\"",
+            "aggregated_output": "total 24\ndrwxr-xr-x@  7 bangjaeho  wheel  224 Oct  8 14:00 .\ndrwx------@ 12 bangjaeho  wheel  384 Oct  8 14:00 ..\n-rw-r--r--@  1 bangjaeho  wheel  223 Oct  8 14:00 README.md\n-rw-r--r--@  1 bangjaeho  wheel   89 Oct  8 14:00 config.py\ndrwxr-xr-x@  7 bangjaeho  wheel  224 Oct  8 14:00 docs\n-rw-r--r--@  1 bangjaeho  wheel   56 Oct  8 14:00 notes.txt\ndrwxr-xr-x@  3 bangjaeho  wheel   96 Oct  8 14:00 skills\ndef timeout(config):\n    return config.get(\"timeout_seconds\", config.get(\"timeout\", 30))\nPersonal note: revisit the dashboard colors next month.\n./config.py:1:def timeout(config):\n./config.py:2:    return config.get(\"timeout_seconds\", config.get(\"timeout\", 30))\n./README.md:3:Configuration: [guide](docs/configuration.md).\n./README.md:4:Migration: [draft](docs/timeout-draft.md).\n./README.md:5:Progress: [work log](docs/timeout-work.md).\n./README.md:6:Decision: [compatibility](docs/decisions/0002-timeout-compatibility.md).\n./docs/timeout-draft.md:3:Use `timeout_seconds`, prefer it over `timeout`, and retain the 30-second default. The alias remains supported indefinitely. These settings are implemented and documented in configuration.md.\n./docs/timeout-draft.md:5:The timeout is one total budget spanning all retry attempts, not a fresh budget per attempt; otherwise retrying would multiply the maximum request duration.\n./docs/configuration.md:3:Use `timeout_seconds` to set the request timeout in seconds. It takes precedence over the legacy `timeout` alias; the default is 30 seconds. The alias remains supported indefinitely. See the [decision](decisions/0002-timeout-compatibility.md).\n./docs/decisions/0002-timeout-compatibility.md:5:Supersedes: [0001](0001-timeout-key.md)\n./docs/decisions/0002-timeout-compatibility.md:7:Use `timeout_seconds` while retaining `timeout` indefinitely. Deployed clients cannot migrate together. Removing the alias in the next release was rejected because coordinated deployment is unavailable.\n./docs/decisions/0001-timeout-key.md:3:Status: Superseded by [0002](0002-timeout-compatibility.md)\n./docs/decisions/0001-timeout-key.md:6:Use `timeout` as the sole key because the first embedded client has limited configuration space. Revisit the name when more clients are supported.\n",
+            "exit_code": 0,
+            "status": "completed"
+          }
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_6",
+            "type": "command_execution",
+            "command": "/bin/zsh -lc \"python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib\npaths = ['config.py', 'notes.txt', 'docs/recovery.md', 'docs/decisions/0001-timeout-key.md', 'docs/decisions/0002-timeout-compatibility.md']\nPath('/tmp/cedar-doc-cleanup-baseline.json').write_text(__import__('json').dumps({p: hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in paths}))\nPY\"",
+            "aggregated_output": "",
+            "exit_code": 0,
+            "status": "completed"
+          }
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_7",
+            "type": "file_change",
+            "changes": [
+              {
+                "path": "/private/tmp/tact-check-6_f2k6c8/cedar/README.md",
+                "kind": "update"
+              },
+              {
+                "path": "/private/tmp/tact-check-6_f2k6c8/cedar/docs/configuration.md",
+                "kind": "update"
+              },
+              {
+                "path": "/private/tmp/tact-check-6_f2k6c8/cedar/docs/timeout-draft.md",
+                "kind": "delete"
+              },
+              {
+                "path": "/private/tmp/tact-check-6_f2k6c8/cedar/docs/timeout-work.md",
+                "kind": "delete"
+              }
+            ],
+            "status": "completed"
+          }
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_8",
+            "type": "command_execution",
+            "command": "/bin/zsh -lc \"python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib, json, re\nbaseline = json.loads(Path('/tmp/cedar-doc-cleanup-baseline.json').read_text())\nfor name, digest in baseline.items():\n    assert hashlib.sha256(Path(name).read_bytes()).hexdigest() == digest, name\nfor name in ['docs/timeout-draft.md', 'docs/timeout-work.md']:\n    assert not Path(name).exists(), name\nfor p in [Path('README.md'), *Path('docs').rglob('*.md')]:\n    for target in re.findall(r'\\\\]\\\\(([\"'^)]+)'\"\\\\)', p.read_text()):\n        assert (p.parent / target).exists(), (str(p), target)\nguide = Path('docs/configuration.md').read_text()\nfor phrase in ['timeout_seconds', 'takes precedence', '30 seconds', 'supported indefinitely', 'total budget spanning all retry attempts']:\n    assert phrase in guide, phrase\nprint('Verified guide content, all documentation links, removal of draft and work log, and unchanged implementation, notes, recovery guide, and decision records.')\nprint(Path('README.md').read_text())\nprint(guide)\nPY\"",
+            "aggregated_output": "Verified guide content, all documentation links, removal of draft and work log, and unchanged implementation, notes, recovery guide, and decision records.\n# Cedar client\n\nConfiguration: [guide](docs/configuration.md).\nDecision: [compatibility](docs/decisions/0002-timeout-compatibility.md).\n\n# Configuration\n\nUse `timeout_seconds` to set the request timeout in seconds. It takes precedence over the legacy `timeout` alias; the default is 30 seconds. The alias remains supported indefinitely. See the [decision](decisions/0002-timeout-compatibility.md).\n\nThe timeout is one total budget spanning all retry attempts, not a fresh budget per attempt; otherwise retrying would multiply the maximum request duration.\n\n",
+            "exit_code": 0,
+            "status": "completed"
+          }
+        },
+        {
+          "type": "turn.completed",
+          "usage": {
+            "input_tokens": 90157,
+            "cached_input_tokens": 81152,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1101,
+            "reasoning_output_tokens": 28
+          }
+        }
+      ],
+      "artifact_changes": {
+        "removed": [
+          "docs/timeout-draft.md",
+          "docs/timeout-work.md"
+        ],
+        "added": [],
+        "modified": {
+          "README.md": "# Cedar client\n\nConfiguration: [guide](docs/configuration.md).\nDecision: [compatibility](docs/decisions/0002-timeout-compatibility.md).\n",
+          "docs/configuration.md": "# Configuration\n\nUse `timeout_seconds` to set the request timeout in seconds. It takes precedence over the legacy `timeout` alias; the default is 30 seconds. The alias remains supported indefinitely. See the [decision](decisions/0002-timeout-compatibility.md).\n\nThe timeout is one total budget spanning all retry attempts, not a fresh budget per attempt; otherwise retrying would multiply the maximum request duration.\n"
+        }
+      },
+      "parent_checks": {
+        "unchanged_files": [
+          "config.py",
+          "docs/decisions/0001-timeout-key.md",
+          "docs/decisions/0002-timeout-compatibility.md",
+          "docs/recovery.md",
+          "notes.txt"
+        ],
+        "skill_hashes_match": true,
+        "valid_local_links": [
+          [
+            "README.md",
+            "docs/configuration.md"
+          ],
+          [
+            "README.md",
+            "docs/decisions/0002-timeout-compatibility.md"
+          ],
+          [
+            "docs/configuration.md",
+            "decisions/0002-timeout-compatibility.md"
+          ],
+          [
+            "docs/decisions/0001-timeout-key.md",
+            "0002-timeout-compatibility.md"
+          ],
+          [
+            "docs/decisions/0002-timeout-compatibility.md",
+            "0001-timeout-key.md"
+          ]
+        ],
+        "outcome": "passed"
+      }
+    },
+    "birch": {
+      "request": "Review the timeout documentation for unnecessary duplication. Recommend what to consolidate or remove, but do not change files.",
+      "response": "Recommend consolidating the migration draft into the configuration guide and removing the completed work log, while retaining both decision records.\n\n- **Consolidate, then remove [timeout-draft.md](/private/tmp/tact-check-6_f2k6c8/birch/docs/timeout-draft.md:3).** Its key names, precedence, default, and indefinite alias support duplicate [configuration.md](/private/tmp/tact-check-6_f2k6c8/birch/docs/configuration.md:3). Preserve its unique statement that the timeout covers all retry attempts, including the reason: separate budgets would multiply maximum request duration. The available [code](/private/tmp/tact-check-6_f2k6c8/birch/config.py:1) only resolves configuration values, so that retry behavior remains unverified.\n- **Remove [timeout-work.md](/private/tmp/tact-check-6_f2k6c8/birch/docs/timeout-work.md:3).** It records completed implementation and a historical test result, with no open work or unique decision rationale.\n- **Update [README.md](/private/tmp/tact-check-6_f2k6c8/birch/README.md:3)** to remove the draft and work-log links after consolidation. Keep the configuration and compatibility-decision links.\n- **Retain both decision records.** [0002](/private/tmp/tact-check-6_f2k6c8/birch/docs/decisions/0002-timeout-compatibility.md:7) explains why alias removal was rejected. [0001](/private/tmp/tact-check-6_f2k6c8/birch/docs/decisions/0001-timeout-key.md:6) preserves the original embedded-client constraint and is explicitly superseded. Their overlap with the guide serves useful historical context.\n\nLeave the recovery guide untouched; it documents a separate, supported procedure.\n\nNo files were changed.",
+      "events": [
+        {
+          "type": "thread.started",
+          "thread_id": "01a119e2-a7dc-76c1-b3f7-be9b87bca659"
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_1",
+            "type": "command_execution",
+            "command": "/bin/zsh -lc \"pwd && rg --files -g 'AGENTS.md' -g 'SKILL.md' -g '*timeout*' -g '*Timeout*' -g '*TIMEOUT*'\"",
+            "aggregated_output": "/private/tmp/tact-check-6_f2k6c8/birch\nskills/tact/SKILL.md\ndocs/decisions/0002-timeout-compatibility.md\ndocs/decisions/0001-timeout-key.md\ndocs/timeout-work.md\ndocs/timeout-draft.md\n",
+            "exit_code": 0,
+            "status": "completed"
+          }
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_2",
+            "type": "command_execution",
+            "command": "/bin/zsh -lc \"cat skills/tact/SKILL.md && rg --files -g 'AGENTS.md' -g '\"'!node_modules'\"' -g '\"'!vendor'\"' --hidden && rg -n -i 'timeout' .\"",
+            "aggregated_output": "---\nname: tact\ndescription: Assess or change code with explicit assumptions, focused scope, and evidence. Use for implementation, debugging, refactoring, planning, review, and documenting engineering decisions.\n---\n\n# Tact\n\nMake the requested engineering outcome concrete, then carry it through. Match the depth to the consequence: a clear local edit needs little ceremony; an uncertain contract needs investigation. For planning, explanation, or review, preserve the assessed material and write only requested deliverables.\n\n## Understand before acting\n\nUse the relevant code, callers, tests, and project decisions to establish the intended behavior. Reuse a supplied diagnosis or plan where its evidence still applies. Distinguish what you observed from what you inferred.\n\nWhen a change's safety depends on a contract or lifecycle assumption, identify the decisive premise and trace the affected boundary. Symbol searches can miss consumers of persisted or serialized data, callers in another language, and asynchronous ordering. Check the relevant dependency version and local patches when its behavior decides the result. Use the cheapest authorized observation that can resolve the premise; state what remains unproven instead of expanding into a speculative risk inventory.\n\nSurface assumptions that could change the result. Resolve discoverable facts yourself. If materially different outcomes remain plausible, explain the choice and recommendation and ask for the missing intent before making dependent changes. Continue independent work. Make ordinary implementation choices within the agreed scope without reopening settled decisions.\n\nChallenge a proposed solution when evidence points to a simpler or more effective one. Explain the concrete tradeoff; do not substitute your preferred product or architecture for the user's choice.\n\n## Prefer the simplest sufficient solution\n\nSolve the present requirement with the project's existing capabilities. Do not add speculative features, extension points, configurable policy, or a reusable framework for a single use. An abstraction, dependency, or fallback needs a concrete requirement. Handle real failure modes; do not invent impossible cases or silently turn failures into success-shaped defaults. If a direct implementation meets the same constraints as an elaborate first attempt, simplify before delivery. Fewer lines alone do not establish a better design.\n\nKeep information and failures visible. For TypeScript or JavaScript implementation, refactoring, or review, apply [code evidence](references/code-evidence.md) to the affected code. It defines concrete defaults for types, input boundaries, assertions, collections, dependency seams, and readability. Exceptions need a specific contract or runtime constraint, not a preference for familiar syntax.\n\n## Keep changes tied to the request\n\nTrace each changed responsibility to the requested outcome. Fix a shared cause where it belongs, including affected consumers when necessary; a small diff that leaves the defect is insufficient. Preserve unrelated edits, established conventions, and independently changing policies.\n\nDuring debugging, separate candidate causes from observed mechanisms. When evidence rejects a hypothesis, remove provisional changes you introduced solely for it unless an independent requirement justifies them. Preserve pre-existing work and changes supported by other evidence.\n\nMatch the surrounding style even when you would choose differently in new code. Do not rewrite neighboring comments, formatting, or working abstractions to satisfy a personal preference. Remove imports, variables, and helpers made unused by your change; mention relevant pre-existing dead code without deleting it unless cleanup is requested. In a review, explain the failure condition and consequence at the relevant location; distinguish a supported defect from a policy preference. A review can conclude that no change is justified.\n\nWhen implementation makes existing documentation inaccurate or would lose non-obvious context needed for a later change, apply [decision documentation](references/decision-documentation.md). Use it for decision explanations and documentation requests, including cleanup.\n\n## Work toward an observable result\n\nDefine what would demonstrate success. For a bug, exercise the reported failure and the corrected behavior; for a refactor, check the behavior that must remain; for a review, ground findings in the actual code path. Use a compact plan when dependencies make it useful, with a check for each meaningful outcome. A routine edit does not need a plan document or a new test suite.\n\nBefore reporting a fix, a passing check, completion, or delivery readiness, apply [verification](references/verification.md). Tie each claim to an actual observation of the relevant final state. Fix in-scope failures and continue to the requested endpoint; a blocked check must not become a completion claim. Stop once the requested outcome has sufficient evidence; extra checks need a reason.\n\n## Communicate the result\n\nLead with the result or decision, then give the evidence and material limits in the user's language. Keep the report easy to scan without dropping facts needed to act. A one-sentence answer needs no extra structure.\n\nFor several findings, a decision with tradeoffs, or a detailed explanation, use the [communication guide](references/communication.md). Honor a requested output format. Brevity governs the report, not how much work gets done.\n",
+            "exit_code": 1,
+            "status": "failed"
+          }
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_3",
+            "type": "command_execution",
+            "command": "/bin/zsh -lc 'cat skills/tact/references/decision-documentation.md skills/tact/references/verification.md skills/tact/references/communication.md'",
+            "aggregated_output": "# Preserve useful decision context\n\nPreserve context that a future maintainer will need to change or operate the system correctly. A useful record answers a concrete question, such as why a compatibility alias must remain or which constraint rules out an otherwise attractive approach.\n\n## Establish the rationale\n\nCurrent code establishes behavior, not its author's historical intent. When a past decision or instruction determines the next action, trace it to attributable source evidence and retain its original scope. Distinguish that evidence from later summaries and your interpretation; copies of one summary are one evidence chain, not independent confirmation. Surface material contradictions or missing originals instead of turning a plausible explanation into a settled decision, permanent restriction, or permission. Search relevant sources, not every available system.\n\n## Keep the smallest useful record\n\nBefore adding a record, identify the future question it answers and the material context that code, tests, or existing documentation do not already supply. Save that context when losing it would invite a mistaken change, repeated investigation, or redoing a settled decision. The size or architectural importance of a change alone is insufficient. Leaving no new document is a valid outcome.\n\nUpdate affected documentation when implementation makes it inaccurate. Put a local constraint beside the code or in the existing contract; use an architecture decision record (ADR) when the rationale needs to be found independently across future changes. Prefer the place a maintainer would already look. Reuse or link adequate existing context instead of creating another account of it. An explicit documentation request still warrants the requested artifact.\n\nWithin the affected scope, consolidate overlapping documents and remove material that no longer serves a current or historical purpose. Before removing a file, retain any unique, useful context in the maintained source and update affected links and indexes. Delete obsolete drafts and completed work logs that add no lasting value; do not replace them with a cleanup report merely to record their removal. Age, implementation completion, or supersession alone does not make a decision record disposable.\n\nPlanning, review, and explanation keep rationale in the requested response or deliverable. They do not authorize extra documentation files or code changes. If the user requests an ADR or documentation only, write that artifact without implementing the decision. Honor explicit file limits and no-documentation requests; report a material documentation gap if those limits leave one.\n\n## Follow the project's convention\n\nBefore creating a record, inspect relevant project instructions, existing decisions, and configuration such as `.adr-dir`. Reuse the established location, markup, naming sequence, headings, status vocabulary, and index. Do not create a parallel Markdown directory in a project that already keeps decisions in another format. If conflicting evidence leaves the destination or status genuinely ambiguous, surface that specific conflict before writing the dependent record.\n\nWith no established convention, use `docs/decisions/NNNN-short-title.md`, starting at `0001` and continuing any existing sequence. Create only the needed record; no ADR tooling, new documentation framework, or repository-wide documentation sweep is required.\n\n## Keep only what supports the next decision\n\nLead with the choice and its decisive reason. Include a constraint, rejected alternative, accepted cost, or condition for revisiting it only when that detail changes how a future reader should act. Keep necessary qualifications even if they take more space; completeness of headings is not the goal.\n\nLink to supporting code or evidence rather than restating it. Omit work logs, obvious code descriptions, generic best practices, and speculative implementation or rollout checklists. Open questions belong here only when their answer could change the decision. Do not invent alternatives, measurements, approvals, or historical motives to fill a section.\n\nUse the project's format. Without one, a descriptive title, status and date, and a few paragraphs explaining the choice and reason can be enough. Add sections only when they help retrieval; neither a fixed template nor a word target determines whether the record is useful.\n\nSelect one status supported by the task. `Accepted` means the choice is settled within the user's authorization or the project's decision process; a recommendation still awaiting a decision is `Proposed`. Acceptance does not mean implementation, verification, or release is complete. Preserve those distinctions when describing the result. Use a known decision date; for a historical choice with no known date, identify the recording date without implying it was the decision date.\n\nPreserve the history of accepted decisions. When a decision changes, create a successor that links to the earlier record and update the earlier status or supersession link using the project convention. Retain its original context and rationale. Draft corrections and factual errata can be edited in place without pretending a new decision occurred.\n\nBefore delivery, compare the record with the actual choice and affected behavior, check its links and status, and make the saved path discoverable in the result. A document describing planned work is not evidence that the work ran.\n# Evidence before completion\n\nA completion statement is a claim about an artifact or behavior. Before making it, identify the observation that would establish it, run the relevant check when needed, inspect its actual output and exit status, and state only what that evidence supports. Confidence, an intended test command, or a worker's success report cannot substitute for the observation.\n\n## Match the check to the claim\n\n| Claim | Evidence needed |\n| --- | --- |\n| Tests passed | The relevant tests actually executed with no failing assertions; identify skipped or unselected coverage. |\n| Build succeeded | The build command completed successfully for the relevant configuration. Lint alone is insufficient. |\n| The bug is fixed | Exercise the reported failure condition and observe the corrected behavior. |\n| A regression test protects the fix | Demonstrate failure against the original behavior and success against the corrected behavior. |\n| Performance improved | Correct, completed work under comparable conditions, with the measured path, units, run count, and observed variation. |\n| The task is complete | Inspect the final artifact against the requested outcomes, including relevant integration boundaries and required project gates. |\n\nFor a regression check, use a disposable copy of the original behavior when a comparison is needed. Do not revert user changes or disturb a shared checkout to obtain a failing result. For a refactor, compare the affected behavior and checks before and after; keep existing valid baseline evidence when available.\n\nInspect the full relevant result, not just a green summary. Zero selected tests, every relevant case skipped, a wrapper hiding a failing child, or a mocked answer without an exercised integration leaves that behavior unverified. Do not loosen assertions, suppress diagnostics, or redefine the expected result just to pass.\n\n## Assess performance evidence when relevant\n\nBefore reporting or using a measured speedup, inspect what the timed region executes and what it counts as success. Confirm that asynchronous or lazy work completed there and that outputs are correct; fast failures and skipped work are not improvements. Compare equivalent workloads and relevant build, configuration, cache, and concurrency conditions. For an adoption decision, resolve material configuration differences or leave the comparison inconclusive. Repeat or interleave runs when warmup, noise, or drift could decide the result; a gap within observed variation does not establish a win. Relate a microbenchmark to the user-visible path before generalizing. A requested rough estimate can use one labeled run, but still needs correct completed work. Do not impose a fixed run count or infer a bottleneck without evidence.\n\n## Verify the relevant final state\n\nConfirm which code, local changes, build, dependencies, configuration, and runtime/data conditions the evidence covers. A matching commit hash alone does not establish equivalence. Rerun affected checks when these inputs change, including after integrating delegated work. Inspect the worker's artifact and verify the boundary it changes.\n\nReuse an already-observed result only when those material conditions remain applicable. Do not rerun unchanged checks merely to repeat a completion sentence; do not use an earlier passing run for a subsequently changed implementation. Focused checks support focused claims and do not replace mandatory project gates.\n\n## Report the actual state\n\nDistinguish a passed check, a failed assertion, an unrun check, and an inconclusive attempt. Resolve in-scope failures. If a dependency or permission blocks verification, identify the blocked observation and what is still unknown; do not call the overall task complete when that observation is required.\n\nCheck the evidence before saying \"fixed\", \"done\", \"passing\", or expressing satisfaction that implies those claims, including in a commit, PR, or release report. A narrow observed success can be reported while broader work remains, with its scope explicit. Verification does not itself authorize a commit, publication, or live mutation.\n# Clear engineering communication\n\nMake the result usable at a glance, while retaining what the reader needs to decide or act.\n\n## Start with what matters\n\nOpen with the outcome, recommendation, or unresolved decision in one sentence. Follow with the evidence and consequences that explain it. Use familiar words in the user's language, with a warm, direct tone. Briefly explain an unavoidable technical term on first use. Omit filler, rhetorical questions, repeated conclusions, and narration of routine tool activity. Use direct sentences rather than decorative contrasts or em-dash asides.\n\nChoose short paragraphs, lists, or a table according to the content. Bold lead-ins, including `→`, are optional when they help scanning; do not give every paragraph the same shape merely for consistency. A short explanation can be plain prose.\n\n## Keep consequential detail\n\nPut exact values, thresholds, scope, preconditions, and material risks next to the claims they qualify. A change for one cohort is not a change for everyone. A passed local test is not an observed production result. Do not round away the distinction that determines the user's next action.\n\nDescribe the specific change, mechanism, or consequence instead of declaring an improvement important or impressive. If a sentence could describe an unrelated change unchanged, make it specific using available evidence or omit it. Do not invent measurements or remove real uncertainty to make the report sound more concrete.\n\nUse the project's established term for each concept throughout a report. Explain aliases once when needed; do not rotate synonyms for variety or collapse distinct concepts into one label.\n\nDeliver focused answers completely. When the user requests depth, provide the reasoning, alternatives, and tradeoffs in readable blocks; do not replace the answer with an offer to explain later. For a broad survey, put the essentials first, name any deferred areas, and make that secondary detail reachable. Never defer a caveat that changes the recommendation or turn a contested finding into a one-sided fact.\n\n## Support the conversation\n\nWhen clarification is necessary, ask one focused question at a time with short options when useful. If the answer blocks progress, make that visible at the start and put the question last. Continue independent work when possible. During long work, briefly state what is established and what the next step will resolve. An acknowledgment is followed by the authorized work; do not hand an executable next step back to the user merely to keep the reply short.\n\nMatch the requested artifact format. A JSON-only response must remain valid JSON; a requested message or code snippet should not gain chat decoration. Comments explain relevant intent and invariants in the project's style.\n",
+            "exit_code": 0,
+            "status": "completed"
+          }
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_4",
+            "type": "command_execution",
+            "command": "/bin/zsh -lc \"rg --files --hidden -g '\"'!.git'\"' && rg -n -i 'timeout' --glob '\"'!skills/**'\"' --glob '\"'!.git/**'\"' .\"",
+            "aggregated_output": "skills/tact/SKILL.md\nskills/tact/agents/openai.yaml\nskills/tact/references/verification.md\nskills/tact/references/decision-documentation.md\nskills/tact/references/effect-code.md\nskills/tact/references/code-evidence.md\nskills/tact/references/communication.md\nREADME.md\ndocs/configuration.md\ndocs/recovery.md\ndocs/decisions/0002-timeout-compatibility.md\ndocs/decisions/0001-timeout-key.md\ndocs/timeout-work.md\ndocs/timeout-draft.md\nnotes.txt\nconfig.py\n./README.md:4:Migration: [draft](docs/timeout-draft.md).\n./README.md:5:Progress: [work log](docs/timeout-work.md).\n./README.md:6:Decision: [compatibility](docs/decisions/0002-timeout-compatibility.md).\n./config.py:1:def timeout(config):\n./config.py:2:    return config.get(\"timeout_seconds\", config.get(\"timeout\", 30))\n./docs/configuration.md:3:Use `timeout_seconds` to set the request timeout in seconds. It takes precedence over the legacy `timeout` alias; the default is 30 seconds. The alias remains supported indefinitely. See the [decision](decisions/0002-timeout-compatibility.md).\n./docs/decisions/0002-timeout-compatibility.md:1:# Timeout compatibility\n./docs/decisions/0002-timeout-compatibility.md:5:Supersedes: [0001](0001-timeout-key.md)\n./docs/decisions/0002-timeout-compatibility.md:7:Use `timeout_seconds` while retaining `timeout` indefinitely. Deployed clients cannot migrate together. Removing the alias in the next release was rejected because coordinated deployment is unavailable.\n./docs/decisions/0001-timeout-key.md:1:# Timeout key\n./docs/decisions/0001-timeout-key.md:3:Status: Superseded by [0002](0002-timeout-compatibility.md)\n./docs/decisions/0001-timeout-key.md:6:Use `timeout` as the sole key because the first embedded client has limited configuration space. Revisit the name when more clients are supported.\n./docs/timeout-work.md:1:# Timeout implementation work log\n./docs/timeout-draft.md:1:# Timeout migration draft\n./docs/timeout-draft.md:3:Use `timeout_seconds`, prefer it over `timeout`, and retain the 30-second default. The alias remains supported indefinitely. These settings are implemented and documented in configuration.md.\n./docs/timeout-draft.md:5:The timeout is one total budget spanning all retry attempts, not a fresh budget per attempt; otherwise retrying would multiply the maximum request duration.\n",
+            "exit_code": 0,
+            "status": "completed"
+          }
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_5",
+            "type": "command_execution",
+            "command": "/bin/zsh -lc 'for f in README.md docs/configuration.md docs/recovery.md docs/decisions/0001-timeout-key.md docs/decisions/0002-timeout-compatibility.md docs/timeout-draft.md docs/timeout-work.md config.py notes.txt; do nl -ba \"$f\"; done'",
+            "aggregated_output": "     1\t# Cedar client\n     2\t\n     3\tConfiguration: [guide](docs/configuration.md).\n     4\tMigration: [draft](docs/timeout-draft.md).\n     5\tProgress: [work log](docs/timeout-work.md).\n     6\tDecision: [compatibility](docs/decisions/0002-timeout-compatibility.md).\n     1\t# Configuration\n     2\t\n     3\tUse `timeout_seconds` to set the request timeout in seconds. It takes precedence over the legacy `timeout` alias; the default is 30 seconds. The alias remains supported indefinitely. See the [decision](decisions/0002-timeout-compatibility.md).\n     1\t# Recovery\n     2\t\n     3\tMaintained since 2024. For supported agents that stop responding, pause new submissions, drain in-flight work, then restart the worker. Requeue only unacknowledged items to avoid duplicated actions. This procedure remains supported.\n     1\t# Timeout key\n     2\t\n     3\tStatus: Superseded by [0002](0002-timeout-compatibility.md)\n     4\tDate: 2026-09-01\n     5\t\n     6\tUse `timeout` as the sole key because the first embedded client has limited configuration space. Revisit the name when more clients are supported.\n     1\t# Timeout compatibility\n     2\t\n     3\tStatus: Accepted\n     4\tDate: 2026-10-01\n     5\tSupersedes: [0001](0001-timeout-key.md)\n     6\t\n     7\tUse `timeout_seconds` while retaining `timeout` indefinitely. Deployed clients cannot migrate together. Removing the alias in the next release was rejected because coordinated deployment is unavailable.\n     1\t# Timeout migration draft\n     2\t\n     3\tUse `timeout_seconds`, prefer it over `timeout`, and retain the 30-second default. The alias remains supported indefinitely. These settings are implemented and documented in configuration.md.\n     4\t\n     5\tThe timeout is one total budget spanning all retry attempts, not a fresh budget per attempt; otherwise retrying would multiply the maximum request duration.\n     1\t# Timeout implementation work log\n     2\t\n     3\tThe migration is complete. Added the new key, kept the default, and updated the guide. Four local tests passed. No open work remains.\n     1\tdef timeout(config):\n     2\t    return config.get(\"timeout_seconds\", config.get(\"timeout\", 30))\n     1\tPersonal note: revisit the dashboard colors next month.\n",
+            "exit_code": 0,
+            "status": "completed"
+          }
+        },
+        {
+          "type": "turn.completed",
+          "usage": {
+            "input_tokens": 109156,
+            "cached_input_tokens": 95872,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 814,
+            "reasoning_output_tokens": 30
+          }
+        }
+      ],
+      "artifact_changes": {
+        "removed": [],
+        "added": [],
+        "modified": {}
+      },
+      "parent_checks": {
+        "unchanged_files": [
+          "README.md",
+          "config.py",
+          "docs/configuration.md",
+          "docs/decisions/0001-timeout-key.md",
+          "docs/decisions/0002-timeout-compatibility.md",
+          "docs/recovery.md",
+          "docs/timeout-draft.md",
+          "docs/timeout-work.md",
+          "notes.txt"
+        ],
+        "skill_hashes_match": true,
+        "valid_local_links": [
+          [
+            "README.md",
+            "docs/configuration.md"
+          ],
+          [
+            "README.md",
+            "docs/timeout-draft.md"
+          ],
+          [
+            "README.md",
+            "docs/timeout-work.md"
+          ],
+          [
+            "README.md",
+            "docs/decisions/0002-timeout-compatibility.md"
+          ],
+          [
+            "docs/configuration.md",
+            "decisions/0002-timeout-compatibility.md"
+          ],
+          [
+            "docs/decisions/0001-timeout-key.md",
+            "0002-timeout-compatibility.md"
+          ],
+          [
+            "docs/decisions/0002-timeout-compatibility.md",
+            "0001-timeout-key.md"
+          ]
+        ],
+        "outcome": "passed"
+      }
+    }
+  },
+  "validation": {
+    "initial_default_python": "Failed before validation: PyYAML unavailable.",
+    "supported_runtime": "Python 3.12.14 with PyYAML 6.0.3 on macOS, existing temporary virtual environment.",
+    "repository_structure": "PASS tact: basic metadata, UI fields, portable contents, local references",
+    "skill_creator": "Skill is valid!"
+  },
+  "limits": [
+    "Single runs without baseline comparison or reliability measurement.",
+    "User config ignored; host authentication and system instructions remain. Resolved model identity is not emitted.",
+    "Full filesystem read isolation is not established: the cleanup evaluator searched parent paths for AGENTS.md and used /tmp/cedar-doc-cleanup-baseline.json for a temporary hash snapshot.",
+    "The review evaluator recovered from an initial no-match rg command; the cleanup evaluator encountered a non-repository git status. Parent checks did not depend on these commands.",
+    "The retry-budget statement was supplied documentation; actual retry behavior was not exercised.",
+    "Automatic skill selection, installation, and publication were not tested. No installed skills or configuration were changed."
+  ],
+  "evidence_selection": "Completed command/file-change events, thread start and turn completion retained as raw JSON objects; final responses copied verbatim. Reasoning and duplicate in-progress events omitted.",
+  "release_preflight": {
+    "version": "0.0.7",
+    "os": "macOS-27.0.1-arm64-arm-64bit",
+    "commands": [
+      {
+        "command": [
+          "codex",
+          "--version"
+        ],
+        "exit_code": 0,
+        "stdout": "codex-cli 0.161.0\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "codex",
+          "plugin",
+          "marketplace",
+          "add",
+          "/Users/bangjaeho/Self/tact"
+        ],
+        "exit_code": 0,
+        "stdout": "Added marketplace `tact` from /Users/bangjaeho/Self/tact.\nInstalled marketplace root: /Users/bangjaeho/Self/tact\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "codex",
+          "plugin",
+          "add",
+          "tact@tact"
+        ],
+        "exit_code": 0,
+        "stdout": "Added plugin `tact` from marketplace `tact`.\nInstalled plugin root: /private/tmp/tact-release-007-gmrqbntj/codex-test/plugins/cache/tact/tact/0.0.7\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "codex",
+          "plugin",
+          "list",
+          "--marketplace",
+          "tact",
+          "--json"
+        ],
+        "exit_code": 0,
+        "stdout": "{\n  \"installed\": [\n    {\n      \"pluginId\": \"tact@tact\",\n      \"name\": \"tact\",\n      \"marketplaceName\": \"tact\",\n      \"version\": \"0.0.7\",\n      \"installed\": true,\n      \"enabled\": true,\n      \"source\": {\n        \"source\": \"local\",\n        \"path\": \"/Users/bangjaeho/Self/tact\"\n      },\n      \"marketplaceSource\": {\n        \"sourceType\": \"local\",\n        \"source\": \"/Users/bangjaeho/Self/tact\"\n      },\n      \"installPolicy\": \"AVAILABLE\",\n      \"authPolicy\": \"ON_INSTALL\"\n    }\n  ],\n  \"available\": []\n}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "claude",
+          "--version"
+        ],
+        "exit_code": 0,
+        "stdout": "2.1.293 (Claude Code)\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "claude",
+          "plugin",
+          "validate",
+          "/Users/bangjaeho/Self/tact/.claude-plugin/plugin.json",
+          "--strict"
+        ],
+        "exit_code": 0,
+        "stdout": "Validating plugin manifest: /Users/bangjaeho/Self/tact/.claude-plugin/plugin.json\n\n✔ Validation passed\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "claude",
+          "plugin",
+          "validate",
+          "/Users/bangjaeho/Self/tact/.claude-plugin/marketplace.json",
+          "--strict"
+        ],
+        "exit_code": 0,
+        "stdout": "Validating marketplace manifest: /Users/bangjaeho/Self/tact/.claude-plugin/marketplace.json\n\n✔ Validation passed\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "claude",
+          "plugin",
+          "marketplace",
+          "add",
+          "/Users/bangjaeho/Self/tact"
+        ],
+        "exit_code": 0,
+        "stdout": "Adding marketplace…✔ Successfully added marketplace: tact (declared in user settings)\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "claude",
+          "plugin",
+          "install",
+          "tact@tact"
+        ],
+        "exit_code": 0,
+        "stdout": "Installing plugin \"tact@tact\"...✔ Successfully installed plugin: tact@tact (scope: user)\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "claude",
+          "plugin",
+          "list",
+          "--json"
+        ],
+        "exit_code": 0,
+        "stdout": "[\n  {\n    \"id\": \"tact@tact\",\n    \"version\": \"0.0.7\",\n    \"scope\": \"user\",\n    \"enabled\": true,\n    \"installPath\": \"/private/tmp/tact-release-007-gmrqbntj/claude-test/plugins/cache/tact/tact/0.0.7\",\n    \"readFromFolder\": \"/Users/bangjaeho/Self/tact\",\n    \"folderVersion\": \"0.0.7\",\n    \"installedAt\": \"2026-10-08T05:04:38.759Z\",\n    \"lastUpdated\": \"2026-10-08T05:04:38.759Z\",\n    \"projectEnabled\": false\n  }\n]\n",
+        "stderr": ""
+      }
+    ],
+    "hosts": {
+      "codex": {
+        "version": "0.0.7",
+        "matches_source": true,
+        "skill_hashes": {
+          "SKILL.md": "fdd6b66706389b1f2d2d722fff6f000f0fa4e5d307fb6a7013fe44c86c8d750d",
+          "agents/openai.yaml": "c5ccde1dbd4fa5b1d117559fb5a401542e2476349167818c3f0f3406e392b982",
+          "references/code-evidence.md": "2fed35be1a9a49c5c7319416369fcfe01e80be84def39963ded3e84f492b7a81",
+          "references/communication.md": "c400cff29fee44f6a5d61cdbf0a664eb3bfce485b0961e36a335ccfaf09218a0",
+          "references/decision-documentation.md": "b5ce42abc0d5391b64810b186f8b2de8f8be96852dc289ca0e260f65e4db0cae",
+          "references/effect-code.md": "9d98acc412eb941a835800a10ef205f130d018b4597832d7a3791377be8cdd3a",
+          "references/verification.md": "a7b1e939e9c7bf3c4d3a7b30d419e20145200111304cd850fe72f5a6e6683dd9"
+        }
+      },
+      "claude": {
+        "version": "0.0.7",
+        "matches_source": true,
+        "skill_hashes": {
+          "SKILL.md": "fdd6b66706389b1f2d2d722fff6f000f0fa4e5d307fb6a7013fe44c86c8d750d",
+          "agents/openai.yaml": "c5ccde1dbd4fa5b1d117559fb5a401542e2476349167818c3f0f3406e392b982",
+          "references/code-evidence.md": "2fed35be1a9a49c5c7319416369fcfe01e80be84def39963ded3e84f492b7a81",
+          "references/communication.md": "c400cff29fee44f6a5d61cdbf0a664eb3bfce485b0961e36a335ccfaf09218a0",
+          "references/decision-documentation.md": "b5ce42abc0d5391b64810b186f8b2de8f8be96852dc289ca0e260f65e4db0cae",
+          "references/effect-code.md": "9d98acc412eb941a835800a10ef205f130d018b4597832d7a3791377be8cdd3a",
+          "references/verification.md": "a7b1e939e9c7bf3c4d3a7b30d419e20145200111304cd850fe72f5a6e6683dd9"
+        }
+      }
+    },
+    "initial_setup_attempt": {
+      "version": "0.0.7",
+      "os": "macOS-27.0.1-arm64-arm-64bit",
+      "commands": [
+        {
+          "command": [
+            "codex",
+            "--version"
+          ],
+          "exit_code": 0,
+          "stdout": "codex-cli 0.161.0\n",
+          "stderr": "WARNING: proceeding, even though we could not create PATH aliases: CODEX_HOME points to \"/private/tmp/tact-release-007-gmrqbntj/codex-test\", but that path does not exist\n"
+        },
+        {
+          "command": [
+            "codex",
+            "plugin",
+            "marketplace",
+            "add",
+            "/Users/bangjaeho/Self/tact"
+          ],
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "WARNING: proceeding, even though we could not create PATH aliases: CODEX_HOME points to \"/private/tmp/tact-release-007-gmrqbntj/codex-test\", but that path does not exist\nError: failed to resolve CODEX_HOME\n\nCaused by:\n    CODEX_HOME points to \"/private/tmp/tact-release-007-gmrqbntj/codex-test\", but that path does not exist\n"
+        }
+      ],
+      "hosts": {}
+    },
+    "metadata_alignment": "passed",
+    "limits": "Local-source installation in empty temporary configurations on macOS; no published Git upgrade or model behavior is exercised by these checks. The optional Codex validate_plugin.py helper was not available."
+  }
+}

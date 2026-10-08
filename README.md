@@ -10,7 +10,7 @@ Tact is an engineering skill for making the right change: understand the task, c
 
 Use it for implementation, debugging, refactoring, planning, code review, and engineering decision records.
 
-**Version 0.0.6.** [Installation](#installation) · [Usage](#use) · [Documentation](#documentation)
+**Version 0.0.7.** [Installation](#installation) · [Usage](#use) · [Documentation](#documentation)
 
 ## Installation
 
@@ -55,10 +55,11 @@ Invoke Tact using the syntax in the [installation instructions](#installation), 
 | Performance review | Assess this measured speedup before we choose an implementation. |
 | Implementation with documentation | Implement this storage change and preserve the decision rationale. |
 | Decision records | Record our agreed API compatibility policy as an ADR. Do not change the implementation. |
+| Documentation cleanup | Consolidate these overlapping guides and remove obsolete notes while preserving useful rationale. |
 
 The requested outcome sets the scope. Planning and review preserve the assessed material. Implementation carries through the authorized change and relevant checks; there is no required assessment stage before coding.
 
-During implementation, Tact keeps affected documentation current and preserves missing context needed to prevent mistaken changes or repeated investigation. It reuses existing documentation and creates an ADR only when the rationale needs an independent record. Documentation-only requests produce the requested artifact without implementing the decision.
+Tact keeps affected documentation current, consolidates overlapping accounts, and removes obsolete material while preserving useful context and decision history. It creates an ADR only when missing rationale needs an independent record. Documentation-only requests stay within the requested documentation changes.
 
 ## Four principles
 
@@ -82,7 +83,7 @@ The skill loads supporting guidance when relevant:
 | Guide | Covers |
 | --- | --- |
 | [Code evidence](skills/tact/references/code-evidence.md) | TypeScript and JavaScript contracts, assertions, collections, testing seams, and a dedicated reference for Effect projects. |
-| [Decision documentation](skills/tact/references/decision-documentation.md) | Historical evidence, record selection, existing documentation conventions, and ADR history. |
+| [Decision documentation](skills/tact/references/decision-documentation.md) | Historical evidence, record selection and cleanup, existing documentation conventions, and ADR history. |
 | [Verification](skills/tact/references/verification.md) | Regression evidence, performance comparisons, and completion claims. |
 | [Communication](skills/tact/references/communication.md) | Concise reports, requested depth, and exact output formats. |
 
